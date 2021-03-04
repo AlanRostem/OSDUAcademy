@@ -11,7 +11,7 @@ namespace OSDUAcademy.Controllers
     {
         public IActionResult Index()
         {
-            var page = new NavigationPage(new MainPage());
+            var page = new MyPage();
             var element = page.GetOouiElement();
             return new ElementResult(element, "Hello from XAML!");
         }
