@@ -6,10 +6,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using OSDUAcademy.Data;
+using OSDUAcademy.Services;
+using OSDUAcademy.Repository;
 
 namespace OSDUAcademy
 {
@@ -25,6 +29,9 @@ namespace OSDUAcademy
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<CourseDbContext>(
+                opt => opt.UseInMemoryDatabase("OSDUDb"));
+            services.AddTransient<ICourse, CourseRepository>();
             services.AddControllers();
         }
 
