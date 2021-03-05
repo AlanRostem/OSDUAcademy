@@ -28,8 +28,28 @@ class _CourseState extends State<StatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Courses:")),
-      body: null,
+      appBar: _buildAppBar(),
+      body: courses == null
+          ? Center(child: Text("Courses not found"))
+          : _buildCourseList(),
+    );
+  }
+
+  Widget _buildAppBar() {
+    return AppBar(title: Text("Courses:"));
+  }
+
+  _buildCourseList() {
+    return ListView.builder(
+      itemCount: null,
+      itemBuilder: (context, index) {
+        return Card(
+            color: Colors.white,
+            elevation: 2.0,
+            child: ListTile(
+              title: Text(courses[index].title),
+            ));
+      },
     );
   }
 }
