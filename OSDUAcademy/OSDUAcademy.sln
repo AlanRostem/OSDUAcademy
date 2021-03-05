@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSDUAcademy", "OSDUAcademy.csproj", "{322FA57E-40FA-4592-B351-551FCFBED6B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSDUAcademy", "OSDUAcademy.csproj", "{4EE732B2-4B0C-4252-9E43-2B8497F68406}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{322FA57E-40FA-4592-B351-551FCFBED6B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{322FA57E-40FA-4592-B351-551FCFBED6B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{322FA57E-40FA-4592-B351-551FCFBED6B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{322FA57E-40FA-4592-B351-551FCFBED6B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EE732B2-4B0C-4252-9E43-2B8497F68406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EE732B2-4B0C-4252-9E43-2B8497F68406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EE732B2-4B0C-4252-9E43-2B8497F68406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EE732B2-4B0C-4252-9E43-2B8497F68406}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {DAB21D6C-565F-4E7A-853B-8A7928440AF8}
+		SolutionGuid = {1205D960-EFC0-4A99-B3FD-677144FD76E4}
 	EndGlobalSection
 EndGlobal
