@@ -38,14 +38,39 @@ class _AddCourseState extends State<AddCourse> {
   }
 
   Widget _buildForm() {
-    return TextField(
-      controller: titleController,
-      style: textStyle,
-      onChanged: null,
-      decoration: InputDecoration(
-          labelText: "Title:",
-          labelStyle: textStyle,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0))),
-    );
+    return Padding(
+        padding: EdgeInsets.only(top: 35, left: 10, right: 10),
+        child: ListView(children: <Widget>[
+          TextField(
+            controller: titleController,
+            style: textStyle,
+            onChanged: null,
+            decoration: InputDecoration(
+                labelText: "Title:",
+                labelStyle: textStyle,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0))),
+          ),
+          TextField(
+            controller: descriptionController,
+            style: textStyle,
+            onChanged: null,
+            decoration: InputDecoration(
+                labelText: "Description:",
+                labelStyle: textStyle,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0))),
+          ),
+          TextField(
+            controller: ratingController,
+            style: textStyle,
+            onChanged: null,
+            decoration: InputDecoration(
+                labelText: "Rating:",
+                labelStyle: textStyle,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0))),
+          ),
+        ]));
   }
 }
