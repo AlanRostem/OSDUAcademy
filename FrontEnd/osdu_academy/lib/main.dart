@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:osdu_academy/models/course.dart';
+import 'package:osdu_academy/ui/add_course.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: AddCourse(Course("", "", 4.5)),
     );
   }
 }
