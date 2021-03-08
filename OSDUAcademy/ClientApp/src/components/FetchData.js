@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {DefaultNavMenu} from "./DefaultNavMenu";
+import {Container} from "reactstrap";
+import {CourseNavMenu} from "./CourseNavMenu";
 
 export class FetchData extends Component {
   static displayName = FetchData.name;
@@ -42,9 +45,12 @@ export class FetchData extends Component {
 
     return (
       <div>
-        <h1 id="tabelLabel" >Weather forecast</h1>
-        <p>This component demonstrates fetching data from the server.</p>
-        {contents}
+        <CourseNavMenu/>
+        <Container>
+            <h1 id="tabelLabel" >Courses</h1>
+            <p>Here are some courses fetched from the database</p>
+            {contents}
+        </Container>
       </div>
     );
   }
