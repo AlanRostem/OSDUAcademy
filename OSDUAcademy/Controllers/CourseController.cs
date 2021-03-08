@@ -17,11 +17,13 @@ namespace OSDUAcademy.Controllers
     public class CourseController : ControllerBase
     {
         private readonly IMongoCollection<Course> _courseCollection;
+        private readonly IMongoCollection<Chapter> _chapterCollection;
         
         public CourseController(IMongoClient client)
         {
             var database = client.GetDatabase("osdu_academy");
             _courseCollection = database.GetCollection<Course>("courses");
+            _chapterCollection = database.GetCollection<Chapter>("chapters");
         }
 
         [HttpGet]

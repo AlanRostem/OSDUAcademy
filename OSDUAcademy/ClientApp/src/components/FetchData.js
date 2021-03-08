@@ -25,7 +25,7 @@ export class FetchData extends Component {
         <tbody>
           {forecasts.map(course =>
             <tr key={course.title}>
-              <td>{course.title}</td>
+              <td><a href="/course">{course.title}</a></td>
               <td>{course.description}</td>
               <td>{course.avgRating}</td>
             </tr>

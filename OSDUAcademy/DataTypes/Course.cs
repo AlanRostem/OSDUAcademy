@@ -7,7 +7,6 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace OSDUAcademy.DataTypes
 {
-    [BsonIgnoreExtraElements]
     public class Course
     {
         [BsonId]
