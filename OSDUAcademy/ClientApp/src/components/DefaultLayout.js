@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 import { DefaultNavMenu } from './DefaultNavMenu';
 
-export class Layout extends Component {
-  static displayName = Layout.name;
+export class DefaultLayout extends Component {
+  static displayName = DefaultLayout.name;
 
   render () {
     return (
