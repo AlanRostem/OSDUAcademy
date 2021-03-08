@@ -9,8 +9,9 @@ namespace OSDUAcademy.DataTypes
 {
     public class Chapter
     {
-        [BsonId]
-        public ObjectId Id { get; set; }
+        // Using this attribute to serialize the id to the client 
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
 
         [BsonElement("title")]
         public string Title { get; set; }
