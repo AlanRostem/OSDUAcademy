@@ -16,26 +16,18 @@ namespace OSDUAcademy.Controllers
     [Route("[controller]")]
     public class CourseController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        private readonly ILogger<CourseController> _logger;
-        private static readonly string DbConnectionStr = "mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb";
+        private readonly IMongoCollection<Course> _courseCollection;
         
-        public CourseController(ILogger<CourseController> logger)
+        public CourseController(IMongoClient client)
         {
-            _logger = logger;
+            var database = client.GetDatabase("osdu_academy");
+            _courseCollection = database.GetCollection<Course>("courses");
         }
 
         [HttpGet]
         public IEnumerable<Course> Get()
         {
-            var client = new MongoClient(DbConnectionStr);
-            var database = client.GetDatabase("osdu_academy");
-            var collection = database.GetCollection<Course>("courses");
-            return collection.Find(s=> true /*s.AvgRating > 3f*/).ToList();
+            return _courseCollection.Find(s=> true /*s.AvgRating > 3f*/).ToList();
         }
     }
 }

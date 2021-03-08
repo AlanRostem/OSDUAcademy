@@ -5,11 +5,13 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MongoDB.Driver;
 
 namespace OSDUAcademy
 {
     public class Startup
     {
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -20,7 +22,13 @@ namespace OSDUAcademy
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            // Add the MongoDB client as a singleton to grant access across all controllers
+            services.AddSingleton<IMongoClient, MongoClient>(s =>
+            {
+                var uri = s.GetRequiredService<IConfiguration>()["MongoUri"];
+                return new MongoClient(uri);
+            });
+            
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory
