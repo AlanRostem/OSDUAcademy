@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route} from 'react-router';
+import {Route} from 'react-router-dom';
 import {DefaultLayout} from './components/DefaultLayout';
 import {Home} from './components/Home';
 import {FetchData} from './components/FetchData';
