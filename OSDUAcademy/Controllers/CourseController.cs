@@ -32,7 +32,7 @@ namespace OSDUAcademy.Controllers
             return _courseCollection.Find(s=> true /*s.AvgRating > 3f*/).ToList();
         }
 
-        [HttpGet("/course/{id}")]
+        [HttpGet("{id}")]
         public async Task<Course> GetCourse(string id)
         {
             Course course = await _courseCollection.Find(s => s.Id == id).SingleAsync();
