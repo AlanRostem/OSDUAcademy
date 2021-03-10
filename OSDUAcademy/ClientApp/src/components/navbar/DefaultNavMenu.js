@@ -3,6 +3,7 @@ import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLi
 import { Link } from 'react-router-dom';
 import './NavMenu.css';
 import SchlumbergerLogo from "./SchlumbergerLogo"
+import VerticalDivider from "./VerticalDivider";
 
 export class DefaultNavMenu extends Component {
   static displayName = DefaultNavMenu.name;
@@ -28,7 +29,8 @@ export class DefaultNavMenu extends Component {
         <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3 navbar-slb" light>
           <Container>
             <NavbarBrand tag={Link} to="/"><SchlumbergerLogo /></NavbarBrand>
-            <NavbarBrand tag={Link} className="text-light" to="/">OSDUAcademy</NavbarBrand>
+            <NavbarBrand><VerticalDivider /></NavbarBrand>
+            <NavbarBrand tag={Link} to="/" style={{fontWeight: "bold", color:"white", fontSize:"1.5rem"}}>OSDUAcademy</NavbarBrand>
 
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
