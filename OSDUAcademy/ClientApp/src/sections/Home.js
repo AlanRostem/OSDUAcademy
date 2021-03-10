@@ -3,6 +3,9 @@ import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Col, Container, Row} from "reactstrap";
 import {CategoryNavBar} from "../components/navbar/CategoryNavBar";
 import {CategoryItem} from "../components/navbar/CategoryItem";
+import CourseCard from "../components/home/CourseCard";
+import CourseRow from "../components/home/CourseRow";
+
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -48,7 +51,54 @@ export class Home extends Component {
                         <CategoryItem text="Gas" itemActive={false}/>
                         <CategoryItem text="Other" itemActive={false}/>
                     </CategoryNavBar>
-                    
+                    <CourseRow>
+                        <CourseCard
+                            title="Advanced drilling engineering in a very high level"
+                            desc="Learn about the most advanced drilling engineering in this course."
+                            difficulty="Expert"
+                            domain="Drilling"
+                            imgSrc="img/course-drilling-test.png"
+                            avgRating="5"
+                            ratingCount="1997"
+                        />
+                        <CourseCard
+                            title="Advanced drilling engineering"
+                            desc="Learn about the most advanced drilling engineering in this course."
+                            difficulty="Expert"
+                            domain="Drilling"
+                            imgSrc="img/course-drilling-test.png"
+                            avgRating="5"
+                            ratingCount="1997"
+                        />
+                        <CourseCard
+                            title="Advanced drilling engineering"
+                            desc="Learn about the most advanced drilling engineering in this course."
+                            difficulty="Expert"
+                            domain="Drilling"
+                            imgSrc="img/course-drilling-test.png"
+                            avgRating="5"
+                            ratingCount="1997"
+                        />
+                        <CourseCard
+                            title="Advanced drilling engineering"
+                            desc="Learn about the most advanced drilling engineering in this course."
+                            difficulty="Expert"
+                            domain="Drilling"
+                            imgSrc="img/course-drilling-test.png"
+                            avgRating="5"
+                            ratingCount="1997"
+                        />
+                        <CourseCard
+                            title="Advanced drilling engineering"
+                            desc="Learn about the most advanced drilling engineering in this course."
+                            difficulty="Expert"
+                            domain="Drilling"
+                            imgSrc="img/course-drilling-test.png"
+                            avgRating="5"
+                            ratingCount="1997"
+                        />
+                        
+                    </CourseRow>
                 </Container>
             </div>
         );
