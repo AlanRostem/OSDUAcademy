@@ -3,6 +3,7 @@ import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Col, Container, Row} from "reactstrap";
 import CourseCard from "../components/home/CourseCard";
 import CourseRow from "../components/home/CourseRow";
+import CourseScrollButton from "../components/home/CourseScrollButton";
 
 export class Home extends Component {
     static displayName = Home.name;
