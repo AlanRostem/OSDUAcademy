@@ -95,9 +95,14 @@ code {
     text-align: left;
 }
 
+.course-card:hover, .course-card:active {
+    text-decoration: none;
+}
+
 .course-card h6 {
     margin-top: 0.5em;
     font-weight: bold;
+    color: black;
 }
 
 .course-card p {
