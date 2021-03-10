@@ -85,9 +85,46 @@ body {
   border-color: transparent;
 }
 
+.dim-text {
+  color: #7f7f7f;
+}
 
+.difficulty-tag {
+  padding: 4px;
+  background-color: #86a8d2;
+  color: #222a34;
+  border-radius: 2px;
+  margin-right: 5px;
+}
 
+.domain-tag {
+  padding: 4px;
+  background-color: #ccb3cc;
+  color: #302930;
+  border-radius: 2px;
+  margin-right: 5px;
+}
 
+.course-card {
+  width: 240px; 
+  margin-right: 20px;
+  text-align: left;
+}
+
+.course-card h6 {
+  margin-top: 0.5em;
+  font-weight: bold;
+  height: 2em;
+}
+
+.course-card p {
+  font-size: 0.9em;
+  
+}
+
+.course-card:hover {
+  cursor: pointer;
+}
 
 
 
