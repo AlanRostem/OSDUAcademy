@@ -25,6 +25,7 @@ code {
   text-align: center;
   color: white;
   font-family: sans-serif Arial;
+  
   /* background-image: url(); 
   background-position: center; */
 }
@@ -38,6 +39,11 @@ code {
 
 .banner p {
   font-size: 0.8em;
+}
+
+.column {
+  font-size: 0.8em;
+  margin-top: 25px;
 }
 
 * {

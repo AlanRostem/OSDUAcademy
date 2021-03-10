@@ -17,13 +17,16 @@ export class Home extends Component {
 
                         <div className="row">
                             <div className="column">
-                                <div className="card"> <i className="fa fa-code" aria-hidden="true"/> </div>
+                                <div className="card"><i className="fa fa-desktop fa-3x" aria-hidden="true"/> Lorem ipsum something I don't know what to put here but it is important
+                                </div>
                             </div>
                             <div className="column">
-                                <div className="card">..</div>
+                                <div className="card"> <i className="fa fa-database fa-3x" aria-hidden="true"/> Lorem ipsum something I don't know what to put here but it is important
+                                </div>
                             </div>
                             <div className="column">
-                                <div className="card">..</div>
+                                <div className="card"> <i className="fa fa-graduation-cap fa-3x" aria-hidden="true"/> Lorem ipsum something I don't know what to put here but it is important
+                                </div>
                             </div>
                         </div>
                         
