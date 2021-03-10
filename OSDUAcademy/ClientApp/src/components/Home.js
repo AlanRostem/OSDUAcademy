@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {DefaultNavMenu} from "./navbar/DefaultNavMenu";
-import {Container} from "reactstrap";
-import SearchForm from "./navbar/SearchForm";
+import {Col, Container, Row} from "reactstrap";
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -29,8 +28,19 @@ export class Home extends Component {
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
+                    
+                    <h1 style={{textAlign:"center"}}>Trending Courses</h1>
+                    <p style={{textAlign:"center", color:"#7f7f7f"}}>Explore the most popular courses at OSDU Academy</p>
+                    <Row style={{textAlign:"center"}}>
+                        <Col>PETROLEUM</Col>
+                        <Col>GEOLOGY</Col>
+                        <Col>ENERGY</Col>
+                        <Col>GAS</Col>
+                        <Col>OTHER</Col>
+                    </Row>
+                    <Row style={{textAlign:"center"}}>
+                    </Row>
                 </Container>
             </div>
         );

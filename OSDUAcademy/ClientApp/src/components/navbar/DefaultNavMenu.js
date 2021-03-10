@@ -41,12 +41,12 @@ export class DefaultNavMenu extends Component {
               <ul className="navbar-nav flex-grow">
                 <NavItem>
                   <NavLink tag={Link} className="text-light" to="/counter">
-                    <NavIcon text="Counter" iconClass="fa fa-user"/>
+                    <NavIcon text="TEACH THE OSDU" iconClass="fa fa-book"/>
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink tag={Link} className="text-light" to="/fetch-data">
-                    <NavIcon text="Fetch Data" iconClass="fa fa-user"/>
+                    <NavIcon text="SIGN UP" iconClass="fa fa-user"/>
                   </NavLink>
                 </NavItem>
               </ul>
