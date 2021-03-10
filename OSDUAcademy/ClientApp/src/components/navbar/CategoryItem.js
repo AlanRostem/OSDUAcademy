@@ -9,7 +9,7 @@ export class CategoryItem extends Component {
     render () {
         return (
             <li className={ "nav-item" + (this.props.itemActive ? " active" : "") }>
-                <a className="nav-link" href="#">{this.props.text}</a>
+                <p className="nav-link">{this.props.text}</p>
             </li>
         );
     }
