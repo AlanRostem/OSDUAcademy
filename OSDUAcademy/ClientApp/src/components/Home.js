@@ -10,7 +10,7 @@ export class Home extends Component {
             <div>
                 <DefaultNavMenu/>
                 <Container>
-                    <div class="banner">
+                    <div className="banner">
                         <h1>Grow your career skills</h1>
                         <p>Explore a world of courses at OSDU Academy to find your perfect suit free of charge</p>
                     </div>

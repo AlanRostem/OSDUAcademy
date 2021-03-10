@@ -1,4 +1,5 @@
 ﻿import React, {Component} from "react"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class SearchForm extends Component {
     constructor(props) {
@@ -28,7 +29,8 @@ export default class SearchForm extends Component {
                     value={this.state.value}
                     placeholder="Search"
                     onChange={this.handleChange.bind(this)} 
-                    style={this.inputFieldStyle} />
+                    style={this.inputFieldStyle} 
+                />
             </form>
         );
     }
