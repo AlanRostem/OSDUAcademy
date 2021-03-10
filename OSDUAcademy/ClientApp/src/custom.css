@@ -98,7 +98,7 @@ code {
 .course-card h6 {
   margin-top: 0.5em;
   font-weight: bold;
-  height: 2em;
+  max-height: 2em;
 }
 
 .course-card p {
