@@ -5,6 +5,7 @@ import './NavMenu.css';
 import SchlumbergerLogo from "./SchlumbergerLogo"
 import VerticalDivider from "./VerticalDivider";
 import SearchForm from "./SearchForm";
+import NavIcon from "./NavIcon";
 
 export class DefaultNavMenu extends Component {
   static displayName = DefaultNavMenu.name;
@@ -39,13 +40,14 @@ export class DefaultNavMenu extends Component {
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
               <ul className="navbar-nav flex-grow">
                 <NavItem>
-                  <NavLink tag={Link} className="text-light" to="/">Home</NavLink>
+                  <NavLink tag={Link} className="text-light" to="/counter">
+                    <NavIcon text="Counter" iconClass="fa fa-user"/>
+                  </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} className="text-light" to="/counter">Counter</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} className="text-light" to="/fetch-data">Fetch data</NavLink>
+                  <NavLink tag={Link} className="text-light" to="/fetch-data">
+                    <NavIcon text="Fetch Data" iconClass="fa fa-user"/>
+                  </NavLink>
                 </NavItem>
               </ul>
             </Collapse>
