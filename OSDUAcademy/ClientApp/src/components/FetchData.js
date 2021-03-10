@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import {DefaultNavMenu} from "./DefaultNavMenu";
 import {Container} from "reactstrap";
-import {CourseNavMenu} from "./CourseNavMenu";
+import {CourseNavMenu} from "./navbar/CourseNavMenu";
 
 export class FetchData extends Component {
   static displayName = FetchData.name;
