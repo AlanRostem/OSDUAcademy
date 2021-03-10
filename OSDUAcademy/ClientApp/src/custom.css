@@ -98,7 +98,6 @@ code {
 .course-card h6 {
   margin-top: 0.5em;
   font-weight: bold;
-  max-height: 2em;
 }
 
 .course-card p {
@@ -110,4 +109,7 @@ code {
   cursor: pointer;
 }
 
-
+.course-row {
+  clip-path: inset(0px 0px 0px 0px);
+  flex-wrap: nowrap;
+}

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Col, Container, Row} from "reactstrap";
 import CourseCard from "../components/home/CourseCard";
+import CourseRow from "../components/home/CourseRow";
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -46,7 +47,7 @@ export class Home extends Component {
                         <Col>GAS</Col>
                         <Col>OTHER</Col>
                     </Row>
-                    <Row style={{textAlign:"center"}}>
+                    <CourseRow>
                         <CourseCard
                             title="Advanced drilling engineering in a very high level"
                             desc="Learn about the most advanced drilling engineering in this course."
@@ -93,7 +94,7 @@ export class Home extends Component {
                             ratingCount="1997"
                         />
                         
-                    </Row>
+                    </CourseRow>
                 </Container>
             </div>
         );
