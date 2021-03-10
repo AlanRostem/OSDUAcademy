@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {DefaultNavMenu} from "./navbar/DefaultNavMenu";
+import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Col, Container, Row} from "reactstrap";
 
 export class Home extends Component {

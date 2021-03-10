@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
-import {Home} from './components/Home';
-import {FetchData} from './components/FetchData';
-import {Counter} from './components/Counter';
+import {Home} from './sections/Home';
+import {FetchData} from './sections/FetchData';
+import {Counter} from './sections/Counter';
 
 import './custom.css'
 import {Container} from "reactstrap";
