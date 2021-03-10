@@ -1,6 +1,7 @@
 ﻿import React, { Component } from "react"
 import {Link, NavLink} from "react-router-dom";
 import {NavItem} from "reactstrap";
+import StarRating from "../course/StarRating";
 
 export default class CourseCard extends Component {
     render() {
@@ -17,6 +18,7 @@ export default class CourseCard extends Component {
                 <img style={{width: "240px", height: "135px"}} src={process.env.PUBLIC_URL + "/" + this.props.imgSrc} alt={"Course: " + this.props.title}/>
                 <h6>{title}</h6>
                 <p className="dim-text">{this.props.desc}</p>
+                <StarRating value={4} count={1997}/>
                 <p><span className="difficulty-tag">{this.props.difficulty}</span><span className="domain-tag">{this.props.domain}</span></p>
             </NavLink>
         );

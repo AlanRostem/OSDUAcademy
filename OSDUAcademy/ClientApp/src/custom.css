@@ -107,6 +107,7 @@ code {
 
 .course-card p {
     font-size: 0.9em;
+    margin-bottom: 0;
 }
 
 .course-card:hover {
