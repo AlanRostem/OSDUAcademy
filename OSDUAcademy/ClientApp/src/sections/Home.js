@@ -41,15 +41,15 @@ export class Home extends Component {
                         </div>
                     </div>
                     
-                    <h1 style={{textAlign:"center"}}>Trending Courses</h1>
+                    <h1 style={{textAlign:"center", paddingTop:"50px"}}>Trending Courses</h1>
                     <p style={{textAlign:"center", color:"#7f7f7f"}}>Explore the most popular courses at OSDU Academy</p>
                     
                     <CategoryNavBar>
-                        <CategoryItem text="Petroleum" itemActive={true}/>
-                        <CategoryItem text="Geology" itemActive={false}/>
-                        <CategoryItem text="Energy" itemActive={false}/>
-                        <CategoryItem text="Gas" itemActive={false}/>
-                        <CategoryItem text="Other" itemActive={false}/>
+                        <CategoryItem text="PETROLEUM" itemActive={true}/>
+                        <CategoryItem text="GEOLOGY" itemActive={false}/>
+                        <CategoryItem text="ENERGY" itemActive={false}/>
+                        <CategoryItem text="GAS" itemActive={false}/>
+                        <CategoryItem text="OTHER" itemActive={false}/>
                     </CategoryNavBar>
                     <CourseRow>
                         <CourseCard

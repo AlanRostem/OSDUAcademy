@@ -8,7 +8,7 @@ export class CategoryNavBar extends Component {
 
     render () {
         return (
-            <ul className="nav nav-tabs justify-content-center">
+            <ul className="nav nav-tabs justify-content-center" style={{paddingBottom: "1em"}}>
                 {this.props.children}
             </ul>
         );
