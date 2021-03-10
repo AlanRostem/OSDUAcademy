@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Col, Container, Row} from "reactstrap";
+import {CategoryNavBar} from "../components/navbar/CategoryNavBar";
+import {CategoryItem} from "../components/navbar/CategoryItem";
 import CourseCard from "../components/home/CourseCard";
 import CourseRow from "../components/home/CourseRow";
 import CourseScrollButton from "../components/home/CourseScrollButton";
+
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -41,13 +44,14 @@ export class Home extends Component {
                     
                     <h1 style={{textAlign:"center"}}>Trending Courses</h1>
                     <p style={{textAlign:"center", color:"#7f7f7f"}}>Explore the most popular courses at OSDU Academy</p>
-                    <Row style={{textAlign:"center"}}>
-                        <Col>PETROLEUM</Col>
-                        <Col>GEOLOGY</Col>
-                        <Col>ENERGY</Col>
-                        <Col>GAS</Col>
-                        <Col>OTHER</Col>
-                    </Row>
+                    
+                    <CategoryNavBar>
+                        <CategoryItem text="Petroleum" itemActive={true}/>
+                        <CategoryItem text="Geology" itemActive={false}/>
+                        <CategoryItem text="Energy" itemActive={false}/>
+                        <CategoryItem text="Gas" itemActive={false}/>
+                        <CategoryItem text="Other" itemActive={false}/>
+                    </CategoryNavBar>
                     <CourseRow>
                         <CourseCard
                             title="Advanced drilling engineering in a very high level"
