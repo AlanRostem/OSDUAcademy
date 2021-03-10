@@ -21,13 +21,12 @@ code {
 .banner {
   width: 100%;
   height: 300px;
-  background-color: darkblue;
+  background-color: #0d1929;
   text-align: center;
   color: white;
   font-family: sans-serif Arial;
-  
-  /* background-image: url(); 
-  background-position: center; */
+  background-size: cover;
+  background-position: center;
 }
 
 .banner h1 {
