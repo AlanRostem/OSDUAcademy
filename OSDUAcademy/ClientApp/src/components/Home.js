@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {DefaultNavMenu} from "./navbar/DefaultNavMenu";
 import {Container} from "reactstrap";
+import SearchForm from "./navbar/SearchForm";
 
 export class Home extends Component {
     static displayName = Home.name;

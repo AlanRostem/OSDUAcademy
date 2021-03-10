@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './NavMenu.css';
 import SchlumbergerLogo from "./SchlumbergerLogo"
 import VerticalDivider from "./VerticalDivider";
+import SearchForm from "./SearchForm";
 
 export class DefaultNavMenu extends Component {
   static displayName = DefaultNavMenu.name;
@@ -30,8 +31,10 @@ export class DefaultNavMenu extends Component {
           <Container>
             <NavbarBrand tag={Link} to="/"><SchlumbergerLogo /></NavbarBrand>
             <NavbarBrand><VerticalDivider /></NavbarBrand>
-            <NavbarBrand tag={Link} to="/" style={{fontWeight: "bold", color:"white", fontSize:"1.5rem"}}>OSDUAcademy</NavbarBrand>
-
+            <NavbarBrand tag={Link} to="/" style={{fontWeight: "bold", color:"white", fontSize:"1.5rem"}}>OSDU Academy</NavbarBrand>
+            
+            <SearchForm />
+            
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
               <ul className="navbar-nav flex-grow">
