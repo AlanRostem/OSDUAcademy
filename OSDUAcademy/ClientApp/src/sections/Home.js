@@ -6,6 +6,7 @@ import {CategoryItem} from "../components/navbar/CategoryItem";
 import CourseCard from "../components/home/CourseCard";
 import CourseRow from "../components/home/CourseRow";
 import CourseScrollButton from "../components/home/CourseScrollButton";
+import CourseScrollBar from "../components/home/CourseScrollBar";
 
 
 export class Home extends Component {
@@ -43,7 +44,7 @@ export class Home extends Component {
                     </div>
                     
                     <h1 style={{textAlign:"center", paddingTop:"50px"}}>Trending Courses</h1>
-                    <p style={{textAlign:"center", color:"#7f7f7f"}}>Explore the most popular courses at OSDU Academy</p>
+                    <p style={{textAlign:"center", color:"#7f7f7f"}}>Find the most popular courses at OSDU Academy</p>
                     
                     <CategoryNavBar>
                         <CategoryItem text="PETROLEUM" itemActive={true}/>
@@ -100,6 +101,7 @@ export class Home extends Component {
                         />
                         
                     </CourseRow>
+                    <CourseScrollBar />
                 </Container>
             </div>
         );

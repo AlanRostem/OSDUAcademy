@@ -121,16 +121,11 @@ code {
 }
 
 .course-scroll-button {
-    width: 96px;
-    height: 100%;
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
     
-    position: relative;
-    left: 0;
-    top: 0;
-    
-    display: block;
     text-align: center;
-    float: right;
     background-color: #2c5385;
     border: solid #101c2c 1px;
     color: white;

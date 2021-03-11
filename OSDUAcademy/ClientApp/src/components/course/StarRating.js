@@ -21,7 +21,7 @@ export default class StarRating extends Component {
             else {
                 style.color = "gray";
             }
-            stars.push(<i className="fa fa-star" style={style}/>);
+            stars.push(<i key={i} className="fa fa-star" style={style}/>);
         }
         
         return stars;
@@ -30,7 +30,7 @@ export default class StarRating extends Component {
     render() {
 
         return (
-            <div>
+            <div style={{marginBottom: "0.2em"}}>
                 <span>{this.makeStars()}</span><span className="dim-text">({this.state.count})</span>
             </div>
         );
