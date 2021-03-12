@@ -142,8 +142,8 @@ export class Homeli extends Component {
                             ratingCount={1997}
                         />
                     </CourseRow>
-
-                    <h2 style={{fontSize:"1.3rem", marginTop:"2rem"}}>Courses related to <a href="/">Software</a> </h2>
+                    
+                    <h1 style={{textAlign:"center", fontSize:"2rem", paddingTop:"50px", color:"#6B6968"}}>Courses related to <a href="/">Software</a> </h1>
                     <CategoryNavBar>
                         <CategoryItem itemActive={true}>POPULAR</CategoryItem>
                         <CategoryItem itemActive={false}>LATEST</CategoryItem>
