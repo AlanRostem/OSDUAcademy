@@ -5,6 +5,7 @@ import {CategoryNavBar} from "../components/navbar/CategoryNavBar";
 import {CategoryItem} from "../components/navbar/CategoryItem";
 import CourseCard from "../components/home/CourseCard";
 import CourseRow from "../components/home/CourseRow";
+import {Footer} from "../components/navbar/Footer";
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -143,6 +144,7 @@ export class Home extends Component {
                         />
                     </CourseRow>
                 </Container>
+                <Footer/>
             </div>
         );
     }

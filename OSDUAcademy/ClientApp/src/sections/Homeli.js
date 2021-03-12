@@ -5,14 +5,10 @@ import {CategoryNavBar} from "../components/navbar/CategoryNavBar";
 import {CategoryItem} from "../components/navbar/CategoryItem";
 import CourseCard from "../components/home/CourseCard";
 import CourseRow from "../components/home/CourseRow";
-<<<<<<< Updated upstream
-=======
 import CourseScrollButton from "../components/home/CourseScrollButton";
 import CourseScrollBar from "../components/home/CourseScrollBar";
 import {LogNavMenu} from "../components/navbar/LogNavMenu";
 import {Footer} from "../components/navbar/Footer";
-
->>>>>>> Stashed changes
 
 export class Homeli extends Component {
     static displayName = Homeli.name;
