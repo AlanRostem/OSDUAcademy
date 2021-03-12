@@ -114,10 +114,23 @@ code {
     cursor: pointer;
 }
 
+@keyframes shift {
+    from {left: 0}
+    to {left: -900px}
+}
+
 .course-row {
     clip-path: inset(0px 0px 0px 0px);
-    flex-wrap: nowrap;
     margin: 0;
+}
+
+.course-row-container {
+    position: relative;
+    animation-name: shift;
+    animation-duration: 4s;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    display: flex;
 }
 
 .course-scroll-bar {

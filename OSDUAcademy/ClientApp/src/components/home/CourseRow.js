@@ -16,10 +16,21 @@ export default class CourseRow extends Component {
             mounted: true,
             containerWidth: document.getElementById(this.getId()).clientWidth,
         });
+        /*
+        let row = document.getElementById(this.getRowId());
+        let i = 0;
+        setInterval(() => {
+            row.style.left = --i + "px";
+        }, 16)
+         */
     }
 
     getId() {
         return "course-row-container-self-" + this.uuid;
+    }
+
+    getRowId() {
+        return "course-row-self-" + this.uuid;
     }
 
     render() {
@@ -31,9 +42,11 @@ export default class CourseRow extends Component {
 
         return (
             <div id={this.getId()}>
-                <Row className="course-row">
-                    {this.props.children}
-                </Row>
+                <div id={this.getRowId()} className="course-row">
+                    <div className="course-row-container">
+                        {this.props.children}
+                    </div>
+                </div>
                 {scrollBar}
             </div>
         );
