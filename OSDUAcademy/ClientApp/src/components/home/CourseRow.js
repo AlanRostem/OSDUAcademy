@@ -28,9 +28,8 @@ export default class CourseRow extends Component {
     }
 
     onScroll(direction) {
-        let row = document.getElementById(this.getRowId());
-        row.style.left = (this.currentScrollAmount -= direction * this.state.containerWidth) + "px";
-        console.log(row.style.left);
+        // let row = document.getElementById(this.getRowId());
+        // row.style.left = (this.currentScrollAmount -= direction * this.state.containerWidth) + "px";
     }
     
     render() {
