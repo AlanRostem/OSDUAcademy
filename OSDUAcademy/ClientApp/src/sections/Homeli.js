@@ -4,9 +4,9 @@ import {CategoryNavBar} from "../components/navbar/CategoryNavBar";
 import {CategoryItem} from "../components/navbar/CategoryItem";
 import CourseCard from "../components/home/CourseCard";
 import CourseRow from "../components/home/CourseRow";
+
 import {LogNavMenu} from "../components/navbar/LogNavMenu";
 import {Footer} from "../components/navbar/Footer";
-
 
 export class Homeli extends Component {
     static displayName = Homeli.name;
