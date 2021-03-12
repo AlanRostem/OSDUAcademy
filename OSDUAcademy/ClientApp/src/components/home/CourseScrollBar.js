@@ -1,6 +1,5 @@
 ﻿import React, { Component } from "react"
 import CourseScrollButton from "./CourseScrollButton";
-import {Col, Container, Row} from "reactstrap";
 import CourseScrollDot from "./CourseScrollDot";
 
 export default class CourseScrollBar extends Component {

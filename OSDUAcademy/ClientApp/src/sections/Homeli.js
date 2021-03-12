@@ -5,9 +5,6 @@ import {CategoryNavBar} from "../components/navbar/CategoryNavBar";
 import {CategoryItem} from "../components/navbar/CategoryItem";
 import CourseCard from "../components/home/CourseCard";
 import CourseRow from "../components/home/CourseRow";
-import CourseScrollButton from "../components/home/CourseScrollButton";
-import CourseScrollBar from "../components/home/CourseScrollBar";
-
 
 export class Homeli extends Component {
     static displayName = Homeli.name;

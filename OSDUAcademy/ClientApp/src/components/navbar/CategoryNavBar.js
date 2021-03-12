@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './NavMenu.css';
-import {Col, Row} from "reactstrap";
 
 export class CategoryNavBar extends Component {
     static displayName = CategoryNavBar.name;
