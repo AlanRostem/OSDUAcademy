@@ -8,7 +8,7 @@ export default class SearchForm extends Component {
 
         this.inputFieldStyle = {};
         this.inputFieldStyle.minHeight = "2.2rem";
-        this.inputFieldStyle.width = "300px";
+        this.inputFieldStyle.width = "400px";
         this.inputFieldStyle.marginLeft = "1.5rem";
     }
 
