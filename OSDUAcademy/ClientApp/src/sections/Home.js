@@ -47,11 +47,11 @@ export class Home extends Component {
                     <p style={{textAlign:"center", color:"#7f7f7f"}}>Find the most popular courses at OSDU Academy</p>
                     
                     <CategoryNavBar>
-                        <CategoryItem text="PETROLEUM" itemActive={true}/>
-                        <CategoryItem text="GEOLOGY" itemActive={false}/>
-                        <CategoryItem text="ENERGY" itemActive={false}/>
-                        <CategoryItem text="GAS" itemActive={false}/>
-                        <CategoryItem text="OTHER" itemActive={false}/>
+                        <CategoryItem itemActive={true}>PETROLEUM</CategoryItem>
+                        <CategoryItem itemActive={false}>GEOLOGY</CategoryItem>
+                        <CategoryItem itemActive={false}>ENERGY</CategoryItem>
+                        <CategoryItem itemActive={false}>GAS</CategoryItem>
+                        <CategoryItem itemActive={false}>OTHER</CategoryItem>
                     </CategoryNavBar>
                     <CourseRow>
                         <CourseCard
@@ -60,46 +60,54 @@ export class Home extends Component {
                             difficulty="Expert"
                             domain="Drilling"
                             imgSrc="img/course-drilling-test.png"
-                            avgRating="5"
-                            ratingCount="1997"
+                            avgRating={5}
+                            ratingCount={1997}
                         />
                         <CourseCard
-                            title="Advanced drilling engineering"
+                            title="Advanced drilling engineering in a very high level"
                             desc="Learn about the most advanced drilling engineering in this course."
                             difficulty="Expert"
                             domain="Drilling"
                             imgSrc="img/course-drilling-test.png"
-                            avgRating="5"
-                            ratingCount="1997"
+                            avgRating={5}
+                            ratingCount={1997}
                         />
                         <CourseCard
-                            title="Advanced drilling engineering"
+                            title="Advanced drilling engineering in a very high level"
                             desc="Learn about the most advanced drilling engineering in this course."
                             difficulty="Expert"
                             domain="Drilling"
                             imgSrc="img/course-drilling-test.png"
-                            avgRating="5"
-                            ratingCount="1997"
+                            avgRating={5}
+                            ratingCount={1997}
                         />
                         <CourseCard
-                            title="Advanced drilling engineering"
+                            title="Advanced drilling engineering in a very high level"
                             desc="Learn about the most advanced drilling engineering in this course."
                             difficulty="Expert"
                             domain="Drilling"
                             imgSrc="img/course-drilling-test.png"
-                            avgRating="5"
-                            ratingCount="1997"
+                            avgRating={5}
+                            ratingCount={1997}
                         />
                         <CourseCard
-                            title="Advanced drilling engineering"
+                            title="Advanced drilling engineering in a very high level"
                             desc="Learn about the most advanced drilling engineering in this course."
                             difficulty="Expert"
                             domain="Drilling"
                             imgSrc="img/course-drilling-test.png"
-                            avgRating="5"
-                            ratingCount="1997"
+                            avgRating={5}
+                            ratingCount={1997}
                         />
-                        
+                        <CourseCard
+                            title="Advanced drilling engineering in a very high level"
+                            desc="Learn about the most advanced drilling engineering in this course."
+                            difficulty="Expert"
+                            domain="Drilling"
+                            imgSrc="img/course-drilling-test.png"
+                            avgRating={5}
+                            ratingCount={1997}
+                        />
                     </CourseRow>
                     <CourseScrollBar />
                 </Container>
