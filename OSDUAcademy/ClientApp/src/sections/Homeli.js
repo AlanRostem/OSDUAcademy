@@ -22,7 +22,8 @@ export class Homeli extends Component {
                         <p>Greetings, User. It's good to see you again</p>
                     </div>
 
-                    <h1 style={{textAlign:"center", paddingTop:"50px", marginBottom:"1.5rem"}}>Catch up on your learning</h1>
+                    <h1 style={{textAlign:"center", paddingTop:"50px", marginBottom:"0.5rem", fontSize:"2rem", color:"#6B6968"}}>Catch up on your learning</h1>
+                    <hr style={{marginBottom: "15px"}}/>
                     
                     <CourseRow>
                         <CourseCard
@@ -82,7 +83,8 @@ export class Homeli extends Component {
                     </CourseRow>
                     <CourseScrollBar />
 
-                    <h1 style={{textAlign:"center", paddingTop:"50px", marginBottom:"1.5rem"}}>Recommended for you</h1>
+                    <h1 style={{textAlign:"center", paddingTop:"50px", marginBottom:"0.5rem", fontSize:"2rem", color:"#6B6968"}}>Recommended for you</h1>
+                    <hr style={{marginBottom: "15px"}}/>
                     
                     <CourseRow>
                         <CourseCard
