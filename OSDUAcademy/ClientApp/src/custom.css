@@ -114,11 +114,6 @@ code {
     cursor: pointer;
 }
 
-@keyframes shift {
-    from {left: 0}
-    to {left: -900px}
-}
-
 .course-row {
     clip-path: inset(0px 0px 0px 0px);
     margin: 0;
@@ -127,8 +122,7 @@ code {
 
 .course-row-container {
     position: relative;
-    animation-name: shift;
-    animation-duration: 2s;
+    transition: left 2s;
     flex-wrap: nowrap;
     flex-direction: row;
     display: flex;
