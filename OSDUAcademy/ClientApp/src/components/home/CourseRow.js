@@ -1,6 +1,7 @@
 ﻿import React, { Component } from "react"
-import {Row} from "reactstrap";
+import {Container, Row} from "reactstrap";
 import CourseScrollButton from "./CourseScrollButton";
+import CourseScrollBar from "./CourseScrollBar";
 
 export default class CourseRow extends Component {
     render() {
@@ -9,6 +10,7 @@ export default class CourseRow extends Component {
                 <Row className="course-row">
                     {this.props.children}
                 </Row>
+                <CourseScrollBar />
             </div>
         );
     }

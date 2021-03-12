@@ -109,7 +109,6 @@ export class Home extends Component {
                             ratingCount={1997}
                         />
                     </CourseRow>
-                    <CourseScrollBar />
                 </Container>
             </div>
         );
