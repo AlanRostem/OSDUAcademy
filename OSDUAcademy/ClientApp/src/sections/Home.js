@@ -108,6 +108,42 @@ export class Home extends Component {
                             avgRating={5}
                             ratingCount={1997}
                         />
+                        <CourseCard
+                            title="Advanced drilling engineering in a very high level"
+                            desc="Learn about the most advanced drilling engineering in this course."
+                            difficulty="Expert"
+                            domain="Drilling"
+                            imgSrc="img/course-drilling-test.png"
+                            avgRating={5}
+                            ratingCount={1997}
+                        />
+                        <CourseCard
+                            title="Advanced drilling engineering in a very high level"
+                            desc="Learn about the most advanced drilling engineering in this course."
+                            difficulty="Expert"
+                            domain="Drilling"
+                            imgSrc="img/course-drilling-test.png"
+                            avgRating={5}
+                            ratingCount={1997}
+                        />
+                        <CourseCard
+                            title="Advanced drilling engineering in a very high level"
+                            desc="Learn about the most advanced drilling engineering in this course."
+                            difficulty="Expert"
+                            domain="Drilling"
+                            imgSrc="img/course-drilling-test.png"
+                            avgRating={5}
+                            ratingCount={1997}
+                        />
+                        <CourseCard
+                            title="Advanced drilling engineering in a very high level"
+                            desc="Learn about the most advanced drilling engineering in this course."
+                            difficulty="Expert"
+                            domain="Drilling"
+                            imgSrc="img/course-drilling-test.png"
+                            avgRating={5}
+                            ratingCount={1997}
+                        />
                     </CourseRow>
                 </Container>
             </div>

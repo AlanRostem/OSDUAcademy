@@ -11,8 +11,7 @@ export default class CourseRow extends Component {
         super(props);
         this.state = {mounted: false, containerWidth: undefined}
     }
-
-
+    
     componentDidMount() {
         this.setState({
             mounted: true,
@@ -28,7 +27,7 @@ export default class CourseRow extends Component {
         let scrollBar = this.state.mounted ?
             <CourseScrollBar
                 courseCount={this.props.children.length}
-                courseContainerWidth={this.state.containerWidth}/>
+                courseContainerWidth={this.state.containerWidth} />
             : undefined;
         
         return (
