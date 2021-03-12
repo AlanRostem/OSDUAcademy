@@ -90,9 +90,17 @@ code {
 }
 
 .course-card {
-    width: 240px;
     margin-right: 20px;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.course-card img {
+    width: 262px;
+    height: 135px;
 }
 
 .course-card:hover, .course-card:active {
@@ -118,11 +126,6 @@ code {
     clip-path: inset(0px 0px 0px 0px);
     margin: 0;
     overflow-x: hidden;
-}
-
-.course-row-container {
-    position: relative;
-    transition: left 2s;
     flex-wrap: nowrap;
     flex-direction: row;
     display: flex;

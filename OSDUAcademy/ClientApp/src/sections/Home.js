@@ -53,7 +53,7 @@ export class Home extends Component {
                     </CategoryNavBar>
                     <CourseRow>
                         <CourseCard
-                            title="Advanced drilling engineering in a very high level"
+                            title="Advanced drilling engineering in a very high level very high level very high level very high level"
                             desc="Learn about the most advanced drilling engineering in this course."
                             difficulty="Expert"
                             domain="Drilling"

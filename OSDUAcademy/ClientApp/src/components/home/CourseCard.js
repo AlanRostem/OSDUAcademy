@@ -14,7 +14,7 @@ export default class CourseCard extends Component {
         }
         return (
             <NavLink tag={Link} className="course-card" to="/">
-                <img style={{width: "240px", height: "135px"}} src={process.env.PUBLIC_URL + "/" + this.props.imgSrc} alt={"Course: " + this.props.title}/>
+                <img src={process.env.PUBLIC_URL + "/" + this.props.imgSrc} alt={"Course: " + this.props.title}/>
                 <h6>{title}</h6>
                 <p className="dim-text">{this.props.desc}</p>
                 <StarRating value={2} count={1997}/>

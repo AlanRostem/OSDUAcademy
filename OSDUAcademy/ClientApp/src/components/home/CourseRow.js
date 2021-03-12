@@ -36,9 +36,7 @@ export default class CourseRow extends Component {
         return (
             <div id={this.selfId}>
                 <div id={this.rowId} className="course-row">
-                    <div className="course-row-container">
-                        {this.props.children}
-                    </div>
+                    {this.props.children}
                 </div>
                 {scrollBar}
             </div>
