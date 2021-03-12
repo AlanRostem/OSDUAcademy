@@ -123,9 +123,6 @@ code {
 }
 
 .course-row {
-    clip-path: inset(0px 0px 0px 0px);
-    margin: 0;
-    overflow-x: hidden;
     flex-wrap: nowrap;
     flex-direction: row;
     display: flex;
