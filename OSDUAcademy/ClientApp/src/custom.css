@@ -136,8 +136,8 @@ code {
 }
 
 .course-scroll-button {
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 24px;
     border-radius: 3px;
     
     text-align: center;
@@ -147,41 +147,48 @@ code {
     color: white;
 }
 
-.course-scroll-button:hover {
-    cursor: pointer;
-}
-
 .course-scroll-button i {
     justify-content: center;
+    
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-70%);
     margin: 0;
     position: relative;
 }
 
-.course-scroll-dot-container {
+.course-scroll-button-container {
     display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
-    height: 48px;
     justify-content: center;
+    margin-top: 16px;
 }
 
-.course-scroll-dot {
+.course-scroll-button-container * {
+    margin-right: 10px;
+}
+
+.course-scroll-dot-group {
+    margin-right: 0;
+}
+
+.course-scroll-dot-group * {
+    border: solid 1px #2c5385;
     width: 10px;
     height: 10px;
-    border-radius: 100%;
-    border: solid 1px #2c5385;
-    display: block;
-
     top: 50%;
     transform: translateY(-50%);
     position: relative;
 
-    margin-right: 16px;
+    margin-right: 10px;
 }
 
-.course-scroll-dot:first-child {
-    margin-left: 16px;
+.course-scroll-dot-group *:disabled {
+    background-color: transparent;
+}
+
+.course-scroll-dot-group *:enabled {
+    background-color: #2c5385;
 }
 
 footer {

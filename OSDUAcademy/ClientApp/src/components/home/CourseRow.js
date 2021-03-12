@@ -1,16 +1,15 @@
 ﻿import React, {Component} from "react"
-import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext} from 'pure-react-carousel';
+import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup, Dot} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
 export default class CourseRow extends Component {
-
     render() {
         return (
             <CarouselProvider
                 naturalSlideWidth={100}
                 naturalSlideHeight={120}
                 visibleSlides={4}
-                step={3}
+                step={4}
                 infinite={true}
                 isIntrinsicHeight={true}
                 totalSlides={this.props.children.length}>
@@ -25,8 +24,12 @@ export default class CourseRow extends Component {
                         })
                     }
                 </Slider>
-                <ButtonBack>Back</ButtonBack>
-                <ButtonNext>Next</ButtonNext>
+                <div className="course-scroll-button-container">
+                    <ButtonBack className="course-scroll-button"><i
+                        className={`fa fa-chevron-left fa-sm`}/></ButtonBack>
+                    <ButtonNext className="course-scroll-button"><i
+                        className={`fa fa-chevron-right fa-sm`}/></ButtonNext>
+                </div>
             </CarouselProvider>
         );
     }
