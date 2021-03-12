@@ -3,7 +3,6 @@ import CourseScrollButton from "./CourseScrollButton";
 import CourseScrollDot from "./CourseScrollDot";
 
 export default class CourseScrollBar extends Component {
-    static dotColor = "#2c5385"
     dots = [];
 
     constructor(props) {
@@ -56,7 +55,7 @@ export default class CourseScrollBar extends Component {
                     {this.dots.map((isHighlighted, i) => {
                         return <CourseScrollDot
                             key={i}
-                            style={{backgroundColor: isHighlighted ? CourseScrollBar.dotColor : "none"}}
+                            isHighlighted={isHighlighted}
                         />
                     })}
                 </div>
