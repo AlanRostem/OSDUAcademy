@@ -5,15 +5,12 @@ import CourseScrollDot from "./CourseScrollDot";
 
 export default class CourseScrollBar extends Component {
     dots = [
-        <CourseScrollDot />,
-        <CourseScrollDot />,
-        <CourseScrollDot />,
-        <CourseScrollDot />,
+    
     ];
 
     constructor(props) {
         super(props);
-        this.calibrateDotCount(props.courseCount || 0, props.courseContainerWidth || 1);
+        this.calibrateDotCount(props.courseCount || 0, props.courseContainerWidth);
     }
     
     calibrateDotCount(courseCount, courseContainerWidth) {
@@ -23,10 +20,11 @@ export default class CourseScrollBar extends Component {
             pageCount: pageCount,
             courseContainerWidth: courseContainerWidth
         };
-    }
-    
-    componentDidMount() {
         
+        this.dots = [];
+        for (let i = 0; i < pageCount; i++) {
+            this.dots.push(<CourseScrollDot key={i} />);
+        }
     }
 
     render() {
