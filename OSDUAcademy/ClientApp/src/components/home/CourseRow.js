@@ -1,11 +1,12 @@
 ﻿import React, {Component} from "react"
-import {Row} from "reactstrap";
 import CourseScrollBar from "./CourseScrollBar";
+import shortid from "shortid";
 
 export default class CourseRow extends Component {
-    static uuid = 0;
-    uuid = CourseRow.uuid++;
-
+    selfId = shortid.generate();
+    rowId = shortid.generate();
+    currentScrollAmount = 0;
+    
     constructor(props) {
         super(props);
         this.state = {mounted: false, containerWidth: undefined};
@@ -14,27 +15,34 @@ export default class CourseRow extends Component {
     componentDidMount() {
         this.setState({
             mounted: true,
-            containerWidth: document.getElementById(this.getId()).clientWidth,
+            containerWidth: document.getElementById(this.getSelfId()).clientWidth,
         });
     }
 
-    getId() {
-        return "course-row-container-self-" + this.uuid;
+    getSelfId() {
+        return this.selfId;
     }
 
     getRowId() {
-        return "course-row-self-" + this.uuid;
+        return this.rowId;
     }
 
+    onScroll(direction) {
+        let row = document.getElementById(this.getRowId());
+        row.style.left = (this.currentScrollAmount -= direction * this.state.containerWidth) + "px";
+        console.log(row.style.left);
+    }
+    
     render() {
         let scrollBar = this.state.mounted ?
             <CourseScrollBar
+                onScroll={this.onScroll.bind(this)}
                 courseCount={this.props.children.length}
                 courseContainerWidth={this.state.containerWidth}/>
             : undefined;
 
         return (
-            <div id={this.getId()}>
+            <div id={this.getSelfId()}>
                 <div id={this.getRowId()} className="course-row">
                     <div className="course-row-container">
                         {this.props.children}
