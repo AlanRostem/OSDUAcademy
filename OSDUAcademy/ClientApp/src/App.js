@@ -6,7 +6,6 @@ import {Counter} from './sections/Counter';
 import {Homeli} from './sections/Homeli';
 
 import './custom.css'
-import {Container} from "reactstrap";
 
 export default class App extends Component {
     static displayName = App.name;

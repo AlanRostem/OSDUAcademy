@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
-import {Col, Container, Row} from "reactstrap";
+import {Container} from "reactstrap";
 import {CategoryNavBar} from "../components/navbar/CategoryNavBar";
 import {CategoryItem} from "../components/navbar/CategoryItem";
 import CourseCard from "../components/home/CourseCard";

@@ -3,9 +3,7 @@ import CourseScrollButton from "./CourseScrollButton";
 import CourseScrollDot from "./CourseScrollDot";
 
 export default class CourseScrollBar extends Component {
-    dots = [
-    
-    ];
+    dots = [];
 
     constructor(props) {
         super(props);
@@ -15,10 +13,6 @@ export default class CourseScrollBar extends Component {
     calibrateDotCount(courseCount, courseContainerWidth) {
         let courseTotalWidth = courseCount * 240;
         let pageCount = Math.ceil(courseTotalWidth / courseContainerWidth);
-        this.state = {
-            pageCount: pageCount,
-            courseContainerWidth: courseContainerWidth
-        };
         
         this.dots = [];
         for (let i = 0; i < pageCount; i++) {

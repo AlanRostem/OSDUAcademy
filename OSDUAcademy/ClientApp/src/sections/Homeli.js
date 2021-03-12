@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
-import {Col, Container, Row} from "reactstrap";
+import {Container} from "reactstrap";
 import {CategoryNavBar} from "../components/navbar/CategoryNavBar";
 import {CategoryItem} from "../components/navbar/CategoryItem";
 import CourseCard from "../components/home/CourseCard";
@@ -81,7 +81,7 @@ export class Homeli extends Component {
                     </CourseRow>
 
                     <h1 style={{textAlign:"center", paddingTop:"50px", fontSize:"2rem", color:"#6B6968"}}>Recommended for you</h1>
-                    <h2 style={{fontSize:"1.3rem", marginTop:"2rem"}}>Because you applied for <a href="#">"Techlog wellbore - beginner tutorial"</a> </h2>
+                    <h2 style={{fontSize:"1.3rem", marginTop:"2rem"}}>Because you applied for <a href="/">"Techlog wellbore - beginner tutorial"</a> </h2>
                     <hr style={{marginBottom: "15px"}}/>
                     
                     <CourseRow>
@@ -141,7 +141,7 @@ export class Homeli extends Component {
                         />
                     </CourseRow>
 
-                    <h2 style={{fontSize:"1.3rem", marginTop:"2rem"}}>Courses related to <a href="#">Software</a> </h2>
+                    <h2 style={{fontSize:"1.3rem", marginTop:"2rem"}}>Courses related to <a href="/">Software</a> </h2>
                     <CategoryNavBar>
                         <CategoryItem itemActive={true}>POPULAR</CategoryItem>
                         <CategoryItem itemActive={false}>LATEST</CategoryItem>
