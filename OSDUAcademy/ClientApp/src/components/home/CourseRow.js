@@ -5,7 +5,8 @@ import shortid from "shortid";
 export default class CourseRow extends Component {
     selfId = shortid.generate();
     rowId = shortid.generate();
-    currentScrollAmount = 0;
+    
+    // currentScrollAmount = 0;
     
     constructor(props) {
         super(props);
@@ -15,16 +16,8 @@ export default class CourseRow extends Component {
     componentDidMount() {
         this.setState({
             mounted: true,
-            containerWidth: document.getElementById(this.getSelfId()).clientWidth,
+            containerWidth: document.getElementById(this.selfId).clientWidth,
         });
-    }
-
-    getSelfId() {
-        return this.selfId;
-    }
-
-    getRowId() {
-        return this.rowId;
     }
 
     onScroll(direction) {
@@ -41,8 +34,8 @@ export default class CourseRow extends Component {
             : undefined;
 
         return (
-            <div id={this.getSelfId()}>
-                <div id={this.getRowId()} className="course-row">
+            <div id={this.selfId}>
+                <div id={this.rowId} className="course-row">
                     <div className="course-row-container">
                         {this.props.children}
                     </div>

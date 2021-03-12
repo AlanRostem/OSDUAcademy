@@ -20,28 +20,28 @@ export default class CourseScrollBar extends Component {
             this.dots.push(false);
         }
     }
-    
+
     switchDot(direction) {
         let currentDot = this.state.currentDot + direction;
-        
+
         let pageCount = this.dots.length;
-        
+
         if (currentDot === -1)
             currentDot = this.dots.length - 1;
         else if (currentDot === this.dots.length)
             currentDot = 0;
-        
+
         this.dots = [];
         for (let i = 0; i < pageCount; i++) {
             this.dots.push(i === currentDot);
         }
-        
-        this.setState({ currentDot: currentDot});
+
+        this.setState({currentDot: currentDot});
     }
 
     goLeft() {
-      this.switchDot(-1);
-      this.props.onScroll(-1);
+        this.switchDot(-1);
+        this.props.onScroll(-1);
     }
 
     goRight() {
@@ -51,8 +51,8 @@ export default class CourseScrollBar extends Component {
 
     render() {
         return (
-            <div className="course-scroll-bar">
-                <CourseScrollButton direction="left" onClick={this.goLeft.bind(this)}/>
+            <div className="course-scroll-bar" style={{display: this.dots.length > 1 ? "flex" : "none"}}>
+                < CourseScrollButton direction="left" onClick={this.goLeft.bind(this)}/>
                 <div className="course-scroll-dot-container">
                     {this.dots.map((isHighlighted, i) => {
                         return <CourseScrollDot
