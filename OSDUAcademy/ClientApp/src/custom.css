@@ -128,7 +128,7 @@ code {
 .course-row-container {
     position: relative;
     animation-name: shift;
-    animation-duration: 4s;
+    animation-duration: 2s;
     flex-wrap: nowrap;
     flex-direction: row;
     display: flex;
@@ -189,6 +189,5 @@ code {
 
 .course-scroll-dot:first-child {
     margin-left: 16px;
-    background-color: #2c5385;
 }
 

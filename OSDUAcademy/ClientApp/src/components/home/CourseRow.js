@@ -16,13 +16,6 @@ export default class CourseRow extends Component {
             mounted: true,
             containerWidth: document.getElementById(this.getId()).clientWidth,
         });
-        /*
-        let row = document.getElementById(this.getRowId());
-        let i = 0;
-        setInterval(() => {
-            row.style.left = --i + "px";
-        }, 16)
-         */
     }
 
     getId() {
