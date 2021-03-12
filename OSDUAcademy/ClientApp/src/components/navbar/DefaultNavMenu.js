@@ -29,7 +29,7 @@ export class DefaultNavMenu extends Component {
     return (
       <header>
         <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3 navbar-slb" light>
-          <Container>
+          
             <NavbarBrand tag={Link} to="/"><SchlumbergerLogo /></NavbarBrand>
             <NavbarBrand><VerticalDivider /></NavbarBrand>
             <NavbarBrand tag={Link} to="/" style={{fontWeight: "bold", color:"white", fontSize:"1.5rem"}}>OSDU Academy</NavbarBrand>
@@ -51,7 +51,7 @@ export class DefaultNavMenu extends Component {
                 </NavItem>
               </ul>
             </Collapse>
-          </Container>
+          
         </Navbar>
       </header>
     );
