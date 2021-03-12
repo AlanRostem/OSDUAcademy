@@ -5,6 +5,14 @@ import {CategoryNavBar} from "../components/navbar/CategoryNavBar";
 import {CategoryItem} from "../components/navbar/CategoryItem";
 import CourseCard from "../components/home/CourseCard";
 import CourseRow from "../components/home/CourseRow";
+<<<<<<< Updated upstream
+=======
+import CourseScrollButton from "../components/home/CourseScrollButton";
+import CourseScrollBar from "../components/home/CourseScrollBar";
+import {LogNavMenu} from "../components/navbar/LogNavMenu";
+import {Footer} from "../components/navbar/Footer";
+
+>>>>>>> Stashed changes
 
 export class Homeli extends Component {
     static displayName = Homeli.name;
@@ -12,11 +20,11 @@ export class Homeli extends Component {
     render() {
         return (
             <div>
-                <DefaultNavMenu/>
+                <LogNavMenu/>
                 <Container>
                     <div className="banner-li" style={{backgroundImage: "url(" + process.env.PUBLIC_URL + "img/oil-rig.png", 
                     height:"150px", textAlign:"center", color:"white"}}>
-                        <h1 style={{fontWeight:"bold", paddingTop:"25px"}}>Welcome back!</h1>
+                        <h1 style={{fontWeight:"bold", paddingTop:"30px"}}>Welcome back!</h1>
                         <p>Greetings, User. It's good to see you again</p>
                     </div>
 
@@ -206,6 +214,7 @@ export class Homeli extends Component {
                         />
                     </CourseRow>
                 </Container>
+                <Footer/>
             </div>
         );
     }
