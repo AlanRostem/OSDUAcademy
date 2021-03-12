@@ -209,3 +209,22 @@ footer {
 .footer-col a {
     color: white;
 }
+
+.home-h1 {
+    text-align: center;
+    padding-top: 50px;
+    font-size: 2rem;
+    color: #6b6968;
+}
+
+.home-h2 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+}
+
+.side-bar {
+    width: 20%;
+    height: 500px;
+    background-color: black;
+}
+
