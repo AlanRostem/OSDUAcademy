@@ -5,7 +5,7 @@ export default class CourseScrollDot extends Component {
     
     render() {
         return  (
-            <div className="course-scroll-dot" style={{backgroundColor: this.props.isHighlighted ? CourseScrollDot.dotColor : "none"}} />  
+            <div className="course-scroll-dot" style={{backgroundColor: this.props.isHighlighted ? CourseScrollDot.dotColor : "transparent"}} />  
         );
     }
 }

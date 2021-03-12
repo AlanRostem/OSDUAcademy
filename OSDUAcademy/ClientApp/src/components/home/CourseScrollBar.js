@@ -35,7 +35,7 @@ export default class CourseScrollBar extends Component {
         for (let i = 0; i < pageCount; i++) {
             this.dots.push(i === currentDot);
         }
-
+        console.log(this.dots)
         this.setState({ currentDot: currentDot});
     }
 
