@@ -42,6 +42,9 @@ export default class CourseRow extends Component {
                     naturalSlideWidth={100}
                     naturalSlideHeight={120}
                     visibleSlides={4}
+                    step={3}
+                    infinite={true}
+                    isIntrinsicHeight={true}
                     totalSlides={this.props.children.length}>
                     <Slider>
                         {
