@@ -45,7 +45,7 @@ export class DefaultNavMenu extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} className="text-light" to="/fetch-data">
+                  <NavLink tag={Link} className="text-light" to="/home-li">
                     <NavIcon text="SIGN UP" iconClass="fa fa-user"/>
                   </NavLink>
                 </NavItem>
