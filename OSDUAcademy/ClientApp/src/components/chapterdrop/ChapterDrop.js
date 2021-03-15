@@ -27,9 +27,11 @@ export class ChapterDrop extends Component {
             <div className="course-drop">
                 <button 
                     className="drop-button slightly-dim" onClick={this.dropBar.bind(this)}>
-                    <h3>{this.props.name}</h3>
+                    <h3>
+                        {this.props.name}
+                        <i className="fa fa-caret-down"/>
+                    </h3>
                     <p className="subchapterAmount">{this.props.amount} Lectures</p>
-                    <i className="fa fa-caret-down"/>
                 </button>
 
                 {

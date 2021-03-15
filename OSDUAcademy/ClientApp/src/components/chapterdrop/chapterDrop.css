@@ -13,3 +13,7 @@
     font-size: 1.5em;
     margin-bottom: 1px;
 }
+
+.drop-button h3 i {
+    float: right;
+}
