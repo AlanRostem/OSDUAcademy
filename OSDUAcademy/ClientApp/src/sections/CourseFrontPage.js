@@ -3,6 +3,7 @@ import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Container} from "reactstrap";
 import CourseBanner from "../components/course-front-page/CourseBanner";
 import "../components/course-front-page/course-front-page.css"
+import {Footer} from "../components/navbar/Footer";
 
 export default class CourseFrontPage extends Component {
     /* Props:
@@ -56,6 +57,7 @@ export default class CourseFrontPage extends Component {
                         <Container>Loading</Container>
                     : this.showCourseContent()
                 }
+                <Footer />
             </div>
         );
     }
