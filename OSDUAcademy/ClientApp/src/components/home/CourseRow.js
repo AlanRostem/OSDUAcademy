@@ -1,8 +1,38 @@
 ﻿import React, {Component} from "react"
 import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import CourseCard from "./CourseCard";
 
 export default class CourseRow extends Component {
+    courses = [];
+
+    constructor(props) {
+        super(props);
+        this.state = {loading: true}
+    }
+
+
+    componentDidMount() {
+        this.populateCourses();
+    }
+
+    async populateCourses() {
+        let route = "";
+        if (this.props.getByTrending)
+        {
+            route = "trending";
+        }
+
+        const response = await fetch('course/' + route);
+        try {
+            const data = await response.json();
+            this.setState({data: data, loading: false});
+        }
+        catch (e) {
+            console.error(await response.text());
+        }
+    }
+    
     render() {
         return (
             <CarouselProvider
@@ -13,18 +43,13 @@ export default class CourseRow extends Component {
                 infinite={true}
                 isIntrinsicHeight={true}
                 dragEnabled={false}
-                totalSlides={this.props.children.length}>
-                <Slider>
-                    {
-                        this.props.children.map((child, i) => {
-                            return (
-                                <Slide index={i}>
-                                    {child}
-                                </Slide>
-                            );
-                        })
-                    }
-                </Slider>
+                totalSlides={this.courses.length}>
+                {
+                    this.state.loading ?
+                        this.showLoading() :
+                        this.showCourses() 
+                        
+                }
                 <div className="course-scroll-button-container">
                     <ButtonBack className="course-scroll-button"><i
                         className={`fa fa-chevron-left fa-sm`}/></ButtonBack>
@@ -32,6 +57,40 @@ export default class CourseRow extends Component {
                         className={`fa fa-chevron-right fa-sm`}/></ButtonNext>
                 </div>
             </CarouselProvider>
+        );
+    }
+
+    showCourses() {
+        for (let data of this.state.data) {
+            this.courses.push(
+                <CourseCard
+                    title={data.title}
+                    desc={data.description}
+                    difficulty={data.difficulty}
+                    domain={data.domain}
+                    imgSrc="img/course-drilling-test.png"
+                />  
+            );
+        }
+        
+        return <Slider>
+            {
+                this.courses.map((child, i) => {
+                    return (
+                        <Slide index={i}>
+                            {child}
+                        </Slide>
+                    );
+                })
+            }
+        </Slider>;
+    }
+
+    showLoading() {
+        return (
+            <p>
+                Loading...
+            </p>
         );
     }
 }
