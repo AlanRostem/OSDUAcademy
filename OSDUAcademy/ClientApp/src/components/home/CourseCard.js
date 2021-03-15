@@ -9,8 +9,7 @@ export default class CourseCard extends Component {
                 <img src={process.env.PUBLIC_URL + "/" + this.props.imgSrc} alt={"Course: " + this.props.title}/>
                 <h6>{this.props.title}</h6>
                 <p className="dim-text">{this.props.desc}</p>
-                <StarRating value={this.props.avgRating} count={this.props.ratingCount}/>
-                <p><span className="difficulty-tag">{this.props.difficulty}</span><span className="domain-tag">{this.props.domain}</span></p>
+                <p><span className="difficulty-tag">{this.props.difficulty}</span></p>
             </NavLink>
         );
     }

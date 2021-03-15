@@ -19,12 +19,9 @@ export default class CourseFrontPage extends Component {
                 <CourseBanner
                     title={this.state.data[0].title}
                     desc={this.state.data[0].description}
-                    avgRating={this.state.data[0].avgRating}
-                    ratingCount={2015}
-                    appliedCount={5002}
                     difficulty="Intermediate"
                     domain="Business"
-                    duration="8h 41min"
+                    duration="3-4 days"
                     creator="Nemanja Babic"
                     lastUpdated="02-02-2020"
                 />

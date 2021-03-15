@@ -34,8 +34,6 @@ export class DefaultNavMenu extends Component {
             <NavbarBrand><VerticalDivider /></NavbarBrand>
             <NavbarBrand tag={Link} to="/" style={{fontWeight: "bold", color:"white", fontSize:"1.5rem"}}>OSDU Academy</NavbarBrand>
             
-            <SearchForm />
-            
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
               <ul className="navbar-nav flex-grow">

@@ -25,21 +25,13 @@ export default class CourseBanner extends Component {
                         <h1>{this.props.title}</h1>
                         <p>{this.props.desc}</p>
                         <p className="line">
-                            <a href="/">Read Reviews</a>
-                            <StarRating value={this.props.avgRating} count={this.props.ratingCount}/>
-                            <span className="dim-text">{this.props.appliedCount} Applied</span>
                             <span className="tags">
                                 <span className="difficulty-tag">{this.props.difficulty}</span>
-                                <span className="domain-tag">{this.props.domain}</span>
                             </span>
                         </p>
-                        <p className="line"> Created by <a href="/">{this.props.creator}</a></p>
-                        <p className="line">
-                            Last updated: {this.props.lastUpdated}
-                            <span className="duration-tag">
-                                {this.props.duration}
-                                <i className="fa fa-clock-o fa-2x"/>
-                            </span>
+                        <p className="duration-tag">
+                            <i className="fa fa-clock-o fa-2x"/>
+                            {this.props.duration}
                         </p>
                     </div>
                 </Container>
