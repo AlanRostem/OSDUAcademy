@@ -47,11 +47,11 @@
 }
 
 .course-intro-card {
-    width: 30%;
+    width: 25%;
     box-shadow: 5px 5px 35px -6px #434343;
     background-color: white;
     
-    right: 10%;
+    right: 12%;
     margin-top: -20px;
     position: absolute;
     margin-right: auto;
