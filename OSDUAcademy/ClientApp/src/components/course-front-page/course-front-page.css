@@ -36,14 +36,25 @@
     margin-left: 0;
 }
 
+.course-info-container-hack {
+    position: absolute;
+    width: 100%;
+    z-index: -10;
+
+    /*
+        TODO: The z-index prevents the user from selecting the banner text 
+    */
+}
+
 .course-intro-card {
-    width: 35%;
+    width: 30%;
     box-shadow: 5px 5px 35px -6px #434343;
     background-color: white;
-    margin-right: 0;
-
+    
+    right: 10%;
     margin-top: -20px;
-    float: right;
+    position: absolute;
+    margin-right: auto;
 }
 
 .course-intro-card .intro-prerequisite-lists {
@@ -64,13 +75,5 @@
     font-size: .85em;
 }
 
-.course-info-container-hack {
-    position: absolute;
-    width: 100%;
-    z-index: -10;
 
-    /*
-        TODO: The z-index prevents the user from selecting the banner text 
-    */
-}
 

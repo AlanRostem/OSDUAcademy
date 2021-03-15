@@ -20,38 +20,33 @@ export default class CourseFrontPage extends Component {
     showCourseContent() {
         return (
             <div>
-                <div className="course-info-container-hack">
-                    <Container>
-                        <div className="course-intro-card">
-                            <img src={process.env.PUBLIC_URL + "img/course-drilling-test.png"} alt="Course"/>
-                            <div className="intro-card-info">
-                                <h3>Before you learn</h3>
-                                <div className="slightly-dim">
-                                    <p>You should know the following prerequisites pefore enrolling:</p>
-                                    <div className="intro-prerequisite-lists">
-                                        <ul>
-                                            <li>Prerequisite</li>
-                                            <li>Prerequisite</li>
-                                            <li>Prerequisite</li>
-                                            <li>Prerequisite</li>
-                                        </ul>
-                                        <ul>
-                                            <li>Prerequisite</li>
-                                            <li>Prerequisite</li>
-                                            <li>Prerequisite</li>
-                                            <li>Prerequisite</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="intro-buttons">
-                                    <button>Apply</button>
-                                    <button>Share</button>
-                                </div>
+                <div className="course-intro-card">
+                    <img src={process.env.PUBLIC_URL + "img/course-drilling-test.png"} alt="Course"/>
+                    <div className="intro-card-info">
+                        <h3>Before you learn</h3>
+                        <div className="slightly-dim">
+                            <p>You should know the following prerequisites pefore enrolling:</p>
+                            <div className="intro-prerequisite-lists">
+                                <ul>
+                                    <li>Prerequisite</li>
+                                    <li>Prerequisite</li>
+                                    <li>Prerequisite</li>
+                                    <li>Prerequisite</li>
+                                </ul>
+                                <ul>
+                                    <li>Prerequisite</li>
+                                    <li>Prerequisite</li>
+                                    <li>Prerequisite</li>
+                                    <li>Prerequisite</li>
+                                </ul>
                             </div>
                         </div>
-                    </Container>
+                        <div className="intro-buttons">
+                            <button>Apply</button>
+                            <button>Share</button>
+                        </div>
+                    </div>
                 </div>
-
                 <CourseBanner
                     title="Intermediate course for developers"
                     desc="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede."
