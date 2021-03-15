@@ -75,7 +75,7 @@ export default class CourseFrontPage extends Component {
                             <ChapterItem subchapter="Even bigger stuff"/>
                             <ChapterItem subchapter="The absolute biggest"/>
                         </ChapterDrop>
-                        <ChapterDrop name="Introduction" amount="1">
+                        <ChapterDrop name="The last thing" amount="1">
                             <ChapterItem subchapter="Summary"/>
                         </ChapterDrop>
                     </ChapterBar>
