@@ -143,7 +143,7 @@ export class Homeli extends Component {
                         />
                     </CourseRow>
                     
-                    <h1 style={{textAlign:"center", fontSize:"2rem", paddingTop:"50px", color:"#6B6968"}}>Trending Courses</h1>
+                    <h1 className="home-h1">Trending Courses</h1>
 
                     <CategoryNavBar>
                         <CategoryItem itemActive={true}>PETROLEUM</CategoryItem>
