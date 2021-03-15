@@ -6,14 +6,20 @@
     margin-top: 32px;
 }
 
+.course-banner .container .sub-container {
+    width: 70%;
+    margin-left: 0;
+}
+
 .course-banner .line {
-    display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
 }
 
 .course-banner .line span,
-.course-banner .line a
-{
+.course-banner .line a {
     margin-right: .5em;
+}
+
+.course-banner .tags {
+    float: right;
 }
