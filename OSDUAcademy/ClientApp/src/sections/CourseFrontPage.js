@@ -22,10 +22,13 @@ export default class CourseFrontPage extends Component {
                     <Container>
                         <div className="course-intro-card">
                             <img src={process.env.PUBLIC_URL + "img/course-drilling-test.png"} alt="Course"/>
+                            <div className="intro-card-info">
+                                <h3>Before you learn</h3>
+                            </div>
                         </div>
                     </Container>
                 </div>
-                
+
                 <CourseBanner
                     title="Intermediate course for developers"
                     desc="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede."
@@ -35,11 +38,11 @@ export default class CourseFrontPage extends Component {
                     creator="Nemanja Babic"
                     lastUpdated="02-02-2020"
                 />
-          
+
                 <Container>
-                <ChapterBar>
+                    <ChapterBar>
                         <ChapterDrop name="Introduction">
-                            
+
                         </ChapterDrop>
                     </ChapterBar>
                     <div className="course-description-container">
@@ -63,7 +66,7 @@ export default class CourseFrontPage extends Component {
                             sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.
                         </p>
                     </div>
-                
+
                 </Container>
             </div>
         )

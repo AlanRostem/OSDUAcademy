@@ -43,13 +43,16 @@
     margin-right: 0;
 
     margin-top: -20px;
-    height: 500px;
     float: right;
 }
 
 .course-intro-card img {
     width: 100%;
     margin: 0;
+}
+
+.course-intro-card .intro-card-info {
+    padding: .45em;
 }
 
 .course-info-container-hack {
