@@ -17,8 +17,8 @@ export default class CourseFrontPage extends Component {
         return (
             <div>
                 <CourseBanner
-                    title={this.state.data[0].title}
-                    desc={this.state.data[0].description}
+                    title="Intermediate course for developers"
+                    desc="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede."
                     difficulty="Intermediate"
                     domain="Business"
                     duration="3-4 days"
