@@ -31,7 +31,7 @@ export default class StarRating extends Component {
 
         return (
             <div style={{marginBottom: "0.2em"}}>
-                <span>{this.makeStars()}</span><span className="dim-text">({this.state.count})</span>
+                <span>{this.makeStars()}</span><span>  {this.props.value}  </span><span className="dim-text">({this.state.count})</span>
             </div>
         );
     }

@@ -6,6 +6,7 @@ import {Counter} from './sections/Counter';
 import {Homeli} from './sections/Homeli';
 import './custom.css'
 import {Search} from "./sections/Search";
+import CourseFrontPage from "./sections/CourseFrontPage";
 
 export default class App extends Component {
     static displayName = App.name;
@@ -18,6 +19,7 @@ export default class App extends Component {
                 <Route path='/fetch-data' component={FetchData}/>
                 <Route path='/home-li' component={Homeli}/>
                 <Route path='/search' component={Search}/>
+                <Route path='/course-front-page' component={CourseFrontPage}/>
             </div>
         );
     }

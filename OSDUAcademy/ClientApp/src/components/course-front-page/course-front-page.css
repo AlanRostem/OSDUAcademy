@@ -1,0 +1,19 @@
+﻿.course-banner {
+    background-color: #262c2c;
+    width: 100%;
+    color: white;
+    padding: 1em;
+    margin-top: 32px;
+}
+
+.course-banner .line {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.course-banner .line span,
+.course-banner .line a
+{
+    margin-right: .5em;
+}
