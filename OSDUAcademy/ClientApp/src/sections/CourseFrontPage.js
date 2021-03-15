@@ -4,6 +4,8 @@ import {Container} from "reactstrap";
 import CourseBanner from "../components/course-front-page/CourseBanner";
 import "../components/course-front-page/course-front-page.css"
 import {Footer} from "../components/navbar/Footer";
+import {ChapterBar} from "../components/chapterdrop/ChapterBar";
+import {ChapterDrop} from "../components/chapterdrop/ChapterDrop";
 
 export default class CourseFrontPage extends Component {
     constructor(props) {
@@ -35,6 +37,11 @@ export default class CourseFrontPage extends Component {
                 />
           
                 <Container>
+                <ChapterBar>
+                        <ChapterDrop name="Introduction">
+                            
+                        </ChapterDrop>
+                    </ChapterBar>
                     <div className="course-description-container">
                         <h2>Course Description</h2>
                         <p>
@@ -56,6 +63,7 @@ export default class CourseFrontPage extends Component {
                             sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.
                         </p>
                     </div>
+                
                 </Container>
             </div>
         )
