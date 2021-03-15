@@ -143,15 +143,52 @@ export class Homeli extends Component {
                         />
                     </CourseRow>
                     
-                    <h1 style={{textAlign:"center", fontSize:"2rem", paddingTop:"50px", color:"#6B6968"}}>Courses related to <a href="/">Software</a> </h1>
-                    <CategoryNavBar>
-                        <CategoryItem itemActive={true}>POPULAR</CategoryItem>
-                        <CategoryItem itemActive={false}>LATEST</CategoryItem>
-                        <CategoryItem itemActive={false}>BEGINNER</CategoryItem>
-                        <CategoryItem itemActive={false}>ADVANCED</CategoryItem>
-                    </CategoryNavBar>
+                    <h1 style={{textAlign:"center", fontSize:"2rem", paddingTop:"50px", color:"#6B6968"}}>Trending Courses</h1>
 
+                    <CategoryNavBar>
+                        <CategoryItem itemActive={true}>PETROLEUM</CategoryItem>
+                        <CategoryItem itemActive={false}>GEOLOGY</CategoryItem>
+                        <CategoryItem itemActive={false}>ENERGY</CategoryItem>
+                        <CategoryItem itemActive={false}>GAS</CategoryItem>
+                        <CategoryItem itemActive={false}>OTHER</CategoryItem>
+                    </CategoryNavBar>
                     <CourseRow>
+                        <CourseCard
+                            title="Advanced drilling engineering in a very high level very high level very high level very high level"
+                            desc="Learn about the most advanced drilling engineering in this course."
+                            difficulty="Expert"
+                            domain="Drilling"
+                            imgSrc="img/course-drilling-test.png"
+                            avgRating={5}
+                            ratingCount={1997}
+                        />
+                        <CourseCard
+                            title="Advanced drilling engineering in a very high level"
+                            desc="Learn about the most advanced drilling engineering in this course."
+                            difficulty="Expert"
+                            domain="Drilling"
+                            imgSrc="img/course-drilling-test.png"
+                            avgRating={5}
+                            ratingCount={1997}
+                        />
+                        <CourseCard
+                            title="Advanced drilling engineering in a very high level"
+                            desc="Learn about the most advanced drilling engineering in this course."
+                            difficulty="Expert"
+                            domain="Drilling"
+                            imgSrc="img/course-drilling-test.png"
+                            avgRating={5}
+                            ratingCount={1997}
+                        />
+                        <CourseCard
+                            title="Advanced drilling engineering in a very high level"
+                            desc="Learn about the most advanced drilling engineering in this course."
+                            difficulty="Expert"
+                            domain="Drilling"
+                            imgSrc="img/course-drilling-test.png"
+                            avgRating={5}
+                            ratingCount={1997}
+                        />
                         <CourseCard
                             title="Advanced drilling engineering in a very high level"
                             desc="Learn about the most advanced drilling engineering in this course."
