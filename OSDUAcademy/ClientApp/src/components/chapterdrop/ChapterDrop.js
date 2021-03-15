@@ -25,7 +25,12 @@ export class ChapterDrop extends Component {
     render () {
         return (
             <div className="CourseDrop">
-                <button className="drop-button" onClick={this.dropBar.bind(this)}>{this.props.name}<i className="fa fa-caret-down"/></button>
+                <button 
+                    className="drop-button" onClick={this.dropBar.bind(this)}>
+                    <h3>{this.props.name}</h3>
+                    <p className="subchapterAmount">{this.props.amount} Lectures</p>
+                    <i className="fa fa-caret-down"/>
+                </button>
 
                 {
                     this.state.dropBar

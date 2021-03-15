@@ -1,11 +1,13 @@
 ﻿import React, {Component} from "react";
 import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
-import {Container} from "reactstrap";
+import {Container, DropdownItem} from "reactstrap";
 import CourseBanner from "../components/course-front-page/CourseBanner";
 import "../components/course-front-page/course-front-page.css"
 import {Footer} from "../components/navbar/Footer";
 import {ChapterBar} from "../components/chapterdrop/ChapterBar";
 import {ChapterDrop} from "../components/chapterdrop/ChapterDrop";
+import {ChapterItem} from "../components/chapterdrop/ChapterItem";
+
 
 export default class CourseFrontPage extends Component {
     constructor(props) {
@@ -29,8 +31,8 @@ export default class CourseFrontPage extends Component {
                 />
                 <Container>
                     <ChapterBar>
-                        <ChapterDrop name="Introduction">
-                            
+                        <ChapterDrop name="Introduction" amount="2">
+                            <ChapterItem> What </ChapterItem>
                         </ChapterDrop>
                     </ChapterBar>
                 </Container>
