@@ -57,7 +57,7 @@
 }
 
 .course-intro-card .intro-card-info {
-    padding: .45em;
+    padding: 1em;
 }
 
 .course-intro-card .intro-card-info p {
@@ -67,7 +67,7 @@
 .course-info-container-hack {
     position: absolute;
     width: 100%;
-    z-index: 0;
+    z-index: -10;
 
     /*
         TODO: The z-index prevents the user from selecting the banner text 
