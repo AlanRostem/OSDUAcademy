@@ -32,6 +32,22 @@ namespace OSDUAcademy.Controllers
             return _courseCollection.Find(s=> true /*s.AvgRating > 3f*/).ToList();
         }
 
+        /// <summary>
+        /// Delivers all the courses to the client. Currently it is not possible to search in the database
+        /// by trending. 
+        /// </summary>
+        /// <returns>IEnumerable object with all the courses</returns>
+        [Route("trending")]
+        public IEnumerable<Course> GetTrending()
+        {
+            return _courseCollection.Find(s=> true).ToList();
+        }
+        
+        /// <summary>
+        /// Deliver a course to the client by id.
+        /// </summary>
+        /// <param name="id">Unique identifier as present in the database</param>
+        /// <returns>The course by id</returns>
         [HttpGet("{id}")]
         public async Task<Course> GetCourse(string id)
         {
