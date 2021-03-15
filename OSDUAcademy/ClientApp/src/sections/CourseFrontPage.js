@@ -7,6 +7,7 @@ import {Footer} from "../components/navbar/Footer";
 import {ChapterBar} from "../components/chapterdrop/ChapterBar";
 import {ChapterDrop} from "../components/chapterdrop/ChapterDrop";
 import {ChapterItem} from "../components/chapterdrop/ChapterItem";
+import {Link} from "react-router-dom";
 
 
 export default class CourseFrontPage extends Component {
@@ -42,8 +43,7 @@ export default class CourseFrontPage extends Component {
                             </div>
                         </div>
                         <div className="intro-buttons">
-                            <button>Apply</button>
-                            <button>Share</button>
+                            <button><Link to="/">Apply</Link></button>
                         </div>
                     </div>
                 </div>
