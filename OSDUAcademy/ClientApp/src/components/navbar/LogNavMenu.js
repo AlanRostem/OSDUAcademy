@@ -42,11 +42,6 @@ export class LogNavMenu extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-light" to="/">
-                                        <NavIcon text="MY LEARNING" iconClass="fa fa-archive"/>
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
                                     <NavLink tag={Link} className="text-light" to="/home-li">
                                         <NavIcon text="SIGN UP" iconClass="fa fa-user"/>
                                     </NavLink>
