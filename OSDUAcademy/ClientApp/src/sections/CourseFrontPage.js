@@ -6,19 +6,6 @@ import "../components/course-front-page/course-front-page.css"
 import {Footer} from "../components/navbar/Footer";
 
 export default class CourseFrontPage extends Component {
-    /* Props:
-   - title
-   - desc
-   - avgRatings
-   - ratingCount
-   - appliedCount
-   - difficulty
-   - domain
-   - duration
-   - creator 
-   - lastUpdated
-    */
-
     constructor(props) {
         super(props);
         this.state = {
@@ -51,7 +38,7 @@ export default class CourseFrontPage extends Component {
     render() {
         return (
             <div>
-                <DefaultNavMenu/>
+                <DefaultNavMenu />
                 {
                     this.state.loading ?
                         <Container>Loading</Container>
