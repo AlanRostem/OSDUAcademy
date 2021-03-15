@@ -21,7 +21,7 @@ export class Footer extends Component {
                     <li className="footer-col"><a href="#">Contact</a></li>
                 </ul>
                 <hr style={{backgroundColor:"white", width:"50%"}}/>
-                <p className="footer-lic">Company Name © 2021 | By Schlumberger </p>
+                <p className="footer-lic">OSDU Academy © 2021 | By Schlumberger </p>
                 
             </footer>
         );
