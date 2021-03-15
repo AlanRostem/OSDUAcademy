@@ -14,7 +14,7 @@ export default class CourseFrontPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: true
+            loading: false
         };
     }
 
@@ -66,7 +66,7 @@ export default class CourseFrontPage extends Component {
                             <ChapterItem subchapter="Somebody once told me"/>
                             <ChapterItem subchapter="The worlds gonna roll me"/>
                             <ChapterItem subchapter="I ain't the sharpest tool in the shed"/>
-                            <ChapterItem subchapter="She was looking kind of dumb with her finger and her thumb"/>
+                            <ChapterItem subchapter="She was looking kind of dumb with her finger and her thumb She was looking kind of dumb with her finger and her thumb She was looking kind of dumb with her finger and her thumb She was looking kind of dumb with her finger and her thumb"/>
                             <ChapterItem subchapter="In the shape of an L on her forehead"/>
                         </ChapterDrop>
                         <ChapterDrop name="Another thing" amount="4">
@@ -127,8 +127,8 @@ export default class CourseFrontPage extends Component {
     }
 
     async getCourseData() {
-        const response = await fetch('course');
-        const data = await response.json();
-        this.setState({data: data, loading: false});
+        // const response = await fetch('course');
+        // const data = await response.json();
+        // this.setState({data: data, loading: false});
     }
 }

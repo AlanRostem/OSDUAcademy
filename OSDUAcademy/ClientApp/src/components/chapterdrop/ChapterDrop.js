@@ -37,8 +37,10 @@ export class ChapterDrop extends Component {
                 {
                     this.state.dropBar
                         ? (
-                            <div>
-                                {this.props.children}
+                            <div className="drop-menu slightly-dim">
+                                <ul className="drop-list">
+                                    {this.props.children}
+                                </ul>
                             </div>
                         )
                         : null
