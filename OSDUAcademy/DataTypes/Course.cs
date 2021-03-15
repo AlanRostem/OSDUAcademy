@@ -20,7 +20,10 @@ namespace OSDUAcademy.DataTypes
         [BsonElement("desc")]
         public string Description { get; set; }
 
-        [BsonElement("avg_rating")]
-        public double AvgRating { get; set; }
+        [BsonElement("duration")]
+        public string Duration { get; set; }
+        
+        [BsonElement("difficulty")]
+        public string Difficulty { get; set; }
     }
 }

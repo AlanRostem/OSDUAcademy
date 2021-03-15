@@ -9,12 +9,11 @@ import {ChapterDrop} from "../components/chapterdrop/ChapterDrop";
 import {ChapterItem} from "../components/chapterdrop/ChapterItem";
 import {Link} from "react-router-dom";
 
-
 export default class CourseFrontPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: false
+            loading: true
         };
     }
 
@@ -80,7 +79,6 @@ export default class CourseFrontPage extends Component {
                         </ChapterDrop>
                     </ChapterBar>
                     
-                    
                     <div className="course-description-container">
                         <h2>Course Description</h2>
                         <p>
@@ -127,8 +125,8 @@ export default class CourseFrontPage extends Component {
     }
 
     async getCourseData() {
-        // const response = await fetch('course');
-        // const data = await response.json();
-        // this.setState({data: data, loading: false});
+        const response = await fetch('course');
+        const data = await response.json();
+        this.setState({data: data, loading: false});
     }
 }
