@@ -37,13 +37,18 @@
 }
 
 .course-intro-card {
-    width: 30%;
+    width: 35%;
     box-shadow: 5px 5px 35px -6px #434343;
     background-color: white;
     margin-right: 0;
 
     margin-top: -20px;
     float: right;
+}
+
+.course-intro-card .intro-prerequisite-lists {
+    display: flex;
+    flex-direction: row;
 }
 
 .course-intro-card img {
@@ -53,6 +58,10 @@
 
 .course-intro-card .intro-card-info {
     padding: .45em;
+}
+
+.course-intro-card .intro-card-info p {
+    font-size: .85em;
 }
 
 .course-info-container-hack {

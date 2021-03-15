@@ -216,6 +216,10 @@ footer {
     color: white;
 }
 
+.slightly-dim {
+    color: #6b6968;
+}
+
 .home-h1 {
     text-align: center;
     padding-top: 50px;

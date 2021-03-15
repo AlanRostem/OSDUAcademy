@@ -26,6 +26,27 @@ export default class CourseFrontPage extends Component {
                             <img src={process.env.PUBLIC_URL + "img/course-drilling-test.png"} alt="Course"/>
                             <div className="intro-card-info">
                                 <h3>Before you learn</h3>
+                                <div className="slightly-dim">
+                                    <p>You should know the following prerequisites pefore enrolling:</p>
+                                    <div className="intro-prerequisite-lists">
+                                        <ul>
+                                            <li>Prerequisite</li>
+                                            <li>Prerequisite</li>
+                                            <li>Prerequisite</li>
+                                            <li>Prerequisite</li>
+                                        </ul>
+                                        <ul>
+                                            <li>Prerequisite</li>
+                                            <li>Prerequisite</li>
+                                            <li>Prerequisite</li>
+                                            <li>Prerequisite</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className="intro-buttons">
+                                    <button>Apply</button>
+                                    <button>Share</button>
+                                </div>
                             </div>
                         </div>
                     </Container>
