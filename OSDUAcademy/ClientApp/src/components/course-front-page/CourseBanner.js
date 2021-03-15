@@ -36,6 +36,10 @@ export default class CourseBanner extends Component {
                         <p className="line"> Created by <a href="/">{this.props.creator}</a></p>
                         <p className="line">
                             Last updated: {this.props.lastUpdated}
+                            <span className="duration-tag">
+                                {this.props.duration}
+                                <i className="fa fa-clock-o fa-2x" />
+                            </span>
                         </p>
                     </div>
                 </Container>

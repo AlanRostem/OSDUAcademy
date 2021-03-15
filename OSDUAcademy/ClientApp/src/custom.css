@@ -228,4 +228,13 @@ footer {
     margin-top: 2rem;
 }
 
+.duration-tag {
+    float: right;
+}
 
+.duration-tag * {
+    margin-left: 0.4em;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
