@@ -26,6 +26,7 @@ export class SideDrop extends Component {
     render () {
         return (
             <div className="sideNavDrop">
+                <hr style={{width: "70%", marginLeft: "0"}}/>
                 <button className="drop-button" onClick={this.dropBar.bind(this)}>{this.props.name}<i className="fa fa-caret-down"/></button>
                 
                 {
@@ -37,7 +38,6 @@ export class SideDrop extends Component {
                         ) 
                         : null
                 }
-                
             </div>
         );
     }

@@ -7,7 +7,7 @@ export class SideItem extends Component {
 
     render () {
         return (
-            <div className="side-item" style={{color:"white"}}>
+            <div className="side-item">
                 <input type="checkbox" id="item" name="" value="item"/>
                 <label htmlFor="item">{this.props.children}</label>
                 <br/>

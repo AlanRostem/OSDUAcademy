@@ -1,8 +1,25 @@
 .side-bar {
     width: 20%;
-    height: 500px;
-    background-color: black;
+    background-color: white;
     position: relative;
+    color: black
 }
 
+.side-item {
+    color: black;
+}
 
+.drop-button {
+    width: 80%;
+    text-align: left;
+}
+
+.drop-button i {
+    float: right;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.fa-caret-down {
+    margin-left: 10px;
+}
