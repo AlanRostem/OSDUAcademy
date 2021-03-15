@@ -3,6 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace OSDUAcademy.DataTypes
 {
+    [BsonIgnoreExtraElements]
     public class Course
     {
         // Using this attribute to serialize the id to the client 
@@ -20,8 +21,5 @@ namespace OSDUAcademy.DataTypes
         
         [BsonElement("difficulty")]
         public string Difficulty { get; set; }
-        
-        [BsonElement("domain")]
-        public string Domain { get; set; }
     }
 }
