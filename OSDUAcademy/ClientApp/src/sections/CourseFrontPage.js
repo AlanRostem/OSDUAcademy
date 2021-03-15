@@ -16,6 +16,14 @@ export default class CourseFrontPage extends Component {
     showCourseContent() {
         return (
             <div>
+                <div className="course-info-container-hack">
+                    <Container>
+                        <div className="course-intro-card">
+                            <img src={process.env.PUBLIC_URL + "img/course-drilling-test.png"} alt="Course"/>
+                        </div>
+                    </Container>
+                </div>
+                
                 <CourseBanner
                     title="Intermediate course for developers"
                     desc="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede."
@@ -25,8 +33,29 @@ export default class CourseFrontPage extends Component {
                     creator="Nemanja Babic"
                     lastUpdated="02-02-2020"
                 />
+          
                 <Container>
+                    <div className="course-description-container">
+                        <h2>Course Description</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat
+                            mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper
+                            suscipit, posuere a, pede.
 
+                            Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
+                            Aenean dignissim pellentesque felis.
+
+                            Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a,
+                            ultricies in, diam. Sed arcu. Cras consequat.
+
+                            Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate magna
+                            eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+                            facilisis luctus, metus.
+
+                            Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate
+                            sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.
+                        </p>
+                    </div>
                 </Container>
             </div>
         )
@@ -35,17 +64,17 @@ export default class CourseFrontPage extends Component {
     render() {
         return (
             <div>
-                <DefaultNavMenu />
+                <DefaultNavMenu/>
                 {
                     this.state.loading ?
                         <Container>Loading</Container>
-                    : this.showCourseContent()
+                        : this.showCourseContent()
                 }
-                <Footer />
+                <Footer/>
             </div>
         );
     }
-    
+
     componentDidMount() {
         this.getCourseData();
     }
@@ -53,6 +82,6 @@ export default class CourseFrontPage extends Component {
     async getCourseData() {
         const response = await fetch('course');
         const data = await response.json();
-        this.setState({ data: data, loading: false });
+        this.setState({data: data, loading: false});
     }
 }

@@ -7,7 +7,7 @@
 }
 
 .course-banner .container .sub-container {
-    width: 70%;
+    width: 60%;
     margin-left: 0;
 }
 
@@ -29,3 +29,36 @@
 
 .course-banner .tags {
 }
+
+.course-description-container {
+    margin-top: 2em;
+    width: 60%;
+    margin-left: 0;
+}
+
+.course-intro-card {
+    width: 30%;
+    box-shadow: 5px 5px 35px -6px #434343;
+    background-color: white;
+    margin-right: 0;
+
+    margin-top: -20px;
+    height: 500px;
+    float: right;
+}
+
+.course-intro-card img {
+    width: 100%;
+    margin: 0;
+}
+
+.course-info-container-hack {
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+
+    /*
+        TODO: The z-index prevents the user from selecting the banner text 
+    */
+}
+
