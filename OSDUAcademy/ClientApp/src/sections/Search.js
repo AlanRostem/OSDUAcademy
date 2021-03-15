@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import {Container} from "reactstrap";
-import {CategoryNavBar} from "../components/navbar/CategoryNavBar";
-import {CategoryItem} from "../components/navbar/CategoryItem";
-import CourseCard from "../components/home/CourseCard";
-import CourseRow from "../components/home/CourseRow";
-import {LogNavMenu} from "../components/navbar/LogNavMenu";
+import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Footer} from "../components/navbar/Footer";
 import {SideNav} from "../components/sidebar/SideNav";
 import {SideDrop} from "../components/sidebar/SideDrop";
@@ -17,7 +13,7 @@ export class Search extends Component {
     render() {
         return (
             <div>
-                <LogNavMenu/>
+                <DefaultNavMenu />
                 <Container>
                     <SideNav>
                         <SideDrop name="Domain">

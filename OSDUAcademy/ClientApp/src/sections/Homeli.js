@@ -5,8 +5,8 @@ import {CategoryItem} from "../components/navbar/CategoryItem";
 import CourseCard from "../components/home/CourseCard";
 import CourseRow from "../components/home/CourseRow";
 
-import {LogNavMenu} from "../components/navbar/LogNavMenu";
 import {Footer} from "../components/navbar/Footer";
+import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 
 export class Homeli extends Component {
     static displayName = Homeli.name;
@@ -14,7 +14,7 @@ export class Homeli extends Component {
     render() {
         return (
             <div>
-                <LogNavMenu/>
+                <DefaultNavMenu/>
                 <Container>
                     <div className="banner-li" style={{backgroundImage: "url(" + process.env.PUBLIC_URL + "img/oil-rig.png", 
                     height:"150px", textAlign:"center", color:"white"}}>
