@@ -59,10 +59,28 @@ export default class CourseFrontPage extends Component {
 
                 <Container>
                     <ChapterBar>
-                        <ChapterDrop name="Introduction" amount="2">
-                            <ChapterItem> What </ChapterItem>
+                        <ChapterDrop name="Introduction" amount="1">
+                            <ChapterItem subchapter="What you will learn"/>
+                        </ChapterDrop>
+                        <ChapterDrop name="Data Management" amount="5">
+                            <ChapterItem subchapter="Somebody once told me"/>
+                            <ChapterItem subchapter="The worlds gonna roll me"/>
+                            <ChapterItem subchapter="I ain't the sharpest tool in the shed"/>
+                            <ChapterItem subchapter="She was looking kind of dumb with her finger and her thumb"/>
+                            <ChapterItem subchapter="In the shape of an L on her forehead"/>
+                        </ChapterDrop>
+                        <ChapterDrop name="Another thing" amount="4">
+                            <ChapterItem subchapter="Small things"/>
+                            <ChapterItem subchapter="Bigger things"/>
+                            <ChapterItem subchapter="Even bigger stuff"/>
+                            <ChapterItem subchapter="The absolute biggest"/>
+                        </ChapterDrop>
+                        <ChapterDrop name="Introduction" amount="1">
+                            <ChapterItem subchapter="Summary"/>
                         </ChapterDrop>
                     </ChapterBar>
+                    
+                    
                     <div className="course-description-container">
                         <h2>Course Description</h2>
                         <p>

@@ -6,8 +6,10 @@ export class ChapterItem extends Component {
 
     render () {
         return (
-            <div className="drop-item">
-                {this.props.children}
+            <div className="drop-menu slightly-dim">
+                <ul className="drop-list">
+                    <li className="drop-item">{this.props.subchapter}</li>
+                </ul>
             </div>
         );
     }

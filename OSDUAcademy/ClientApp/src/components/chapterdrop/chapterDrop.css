@@ -4,6 +4,10 @@
     margin-top: 50px;
 }
 
+.course-drop {
+    margin-top: -2px;
+}
+
 .drop-button {
     width: 100%;
     height: 60px;
@@ -16,4 +20,16 @@
 
 .drop-button h3 i {
     float: right;
+    margin-top: 15px;
+}
+
+.drop-menu {
+    margin-top: -2px;
+    border: solid 2px;
+}
+
+.drop-list {
+    margin-top: 10px;
+    margin-left: -10px;
+    margin-bottom: 10px;
 }
