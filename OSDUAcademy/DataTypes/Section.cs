@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using System.Collections.Generic;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace OSDUAcademy.DataTypes
@@ -11,5 +12,8 @@ namespace OSDUAcademy.DataTypes
 
         [BsonElement("title")]
         public string Title { get; set; }
+
+        [BsonElement("lectures")] 
+        public List<Lecture> Lectures;
     }
 }

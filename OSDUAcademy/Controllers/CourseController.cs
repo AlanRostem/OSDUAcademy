@@ -12,7 +12,6 @@ namespace OSDUAcademy.Controllers
     [Route("[controller]")]
     public class CourseController : ControllerBase
     {
-        private readonly IMongoCollection<ShortCourse> _shortCourseCollection;
         private readonly IMongoCollection<Course> _fullCourseCollection;
         
         private readonly IMongoCollection<Section> _sectionCollection;
@@ -20,15 +19,8 @@ namespace OSDUAcademy.Controllers
         public CourseController(IMongoClient client)
         {
             var database = client.GetDatabase("osdu_academy");
-            _shortCourseCollection = database.GetCollection<ShortCourse>("courses");
             _fullCourseCollection = database.GetCollection<Course>("courses");
             _sectionCollection = database.GetCollection<Section>("course_sections");
-        }
-
-        [HttpGet]
-        public IEnumerable<ShortCourse> Get()
-        {
-            return _shortCourseCollection.Find(s=> true /*s.AvgRating > 3f*/).ToList();
         }
 
         /// <summary>
@@ -37,9 +29,22 @@ namespace OSDUAcademy.Controllers
         /// </summary>
         /// <returns>IEnumerable object with all the courses</returns>
         [Route("trending")]
-        public IEnumerable<ShortCourse> GetTrending()
+        public IEnumerable<Course> GetTrending()
         {
-            return _shortCourseCollection.Find(s=> true).ToList();
+            var fieldsBuilder = Builders<Course>.Projection;
+            
+            var fields = fieldsBuilder
+                .Exclude(c => c.Id)
+                .Exclude(c => c.Duration)
+                .Exclude(c => c.Sections)
+                ;
+            
+            var all = _fullCourseCollection
+                .Find(c => true)
+                .Project<Course>(fields)
+                .ToList();
+            
+            return all;
         }
         
         /// <summary>
