@@ -14,14 +14,14 @@ namespace OSDUAcademy.Controllers
     {
         private static readonly ProjectionDefinitionBuilder<Course> CourseFieldBuilder = Builders<Course>.Projection;
         
-        private readonly IMongoCollection<Course> _fullCourseCollection;
+        private readonly IMongoCollection<Course> _courseCollection;
         
         private readonly IMongoCollection<Section> _sectionCollection;
         
         public CourseController(IMongoClient client)
         {
             var database = client.GetDatabase("osdu_academy");
-            _fullCourseCollection = database.GetCollection<Course>("courses");
+            _courseCollection = database.GetCollection<Course>("courses");
             _sectionCollection = database.GetCollection<Section>("course_sections");
         }
 
@@ -38,7 +38,7 @@ namespace OSDUAcademy.Controllers
                 .Exclude(c => c.Duration)
                 .Exclude(c => c.Sections);
             
-            var all = _fullCourseCollection
+            var all = _courseCollection
                 .Find(c => true)
                 .Project<Course>(fields)
                 .ToList();
@@ -52,12 +52,12 @@ namespace OSDUAcademy.Controllers
         /// <param name="route">Unique route as present in the database</param>
         /// <returns>The course by route</returns>
         [HttpGet("{route}")]
-        public async Task<Dictionary<string, object>> GetCourse(string route)
+        public Dictionary<string, object> GetCourse(string route)
         {
             var courseFields = CourseFieldBuilder
                 .Exclude(c => c.Id);
             
-            var course =  _fullCourseCollection
+            var course =  _courseCollection
                 .Find(c => c.PublicRoute == route)
                 .Project<Course>(courseFields)
                 .ToList().Single();
