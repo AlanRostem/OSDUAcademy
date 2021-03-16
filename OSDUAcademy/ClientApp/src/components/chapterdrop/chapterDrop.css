@@ -12,6 +12,7 @@
     width: 100%;
     height: 60px;
     padding: 5px;
+    text-align: left;
 }
 
 .drop-button h3 {
