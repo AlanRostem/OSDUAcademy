@@ -63,7 +63,6 @@ export default class CourseFrontPage extends Component {
                             )
                         }
                     </ChapterBar>
-
                     <div className="course-description-container">
                         <h2>Course Description</h2>
                         <p>
