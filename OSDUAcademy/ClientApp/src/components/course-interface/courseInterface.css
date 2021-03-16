@@ -1,16 +1,32 @@
 .course-sidebar {
     position: absolute;
-    width: 300px;
+    width: 400px;
     height: 40%;
     right: 0;
-    margin-top: 0;
+    top: 0;
 }
 
 .overview-h {
-    background-color: dimgrey;
-    padding: 5px;
-    border: solid grey 1px;
+    background-color: #2c5385;
+    font-size: 1.5em;
+    padding: .5rem 1rem;
+    border: solid #2c5385 1px;
     margin: 0;
+}
+
+.overview-h h3 {
     color: white;
+    min-height: 55px;
+    line-height: 200%;
+}
+
+.close-btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    float: right;
+    padding: .5rem 1rem;
+    line-height: 145%;
+    margin-right: -10px;
 }
 
