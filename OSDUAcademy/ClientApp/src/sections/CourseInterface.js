@@ -16,6 +16,7 @@ export class CourseInterface extends Component {
                 
                 <CourseContent/>
                 
+                <Footer/>
             </div>
         );
     }

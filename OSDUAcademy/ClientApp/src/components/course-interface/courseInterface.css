@@ -30,3 +30,34 @@
     margin-right: -10px;
 }
 
+.course-content {
+    background-color: coral;
+    height: 400px;
+    width: 100%;
+    padding: 1.5rem;
+}
+
+.course-navigation {
+    display: table;
+    margin-top: 5px;
+    margin-bottom: -5px;
+}
+
+.course-list {
+    list-style: none;
+    min-width: 30px;
+    padding-top: 5px;
+}
+.course-list li {
+    display: inline;
+}
+
+.course-list a {
+    color: black;
+}
+
+.course-list :first-child {
+    margin-right: 5px;
+}
+
+

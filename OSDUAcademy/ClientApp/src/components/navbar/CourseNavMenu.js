@@ -43,7 +43,7 @@ export class CourseNavMenu extends Component {
         return (
             <header>
                 <Navbar
-                    className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow navbar-slb"
+                    className="navbar-expand-sm navbar-toggleable-sm ng-white box-shadow navbar-slb"
                     light>
 
                     

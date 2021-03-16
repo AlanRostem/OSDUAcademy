@@ -16,6 +16,7 @@ export class CourseSideBar extends Component {
                 
                 {
                     !this.state.closed ? 
+                        
                     this.props.children : undefined
                 }
             </div>
