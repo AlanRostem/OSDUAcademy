@@ -63,7 +63,9 @@ namespace OSDUAcademy.Controllers
                 .ToList().Single();
             
             List<Section> sections = new List<Section>();
-            var sectionFields = Builders<Section>.Projection.Exclude(s => s.Id);
+            
+            var sectionFields = Builders<Section>.Projection
+                .Exclude(s => s.Id);
             foreach (var id in course.Sections)
             {
                 var section = _sectionCollection
@@ -76,7 +78,7 @@ namespace OSDUAcademy.Controllers
             Dictionary<string, object> data = new Dictionary<string, object>
             {
                 ["course"] = course,
-                ["sections"] = sections
+                ["sections"] = sections,
             };
 
             return data;
