@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using OSDUAcademy.DataTypes;
 
@@ -62,16 +63,19 @@ namespace OSDUAcademy.Controllers
                 .Project<Course>(courseFields)
                 .ToList().Single();
             
-            List<Section> sections = new List<Section>();
             
             var sectionFields = Builders<Section>.Projection
                 .Exclude(s => s.Id);
+
+            List<Section> sections = new List<Section>();
+
             foreach (var id in course.Sections)
             {
                 var section = _sectionCollection
                     .Find(s => s.Id == id)
                     .Project<Section>(sectionFields)
                     .ToList().Single();
+
                 sections.Add(section);
             }
             
