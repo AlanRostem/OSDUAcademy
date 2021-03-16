@@ -21,7 +21,7 @@ export default class CourseFrontPage extends Component {
         return (
             <div>
                 <div className="course-intro-card">
-                    <img src={process.env.PUBLIC_URL + "/img/" + this.state.data.imgUrl} alt="Course"/>
+                    <img src={process.env.PUBLIC_URL + "/img/" + this.state.course.imgUrl} alt="Course"/>
                     <div className="intro-card-info">
                         <h3>Before you learn</h3>
                         <div className="slightly-dim">
@@ -47,22 +47,20 @@ export default class CourseFrontPage extends Component {
                     </div>
                 </div>
                 <CourseBanner
-                    title={this.state.data.title}
-                    desc={this.state.data.description}
-                    difficulty={this.state.data.difficulty}
-                    duration={this.state.data.duration}
+                    title={this.state.course.title}
+                    desc={this.state.course.description}
+                    difficulty={this.state.course.difficulty}
+                    duration={this.state.course.duration}
                 />
 
                 <Container>
                     <ChapterBar>
                         {
-                            /*
-                            this.state.data.sections.map((section, i) =>
-                                <ChapterDrop name="Introduction" amount="1">
-                                    <ChapterItem subchapter="What you will learn"/>
+                            this.state.sections.map((section, i) =>
+                                <ChapterDrop key={i} name={section.title} amount="1">
+                                    <ChapterItem subchapter="This needs to be implemented"/>
                                 </ChapterDrop>
                             )
-                             */
                         }
                     </ChapterBar>
 
@@ -114,6 +112,11 @@ export default class CourseFrontPage extends Component {
     async getCourseData() {
         const response = await fetch('course/' + this.props.match.params.courseRoute);
         const data = await response.json();
-        this.setState({data: data, loading: false});
+        console.log(data);
+        this.setState({
+            course: data.course, 
+            sections: data.sections,
+            loading: false
+        });
     }
 }
