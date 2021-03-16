@@ -1,12 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
 using System.Threading.Tasks;
-using MongoDB;
-using MongoDB.Bson;
 using MongoDB.Driver;
 using OSDUAcademy.DataTypes;
 
@@ -44,14 +38,14 @@ namespace OSDUAcademy.Controllers
         }
         
         /// <summary>
-        /// Deliver a course to the client by id.
+        /// Deliver a course to the client by its generated route
         /// </summary>
-        /// <param name="id">Unique identifier as present in the database</param>
-        /// <returns>The course by id</returns>
-        [HttpGet("{id}")]
-        public async Task<Course> GetCourse(string id)
+        /// <param name="route">Unique route as present in the database</param>
+        /// <returns>The course by route</returns>
+        [HttpGet("{route}")]
+        public async Task<Course> GetCourse(string route)
         {
-            Course course = await _courseCollection.Find(s => s.Id == id).SingleAsync();
+            Course course = await _courseCollection.Find(s => s.PublicRoute == route).SingleAsync();
             return course;
         }
     }

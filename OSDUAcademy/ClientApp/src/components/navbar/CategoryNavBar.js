@@ -3,7 +3,6 @@ import './NavMenu.css';
 
 export class CategoryNavBar extends Component {
     static displayName = CategoryNavBar.name;
-    
 
     render () {
         return (

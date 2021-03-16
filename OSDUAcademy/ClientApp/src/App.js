@@ -19,7 +19,7 @@ export default class App extends Component {
                 <Route path='/fetch-data' component={FetchData}/>
                 <Route path='/home-li' component={Homeli}/>
                 <Route path='/search' component={Search}/>
-                <Route path='/course-front-page' component={CourseFrontPage}/>
+                <Route path='/course-front-page/:courseRoute' component={CourseFrontPage}/>
             </div>
         );
     }

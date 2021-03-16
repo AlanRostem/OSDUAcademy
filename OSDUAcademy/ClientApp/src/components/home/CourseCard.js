@@ -5,7 +5,7 @@ import StarRating from "../course/StarRating";
 export default class CourseCard extends Component {
     render() {
         return (
-            <NavLink tag={Link} className="course-card" to="/course-front-page">
+            <NavLink tag={Link} className="course-card" to={"/course-front-page/" + this.props.routeName}>
                 <img src={process.env.PUBLIC_URL + "/" + this.props.imgSrc} alt={"Course: " + this.props.title}/>
                 <h6>{this.props.title}</h6>
                 <p className="dim-text">{this.props.desc}</p>

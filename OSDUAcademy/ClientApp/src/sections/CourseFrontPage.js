@@ -13,7 +13,7 @@ export default class CourseFrontPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: true
+            loading: true,
         };
     }
 
@@ -47,13 +47,10 @@ export default class CourseFrontPage extends Component {
                     </div>
                 </div>
                 <CourseBanner
-                    title="Intermediate course for developers"
-                    desc="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede."
-                    difficulty="Intermediate"
-                    domain="Business"
-                    duration="3-4 days"
-                    creator="Nemanja Babic"
-                    lastUpdated="02-02-2020"
+                    title={this.state.data.title}
+                    desc={this.state.data.description}
+                    difficulty={this.state.data.difficulty}
+                    duration={this.state.data.duration}
                 />
 
                 <Container>
@@ -125,7 +122,7 @@ export default class CourseFrontPage extends Component {
     }
 
     async getCourseData() {
-        const response = await fetch('course');
+        const response = await fetch('course/' + this.props.match.params.courseRoute);
         const data = await response.json();
         this.setState({data: data, loading: false});
     }

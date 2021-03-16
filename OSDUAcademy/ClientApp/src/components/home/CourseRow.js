@@ -68,6 +68,7 @@ export default class CourseRow extends Component {
                     desc={data.description}
                     difficulty={data.difficulty}
                     domain={data.domain}
+                    routeName={data.publicRoute}
                     imgSrc="img/course-drilling-test.png"
                 />  
             );
@@ -77,7 +78,7 @@ export default class CourseRow extends Component {
             {
                 this.courses.map((child, i) => {
                     return (
-                        <Slide index={i}>
+                        <Slide index={i} key={i}>
                             {child}
                         </Slide>
                     );
