@@ -12,6 +12,8 @@ namespace OSDUAcademy.Controllers
     [Route("[controller]")]
     public class CourseController : ControllerBase
     {
+        private static readonly ProjectionDefinitionBuilder<Course> CourseFieldBuilder = Builders<Course>.Projection;
+        
         private readonly IMongoCollection<Course> _fullCourseCollection;
         
         private readonly IMongoCollection<Section> _sectionCollection;
@@ -31,13 +33,10 @@ namespace OSDUAcademy.Controllers
         [Route("trending")]
         public IEnumerable<Course> GetTrending()
         {
-            var fieldsBuilder = Builders<Course>.Projection;
-            
-            var fields = fieldsBuilder
+            var fields = CourseFieldBuilder
                 .Exclude(c => c.Id)
                 .Exclude(c => c.Duration)
-                .Exclude(c => c.Sections)
-                ;
+                .Exclude(c => c.Sections);
             
             var all = _fullCourseCollection
                 .Find(c => true)
@@ -55,11 +54,22 @@ namespace OSDUAcademy.Controllers
         [HttpGet("{route}")]
         public async Task<Dictionary<string, object>> GetCourse(string route)
         {
-            var course = await _fullCourseCollection.Find(s => s.PublicRoute == route).SingleAsync();
+            var courseFields = CourseFieldBuilder
+                .Exclude(c => c.Id);
+            
+            var course =  _fullCourseCollection
+                .Find(c => c.PublicRoute == route)
+                .Project<Course>(courseFields)
+                .ToList().Single();
+            
             List<Section> sections = new List<Section>();
+            var sectionFields = Builders<Section>.Projection.Exclude(s => s.Id);
             foreach (var id in course.Sections)
             {
-                var section = await  _sectionCollection.Find(s => s.Id == id).SingleAsync();
+                var section = _sectionCollection
+                    .Find(s => s.Id == id)
+                    .Project<Section>(sectionFields)
+                    .ToList().Single();
                 sections.Add(section);
             }
             
