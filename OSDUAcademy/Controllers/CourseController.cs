@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using OSDUAcademy.DataTypes;
@@ -10,20 +12,21 @@ namespace OSDUAcademy.Controllers
     [Route("[controller]")]
     public class CourseController : ControllerBase
     {
-        private readonly IMongoCollection<ShortCourseRepresentation> _shortCourseCollection;
-        private readonly IMongoCollection<FullCourseRepresentation> _fullCourseCollection;
-        private readonly IMongoCollection<Chapter> _chapterCollection;
+        private readonly IMongoCollection<ShortCourse> _shortCourseCollection;
+        private readonly IMongoCollection<Course> _fullCourseCollection;
+        
+        private readonly IMongoCollection<Section> _sectionCollection;
         
         public CourseController(IMongoClient client)
         {
             var database = client.GetDatabase("osdu_academy");
-            _shortCourseCollection = database.GetCollection<ShortCourseRepresentation>("courses");
-            _fullCourseCollection = database.GetCollection<FullCourseRepresentation>("courses");
-            _chapterCollection = database.GetCollection<Chapter>("chapters");
+            _shortCourseCollection = database.GetCollection<ShortCourse>("courses");
+            _fullCourseCollection = database.GetCollection<Course>("courses");
+            _sectionCollection = database.GetCollection<Section>("course_sections");
         }
 
         [HttpGet]
-        public IEnumerable<ShortCourseRepresentation> Get()
+        public IEnumerable<ShortCourse> Get()
         {
             return _shortCourseCollection.Find(s=> true /*s.AvgRating > 3f*/).ToList();
         }
@@ -34,7 +37,7 @@ namespace OSDUAcademy.Controllers
         /// </summary>
         /// <returns>IEnumerable object with all the courses</returns>
         [Route("trending")]
-        public IEnumerable<ShortCourseRepresentation> GetTrending()
+        public IEnumerable<ShortCourse> GetTrending()
         {
             return _shortCourseCollection.Find(s=> true).ToList();
         }
@@ -45,10 +48,23 @@ namespace OSDUAcademy.Controllers
         /// <param name="route">Unique route as present in the database</param>
         /// <returns>The course by route</returns>
         [HttpGet("{route}")]
-        public async Task<FullCourseRepresentation> GetCourse(string route)
+        public async Task<Dictionary<string, object>> GetCourse(string route)
         {
-            FullCourseRepresentation shortCourseRepresentation = await _fullCourseCollection.Find(s => s.PublicRoute == route).SingleAsync();
-            return shortCourseRepresentation;
+            var course = await _fullCourseCollection.Find(s => s.PublicRoute == route).SingleAsync();
+            List<Section> sections = new List<Section>();
+            foreach (var id in course.Sections)
+            {
+                var section = await  _sectionCollection.Find(s => s.Id == id).SingleAsync();
+                sections.Add(section);
+            }
+            
+            Dictionary<string, object> data = new Dictionary<string, object>
+            {
+                ["course"] = course,
+                ["sections"] = sections
+            };
+
+            return data;
         }
     }
 }

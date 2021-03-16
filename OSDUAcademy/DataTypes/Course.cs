@@ -1,10 +1,17 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using System.Collections.Generic;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace OSDUAcademy.DataTypes
 {
+    // TODO: Create proper course media storage
+    
     [BsonIgnoreExtraElements]
-    public class ShortCourseRepresentation
+    public class Course
     {
+        [BsonId] 
+        public ObjectId Id { get; set; }
+        
         [BsonElement("title")]
         public string Title { get; set; }
 
@@ -13,11 +20,17 @@ namespace OSDUAcademy.DataTypes
 
         [BsonElement("difficulty")]
         public string Difficulty { get; set; }
+
+        [BsonElement("duration")]
+        public string Duration { get; set; }
         
         [BsonElement("public_route")]
         public string PublicRoute { get; set; }
         
         [BsonElement("img_url")]
         public string ImgUrl { get; set; }
+
+        [BsonElement("sections")] 
+        public List<ObjectId> Sections;
     }
 }
