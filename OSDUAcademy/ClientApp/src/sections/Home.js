@@ -3,7 +3,6 @@ import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Container} from "reactstrap";
 import {CategoryNavBar} from "../components/navbar/CategoryNavBar";
 import {CategoryItem} from "../components/navbar/CategoryItem";
-import CourseCard from "../components/home/CourseCard";
 import CourseRow from "../components/home/CourseRow";
 import {Footer} from "../components/navbar/Footer";
 
@@ -51,7 +50,7 @@ export class Home extends Component {
                         <CategoryItem itemActive={false}>GAS</CategoryItem>
                         <CategoryItem itemActive={false}>OTHER</CategoryItem>
                     </CategoryNavBar>
-                    <CourseRow getByTrending={true}/>
+                    <CourseRow searchByTrending={true}/>
                 </Container>
                 <Footer/>
             </div>
