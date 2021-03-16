@@ -1,0 +1,16 @@
+.course-sidebar {
+    position: absolute;
+    width: 300px;
+    height: 40%;
+    right: 0;
+    margin-top: 0;
+}
+
+.overview-h {
+    background-color: dimgrey;
+    padding: 5px;
+    border: solid grey 1px;
+    margin: 0;
+    color: white;
+}
+
