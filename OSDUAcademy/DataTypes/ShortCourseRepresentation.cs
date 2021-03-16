@@ -3,7 +3,7 @@
 namespace OSDUAcademy.DataTypes
 {
     [BsonIgnoreExtraElements]
-    public class Course
+    public class ShortCourseRepresentation
     {
         [BsonElement("title")]
         public string Title { get; set; }
