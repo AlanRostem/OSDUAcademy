@@ -18,21 +18,24 @@ export default class CourseRow extends Component {
 
     async populateCourses() {
         let route = "";
-        if (this.props.getByTrending)
-        {
+        if (this.props.searchByTrending) {
             route = "trending";
+        } else {
+            route = this.props.domainToSearchBy;
+            if (!route)
+                this.setState({data: [], loading: false});
+                return;
         }
 
         const response = await fetch('course/' + route);
         try {
             const data = await response.json();
             this.setState({data: data, loading: false});
-        }
-        catch (e) {
+        } catch (e) {
             console.error(await response.text());
         }
     }
-    
+
     render() {
         return (
             <CarouselProvider
@@ -47,8 +50,8 @@ export default class CourseRow extends Component {
                 {
                     this.state.loading ?
                         this.showLoading() :
-                        this.showCourses() 
-                        
+                        this.showCourses()
+
                 }
                 <div className="course-scroll-button-container">
                     <ButtonBack className="course-scroll-button"><i
@@ -70,10 +73,10 @@ export default class CourseRow extends Component {
                     domain={data.domain}
                     routeName={data.publicRoute}
                     imgSrc="img/course-drilling-test.png"
-                />  
+                />
             );
         }
-        
+
         return <Slider>
             {
                 this.courses.map((child, i) => {

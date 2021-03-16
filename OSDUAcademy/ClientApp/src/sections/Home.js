@@ -51,7 +51,7 @@ export class Home extends Component {
                         <CategoryItem itemActive={false}>GAS</CategoryItem>
                         <CategoryItem itemActive={false}>OTHER</CategoryItem>
                     </CategoryNavBar>
-                    <CourseRow getByTrending={true}/>
+                    <CourseRow searchByTrending={true}/>
                 </Container>
                 <Footer/>
             </div>
