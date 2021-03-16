@@ -21,7 +21,7 @@ export default class CourseFrontPage extends Component {
         return (
             <div>
                 <div className="course-intro-card">
-                    <img src={process.env.PUBLIC_URL + "img/course-drilling-test.png"} alt="Course"/>
+                    <img src={process.env.PUBLIC_URL + "/img/" + this.state.data.imgUrl} alt="Course"/>
                     <div className="intro-card-info">
                         <h3>Before you learn</h3>
                         <div className="slightly-dim">
@@ -55,27 +55,17 @@ export default class CourseFrontPage extends Component {
 
                 <Container>
                     <ChapterBar>
-                        <ChapterDrop name="Introduction" amount="1">
-                            <ChapterItem subchapter="What you will learn"/>
-                        </ChapterDrop>
-                        <ChapterDrop name="Data Management" amount="5">
-                            <ChapterItem subchapter="Somebody once told me"/>
-                            <ChapterItem subchapter="The worlds gonna roll me"/>
-                            <ChapterItem subchapter="I ain't the sharpest tool in the shed"/>
-                            <ChapterItem subchapter="She was looking kind of dumb with her finger and her thumb She was looking kind of dumb with her finger and her thumb She was looking kind of dumb with her finger and her thumb She was looking kind of dumb with her finger and her thumb"/>
-                            <ChapterItem subchapter="In the shape of an L on her forehead"/>
-                        </ChapterDrop>
-                        <ChapterDrop name="Another thing" amount="4">
-                            <ChapterItem subchapter="Small things"/>
-                            <ChapterItem subchapter="Bigger things"/>
-                            <ChapterItem subchapter="Even bigger stuff"/>
-                            <ChapterItem subchapter="The absolute biggest"/>
-                        </ChapterDrop>
-                        <ChapterDrop name="The last thing" amount="1">
-                            <ChapterItem subchapter="Summary"/>
-                        </ChapterDrop>
+                        {
+                            /*
+                            this.state.data.sections.map((section, i) =>
+                                <ChapterDrop name="Introduction" amount="1">
+                                    <ChapterItem subchapter="What you will learn"/>
+                                </ChapterDrop>
+                            )
+                             */
+                        }
                     </ChapterBar>
-                    
+
                     <div className="course-description-container">
                         <h2>Course Description</h2>
                         <p>

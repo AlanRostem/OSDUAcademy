@@ -24,7 +24,7 @@ export default class CourseRow extends Component {
             route = this.props.domainToSearchBy;
             if (!route)
                 this.setState({data: [], loading: false});
-                return;
+            return;
         }
 
         const response = await fetch('course/' + route);
@@ -72,7 +72,7 @@ export default class CourseRow extends Component {
                     difficulty={data.difficulty}
                     domain={data.domain}
                     routeName={data.publicRoute}
-                    imgSrc="img/course-drilling-test.png"
+                    imgSrc={process.env.PUBLIC_URL + "img/" + data.imgUrl}
                 />
             );
         }

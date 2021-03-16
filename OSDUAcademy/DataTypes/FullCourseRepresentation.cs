@@ -1,10 +1,16 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace OSDUAcademy.DataTypes
 {
+    // TODO: Create proper course media storage
+    
     [BsonIgnoreExtraElements]
-    public class ShortCourseRepresentation
+    public class FullCourseRepresentation
     {
+        [BsonId] 
+        public ObjectId Id { get; set; }
+        
         [BsonElement("title")]
         public string Title { get; set; }
 
@@ -13,6 +19,9 @@ namespace OSDUAcademy.DataTypes
 
         [BsonElement("difficulty")]
         public string Difficulty { get; set; }
+
+        [BsonElement("duration")]
+        public string Duration { get; set; }
         
         [BsonElement("public_route")]
         public string PublicRoute { get; set; }
