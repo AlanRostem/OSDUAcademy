@@ -112,13 +112,14 @@ export default class CourseFrontPage extends Component {
         const response = await fetch('course/' + this.props.match.params.courseRoute);
         try {
             const data = await response.json();
+            console.log(data);
             this.setState({
                 course: data.course,
                 sections: data.sections,
                 loading: false
             });
         } catch (e) {
-            console.error(response.body);
+            console.error(e)
         }
   
     }

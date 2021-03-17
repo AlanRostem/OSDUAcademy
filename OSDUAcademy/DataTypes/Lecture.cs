@@ -7,6 +7,6 @@ namespace OSDUAcademy.DataTypes
     public class Lecture
     {
         [BsonElement("title")] 
-        public string Title;
+        public string Title { get; set; }
     }
 }

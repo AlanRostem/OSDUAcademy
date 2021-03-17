@@ -13,7 +13,7 @@ namespace OSDUAcademy.DataTypes
         [BsonElement("title")]
         public string Title { get; set; }
 
-        //[BsonElement("lectures")] 
-        //public List<Lecture> Lectures;
+        [BsonElement("lectures")] 
+        public List<Lecture> Lectures { get; set; }
     }
 }
