@@ -32,7 +32,7 @@ export default class CourseRow extends Component {
             const data = await response.json();
             this.setState({data: data, loading: false});
         } catch (e) {
-            console.error(await response.text());
+            console.error(response);
         }
     }
 
