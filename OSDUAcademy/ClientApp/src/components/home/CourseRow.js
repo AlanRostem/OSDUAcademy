@@ -24,6 +24,8 @@ export default class CourseRow extends Component {
             route = this.props.domainToSearchBy;
             if (!route)
                 this.setState({data: [], loading: false});
+            else 
+                route = "domain/" + this.props.domainToSearchBy;
             return;
         }
 

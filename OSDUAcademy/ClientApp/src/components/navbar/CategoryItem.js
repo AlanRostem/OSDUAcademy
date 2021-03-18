@@ -6,9 +6,7 @@ export class CategoryItem extends Component {
 
     render () {
         return (
-            <li className={ "nav-item" + (this.props.itemActive ? " active" : "") }>
-                <p className="nav-link">{this.props.children}</p>
-            </li>
+            <p className="nav-link">{this.props.children}</p>
         );
     }
 }
