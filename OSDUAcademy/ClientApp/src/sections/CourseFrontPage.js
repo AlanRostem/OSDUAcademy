@@ -17,6 +17,10 @@ export default class CourseFrontPage extends Component {
         };
     }
 
+    handleApply() {
+        
+    }
+
     showCourseContent() {
         return (
             <div>
@@ -25,24 +29,13 @@ export default class CourseFrontPage extends Component {
                     <div className="intro-card-info">
                         <h3>Before you learn</h3>
                         <div className="slightly-dim">
-                            <p>You should know the following prerequisites pefore enrolling:</p>
-                            <div className="intro-prerequisite-lists">
-                                <ul>
-                                    <li>Prerequisite</li>
-                                    <li>Prerequisite</li>
-                                    <li>Prerequisite</li>
-                                    <li>Prerequisite</li>
-                                </ul>
-                                <ul>
-                                    <li>Prerequisite</li>
-                                    <li>Prerequisite</li>
-                                    <li>Prerequisite</li>
-                                    <li>Prerequisite</li>
-                                </ul>
-                            </div>
+                            <p>You should know the following prerequisites before enrolling:</p>
+                            {
+                                this.populatePrerequisites()
+                            }
                         </div>
                         <div className="intro-buttons">
-                            <button><Link to="/">Apply</Link></button>
+                            <button onClick={this.handleApply.bind(this)}>Apply</button>
                         </div>
                     </div>
                 </div>
@@ -59,7 +52,7 @@ export default class CourseFrontPage extends Component {
                             this.state.sections.map((section, i) =>
                                 <ChapterDrop key={i} name={section.title} amount={section.lectures.length}>
                                     {section.lectures.map((lecture, j) =>
-                                        <ChapterItem key={j} subchapter={lecture.title} />
+                                        <ChapterItem key={j} subchapter={lecture.title}/>
                                     )}
                                 </ChapterDrop>
                             )
@@ -68,22 +61,7 @@ export default class CourseFrontPage extends Component {
                     <div className="course-description-container">
                         <h2>Course Description</h2>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat
-                            mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper
-                            suscipit, posuere a, pede.
-
-                            Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
-                            Aenean dignissim pellentesque felis.
-
-                            Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a,
-                            ultricies in, diam. Sed arcu. Cras consequat.
-
-                            Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate magna
-                            eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
-                            facilisis luctus, metus.
-
-                            Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate
-                            sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.
+                            {this.state.course.fullDescription}
                         </p>
                     </div>
 
@@ -123,6 +101,36 @@ export default class CourseFrontPage extends Component {
         } catch (e) {
             console.error(e)
         }
-  
+
+    }
+
+    populatePrerequisites() {
+        let list0 = [];
+        let list1 = [];
+
+        let i = 0;
+        for (let p of this.state.course.prerequisites) {
+            if (i < 4) {
+                list0.push(
+                    <li key={i}>{p}</li>
+                );
+            } else {
+                list1.push(
+                    <li key={i}>{p}</li>
+                );
+            }
+            i++;
+        }
+
+        return (
+            <div className="intro-prerequisite-lists">
+                <ul>
+                    {list0}
+                </ul>
+                <ul>
+                    {list1}
+                </ul>
+            </div>
+        )
     }
 }
