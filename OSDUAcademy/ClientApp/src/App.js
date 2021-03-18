@@ -7,7 +7,7 @@ import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizat
 import {ApplicationPaths} from './components/api-authorization/ApiAuthorizationConstants';
 
 import {Home} from './sections/Home';
-import {Counter} from './sections/Counter';
+import {Counter} from './components/Counter';
 import {Homeli} from './sections/Homeli';
 import {Search} from "./sections/Search";
 import CourseFrontPage from "./sections/CourseFrontPage";
