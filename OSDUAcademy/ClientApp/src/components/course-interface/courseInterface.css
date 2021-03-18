@@ -58,11 +58,10 @@
 }
 
 .course-content {
-    width: 500px;
+    width: auto;
 }
 
 .course-navigation li {
-    width: 400px;
     height: inherit;
 }
 
