@@ -1,0 +1,90 @@
+﻿.course-banner {
+    background-color: #262c2c;
+    width: 100%;
+    color: white;
+    padding: 1em;
+    margin-top: 32px;
+}
+
+.course-banner .container .sub-container {
+    width: 60%;
+    margin-left: 0;
+}
+
+.course-banner a {
+    color: #4886ce
+}
+
+.course-banner .line {
+    flex-direction: row;
+}
+
+.course-banner .line span,
+.course-banner .line a {
+    margin-right: .5em;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.course-banner .tags {
+}
+
+.course-description-container {
+    margin-top: 2em;
+    width: 60%;
+    margin-left: 0;
+}
+
+.course-intro-card {
+    width: 25%;
+    box-shadow: 5px 5px 35px -6px #434343;
+    background-color: white;
+    
+    right: 12%;
+    margin-top: -20px;
+    position: absolute;
+    margin-right: auto;
+}
+
+.course-intro-card .intro-prerequisite-lists {
+    display: flex;
+    flex-direction: row;
+}
+
+.course-intro-card img {
+    width: 100%;
+    margin: 0;
+}
+
+.course-intro-card .intro-card-info {
+    padding: 1em;
+}
+
+.course-intro-card .intro-card-info p {
+    font-size: .85em;
+}
+
+.course-intro-card .intro-buttons {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.course-intro-card .intro-buttons button {
+    width: 45%;
+    height: 48px;
+    border-radius: 5px;
+    background-color: #1b6ec2;
+    border-color: transparent;
+    color: white;
+}
+
+.course-intro-card .intro-buttons button a {
+    color: white;
+}
+
+.course-intro-card .intro-buttons button a:hover {
+    text-decoration: none;
+}
+
