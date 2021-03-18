@@ -44,13 +44,13 @@ export class Home extends Component {
                     <p style={{textAlign:"center", color:"#7f7f7f"}}>Find the most popular courses at OSDU Academy</p>
                     
                     <CategoryNavBar>
-                        <CategoryItem itemActive={true}>PETROLEUM</CategoryItem>
-                        <CategoryItem itemActive={false}>GEOLOGY</CategoryItem>
-                        <CategoryItem itemActive={false}>ENERGY</CategoryItem>
-                        <CategoryItem itemActive={false}>GAS</CategoryItem>
-                        <CategoryItem itemActive={false}>OTHER</CategoryItem>
+                        <CategoryItem itemActive={true} componentToShow={<CourseRow searchByTrending={true}/>}>PETROLEUM</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow />} >GEOLOGY</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow />} >ENERGY</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow />} >GAS</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow />} >OTHER</CategoryItem>
                     </CategoryNavBar>
-                    <CourseRow searchByTrending={true}/>
+                    
                 </Container>
                 <Footer/>
             </div>
