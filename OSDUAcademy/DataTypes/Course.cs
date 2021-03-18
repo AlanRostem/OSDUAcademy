@@ -17,6 +17,9 @@ namespace OSDUAcademy.DataTypes
 
         [BsonElement("desc")]
         public string Description { get; set; }
+        
+        [BsonElement("full_desc")]
+        public string FullDescription { get; set; }
 
         [BsonElement("difficulty")]
         public string Difficulty { get; set; }
@@ -31,6 +34,6 @@ namespace OSDUAcademy.DataTypes
         public string ImgUrl { get; set; }
 
         [BsonElement("sections")] 
-        public List<ObjectId> Sections;
+        public List<ObjectId> Sections { get; set; }
     }
 }

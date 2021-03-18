@@ -37,7 +37,8 @@ namespace OSDUAcademy.Controllers
             var fields = CourseFieldBuilder
                 .Exclude(c => c.Id)
                 .Exclude(c => c.Duration)
-                .Exclude(c => c.Sections);
+                .Exclude(c => c.Sections)
+                .Exclude(c => c.FullDescription);
             
             var all = _courseCollection
                 .Find(c => true)
