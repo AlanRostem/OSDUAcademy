@@ -18,7 +18,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.1" />
-    <PackageReference Include="MongoDB.Driver" Version="2.12.0" />
   </ItemGroup>
 
   <ItemGroup>
