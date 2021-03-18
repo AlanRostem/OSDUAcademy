@@ -55,6 +55,7 @@
     padding: 0;
     display: flex;
     justify-content: center;
+
     overflow-y: hidden;
     height: calc(100vh - 60px);
 }
@@ -75,11 +76,10 @@
     color: white;
     background-color: transparent;
     border-style: none;
-    width: 20vw;
-    font-size: 50px;
 }
 
-.nav-btn i {
-    height: 0;
+.fa .fa-chevron-right {
 }
 
+.fa .fa-chevron-left {
+}

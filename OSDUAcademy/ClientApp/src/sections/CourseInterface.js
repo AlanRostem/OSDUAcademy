@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Footer} from "../components/navbar/Footer";
 import {CourseContent} from "../components/course-interface/CourseContent";
 import {CourseNavMenu} from "../components/navbar/CourseNavMenu";
 import '../components/course-interface/courseInterface.css'
