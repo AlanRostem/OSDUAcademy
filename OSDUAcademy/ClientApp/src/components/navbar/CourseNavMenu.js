@@ -57,7 +57,7 @@ export class CourseNavMenu extends Component {
                                   navbar>
                             <ul className="navbar-nav flex-grow">
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-light overview-button" onClick={this.showOverview.bind(this)}>
+                                    <NavLink tag={Link} to="/" className="text-light overview-button" onClick={this.showOverview.bind(this)}>
                                         <NavIcon text="OVERVIEW" iconClass="fa fa-bars"/>
                                     </NavLink>
                                     {
