@@ -6,19 +6,24 @@ export class CourseContent extends Component {
     render() {
         return (
             <div className="course-container">
-
-                <div className="course-navigation">
-                    <ul className="course-list">
-                        <li> <a href="/"> <i className="fa fa-arrow-left"/> Previous</a> </li>
-                        <li> <a href="/">Next <i className="fa fa-arrow-right" aria-hidden="true"/></a> </li>
-                        <li className="divider"> | </li>
-                        
-                    </ul>
-                </div>
+                <ul className="course-navigation">
+                    <li>
+                        <div className="previous-ch">
+                            LEFT
+                        </div>
+                    </li>
+                    <li>
+                        <div  className="course-content">
+                            {this.props.content}
+                        </div>
+                    </li>
+                    <li>
+                        <div className="next-ch">
+                            RIGHT
+                        </div>
+                    </li>
+                </ul>
                 
-                <div className="course-content">
-                    {this.props.content}
-                </div>
             </div>
         );
     }

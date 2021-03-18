@@ -7,7 +7,7 @@ export class CourseSideBar extends Component {
     render() {
         return (
             <div className="course-sidebar">
-                <div>
+                <div className="overview">
                     <div className="overview-h">
                         <h3 className="slightly-dim">Course content <button className="fa fa-times close-btn"
                                                                             aria-hidden="true"
