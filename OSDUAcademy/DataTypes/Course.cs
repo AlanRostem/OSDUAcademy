@@ -20,6 +20,9 @@ namespace OSDUAcademy.DataTypes
         
         [BsonElement("full_desc")]
         public string FullDescription { get; set; }
+        
+        [BsonElement("prerequisites")]
+        public List<string> Prerequisites { get; set; }
 
         [BsonElement("difficulty")]
         public string Difficulty { get; set; }

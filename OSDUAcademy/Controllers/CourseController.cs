@@ -38,7 +38,8 @@ namespace OSDUAcademy.Controllers
                 .Exclude(c => c.Id)
                 .Exclude(c => c.Duration)
                 .Exclude(c => c.Sections)
-                .Exclude(c => c.FullDescription);
+                .Exclude(c => c.FullDescription)
+                .Exclude(c => c.Prerequisites);
             
             var all = _courseCollection
                 .Find(c => true)
