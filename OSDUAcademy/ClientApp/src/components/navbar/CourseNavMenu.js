@@ -63,8 +63,8 @@ export class CourseNavMenu extends Component {
                                     {
                                         this.state.showOverview
                                             ? (
-
-                                                <CourseSideBar>
+                                                <CourseSideBar onClose={this.showOverview.bind(this)}
+                                                >
                                                     <ChapterDrop name="Introduction" amount="1">
                                                         <ChapterItem subchapter="What you will learn"/>
                                                     </ChapterDrop>
