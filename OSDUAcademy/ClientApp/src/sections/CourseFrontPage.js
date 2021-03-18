@@ -17,6 +17,10 @@ export default class CourseFrontPage extends Component {
         };
     }
 
+    handleApply() {
+        
+    }
+
     showCourseContent() {
         return (
             <div>
@@ -25,13 +29,13 @@ export default class CourseFrontPage extends Component {
                     <div className="intro-card-info">
                         <h3>Before you learn</h3>
                         <div className="slightly-dim">
-                            <p>You should know the following prerequisites pefore enrolling:</p>
+                            <p>You should know the following prerequisites before enrolling:</p>
                             {
                                 this.populatePrerequisites()
                             }
                         </div>
                         <div className="intro-buttons">
-                            <button><Link to="/">Apply</Link></button>
+                            <button onClick={this.handleApply.bind(this)}>Apply</button>
                         </div>
                     </div>
                 </div>
