@@ -7,9 +7,11 @@ export class CourseContent extends Component {
         return (
             <div className="course-container">
                 <ul className="course-navigation">
-                    <li>
-                        <div className="previous-ch">
-                            LEFT
+                    <li  className="previous-ch">
+                        <div>
+                            <button className="nav-btn">
+                                <i className="fa fa-chevron-left" aria-hidden="true"/>
+                            </button>
                         </div>
                     </li>
                     <li>
@@ -17,9 +19,11 @@ export class CourseContent extends Component {
                             {this.props.content}
                         </div>
                     </li>
-                    <li>
-                        <div className="next-ch">
-                            RIGHT
+                    <li className="next-ch">
+                        <div>
+                            <button className="nav-btn">
+                                <i className="fa fa-chevron-right" aria-hidden="true"/>
+                            </button>
                         </div>
                     </li>
                 </ul>
