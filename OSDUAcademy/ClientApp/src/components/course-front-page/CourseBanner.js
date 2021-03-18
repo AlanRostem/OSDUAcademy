@@ -1,5 +1,4 @@
 ﻿import React, {Component} from "react";
-import StarRating from "../course/StarRating";
 import {Container} from "reactstrap";
 
 export default class CourseBanner extends Component {

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import VerticalDivider from "../navbar/VerticalDivider";
 
 export class CourseContent extends Component {
     static displayName = CourseContent.name;

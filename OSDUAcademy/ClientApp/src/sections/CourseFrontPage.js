@@ -1,6 +1,6 @@
 ﻿import React, {Component} from "react";
 import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
-import {Container, DropdownItem} from "reactstrap";
+import {Container} from "reactstrap";
 import CourseBanner from "../components/course-front-page/CourseBanner";
 import "../components/course-front-page/course-front-page.css"
 import {Footer} from "../components/navbar/Footer";

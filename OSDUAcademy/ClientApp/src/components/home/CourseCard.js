@@ -1,6 +1,5 @@
 ﻿import React, { Component } from "react"
 import {Link, NavLink} from "react-router-dom";
-import StarRating from "../course/StarRating";
 
 export default class CourseCard extends Component {
     render() {

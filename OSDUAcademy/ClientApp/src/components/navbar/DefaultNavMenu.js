@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import './NavMenu.css';
 import SchlumbergerLogo from "./SchlumbergerLogo"
 import VerticalDivider from "./VerticalDivider";
-import SearchForm from "./SearchForm";
 import NavIcon from "./NavIcon";
 
 export class DefaultNavMenu extends Component {
