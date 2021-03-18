@@ -8,9 +8,8 @@ export class CategoryNavBar extends Component {
         let children = [];
         let i = 0;
         for (let c of this.props.children) {
-            let style = c.props.itemActive ? {} : {display: "none"};
             children.push(
-                <div key={i++} style={style}>
+                <div key={i++} style={{display: c.props.itemActive ? "block" : "none"}}>
                     {c.props.componentToShow}
                 </div>
             )
