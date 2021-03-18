@@ -11,10 +11,7 @@ export class CourseInterface extends Component {
         return (
             <div className="interface-container">
                 <CourseNavMenu/>
-                
                 <CourseContent/>
-                
-                <Footer/>
             </div>
         );
     }

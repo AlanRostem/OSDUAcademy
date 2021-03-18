@@ -38,19 +38,30 @@
 
 .course-content {
     background-color: grey;
-    height: 400px;
     width: 100%;
-    padding: 1.5rem;
 }
 
-.course-container {
-    display: table;
-    margin: 0 auto;
+.interface-container {
+    background-color: black;
+    height: calc(100vh)
+}
+
+.interface-container footer {
+    margin: 0;
 }
 
 .course-navigation {
     list-style: none;
-    display: inline-flex;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+
+    overflow-y: hidden;
+    height: calc(100vh - 60px);
+}
+
+.course-navigation * {
+    height: 100%
 }
 
 .navbar-width {
@@ -58,11 +69,7 @@
 }
 
 .course-content {
-    width: auto;
-}
-
-.course-navigation li {
-    height: inherit;
+    width: 60vw;
 }
 
 .nav-btn {
@@ -72,17 +79,7 @@
 }
 
 .fa .fa-chevron-right {
-    float: left;
 }
 
 .fa .fa-chevron-left {
-    float: right;
 }
-
-.interface-container {
-    background-color: black;
-}
-
-
-
-
