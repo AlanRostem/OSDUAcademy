@@ -37,7 +37,7 @@
 }
 
 .course-content {
-    background-color: coral;
+    background-color: grey;
     height: 400px;
     width: 100%;
     padding: 1.5rem;
@@ -56,4 +56,34 @@
 .navbar-width {
     height: 60px;
 }
+
+.course-content {
+    width: 500px;
+}
+
+.course-navigation li {
+    width: 400px;
+    height: inherit;
+}
+
+.nav-btn {
+    color: white;
+    background-color: transparent;
+    border-style: none;
+}
+
+.fa .fa-chevron-right {
+    float: left;
+}
+
+.fa .fa-chevron-left {
+    float: right;
+}
+
+.interface-container {
+    background-color: black;
+}
+
+
+
 
