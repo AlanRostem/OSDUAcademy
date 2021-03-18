@@ -26,20 +26,9 @@ export default class CourseFrontPage extends Component {
                         <h3>Before you learn</h3>
                         <div className="slightly-dim">
                             <p>You should know the following prerequisites pefore enrolling:</p>
-                            <div className="intro-prerequisite-lists">
-                                <ul>
-                                    <li>Prerequisite</li>
-                                    <li>Prerequisite</li>
-                                    <li>Prerequisite</li>
-                                    <li>Prerequisite</li>
-                                </ul>
-                                <ul>
-                                    <li>Prerequisite</li>
-                                    <li>Prerequisite</li>
-                                    <li>Prerequisite</li>
-                                    <li>Prerequisite</li>
-                                </ul>
-                            </div>
+                            {
+                                this.populatePrerequisites()
+                            }
                         </div>
                         <div className="intro-buttons">
                             <button><Link to="/">Apply</Link></button>
@@ -59,7 +48,7 @@ export default class CourseFrontPage extends Component {
                             this.state.sections.map((section, i) =>
                                 <ChapterDrop key={i} name={section.title} amount={section.lectures.length}>
                                     {section.lectures.map((lecture, j) =>
-                                        <ChapterItem key={j} subchapter={lecture.title} />
+                                        <ChapterItem key={j} subchapter={lecture.title}/>
                                     )}
                                 </ChapterDrop>
                             )
@@ -108,6 +97,36 @@ export default class CourseFrontPage extends Component {
         } catch (e) {
             console.error(e)
         }
-  
+
+    }
+
+    populatePrerequisites() {
+        let list0 = [];
+        let list1 = [];
+
+        let i = 0;
+        for (let p of this.state.course.prerequisites) {
+            if (i < 4) {
+                list0.push(
+                    <li key={i}>{p}</li>
+                );
+            } else {
+                list1.push(
+                    <li key={i}>{p}</li>
+                );
+            }
+            i++;
+        }
+
+        return (
+            <div className="intro-prerequisite-lists">
+                <ul>
+                    {list0}
+                </ul>
+                <ul>
+                    {list1}
+                </ul>
+            </div>
+        )
     }
 }
