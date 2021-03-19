@@ -5,6 +5,7 @@ import './NavMenu.css';
 import SchlumbergerLogo from "./SchlumbergerLogo"
 import VerticalDivider from "./VerticalDivider";
 import NavIcon from "./NavIcon";
+import UserNavLink from "./UserNavLink";
 
 export class DefaultNavMenu extends Component {
     static displayName = DefaultNavMenu.name;
@@ -47,9 +48,7 @@ export class DefaultNavMenu extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-light" to="/login-page">
-                                        <NavIcon text="SIGN UP" iconClass="fa fa-user"/>
-                                    </NavLink>
+                                    <UserNavLink />
                                 </NavItem>
                             </ul>
                         </Collapse>
