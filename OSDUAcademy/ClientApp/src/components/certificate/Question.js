@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Container} from "reactstrap";
 
 export class Question extends Component {
     static displayName = Question.name;
@@ -7,7 +6,7 @@ export class Question extends Component {
     render() {
         return (
             <div className="q-field">
-                <h1>Question {this.props.questionnr}</h1>
+                <h1>Question {this.props.questioncount}</h1>
                 <h2>{this.props.inquiry}</h2>
                 <ul>
                     <li>

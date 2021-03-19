@@ -58,6 +58,7 @@
     background-color: #DFDFE1;
     width: 100%;
     padding: 15px;
+    margin-bottom: 15px;
 }
 
 .q-field h1 {
@@ -77,11 +78,21 @@
     display: flex;
 }
 
-.q-field li {
-    
-}
-
 .choice label {
     margin-left: 10px;
+}
+
+.submit-cont {
+    text-align: center;
+}
+
+.submit-btn {
+    border: solid 1px black;
+    background-color: forestgreen;
+    color: white;
+    margin-top: 30px;
+    font-size: 20px;
+    width: 150px;
+    padding: 7px;
 }
 
