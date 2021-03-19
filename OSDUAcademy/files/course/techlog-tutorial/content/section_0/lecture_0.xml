@@ -1,0 +1,5 @@
+﻿<Content>
+    <Title>Introduction</Title>
+    <Paragraph>This is a paragraph</Paragraph>
+    <Image src="thumbnail.png" />
+</Content>
