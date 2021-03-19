@@ -58,9 +58,11 @@
     height: 100%;
 }
 
-.course-navigation li i {
-    position: relative;
-    top: 50%;
+.course-navigation li a,
+.course-navigation li button,
+.course-navigation li .course-content
+{
+    height: 100%;
 }
 
 .navbar-width {
@@ -70,6 +72,7 @@
 .course-content {
     width: 60vw;
     overflow: auto;
+    background-color: white;
 }
 
 .nav-btn {

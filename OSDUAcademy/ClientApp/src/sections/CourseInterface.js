@@ -13,6 +13,54 @@ export class CourseInterface extends Component {
                 <CourseContent content={`
                     <h1>Welcome to this course!</h1>
                     <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
+                    <p>This is a paragraph!</p>
                 `}/>
             </div>
         );
