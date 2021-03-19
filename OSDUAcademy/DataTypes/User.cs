@@ -20,6 +20,6 @@ namespace OSDUAcademy.DataTypes
         public string Email { get; set; }
         
         [BsonElement("password")]
-        public string Password { get; set; }
+        public string Password { get; set; }    
     }
 }

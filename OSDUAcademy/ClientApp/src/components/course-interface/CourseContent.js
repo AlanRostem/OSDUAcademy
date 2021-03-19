@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import JsxParser from "react-jsx-parser"
 
 export class CourseContent extends Component {
     static displayName = CourseContent.name;
@@ -17,7 +18,7 @@ export class CourseContent extends Component {
                 </li>
                 <li>
                     <div  className="course-content">
-                        {this.props.content}
+                        <JsxParser jsx={this.props.content}/>
                     </div>
                 </li>
                 <li className="next-ch">
