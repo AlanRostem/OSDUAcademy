@@ -3,11 +3,13 @@ import {Component} from "react";
 import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Container} from "reactstrap";
 import UserInfoForm from "../components/login/UserInfoForm";
+import LoadingIcon from "../components/misc/LoadingIcon";
 
 export default class Login extends Component {
     state = {
         email: "",
         password: "",
+        loggingIn: false
     }
 
     inputUsername(event) {
@@ -20,7 +22,7 @@ export default class Login extends Component {
 
     handleLogin(event) {
         event.preventDefault();
-
+        this.setState({loggingIn: true})
         let data = JSON.stringify(this.state);
         console.log("Sending: ", data);
         fetch("login", {
@@ -50,7 +52,11 @@ export default class Login extends Component {
                                required={true}/>
                         <input type="password" name="password" placeholder="Password"
                                onChange={this.inputPassword.bind(this)} required={true}/>
-                        <button type="submit" onClick={this.handleLogin.bind(this)}>Sign in</button>
+                        {
+                            !this.state.loggingIn ?
+                                <button type="submit" onClick={this.handleLogin.bind(this)}>Sign in</button>
+                                : <LoadingIcon />
+                        }
                     </UserInfoForm>
                 </Container>
             </div>
