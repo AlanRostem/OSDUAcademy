@@ -10,7 +10,10 @@ export class CourseInterface extends Component {
         return (
             <div className="interface-container">
                 <CourseNavMenu/>
-                <CourseContent/>
+                <CourseContent content={`
+                    <h1>Welcome to this course!</h1>
+                    <p>This is a paragraph!</p>
+                `}/>
             </div>
         );
     }

@@ -43,7 +43,7 @@ export class Home extends Component {
 
                     <h1 style={{textAlign: "center", paddingTop: "50px"}}>Trending Courses</h1>
                     <p style={{textAlign: "center", color: "#7f7f7f"}}>Find the most popular courses at OSDU Academy</p>
-
+              
                     <CategoryNavBar>
                         <CategoryItem itemActive={true}
                                       componentToShow={<CourseRow searchByTrending={true}/>}>PETROLEUM</CategoryItem>

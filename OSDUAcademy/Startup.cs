@@ -26,7 +26,8 @@ namespace OSDUAcademy
             services.AddSingleton<IMongoClient, MongoClient>(s =>
             {
                 var uri = s.GetRequiredService<IConfiguration>()["MongoUri"];
-                return new MongoClient(uri);
+                var client = new MongoClient(uri);
+                return client;
             });
             
             services.AddControllersWithViews();

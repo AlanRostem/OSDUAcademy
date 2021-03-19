@@ -16,6 +16,11 @@ export default class CourseRow extends Component {
     }
 
     async populateCourses() {
+        if (this.props.testingEnabled) {
+            this.setState({loading: false, data: []})
+            return;
+        }
+
         let route = "";
         if (this.props.searchByTrending) {
             route = "trending";
@@ -51,6 +56,10 @@ export default class CourseRow extends Component {
                 isIntrinsicHeight={true}
                 dragEnabled={false}
                 totalSlides={len}>
+                {
+                    this.props.testingEnabled ?
+                        this.props.children : null
+                }
                 {
                     this.state.loading ?
                         this.showLoading() :
