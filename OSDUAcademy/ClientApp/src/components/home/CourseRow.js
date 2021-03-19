@@ -4,7 +4,6 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import CourseCard from "./CourseCard";
 
 export default class CourseRow extends Component {
-    courses = [];
 
     constructor(props) {
         super(props);
@@ -24,7 +23,7 @@ export default class CourseRow extends Component {
             route = this.props.domainToSearchBy;
             if (!route)
                 this.setState({data: [], loading: false});
-            else 
+            else
                 route = "domain/" + this.props.domainToSearchBy;
             return;
         }
@@ -39,6 +38,9 @@ export default class CourseRow extends Component {
     }
 
     render() {
+        let len = 0;
+        if (this.state.data)
+            len = this.state.data.length;
         return (
             <CarouselProvider
                 naturalSlideWidth={100}
@@ -48,7 +50,7 @@ export default class CourseRow extends Component {
                 infinite={true}
                 isIntrinsicHeight={true}
                 dragEnabled={false}
-                totalSlides={this.courses.length}>
+                totalSlides={len}>
                 {
                     this.state.loading ?
                         this.showLoading() :
@@ -66,30 +68,26 @@ export default class CourseRow extends Component {
     }
 
     showCourses() {
-        for (let data of this.state.data) {
-            this.courses.push(
-                <CourseCard
-                    title={data.title}
-                    desc={data.description}
-                    difficulty={data.difficulty}
-                    domain={data.domain}
-                    routeName={data.publicRoute}
-                    imgSrc={process.env.PUBLIC_URL + "img/" + data.imgUrl}
-                />
-            );
-        }
-
-        return <Slider>
-            {
-                this.courses.map((child, i) => {
-                    return (
-                        <Slide index={i} key={i}>
-                            {child}
-                        </Slide>
-                    );
-                })
-            }
-        </Slider>;
+        return (
+            <Slider>
+                {
+                    this.state.data.map((data, i) => {
+                        return (
+                            <Slide index={i} key={i}>
+                                <CourseCard
+                                    title={data.title}
+                                    desc={data.description}
+                                    difficulty={data.difficulty}
+                                    domain={data.domain}
+                                    routeName={data.publicRoute}
+                                    imgSrc={process.env.PUBLIC_URL + "img/" + data.imgUrl}
+                                />
+                            </Slide>
+                        );
+                    })
+                }
+            </Slider>
+        );
     }
 
     showLoading() {

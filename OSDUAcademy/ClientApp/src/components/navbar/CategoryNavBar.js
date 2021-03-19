@@ -16,7 +16,7 @@ export class CategoryNavBar extends Component {
     }
 
     handleTabClick() {
-        console.log("Button: " + 0)
+        console.log("Button: " + 0);
     }
 
     render() {

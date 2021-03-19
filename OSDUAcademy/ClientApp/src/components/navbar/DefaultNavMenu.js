@@ -6,6 +6,7 @@ import SchlumbergerLogo from "./SchlumbergerLogo"
 import VerticalDivider from "./VerticalDivider";
 import NavIcon from "./NavIcon";
 import UserNavLink from "./UserNavLink";
+import UserService from "../../services/UserService";
 
 export class DefaultNavMenu extends Component {
     static displayName = DefaultNavMenu.name;
@@ -33,9 +34,9 @@ export class DefaultNavMenu extends Component {
                     light>
 
                     <Container>
-                        <NavbarBrand tag={Link} to="/"><SchlumbergerLogo/></NavbarBrand>
+                        <NavbarBrand tag={Link} to={UserService.isLoggedIn() ? "/home-li" : "/"}><SchlumbergerLogo/></NavbarBrand>
                         <NavbarBrand><VerticalDivider/></NavbarBrand>
-                        <NavbarBrand tag={Link} to="/" style={{fontWeight: "bold", color: "white", fontSize: "1.5rem"}}>OSDU
+                        <NavbarBrand tag={Link} to={UserService.isLoggedIn() ? "/home-li" : "/"} style={{fontWeight: "bold", color: "white", fontSize: "1.5rem"}}>OSDU
                             Academy</NavbarBrand>
 
                         <NavbarToggler onClick={this.toggleNavbar} className="mr-2"/>
