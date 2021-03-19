@@ -306,3 +306,24 @@ footer {
     justify-content: center;
 
 }
+
+.add-course-info {
+    width: 100%;
+    background-color: #DFDFE1;
+    padding: 15px;
+}
+
+.add-course-info h1 {
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.add-course-info h3 {
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.add-course-info ul {
+    list-style: none;
+}
