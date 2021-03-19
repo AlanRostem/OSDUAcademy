@@ -9,7 +9,7 @@ export class CourseContent extends Component {
                 <li  className="previous-ch">
                     <div>
                         <a href="/">
-                            <button className="nav-btn" onClick="href">
+                            <button className="nav-btn" onClick="">
                                 <i className="fa fa-chevron-left" aria-hidden="true"/>
                             </button>
                         </a>
