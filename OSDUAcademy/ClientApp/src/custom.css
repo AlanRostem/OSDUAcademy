@@ -218,6 +218,11 @@ footer {
     color: white;
 }
 
+.footer-col a:hover {
+    color: white;
+    text-decoration: none;
+}
+
 .slightly-dim {
     color: #6b6968;
 }
