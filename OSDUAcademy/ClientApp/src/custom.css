@@ -266,7 +266,7 @@ footer {
     margin: 10px auto;
 }
 
-.user-info-form h1, h2, h3, h4 {
+.user-info-form h1, .user-info-form h2, .user-info-form h3, .user-info-form h4 {
     text-align: center;
 }
 
