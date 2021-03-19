@@ -235,6 +235,7 @@ footer {
 }
 
 .duration-tag {
+    
 }
 
 .duration-tag * {
@@ -242,4 +243,38 @@ footer {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
+}
+
+.user-info-form {
+    padding: 48px;
+    margin: auto;
+    background-color: white;
+    width: 70%;
+    box-shadow: 5px 13px 33px -15px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-info-form * {
+    width: 50%;
+    margin: 10px auto;
+}
+
+.user-info-form h1, h2, h3, h4 {
+    text-align: center;
+}
+
+.user-info-form input {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.user-info-form button {
+    border-radius: 5px;
+    background-color: #1b6ec2;
+    border-color: transparent;
+    color: white;
+    padding: 10px;
+    font-size: 1.2em;
 }

@@ -9,6 +9,8 @@ import {Search} from "./sections/Search";
 import CourseFrontPage from "./sections/CourseFrontPage";
 import {CourseInterface} from "./sections/CourseInterface";
 import {CertificateChoice} from "./sections/CertificateChoice";
+import Login from "./sections/Login";
+
 
 
 export default class App extends Component {
@@ -21,6 +23,7 @@ export default class App extends Component {
                 <Route path='/counter' component={Counter}/>
                 <Route path='/fetch-data' component={FetchData}/>
                 <Route path='/home-li' component={Homeli}/>
+                <Route path='/login' component={Login}/>
                 <Route path='/search' component={Search}/>
                 <Route path='/course-front-page/:courseRoute' component={CourseFrontPage}/>
                 <Route path='/course-interface' component={CourseInterface}/> 
