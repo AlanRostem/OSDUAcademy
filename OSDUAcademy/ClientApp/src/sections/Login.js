@@ -9,7 +9,7 @@ export default class Login extends Component {
     state = {
         email: "",
         password: "",
-        loggingIn: false
+        loggingIn: false,
     }
 
     inputUsername(event) {
@@ -22,9 +22,12 @@ export default class Login extends Component {
 
     handleLogin(event) {
         event.preventDefault();
-        this.setState({loggingIn: true})
-        let data = JSON.stringify(this.state);
-        console.log("Sending: ", data);
+        this.setState({loggingIn: true});
+        let data = JSON.stringify({
+            email: this.state.email,
+            password: this.state.password,
+        });
+        
         fetch("login", {
             method: "POST",
             headers: {
@@ -34,20 +37,33 @@ export default class Login extends Component {
             body: data,
         })
             .then(response =>
-                response.text()
+                response.json()
             )
             .then(data =>
-                console.log(data)
+                this.setState({data: data})
             );
     }
 
     render() {
+        if (this.state.loggingIn) {
+            this.state.loggingIn = false;
+        }
+
+        let failed = false;
+        if (this.state.data)
+            if (!this.state.data.success)
+                failed = true;
+
         return (
             <div>
                 <DefaultNavMenu/>
                 <Container>
-                    <UserInfoForm>
+                    <UserInfoForm onSubmit={this.handleLogin.bind(this)}>
                         <h3>Sign in</h3>
+                        {
+                            failed ?
+                                <p style={{color: "red"}}>Invalid credentials</p> : null
+                        }
                         <input type="email" name="email" placeholder="Email" onChange={this.inputUsername.bind(this)}
                                required={true}/>
                         <input type="password" name="password" placeholder="Password"
@@ -55,7 +71,7 @@ export default class Login extends Component {
                         {
                             !this.state.loggingIn ?
                                 <button type="submit" onClick={this.handleLogin.bind(this)}>Sign in</button>
-                                : <LoadingIcon />
+                                : <LoadingIcon/>
                         }
                     </UserInfoForm>
                 </Container>
