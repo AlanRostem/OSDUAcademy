@@ -9,7 +9,7 @@ export default class Login extends Component {
         email: "",
         password: "",
     }
-    
+
     inputUsername(event) {
         this.setState({email: event.target.value})
     }
@@ -17,15 +17,18 @@ export default class Login extends Component {
     inputPassword(event) {
         this.setState({password: event.target.value})
     }
-    
+
     handleLogin(event) {
         event.preventDefault();
-        
+
         let data = JSON.stringify(this.state);
-        console.log("Sending: ", data)
+        console.log("Sending: ", data);
         fetch("login", {
             method: "POST",
-            headers: {'Content-Type': 'application/json'},
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
             body: data,
         })
             .then(response =>
@@ -43,8 +46,10 @@ export default class Login extends Component {
                 <Container>
                     <UserInfoForm>
                         <h3>Sign in</h3>
-                        <input type="email" name="email" placeholder="Email" onChange={this.inputUsername.bind(this)} required={true}/>
-                        <input type="password" name="password" placeholder="Password" onChange={this.inputPassword.bind(this)} required={true}/>
+                        <input type="email" name="email" placeholder="Email" onChange={this.inputUsername.bind(this)}
+                               required={true}/>
+                        <input type="password" name="password" placeholder="Password"
+                               onChange={this.inputPassword.bind(this)} required={true}/>
                         <button type="submit" onClick={this.handleLogin.bind(this)}>Sign in</button>
                     </UserInfoForm>
                 </Container>

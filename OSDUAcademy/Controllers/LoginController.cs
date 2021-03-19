@@ -1,12 +1,8 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
-
-public class LoginData
-{
-    public string Email { get; set; }
-    public string Password { get; set; }
-}
+using Newtonsoft.Json.Linq;
 
 namespace OSDUAcademy.Controllers
 {
@@ -14,13 +10,19 @@ namespace OSDUAcademy.Controllers
     [Route("[controller]")]
     public class LoginController : ControllerBase
     {
-        [HttpPost]
-        public string Post(HttpRequestMessage content)
+        public class LoginData
         {
-            Console.WriteLine("Content: " + content);
-            if (content.Content != null)
-                return "success!";
-            return "fail...";
+            [Required]
+            public string Email { get; set; }
+    
+            [Required]
+            public string Password { get; set; }
+        }
+        
+        [HttpPost]
+        public bool Post([FromBody] LoginData content)
+        {
+            return false;
         }
     }
 }
