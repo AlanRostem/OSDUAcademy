@@ -8,6 +8,7 @@ import './custom.css'
 import {Search} from "./sections/Search";
 import CourseFrontPage from "./sections/CourseFrontPage";
 import {CourseInterface} from "./sections/CourseInterface";
+import {CertificateChoice} from "./sections/CertificateChoice";
 
 
 export default class App extends Component {
@@ -23,6 +24,7 @@ export default class App extends Component {
                 <Route path='/search' component={Search}/>
                 <Route path='/course-front-page/:courseRoute' component={CourseFrontPage}/>
                 <Route path='/course-interface' component={CourseInterface}/> 
+                <Route path='/certificate-choice' component={CertificateChoice}/>
             </div>
         );
     }

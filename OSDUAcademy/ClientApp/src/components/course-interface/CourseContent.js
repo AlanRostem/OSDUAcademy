@@ -8,9 +8,11 @@ export class CourseContent extends Component {
             <ul className="course-navigation">
                 <li  className="previous-ch">
                     <div>
-                        <button className="nav-btn">
-                            <i className="fa fa-chevron-left" aria-hidden="true"/>
-                        </button>
+                        <a href="/">
+                            <button className="nav-btn" onClick="href">
+                                <i className="fa fa-chevron-left" aria-hidden="true"/>
+                            </button>
+                        </a>
                     </div>
                 </li>
                 <li>
@@ -20,9 +22,11 @@ export class CourseContent extends Component {
                 </li>
                 <li className="next-ch">
                     <div>
-                        <button className="nav-btn">
-                            <i className="fa fa-chevron-right" aria-hidden="true"/>
-                        </button>
+                        <a href="/certificate-choice">
+                            <button className="nav-btn">
+                                <i className="fa fa-chevron-right" aria-hidden="true"/>
+                            </button>
+                        </a>
                     </div>
                 </li>
             </ul>
