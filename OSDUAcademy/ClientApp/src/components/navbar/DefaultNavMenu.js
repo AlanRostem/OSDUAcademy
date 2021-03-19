@@ -44,7 +44,7 @@ export class DefaultNavMenu extends Component {
                                   navbar>
                             <ul className="navbar-nav flex-grow">
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-light" to="/counter">
+                                    <NavLink tag={Link} className="text-light" to="/teach">
                                         <NavIcon text="TEACH THE OSDU" iconClass="fa fa-book"/>
                                     </NavLink>
                                 </NavItem>
