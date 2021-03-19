@@ -17,9 +17,7 @@ export class CourseContent extends Component {
                     </div>
                 </li>
                 <li>
-                    <div  className="course-content">
-                        <JsxParser jsx={this.props.content}/>
-                    </div>
+                    <JsxParser className="course-content" jsx={this.props.content}/>
                 </li>
                 <li className="next-ch">
                     <div>

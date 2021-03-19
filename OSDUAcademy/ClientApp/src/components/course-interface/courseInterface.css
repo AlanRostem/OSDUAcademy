@@ -36,11 +36,6 @@
     margin-right: -10px;
 }
 
-.course-content {
-    background-color: grey;
-    width: 100%;
-}
-
 .interface-container {
     background-color: black;
     height: calc(100vh)
@@ -59,8 +54,13 @@
     height: calc(100vh - 60px);
 }
 
-.course-navigation * {
-    height: 100%
+.course-navigation li  {
+    height: 100%;
+}
+
+.course-navigation li i {
+    position: relative;
+    top: 50%;
 }
 
 .navbar-width {
