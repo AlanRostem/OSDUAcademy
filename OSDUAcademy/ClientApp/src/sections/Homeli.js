@@ -4,15 +4,17 @@ import UserService from "../services/UserService";
 import {Container} from "reactstrap";
 import {CategoryNavBar} from "../components/navbar/CategoryNavBar";
 import {CategoryItem} from "../components/navbar/CategoryItem";
-import CourseCard from "../components/home/CourseCard";
 import CourseRow from "../components/home/CourseRow";
 import {Footer} from "../components/navbar/Footer";
 import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
+import {Redirect} from "react-router-dom";
 
 export class Homeli extends Component {
     static displayName = Homeli.name;
 
     render() {
+        if (!UserService.isLoggedIn())
+            return <Redirect to="/"/>;
         return (
             <div>
                 <DefaultNavMenu/>

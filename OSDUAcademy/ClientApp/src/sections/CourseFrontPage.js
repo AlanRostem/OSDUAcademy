@@ -8,13 +8,16 @@ import {ChapterBar} from "../components/chapterdrop/ChapterBar";
 import {ChapterDrop} from "../components/chapterdrop/ChapterDrop";
 import {ChapterItem} from "../components/chapterdrop/ChapterItem";
 import UserService from "../services/UserService";
+import {Redirect} from "react-router-dom";
 
 export default class CourseFrontPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             loading: true,
-            isEnrolled: false
+            isEnrolled: false,
+            redirectToLearn: false,
+            coursePath: "/"
         };
     }
 
@@ -39,7 +42,17 @@ export default class CourseFrontPage extends Component {
     }
 
     handleStartCourse() {
-
+        fetch("learn/" + this.props.match.params.courseRoute)
+            .then(response => 
+                response.json()
+            )
+            .then(data => {
+                let path = `/learn/content/${this.props.match.params.courseRoute}/sections/${data.section}/lectures/${data.lecture}`;
+                this.setState({
+                    redirectToLearn: true,
+                    coursePath: path,
+                });
+            });
     }
 
     showCourseContent() {
@@ -99,6 +112,9 @@ export default class CourseFrontPage extends Component {
     }
 
     render() {
+        if (this.state.redirectToLearn) {
+            return <Redirect to={this.state.coursePath}/>;
+        }
         return (
             <div>
                 <DefaultNavMenu/>
