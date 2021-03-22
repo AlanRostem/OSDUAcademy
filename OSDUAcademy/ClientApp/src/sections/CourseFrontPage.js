@@ -19,7 +19,9 @@ export default class CourseFrontPage extends Component {
     }
 
     handleApply() {
-
+        this.setState({
+            isEnrolled: true
+        })
     }
 
     handleStartCourse() {
@@ -43,7 +45,10 @@ export default class CourseFrontPage extends Component {
                         </div>
                         <div className="intro-buttons">
                             <button disabled={this.state.isEnrolled} onClick={this.handleApply.bind(this)}>Apply</button>
-                        </div>
+                            {
+                                this.state.isEnrolled ? <button onClick={this.handleStartCourse.bind(this)}>Enter Course</button> : null
+                            }
+                        </div>  
                     </div>
                 </div>
                 <CourseBanner
