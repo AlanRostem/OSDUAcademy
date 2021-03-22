@@ -1,8 +1,10 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using OSDUAcademy.DataTypes;
@@ -88,6 +90,21 @@ namespace OSDUAcademy.Controllers
             };
 
             return data;
+        }
+        
+        
+        [HttpGet("content/{route}/images/{image}")]
+        public async Task GetCourseImage(string route, string image)
+        {
+            FileInfo file = new FileInfo("files/course/content/" + route + "/images/" + image);
+            if (!file.Exists)
+                return;
+            Response.Clear();
+            Response.Headers.Clear();
+            Response.Headers.Add("Content-Disposition", "attachment; filename=" + file.Name);
+            Response.Headers.Add("Content-Length", file.Length.ToString());
+            Response.ContentType = "image/png";
+            await Response.SendFileAsync(file.FullName);
         }
     }
 }

@@ -33,9 +33,6 @@ namespace OSDUAcademy.DataTypes
         [BsonElement("public_route")]
         public string PublicRoute { get; set; }
         
-        [BsonElement("img_url")]
-        public string ImgUrl { get; set; }
-
         [BsonElement("sections")] 
         public List<ObjectId> Sections { get; set; }
     }

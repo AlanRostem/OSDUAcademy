@@ -46,6 +46,8 @@ export default class CourseRow extends Component {
         let len = 0;
         if (this.state.data)
             len = this.state.data.length;
+        else if (this.props.children)
+            len = this.props.children.length;
         return (
             <CarouselProvider
                 naturalSlideWidth={100}
@@ -89,7 +91,6 @@ export default class CourseRow extends Component {
                                     difficulty={data.difficulty}
                                     domain={data.domain}
                                     routeName={data.publicRoute}
-                                    imgSrc={process.env.PUBLIC_URL + "img/" + data.imgUrl}
                                 />
                             </Slide>
                         );
