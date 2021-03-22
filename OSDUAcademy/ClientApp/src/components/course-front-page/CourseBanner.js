@@ -1,19 +1,21 @@
 ﻿import React, {Component} from "react";
 import {Container} from "reactstrap";
 
-export default class CourseBanner extends Component {
+/**
+ * The component returns a banner with the most significant information about a specific course. It has to be used in the
+ * "CourseFrontPage" component. The information is stored as the following properties:
+ * - "title": a header with the course name
+ * - "desc": a short description of the course
+ * - "difficulty": a badge showing the level of difficulty. There are three levels: beginner, intermediate, advanced
+ * - "duration": an approximation of how long does it take to complete the course
+ */
+
+    export default class CourseBanner extends Component {
     /* Props:
        - title
        - desc
-       - avgRatings
-       - ratingCount
-       - appliedCount
        - difficulty
-       - domain
        - duration
-       - creator 
-       - lastUpdated
-       - imgSrc
     */
 
     render() {
