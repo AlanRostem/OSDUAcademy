@@ -12,23 +12,23 @@ import LearningService from "../services/LearningService";
 
 export class CourseInterface extends Component {
     static displayName = CourseInterface.name;
-    
+
     state = {
         loaded: false,
         content: "",
     }
-    
+
     handleNextClick() {
-        
+
     }
-    
+
     componentDidMount() {
         let courseRoute = this.props.match.params.courseRoute;
-        let section = 0;
-        let lecture = 0;
+        const self = this;
+      
         
-        LearningService.loadLecture(courseRoute, section, lecture, xml => {
-            this.setState({
+        LearningService.startCourse(courseRoute, xml => {
+            self.setState({
                 loaded: true,
                 content: xml,
             });
@@ -40,7 +40,7 @@ export class CourseInterface extends Component {
             <div className="interface-container">
                 <CourseNavMenu/>
                 <ul className="course-navigation">
-                    <li  className="previous-ch">
+                    <li className="previous-ch">
                         <button className="nav-btn">
                             <i className="fa fa-chevron-left" aria-hidden="true"/>
                         </button>

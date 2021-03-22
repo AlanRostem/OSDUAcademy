@@ -13,6 +13,16 @@
     
     getCurrentCourseRoute() {
         return this._courseRoute;
+    },
+    
+    startCourse(courseRoute, callback) {
+        fetch("learn/" + courseRoute + "/start")
+            .then(response =>
+                response.json()
+            )
+            .then(data => {
+                LearningService.loadLecture(courseRoute, data.section, data.lecture, callback);
+            });
     }
 };
 
