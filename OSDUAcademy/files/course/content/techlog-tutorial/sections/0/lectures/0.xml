@@ -2,4 +2,5 @@
     <Title>Introduction</Title>
     <Paragraph>This is a paragraph</Paragraph>
     <Image src="smiley.png" />
+    <YouTube src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />
 </Content>
