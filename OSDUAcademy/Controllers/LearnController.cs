@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
+using OSDUAcademy.DataTypes;
 
 namespace OSDUAcademy.Controllers
 {
@@ -11,6 +14,16 @@ namespace OSDUAcademy.Controllers
     [Route("[controller]")]
     public class LearnController : ControllerBase
     {
+        
+        private readonly IMongoCollection<Course> _courseCollection;
+        private readonly IMongoCollection<Section> _sectionCollection;
+
+        public LearnController(IMongoClient client)
+        {
+            var database = client.GetDatabase("osdu_academy");
+            _courseCollection = database.GetCollection<Course>("courses");
+            _sectionCollection = database.GetCollection<Section>("course_sections");
+        }
         
         /// <summary>
         /// Get request that sends the client an image file based on course.
@@ -74,6 +87,36 @@ namespace OSDUAcademy.Controllers
                 ["section"] = 0,
                 ["lecture"] = 0,
             };
+        }
+        
+        [HttpGet("{route}/sections")]
+        public List<Section> GetCourseOverview(string route)
+        {
+            var courseFields = Builders<Course>.Projection
+                .Exclude(c => c.Id);
+
+            var course = _courseCollection
+                .Find(c => c.PublicRoute == route)
+                .Project<Course>(courseFields)
+                .ToList().Single();
+
+
+            var sectionFields = Builders<Section>.Projection
+                .Exclude(s => s.Id);
+
+            List<Section> sections = new List<Section>();
+
+            foreach (var id in course.Sections)
+            {
+                var section = _sectionCollection
+                    .Find(s => s.Id == id)
+                    .Project<Section>(sectionFields)
+                    .ToList().Single();
+
+                sections.Add(section);
+            }
+            
+            return sections;
         }
     }
 }
