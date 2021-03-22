@@ -19,13 +19,27 @@ export default class CourseFrontPage extends Component {
     }
 
     handleApply() {
-        this.setState({
-            isEnrolled: true
-        })
+        if (UserService.isLoggedIn()) {
+            const user = UserService.getUser();
+            fetch("user/" + user.id + "/course/" + this.props.match.params.courseRoute + "/apply", {
+                "method": "POST"
+            })
+                .then(response =>
+                    response.text()
+                )
+                .then(success => {
+                    this.setState({
+                        isEnrolled: success === "true"
+                    });
+                });
+        }
+        else {
+            // TODO: Redirect to login if the user is not logged in
+        }
     }
 
     handleStartCourse() {
-        
+
     }
 
     showCourseContent() {
@@ -44,11 +58,13 @@ export default class CourseFrontPage extends Component {
                             }
                         </div>
                         <div className="intro-buttons">
-                            <button disabled={this.state.isEnrolled} onClick={this.handleApply.bind(this)}>Apply</button>
+                            <button disabled={this.state.isEnrolled} onClick={this.handleApply.bind(this)}>Apply
+                            </button>
                             {
-                                this.state.isEnrolled ? <button onClick={this.handleStartCourse.bind(this)}>Enter Course</button> : null
+                                this.state.isEnrolled ?
+                                    <button onClick={this.handleStartCourse.bind(this)}>Enter Course</button> : null
                             }
-                        </div>  
+                        </div>
                     </div>
                 </div>
                 <CourseBanner
@@ -101,11 +117,11 @@ export default class CourseFrontPage extends Component {
     }
 
     async getCourseData() {
-        
+
         let course;
         let sections = [];
         let isEnrolled = false;
-        
+
         try {
             const response = await fetch('course/' + this.props.match.params.courseRoute);
             const data = await response.json();
@@ -121,7 +137,7 @@ export default class CourseFrontPage extends Component {
             try {
                 const response = await fetch("user/" + user.id + "/course/" + this.props.match.params.courseRoute + "/enrolled");
                 const data = await response.text();
-                isEnrolled = Boolean(data);
+                isEnrolled = data === "true";
             } catch (e) {
                 console.error(e)
             }
