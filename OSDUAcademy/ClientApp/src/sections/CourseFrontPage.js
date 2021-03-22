@@ -47,7 +47,7 @@ export default class CourseFrontPage extends Component {
                 response.json()
             )
             .then(data => {
-                let path = `learn/content/${this.props.match.params.courseRoute}/sections/${data[0]}/lectures/${data[1]}`;
+                let path = `/learn/content/${this.props.match.params.courseRoute}/sections/${data.section}/lectures/${data.lecture}`;
                 this.setState({
                     redirectToLearn: true,
                     coursePath: path,

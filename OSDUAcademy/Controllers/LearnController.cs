@@ -67,9 +67,13 @@ namespace OSDUAcademy.Controllers
         /// <param name="route"></param>
         /// <returns></returns>
         [HttpGet("{route}")]
-        public Tuple<int, int> StartCourse(string route)
+        public Dictionary<string, object> StartCourse(string route)
         {
-            return new Tuple<int, int>(0, 0);
+            return new Dictionary<string, object>
+            {
+                ["section"] = 0,
+                ["lecture"] = 0,
+            };
         }
     }
 }
