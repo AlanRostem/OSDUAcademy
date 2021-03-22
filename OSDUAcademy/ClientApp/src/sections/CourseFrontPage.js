@@ -7,24 +7,48 @@ import {Footer} from "../components/navbar/Footer";
 import {ChapterBar} from "../components/chapterdrop/ChapterBar";
 import {ChapterDrop} from "../components/chapterdrop/ChapterDrop";
 import {ChapterItem} from "../components/chapterdrop/ChapterItem";
+import UserService from "../services/UserService";
 
 export default class CourseFrontPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             loading: true,
+            isEnrolled: false
         };
     }
 
     handleApply() {
-        
+        if (UserService.isLoggedIn()) {
+            const user = UserService.getUser();
+            fetch("user/" + user.id + "/course/" + this.props.match.params.courseRoute + "/apply", {
+                "method": "POST"
+            })
+                .then(response =>
+                    response.text()
+                )
+                .then(success => {
+                    this.setState({
+                        isEnrolled: success === "true"
+                    });
+                });
+        }
+        else {
+            // TODO: Redirect to login if the user is not logged in
+        }
+    }
+
+    handleStartCourse() {
+
     }
 
     showCourseContent() {
         return (
             <div>
                 <div className="course-intro-card">
-                    <img src={process.env.PUBLIC_URL + "/thumbnails/courses/" + this.props.match.params.courseRoute + ".png"} alt="Course"/>
+                    <img
+                        src={process.env.PUBLIC_URL + "/thumbnails/courses/" + this.props.match.params.courseRoute + ".png"}
+                        alt="Course"/>
                     <div className="intro-card-info">
                         <h3>Before you learn</h3>
                         <div className="slightly-dim">
@@ -34,7 +58,12 @@ export default class CourseFrontPage extends Component {
                             }
                         </div>
                         <div className="intro-buttons">
-                            <button onClick={this.handleApply.bind(this)}>Apply</button>
+                            <button disabled={this.state.isEnrolled} onClick={this.handleApply.bind(this)}>Apply
+                            </button>
+                            {
+                                this.state.isEnrolled ?
+                                    <button onClick={this.handleStartCourse.bind(this)}>Enter Course</button> : null
+                            }
                         </div>
                     </div>
                 </div>
@@ -88,19 +117,38 @@ export default class CourseFrontPage extends Component {
     }
 
     async getCourseData() {
-        const response = await fetch('course/' + this.props.match.params.courseRoute);
+
+        let course;
+        let sections = [];
+        let isEnrolled = false;
+
         try {
+            const response = await fetch('course/' + this.props.match.params.courseRoute);
             const data = await response.json();
             console.log(data);
-            this.setState({
-                course: data.course,
-                sections: data.sections,
-                loading: false
-            });
+            course = data.course;
+            sections = data.sections;
         } catch (e) {
             console.error(e)
         }
 
+        if (UserService.isLoggedIn()) {
+            let user = UserService.getUser();
+            try {
+                const response = await fetch("user/" + user.id + "/course/" + this.props.match.params.courseRoute + "/enrolled");
+                const data = await response.text();
+                isEnrolled = data === "true";
+            } catch (e) {
+                console.error(e)
+            }
+        }
+
+        this.setState({
+            course: course,
+            sections: sections,
+            loading: false,
+            isEnrolled: isEnrolled
+        });
     }
 
     populatePrerequisites() {

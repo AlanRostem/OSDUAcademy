@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using System.Collections.Generic;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace OSDUAcademy.DataTypes
@@ -21,5 +22,8 @@ namespace OSDUAcademy.DataTypes
         
         [BsonElement("password")]
         public string Password { get; set; }    
+        
+        [BsonElement("courses_applied")] 
+        public List<ObjectId> CoursesApplied { get; set; }
     }
 }

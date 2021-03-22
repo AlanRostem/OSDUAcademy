@@ -78,6 +78,11 @@
     background-color: #1b6ec2;
     border-color: transparent;
     color: white;
+    margin: auto;
+}
+
+.course-intro-card .intro-buttons button:disabled {
+    filter: opacity(50%);
 }
 
 .course-intro-card .intro-buttons button a {
