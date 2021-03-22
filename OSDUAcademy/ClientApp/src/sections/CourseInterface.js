@@ -27,17 +27,12 @@ export class CourseInterface extends Component {
         let section = this.props.match.params.section;
         let lecture = this.props.match.params.lecture;
         
-        fetch(`learn/content/${courseRoute}/sections/${section}/lectures/${lecture}`)
-            .then(response => 
-                response.text())
-            .then(xml => {
-                    this.setState({
-                        loaded: true,
-                        content: xml,
-                    });
-                    
-                LearningService.setCurrentCourseRoute(courseRoute);
+        LearningService.loadLecture(courseRoute, section, lecture, xml => {
+            this.setState({
+                loaded: true,
+                content: xml,
             });
+        });
     }
 
     render() {
