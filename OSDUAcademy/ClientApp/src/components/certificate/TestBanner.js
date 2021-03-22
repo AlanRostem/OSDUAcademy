@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import {Container} from "reactstrap";
 
+/**
+ * The component returns a banner showing the start of certification process and a go-back-to-course button.
+ */
+
 export class TestBanner extends Component {
     static displayName = TestBanner.name;
 
