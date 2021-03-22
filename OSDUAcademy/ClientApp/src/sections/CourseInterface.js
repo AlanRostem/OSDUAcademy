@@ -17,7 +17,19 @@ export class CourseInterface extends Component {
     }
     
     componentDidMount() {
+        let courseRoute = this.props.match.params.courseRoute;
+        let section = this.props.match.params.section;
+        let lecture = this.props.match.params.lecture;
         
+        fetch(`learn/content/${courseRoute}/sections/${section}/lectures/${lecture}`)
+            .then(response => 
+                response.text())
+            .then(xml => {
+                    this.setState({
+                        loaded: true,
+                        content: xml,
+                    });
+            });
     }
 
     render() {
@@ -26,7 +38,7 @@ export class CourseInterface extends Component {
                 <CourseNavMenu/>
                 <ul className="course-navigation">
                     <li  className="previous-ch">
-                        <button className="nav-btn" onClick="">
+                        <button className="nav-btn">
                             <i className="fa fa-chevron-left" aria-hidden="true"/>
                         </button>
                     </li>
