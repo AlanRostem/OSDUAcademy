@@ -8,18 +8,29 @@ import NavIcon from "./NavIcon";
 import UserNavLink from "./UserNavLink";
 import UserService from "../../services/UserService";
 
+/**
+ * The component returns a navigation menu that is located on the top of the page. It is used as the default menu on
+ * all pages except for the course-related. It includes Schlumberger- and OSDU Academy logo, which serve as links to
+ * the home page. On the far right side, there are two icons that re-direct the user to another page.
+ * The first one is for those who want to teach the OSDU, and the other one log-in/user profile depending on whether
+ * a user is logged in. The two icons are placed in a collapse tag, meaning that if the page becomes smaller, those two
+ * icons become one.
+ */
+
 export class DefaultNavMenu extends Component {
     static displayName = DefaultNavMenu.name;
 
     constructor(props) {
         super(props);
 
+        /* Sets icons together */
         this.toggleNavbar = this.toggleNavbar.bind(this);
         this.state = {
             collapsed: true
         };
     }
 
+    /* Re-renders the component depending on the state change */
     toggleNavbar() {
         this.setState({
             collapsed: !this.state.collapsed
