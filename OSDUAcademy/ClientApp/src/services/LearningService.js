@@ -1,8 +1,5 @@
 ﻿const LearningService = {
     _courseRoute: "/",
-    setCurrentCourseRoute(route) {
-        this._courseRoute = route;  
-    },
     
     loadLecture(courseRoute, sectionNo, lectureNo, callback) {
         fetch(`learn/content/${courseRoute}/sections/${sectionNo}/lectures/${lectureNo}`)
@@ -10,7 +7,7 @@
                 response.text())
             .then(xml => {
                 callback(xml);
-                LearningService.setCurrentCourseRoute(courseRoute);
+                LearningService._courseRoute = courseRoute;
             });
     },
     

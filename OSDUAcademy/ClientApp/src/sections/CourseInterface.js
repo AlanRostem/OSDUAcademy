@@ -24,8 +24,8 @@ export class CourseInterface extends Component {
     
     componentDidMount() {
         let courseRoute = this.props.match.params.courseRoute;
-        let section = this.props.match.params.section;
-        let lecture = this.props.match.params.lecture;
+        let section = 0;
+        let lecture = 0;
         
         LearningService.loadLecture(courseRoute, section, lecture, xml => {
             this.setState({
