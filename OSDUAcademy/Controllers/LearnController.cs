@@ -66,7 +66,7 @@ namespace OSDUAcademy.Controllers
         /// </summary>
         /// <param name="route"></param>
         /// <returns></returns>
-        [HttpGet("{route}")]
+        [HttpGet("{route}/start")]
         public Dictionary<string, object> StartCourse(string route)
         {
             return new Dictionary<string, object>

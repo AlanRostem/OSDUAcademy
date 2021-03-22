@@ -42,18 +42,11 @@ export default class CourseFrontPage extends Component {
     }
 
     handleStartCourse() {
-        fetch("learn/" + this.props.match.params.courseRoute)
-            .then(response => 
-                response.json()
-            )
-            .then(data => {
-                
-                let path = `/learn/${this.props.match.params.courseRoute}/${data.section}/${data.lecture}`;
-                this.setState({
-                    redirectToLearn: true,
-                    coursePath: path,
-                });
-            });
+        let path = `/learn/${this.props.match.params.courseRoute}/`;
+        this.setState({
+            redirectToLearn: true,
+            coursePath: path,
+        });
     }
 
     showCourseContent() {

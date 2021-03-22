@@ -8,33 +8,31 @@ import Figure from "../components/course-interface/contents/Figure"
 import Paragraph from "../components/course-interface/contents/Paragraph"
 import Title from "../components/course-interface/contents/Title"
 import YouTube from "../components/course-interface/contents/YouTube"
+import LearningService from "../services/LearningService";
 
 export class CourseInterface extends Component {
     static displayName = CourseInterface.name;
-    
+
     state = {
         loaded: false,
         content: "",
     }
-    
+
     handleNextClick() {
-        
+
     }
-    
+
     componentDidMount() {
         let courseRoute = this.props.match.params.courseRoute;
-        let section = this.props.match.params.section;
-        let lecture = this.props.match.params.lecture;
+        const self = this;
+      
         
-        fetch(`learn/content/${courseRoute}/sections/${section}/lectures/${lecture}`)
-            .then(response => 
-                response.text())
-            .then(xml => {
-                    this.setState({
-                        loaded: true,
-                        content: xml,
-                    });
+        LearningService.startCourse(courseRoute, xml => {
+            self.setState({
+                loaded: true,
+                content: xml,
             });
+        });
     }
 
     render() {
@@ -42,7 +40,7 @@ export class CourseInterface extends Component {
             <div className="interface-container">
                 <CourseNavMenu/>
                 <ul className="course-navigation">
-                    <li  className="previous-ch">
+                    <li className="previous-ch">
                         <button className="nav-btn">
                             <i className="fa fa-chevron-left" aria-hidden="true"/>
                         </button>
