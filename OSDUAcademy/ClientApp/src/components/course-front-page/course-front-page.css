@@ -80,6 +80,10 @@
     color: white;
 }
 
+.course-intro-card .intro-buttons button:disabled {
+    filter: opacity(50%);
+}
+
 .course-intro-card .intro-buttons button a {
     color: white;
 }

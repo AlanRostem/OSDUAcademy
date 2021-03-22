@@ -7,6 +7,7 @@ import {Footer} from "../components/navbar/Footer";
 import {ChapterBar} from "../components/chapterdrop/ChapterBar";
 import {ChapterDrop} from "../components/chapterdrop/ChapterDrop";
 import {ChapterItem} from "../components/chapterdrop/ChapterItem";
+import UserService from "../services/UserService";
 
 export default class CourseFrontPage extends Component {
     constructor(props) {
@@ -17,14 +18,25 @@ export default class CourseFrontPage extends Component {
     }
 
     handleApply() {
+
+    }
+
+    handleStartCourse() {
         
     }
 
     showCourseContent() {
+        if (UserService.isLoggedIn()) {
+            let user = UserService.getUser();
+            
+        }
+        
         return (
             <div>
                 <div className="course-intro-card">
-                    <img src={process.env.PUBLIC_URL + "/thumbnails/courses/" + this.props.match.params.courseRoute + ".png"} alt="Course"/>
+                    <img
+                        src={process.env.PUBLIC_URL + "/thumbnails/courses/" + this.props.match.params.courseRoute + ".png"}
+                        alt="Course"/>
                     <div className="intro-card-info">
                         <h3>Before you learn</h3>
                         <div className="slightly-dim">
@@ -34,7 +46,7 @@ export default class CourseFrontPage extends Component {
                             }
                         </div>
                         <div className="intro-buttons">
-                            <button onClick={this.handleApply.bind(this)}>Apply</button>
+                            <button disabled={true} onClick={this.handleApply.bind(this)}>Apply</button>
                         </div>
                     </div>
                 </div>

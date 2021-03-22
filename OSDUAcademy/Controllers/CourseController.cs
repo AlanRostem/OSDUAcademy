@@ -18,7 +18,6 @@ namespace OSDUAcademy.Controllers
         private static readonly ProjectionDefinitionBuilder<Course> CourseFieldBuilder = Builders<Course>.Projection;
 
         private readonly IMongoCollection<Course> _courseCollection;
-
         private readonly IMongoCollection<Section> _sectionCollection;
 
         public CourseController(IMongoClient client)
