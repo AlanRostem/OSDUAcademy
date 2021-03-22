@@ -8,6 +8,7 @@ import Figure from "../components/course-interface/contents/Figure"
 import Paragraph from "../components/course-interface/contents/Paragraph"
 import Title from "../components/course-interface/contents/Title"
 import YouTube from "../components/course-interface/contents/YouTube"
+import LearningService from "../services/LearningService";
 
 export class CourseInterface extends Component {
     static displayName = CourseInterface.name;
@@ -34,6 +35,8 @@ export class CourseInterface extends Component {
                         loaded: true,
                         content: xml,
                     });
+                    
+                LearningService.setCurrentCourseRoute(courseRoute);
             });
     }
 

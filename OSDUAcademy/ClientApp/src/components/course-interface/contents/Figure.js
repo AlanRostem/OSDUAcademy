@@ -1,6 +1,16 @@
 ﻿import React, {Component} from "react";
+import LearningService from "../../../services/LearningService";
 
 export default class Figure extends Component {
+    
+    componentDidMount() {
+        let courseRoute = LearningService.getCurrentCourseRoute();
+
+        fetch(`learn/content/${courseRoute}/images/${this.props.image}`)
+            .then(response => response.blob())
+            .then()
+    }
+
     render() {
         return (
             <div>
