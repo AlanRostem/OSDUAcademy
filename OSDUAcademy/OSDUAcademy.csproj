@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\components\course-interface\learn" />
     <Folder Include="files\course\content" />
   </ItemGroup>
 

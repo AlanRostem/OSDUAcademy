@@ -4,6 +4,11 @@ import '../components/course-interface/courseInterface.css'
 import JsxParser from "react-jsx-parser";
 import {Redirect} from "react-router-dom";
 
+import Figure from "../components/course-interface/contents/Figure"
+import Paragraph from "../components/course-interface/contents/Paragraph"
+import Title from "../components/course-interface/contents/Title"
+import YouTube from "../components/course-interface/contents/YouTube"
+
 export class CourseInterface extends Component {
     static displayName = CourseInterface.name;
     
@@ -46,7 +51,8 @@ export class CourseInterface extends Component {
                         {
                             this.state.loaded ?
                                 <JsxParser
-                                    className="course-content" 
+                                    className="course-content"
+                                    components={{Figure, Paragraph, Title, YouTube}}
                                     jsx={this.state.content}
                                 /> :
                                 <div className="course-content">Loading...</div>
