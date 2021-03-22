@@ -23,10 +23,8 @@ export class CourseInterface extends Component {
     }
 
     componentDidMount() {
-        let courseRoute = this.props.match.params.courseRoute;
+        const courseRoute = this.props.match.params.courseRoute;
         const self = this;
-      
-        
         LearningService.startCourse(courseRoute, xml => {
             self.setState({
                 loaded: true,

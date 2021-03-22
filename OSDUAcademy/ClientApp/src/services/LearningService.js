@@ -7,7 +7,6 @@
                 response.text())
             .then(xml => {
                 callback(xml);
-                LearningService._courseRoute = courseRoute;
             });
     },
     
@@ -16,6 +15,7 @@
     },
     
     startCourse(courseRoute, callback) {
+        LearningService._courseRoute = courseRoute;
         fetch("learn/" + courseRoute + "/start")
             .then(response =>
                 response.json()
