@@ -14,6 +14,7 @@ export default class CourseFrontPage extends Component {
         super(props);
         this.state = {
             loading: true,
+            isEnrolled: false
         };
     }
 
@@ -26,11 +27,6 @@ export default class CourseFrontPage extends Component {
     }
 
     showCourseContent() {
-        if (UserService.isLoggedIn()) {
-            let user = UserService.getUser();
-            
-        }
-        
         return (
             <div>
                 <div className="course-intro-card">
@@ -46,7 +42,7 @@ export default class CourseFrontPage extends Component {
                             }
                         </div>
                         <div className="intro-buttons">
-                            <button disabled={true} onClick={this.handleApply.bind(this)}>Apply</button>
+                            <button disabled={this.state.isEnrolled} onClick={this.handleApply.bind(this)}>Apply</button>
                         </div>
                     </div>
                 </div>
@@ -100,19 +96,38 @@ export default class CourseFrontPage extends Component {
     }
 
     async getCourseData() {
-        const response = await fetch('course/' + this.props.match.params.courseRoute);
+        
+        let course;
+        let sections = [];
+        let isEnrolled = false;
+        
         try {
+            const response = await fetch('course/' + this.props.match.params.courseRoute);
             const data = await response.json();
             console.log(data);
-            this.setState({
-                course: data.course,
-                sections: data.sections,
-                loading: false
-            });
+            course = data.course;
+            sections = data.sections;
         } catch (e) {
             console.error(e)
         }
 
+        if (UserService.isLoggedIn()) {
+            let user = UserService.getUser();
+            try {
+                const response = await fetch("user/" + user.id + "/course/" + this.props.match.params.courseRoute + "/enrolled");
+                const data = await response.text();
+                isEnrolled = Boolean(data);
+            } catch (e) {
+                console.error(e)
+            }
+        }
+
+        this.setState({
+            course: course,
+            sections: sections,
+            loading: false,
+            isEnrolled: isEnrolled
+        });
     }
 
     populatePrerequisites() {
