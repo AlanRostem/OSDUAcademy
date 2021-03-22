@@ -89,5 +89,13 @@ namespace OSDUAcademy.Controllers
 
             return data;
         }
+        
+        /*
+        [HttpGet("{route}")]
+        public string GetCourseImage(string route)
+        {
+            return route;
+        }
+        */
     }
 }

@@ -25,7 +25,7 @@ export default class CourseFrontPage extends Component {
         return (
             <div>
                 <div className="course-intro-card">
-                    <img src={process.env.PUBLIC_URL + "/img/" + this.state.course.imgUrl} alt="Course"/>
+                    <img src={process.env.PUBLIC_URL + "/thumbnails/courses/" + this.props.match.params.courseRoute + ".png"} alt="Course"/>
                     <div className="intro-card-info">
                         <h3>Before you learn</h3>
                         <div className="slightly-dim">
