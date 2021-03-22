@@ -13,7 +13,7 @@ export class CertificateChoice extends Component {
             <div>
                 <DefaultNavMenu/>
                 <TestBanner/>
-                <PreTest number="10" procent="80"/>
+                <PreTest number="10" percent="80"/>
                 <Footer/>
             </div>
         );
