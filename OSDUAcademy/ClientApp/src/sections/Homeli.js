@@ -41,13 +41,14 @@ export class Homeli extends Component {
                     
                     <h1 className="home-h1">Trending Courses</h1>
                     <CategoryNavBar>
-                        <CategoryItem itemActive={true}>PETROLEUM</CategoryItem>
-                        <CategoryItem itemActive={false}>GEOLOGY</CategoryItem>
-                        <CategoryItem itemActive={false}>ENERGY</CategoryItem>
-                        <CategoryItem itemActive={false}>GAS</CategoryItem>
-                        <CategoryItem itemActive={false}>OTHER</CategoryItem>
+                        <CategoryItem itemActive={true}
+                                      componentToShow={<CourseRow searchByTrending={true}/>}>PETROLEUM</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow/>}>GEOLOGY</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow/>}>ENERGY</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow/>}>GAS</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow/>}>OTHER</CategoryItem>
                     </CategoryNavBar>
-                    <CourseRow searchByTrending={true} />
+
                 </Container>
                 <Footer/>
             </div>
