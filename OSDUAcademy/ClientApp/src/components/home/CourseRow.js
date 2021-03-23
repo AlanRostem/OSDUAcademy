@@ -41,9 +41,9 @@ export default class CourseRow extends Component {
 
     render() {
         let len = 0;
-        if (this.state.data) {
+        if (this.props.searchByTrending && this.state.data) {
             len = this.state.data.length;
-        } else if (this.state.testingEnabled) {
+        } else if (this.props.testingEnabled) {
             len = React.Children.count(this.props.children);
         }
 
@@ -94,24 +94,24 @@ export default class CourseRow extends Component {
             </Slider>
         );
     }
-
+    
+    showTestSlider() {
+        return <Slider>
+            {
+                React.Children.map(this.props.children, (child, i) =>
+                    <Slide index={i} key={"test" + i}>
+                        {child}
+                    </Slide>)
+            }
+        </Slider>
+    }
+    
     showLoading() {
         return (
             <p>
                 Loading...
             </p>
         );
-    }
-
-    showTestSlider() {
-        return <Slider>
-            {
-                React.Children.map(this.props.children, (child, i) =>
-                    <Slide index={i} key={i}>
-                        {child}
-                    </Slide>)
-            }
-        </Slider>
     }
 }
 
