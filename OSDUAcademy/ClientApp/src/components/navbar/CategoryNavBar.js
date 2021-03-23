@@ -31,10 +31,10 @@ export class CategoryNavBar extends Component {
 
         const currentElement = document.getElementById(this.activeId);
         currentElement.style.display = "none";
-        
+
         const nextButton = event.target;
         nextButton.classList.add("active");
-        
+
         const nextElement = document.getElementById(event.target.value);
         nextElement.style.display = "block";
 
@@ -47,10 +47,10 @@ export class CategoryNavBar extends Component {
                 <ul className="category-navmenu">
                     {React.Children.map(this.props.children, (child, i) =>
                         <button className={"nav-item" + (child.props.itemActive ? " active" : "")}
-                            id={"category-nav-button-" + this.navBarId + i}
-                            key={i}
-                            onClick={this.handleTabClick.bind(this)}
-                            value={this.navBarId + i}
+                                id={"category-nav-button-" + this.navBarId + i}
+                                key={i}
+                                onClick={this.handleTabClick.bind(this)}
+                                value={this.navBarId + i}
                         >
                             {child}
                         </button>
