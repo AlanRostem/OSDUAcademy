@@ -24,7 +24,10 @@ export class CategoryNavBar extends Component {
             <div>
                 <ul className="nav nav-tabs justify-content-center" style={{marginBottom: "1em"}}>
                     {this.props.children.map((c, i) =>
-                        <li className={ "nav-item" + (this.props.itemActive ? " active" : "") } onClick={this.handleTabClick.bind(this)} key={i}>
+                        <li className={ "nav-item" + (this.props.itemActive ? " active" : "") } 
+                            onClick={this.handleTabClick.bind(this)} 
+                            key={i}
+                        >
                             {c}
                         </li>
                     )}

@@ -9,6 +9,7 @@ import Paragraph from "../components/course-interface/contents/Paragraph"
 import Title from "../components/course-interface/contents/Title"
 import YouTube from "../components/course-interface/contents/YouTube"
 import LearningService from "../services/LearningService";
+import Content from "../components/course-interface/contents/Content";
 
 export class CourseInterface extends Component {
     static displayName = CourseInterface.name;
@@ -118,7 +119,7 @@ export class CourseInterface extends Component {
                             this.state.loaded ?
                                 <JsxParser
                                     className="course-content"
-                                    components={{Figure, Paragraph, Title, YouTube}}
+                                    components={{Content, Figure, Paragraph, Title, YouTube}}
                                     jsx={this.state.content}
                                 /> :
                                 <div className="course-content">Loading...</div>
