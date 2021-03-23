@@ -9,6 +9,7 @@ import {ChapterDrop} from "../components/chapterdrop/ChapterDrop";
 import {ChapterItem} from "../components/chapterdrop/ChapterItem";
 import UserService from "../services/UserService";
 import {Redirect} from "react-router-dom";
+import {CertificateButton} from "../components/chapterdrop/CertificateButton";
 
 export default class CourseFrontPage extends Component {
     constructor(props) {
