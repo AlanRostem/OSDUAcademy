@@ -48,5 +48,35 @@ namespace OSDUAcademy.Controllers
 
             return data;
         }
+
+        [HttpGet("{route}/content/questions")]
+        public List<Question> GetQuizQuestions(string route)
+        {
+            var courseFields = Builders<Course>.Projection
+                .Exclude(c => c.Id);
+
+            var course = _courseCollection
+                .Find(c => c.PublicRoute == route)
+                .Project<Course>(courseFields)
+                .ToList().Single();
+
+            var quizFields = Builders<CertificationQuiz>.Projection
+                .Include(q => q.Questions);
+
+            var quiz = _quizCollection
+                .Find(q => q.Id == course.CertificationQuizId)
+                .Project<CertificationQuiz>(quizFields)
+                .ToList().Single();
+
+            var questions = quiz.Questions;
+            
+            foreach (var question in questions)
+            {
+                question.CorrectAnswerDescription = null;
+                question.CorrectAnswerIndex = -1;
+            }
+
+            return questions;
+        }
     }
 }

@@ -2,6 +2,7 @@
 import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import CourseCard from "./CourseCard";
+import CourseService from "../../services/CourseService";
 
 export default class CourseRow extends Component {
 
@@ -21,24 +22,20 @@ export default class CourseRow extends Component {
             return;
         }
 
-        let route = "";
+        const callback = data => {
+            this.setState({
+                data: data,
+                loading: false
+            });
+        };
+        
         if (this.props.searchByTrending) {
-            route = "trending";
+            CourseService.fetchCoursesByTrending(callback)
         } else {
-            route = this.props.domainToSearchBy;
-            if (!route)
+            if (!this.props.domainToSearchBy)
                 this.setState({data: [], loading: false});
             else
-                route = "domain/" + this.props.domainToSearchBy;
-            return;
-        }
-
-        const response = await fetch('course/' + route);
-        try {
-            const data = await response.json();
-            this.setState({data: data, loading: false});
-        } catch (e) {
-            console.error(response);
+                CourseService.fetchCoursesByDomain(this.props.domainToSearchBy, callback)
         }
     }
 
