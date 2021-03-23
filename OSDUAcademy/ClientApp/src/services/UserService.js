@@ -26,6 +26,24 @@
         fetch("user/" + this._user.id + "/course/" + courseRoute + "/enrolled")
             .then(response => response.text())
             .then(callback);
+    },
+    
+    loginUser(email, password, callback) {
+        fetch("login", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+            }),
+        })
+            .then(response =>
+                response.json())
+            .then(data =>
+                callback(data));
     }
 };
 
