@@ -4,7 +4,9 @@ import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Footer} from "../components/navbar/Footer";
 
 /**
- * 
+ * The component returns an informative page about how one can become a part of the OSDU Academy teaching community,
+ * It includes details about how to make courses, contact information for help, and a link for downloading the course
+ * template. 
  */
 
 export class Teach extends Component {
