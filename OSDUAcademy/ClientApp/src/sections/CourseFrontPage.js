@@ -10,6 +10,7 @@ import {ChapterItem} from "../components/chapterdrop/ChapterItem";
 import UserService from "../services/UserService";
 import {Redirect} from "react-router-dom";
 import {CertificateButton} from "../components/chapterdrop/CertificateButton";
+import CourseService from "../services/CourseService";
 
 export default class CourseFrontPage extends Component {
     constructor(props) {
@@ -123,26 +124,28 @@ export default class CourseFrontPage extends Component {
     }
 
     getCourseData() {
-
         let course;
         let sections = [];
-        let isEnrolled = false;
-        fetch('course/' + this.props.match.params.courseRoute)
-            .then(response => response.json())
-            .then(data => {
-                course = data.course;
-                sections = data.sections;
-                if (UserService.isLoggedIn()) {
-                    UserService.checkEnrollment(this.props.match.params.courseRoute,isEnrolled => {
-                        this.setState({
-                            course: course,
-                            sections: sections,
-                            loading: false,
-                            isEnrolled: isEnrolled === "true"
-                        });
-                    })
-                }
-            });
+        CourseService.fetchFrontPageCourseData(this.props.match.params.courseRoute, data => {
+            course = data.course;
+            sections = data.sections;
+            if (UserService.isLoggedIn()) {
+                UserService.checkEnrollment(this.props.match.params.courseRoute,isEnrolled => {
+                    this.setState({
+                        course: course,
+                        sections: sections,
+                        loading: false,
+                        isEnrolled: isEnrolled === "true"
+                    });
+                })
+            } else {
+                this.setState({
+                    course: course,
+                    sections: sections,
+                    loading: false,
+                });
+            }
+        });
     }
 
     populatePrerequisites() {
