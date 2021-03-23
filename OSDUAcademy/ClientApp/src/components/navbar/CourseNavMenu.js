@@ -8,6 +8,15 @@ import {ChapterDrop} from "../chapterdrop/ChapterDrop";
 import {ChapterItem} from "../chapterdrop/ChapterItem";
 import LearningService from "../../services/LearningService";
 
+/**
+ * The component returns a navigation menu that is used at the top of all course interface pages. It includes two 
+ * buttons on opposite sides, the first one being one that takes user back to the home page. The second one is an 
+ * overview button that shows the course structure on click. The difference between those two buttons is that the 
+ * "overview" button is collapsable, meaning that if the page gets smaller the button disappears. 
+ * 
+ * The section elements in the "CourseSideBar" tag are populated from the database. 
+ */
+
 export class CourseNavMenu extends Component {
     static displayName = CourseNavMenu.name;
 
@@ -16,24 +25,41 @@ export class CourseNavMenu extends Component {
 
         this.toggleNavbar = this.toggleNavbar.bind(this);
         
+        /* The side menu with course structure is not shown and sections in the menu are empty */
         this.state = {
             collapsed: true,
             showOverview: false,
         }
     }
 
+    /* The component re-renders when the state (not collapsed/collapsed) is changed and updates it */
     toggleNavbar() {
         this.setState({
             collapsed: !this.state.collapsed
         });
     }
-
-    showOverview(event) {
-        event.preventDefault();
+    
+    showOverview() {
+        
+        /* The component re-renders when the state is changed. The default state is that the overview is not 
+        * visible  */
 
         this.setState({
             showOverview: !this.state.showOverview,
         });
+    }
+    
+    /* Specifies route to match the current course route and gets the overview data from the database. Updates
+    * the section and re-renders the component. */
+    componentDidMount() {
+        const route = 'learn/' + LearningService.getCurrentCourseRoute() + "/overview";
+        fetch(route)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    sections: data,
+                });
+            });
     }
 
     render() {
@@ -45,14 +71,14 @@ export class CourseNavMenu extends Component {
                     
                     <div>
                         <NavLink tag={Link} to="/" className="text-light home-button">
-                            <NavIcon text="COURSE" iconClass="fa fa-book"/>
+                            <NavIcon text="HOME" iconClass="fa fa-home"/>
                         </NavLink>
                     </div>
                     <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed}
                               navbar>
                         <ul className="navbar-nav flex-grow">
                             <NavItem>
-                                <NavLink tag={Link} to="/course-front-page/:courseRoute" className="text-light overview-button" onClick={this.showOverview.bind(this)}>
+                                <NavLink className="text-light overview-button" onClick={this.showOverview.bind(this)}>
                                     <NavIcon text="OVERVIEW" iconClass="fa fa-bars"/>
                                 </NavLink>
                                 {
