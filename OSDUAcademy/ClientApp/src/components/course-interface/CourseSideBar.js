@@ -17,7 +17,7 @@ export class CourseSideBar extends Component {
             <div className="course-sidebar">
                 <div className="overview">
                     <div className="overview-h">
-                        <h3 className="slightly-dim">Course content <button className="fa fa-times close-btn"
+                        <h3 className="slightly-dim">Overview<button className="fa fa-times close-btn"
                                                                             aria-hidden="true"
                                                                             onClick={this.props.onClose}/>
                         </h3>

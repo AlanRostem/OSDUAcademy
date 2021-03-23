@@ -6,7 +6,6 @@ import NavIcon from "./NavIcon";
 import {CourseSideBar} from "../course-interface/CourseSideBar";
 import {ChapterDrop} from "../chapterdrop/ChapterDrop";
 import {ChapterItem} from "../chapterdrop/ChapterItem";
-import {ChapterBar} from "../chapterdrop/ChapterBar";
 import LearningService from "../../services/LearningService";
 
 /**
@@ -30,7 +29,6 @@ export class CourseNavMenu extends Component {
         this.state = {
             collapsed: true,
             showOverview: false,
-            sections: []
         }
     }
 
@@ -88,10 +86,14 @@ export class CourseNavMenu extends Component {
                                         ? (
                                             <CourseSideBar onClose={this.showOverview.bind(this)}>
                                                 {
-                                                    this.state.sections.map((section, i) =>
+                                                    LearningService.getSectionData().map((section, i) =>
                                                         <ChapterDrop key={i} name={section.title} amount={section.lectures.length}>
                                                             {section.lectures.map((lecture, j) =>
-                                                                <ChapterItem key={j} subchapter={lecture.title}/>
+                                                                <ChapterItem key={j}>
+                                                                    <button value={i + "." + j} onClick={this.props.onLectureSelection}>
+                                                                        {lecture.title}
+                                                                    </button>
+                                                                </ChapterItem>
                                                             )}
                                                         </ChapterDrop>
                                                     )

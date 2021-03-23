@@ -11,7 +11,7 @@ export class ChapterItem extends Component {
 
     render () {
         return (
-            <li className="drop-item">{this.props.subchapter}</li>
+            <li className="drop-item">{this.props.children}</li>
         );
     }
 }

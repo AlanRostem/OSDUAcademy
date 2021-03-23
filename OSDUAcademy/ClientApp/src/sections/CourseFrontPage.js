@@ -87,7 +87,9 @@ export default class CourseFrontPage extends Component {
                             this.state.sections.map((section, i) =>
                                 <ChapterDrop key={i} name={section.title} amount={section.lectures.length}>
                                     {section.lectures.map((lecture, j) =>
-                                        <ChapterItem key={j} subchapter={lecture.title}/>
+                                        <ChapterItem key={j}>
+                                            {lecture.title}
+                                        </ChapterItem>
                                     )}
                                 </ChapterDrop>
                             )
