@@ -19,7 +19,6 @@ export class CourseNavMenu extends Component {
         this.state = {
             collapsed: true,
             showOverview: false,
-            sections: []
         }
     }
 
@@ -35,17 +34,6 @@ export class CourseNavMenu extends Component {
         this.setState({
             showOverview: !this.state.showOverview,
         });
-    }
-    
-    componentDidMount() {
-        const route = 'learn/' + LearningService.getCurrentCourseRoute() + "/overview";
-        fetch(route)
-            .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    sections: data,
-                });
-            });
     }
 
     render() {
@@ -72,7 +60,7 @@ export class CourseNavMenu extends Component {
                                         ? (
                                             <CourseSideBar onClose={this.showOverview.bind(this)}>
                                                 {
-                                                    this.state.sections.map((section, i) =>
+                                                    LearningService.getSectionData().map((section, i) =>
                                                         <ChapterDrop key={i} name={section.title} amount={section.lectures.length}>
                                                             {section.lectures.map((lecture, j) =>
                                                                 <ChapterItem key={j}>

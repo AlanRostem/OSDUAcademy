@@ -19,17 +19,62 @@ export class CourseInterface extends Component {
     }
 
     handleNextClick() {
+        let section = Number(LearningService.getSectionNo());
+        let lecture = Number(LearningService.getLectureNo());
+        const data = LearningService.getSectionData();
+        if ((lecture + 1) === data[section].lectures.length) {
+            lecture = 0;
+            if ((section + 1) === data.length) {
+                // TODO: Go to certification
+                return;
+            } else {
+                section++;
+            }
+        } else {
+            lecture++;
+        }
 
+        const self = this;
+        LearningService.loadLecture(LearningService.getCurrentCourseRoute(), section, lecture, xml => {
+            self.setState({
+                loaded: true,
+                content: xml,
+            });
+        });
     }
-    
+
+    handlePreviousClick() {
+        let section = Number(LearningService.getSectionNo());
+        let lecture = Number(LearningService.getLectureNo());
+        const data = LearningService.getSectionData();
+        
+        lecture--;
+        if (lecture === -1) {
+            if (section === 0)
+                return;
+            
+            section--;
+            lecture = data[section].lectures.length - 1;
+        }
+
+        const self = this;
+        LearningService.loadLecture(LearningService.getCurrentCourseRoute(), section, lecture, xml => {
+            self.setState({
+                loaded: true,
+                content: xml,
+            });
+        });
+    }
+
     handleLectureSelect(event) {
         const str = event.target.value.split(".");
         const section = str[0];
         const lecture = str[1];
+        // Not using strict equality since LearningService might use numbers instead of strings 
         if (section == LearningService.getSectionNo() && lecture == LearningService.getLectureNo())
             return;
         const self = this;
-        LearningService.loadLecture(LearningService.getCurrentCourseRoute(), section,  lecture, xml => {
+        LearningService.loadLecture(LearningService.getCurrentCourseRoute(), section, lecture, xml => {
             self.setState({
                 loaded: true,
                 content: xml,
@@ -56,7 +101,7 @@ export class CourseInterface extends Component {
                 }
                 <ul className="course-navigation">
                     <li className="previous-ch">
-                        <button className="nav-btn">
+                        <button className="nav-btn" onClick={this.handlePreviousClick.bind(this)}>
                             <i className="fa fa-chevron-left" aria-hidden="true"/>
                         </button>
                     </li>
