@@ -3,6 +3,10 @@ import {Container} from "reactstrap";
 import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Footer} from "../components/navbar/Footer";
 
+/**
+ * 
+ */
+
 export class Teach extends Component {
     static displayName = Teach.name;
 

@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 
+/**
+ * Not used at this moment. 
+ * 
+ * The component returns a side-menu element in form of a button. On click, the element shows its children. 
+ */
+
 export class SideDrop extends Component {
     static displayName = SideDrop.name;
     
     constructor(props) {
         super(props);
         
+        /* The side-bar is not open by default */
         this.state = {
             dropBar: false,
             
@@ -13,9 +20,9 @@ export class SideDrop extends Component {
         
     }
 
-    dropBar(event) {
-        event.preventDefault();
+    dropBar() {
 
+        /* Changes state when clicked and re-renders the component */
         this.setState({
             dropBar: !this.state.dropBar,
         });
