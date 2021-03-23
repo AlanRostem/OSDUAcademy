@@ -1,5 +1,10 @@
 ﻿import React, {Component} from "react"
 
+/**
+ * The component returns a layout for icons set up to be used in the navigation menus. It includes the icon figure and 
+ * the text below it. 
+ */
+
 export default class NavIcon extends Component {
     render() {
         return (

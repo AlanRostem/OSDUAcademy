@@ -3,6 +3,10 @@ import {Redirect} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+/**
+ * Not used at the moment. 
+ */
+
 export default class SearchForm extends Component {
     constructor(props) {
         super(props);
