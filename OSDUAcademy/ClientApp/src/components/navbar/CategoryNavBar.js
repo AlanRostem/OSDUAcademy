@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './NavMenu.css';
-import shortid from "shortid"
+import shortid from "shortid";
 
 export class CategoryNavBar extends Component {
     static displayName = CategoryNavBar.name;
@@ -26,19 +26,28 @@ export class CategoryNavBar extends Component {
     }
 
     handleTabClick(event) {
-        const current = document.getElementById(this.activeId);
-        current.style.display = "none";
-        const next = document.getElementById(event.target.value);
-        next.style.display = "block";
+        const currentButton = document.getElementById("category-nav-button-" + this.activeId)
+        currentButton.classList.remove("active");
+
+        const currentElement = document.getElementById(this.activeId);
+        currentElement.style.display = "none";
+        
+        const nextButton = event.target;
+        nextButton.classList.add("active");
+        
+        const nextElement = document.getElementById(event.target.value);
+        nextElement.style.display = "block";
+
         this.activeId = event.target.value;
     }
 
     render() {
         return (
             <div>
-                <ul className="nav nav-tabs justify-content-center" style={{marginBottom: "1em"}}>
+                <ul className="category-nav-button nav nav-tabs justify-content-center" style={{marginBottom: "1em"}}>
                     {this.props.children.map((child, i) =>
-                        <button className={"nav-item" + (this.props.itemActive ? " active" : "")}
+                        <button className={"nav-item" + (child.props.itemActive ? " active" : "")}
+                            id={"category-nav-button-" + this.navBarId + i}
                             key={i}
                             onClick={this.handleTabClick.bind(this)}
                             value={this.navBarId + i}

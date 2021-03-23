@@ -327,3 +327,20 @@ footer {
 .add-course-info ul {
     list-style: none;
 }
+
+.category-nav-button button {
+    margin: 0 2px;
+    border-left: 1px solid #dee2e6;
+    border-top: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+    border-bottom: none;
+    
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    background-color: transparent;
+}
+
+.category-nav-button .active {
+    color: white;
+    background-color: #2c5385;
+}
