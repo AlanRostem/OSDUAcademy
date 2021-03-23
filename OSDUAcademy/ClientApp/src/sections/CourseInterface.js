@@ -101,6 +101,7 @@ export class CourseInterface extends Component {
             const route = "/choose-to-certify/" + this.props.match.params.courseRoute;
             return <Redirect to={route}/>
         }
+        
         return (
             <div className="interface-container">
                 {
