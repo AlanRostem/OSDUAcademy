@@ -28,7 +28,7 @@ export default class CourseRow extends Component {
                 loading: false
             });
         };
-        
+
         if (this.props.searchByTrending) {
             CourseService.fetchCoursesByTrending(callback)
         } else {
@@ -41,10 +41,14 @@ export default class CourseRow extends Component {
 
     render() {
         let len = 0;
-        if (this.state.data)
+        if (this.state.data) {
             len = this.state.data.length;
-        else if (this.props.children)
-            len = this.props.children.length;
+            console.log("data:" + len)
+        } else if (this.state.testingEnabled) {
+            len = React.Children.count(this.props.children);
+            console.log("test:" + len)
+        }
+
         return (
             <CarouselProvider
                 naturalSlideWidth={100}
@@ -55,24 +59,22 @@ export default class CourseRow extends Component {
                 isIntrinsicHeight={true}
                 dragEnabled={false}
                 totalSlides={len}>
-                {
-                    this.props.testingEnabled ?
-                        <Slider>
+                {(() => {
+                    if (this.props.testingEnabled) {
+                        return <Slider>
                             {
                                 React.Children.map(this.props.children, (child, i) =>
-                                        <Slide index={i} key={i}>
-                                            {child}
-                                        </Slide>)
+                                    <Slide index={i} key={i}>
+                                        {child}
+                                    </Slide>)
                             }
                         </Slider>
-                        : null
-                }
-                {
-                    this.state.loading ?
-                        this.showLoading() :
-                        this.showCourses()
-
-                }
+                    } else {
+                        return this.state.loading ?
+                            this.showLoading() :
+                            this.showCourses()
+                    }
+                })()}
                 <div className="course-scroll-button-container">
                     <ButtonBack className="course-scroll-button"><i
                         className={`fa fa-chevron-left fa-sm`}/></ButtonBack>
