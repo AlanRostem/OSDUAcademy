@@ -21,6 +21,21 @@ export class CourseInterface extends Component {
     handleNextClick() {
 
     }
+    
+    handleLectureSelect(event) {
+        const str = event.target.value.split(".");
+        const section = str[0];
+        const lecture = str[1];
+        if (section == LearningService.getSectionNo() && lecture == LearningService.getLectureNo())
+            return;
+        const self = this;
+        LearningService.loadLecture(LearningService.getCurrentCourseRoute(), section,  lecture, xml => {
+            self.setState({
+                loaded: true,
+                content: xml,
+            });
+        });
+    }
 
     componentDidMount() {
         const courseRoute = this.props.match.params.courseRoute;
@@ -37,7 +52,7 @@ export class CourseInterface extends Component {
         return (
             <div className="interface-container">
                 {
-                    this.state.loaded ? <CourseNavMenu/> : null
+                    this.state.loaded ? <CourseNavMenu onLectureSelection={this.handleLectureSelect.bind(this)}/> : null
                 }
                 <ul className="course-navigation">
                     <li className="previous-ch">
