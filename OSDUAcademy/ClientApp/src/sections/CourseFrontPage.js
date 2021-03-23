@@ -95,7 +95,6 @@ export default class CourseFrontPage extends Component {
                                 </ChapterDrop>
                             )
                         }
-                        <CertificateButton>yee</CertificateButton>
                     </ChapterBar>
                     <div className="course-description-container">
                         <h2>Course Description</h2>
