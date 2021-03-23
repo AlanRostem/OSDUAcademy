@@ -16,6 +16,7 @@ export class CourseInterface extends Component {
     state = {
         loaded: false,
         content: "",
+        redirectCertification: false
     }
 
     handleNextClick() {
@@ -25,7 +26,9 @@ export class CourseInterface extends Component {
         if ((lecture + 1) === data[section].lectures.length) {
             lecture = 0;
             if ((section + 1) === data.length) {
-                // TODO: Go to certification
+                this.setState({
+                    redirectCertification: true
+                })
                 return;
             } else {
                 section++;
@@ -94,6 +97,10 @@ export class CourseInterface extends Component {
     }
 
     render() {
+        if (this.state.redirectCertification) {
+            const route = "/choose-to-certify/" + this.props.match.params.courseRoute;
+            return <Redirect to={route}/>
+        }
         return (
             <div className="interface-container">
                 {

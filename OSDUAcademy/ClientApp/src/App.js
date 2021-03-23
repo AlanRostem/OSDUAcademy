@@ -27,8 +27,8 @@ export default class App extends Component {
                 <Route path='/course-front-page/:courseRoute' component={CourseFrontPage}/>
                 <Route path='/course-interface' component={CourseInterface}/> 
                 <Route path='/learn/:courseRoute' component={CourseInterface}/> 
-                <Route path='/certificate-choice' component={CertificateChoice}/>
-                <Route path='/certificate-test' component={CertificateTest}/>
+                <Route path='/choose-to-certify/:courseRoute' component={CertificateChoice}/>
+                <Route path='/certification/:courseRoute' component={CertificateTest}/>
                 <Route path='/teach' component={Teach}/>
             </div>
         );

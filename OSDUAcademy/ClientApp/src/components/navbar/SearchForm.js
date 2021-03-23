@@ -22,7 +22,6 @@ export default class SearchForm extends Component {
         event.preventDefault();
         if (this.state.value.length === 0) return;
         this.setState({value: this.state.value, redirectNow: true});
-        console.log("You searched for", this.state.value);
     }
 
     render() {
