@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 
+/**
+ * The component returns an image of Schlumberger logo. Used in "DefaultNavMenu" component. 
+ */
+
 export default class SchumbergerLogo extends Component {
     render() {
         return (

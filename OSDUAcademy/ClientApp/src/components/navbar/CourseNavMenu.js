@@ -9,12 +9,12 @@ import {ChapterItem} from "../chapterdrop/ChapterItem";
 import LearningService from "../../services/LearningService";
 
 /**
- * The component returns a navigation menu that is used at the top of all course interface pages. It includes two 
- * buttons on opposite sides, the first one being one that takes user back to the home page. The second one is an 
- * overview button that shows the course structure on click. The difference between those two buttons is that the 
- * "overview" button is collapsable, meaning that if the page gets smaller the button disappears. 
- * 
- * The section elements in the "CourseSideBar" tag are populated from the database. 
+ * The component returns a navigation menu that is used at the top of all course interface pages. It includes two
+ * buttons on opposite sides. The first one takes the user back to the home page. The second one is an
+ * overview button that shows the course structure on click. The difference between those two buttons is that the
+ * "overview" button is collapsable, meaning that the button disappears if the page gets smaller.
+ *
+ * The section elements in the "CourseSideBar" tag are populated from the database.
  */
 
 export class CourseNavMenu extends Component {
