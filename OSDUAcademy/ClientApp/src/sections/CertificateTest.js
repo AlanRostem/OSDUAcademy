@@ -18,38 +18,37 @@ import {SubmitButton} from "../components/certificate/SubmitButton";
 export class CertificateTest extends Component {
     static displayName = CertificateTest.name;
 
+    state = {
+        questions: []
+    }
+
+    componentDidMount() {
+        fetch("/certification/" + this.props.match.params.courseRoute + "/content/questions")
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    questions: data
+                })
+            })
+    }
+
     render() {
         return (
             <div>
                 <DefaultNavMenu/>
                 <TestBanner/>
                 <TestBox>
-                    <Question 
-                    questioncount="1"
-                    inquiry="Who let the dogs out?"
-                    >
-                        <Choice optionid="1" name="q1">Alan</Choice>
-                        <Choice optionid="2" name="q1">Nemanja</Choice>
-                        <Choice optionid="3" name="q1">Ahmed</Choice>
-                        <Choice optionid="4" name="q1">All of the above</Choice>
-                    </Question>
-                    <Question
-                        questioncount="2"
-                        inquiry="What is wrong?"
-                    >
-                        <Choice optionid="1" name="q2">True</Choice>
-                        <Choice optionid="2" name="q2">False</Choice>
-                    </Question>
-                    <Question
-                        questioncount="3"
-                        inquiry="Highly complex flow structures, water phase at the bottom of the pipe and dispersed oil phase in the uppermost level of the pipe are characteristics of what type of well?
-"
-                    >
-                        <Choice optionid="1" name="q3">Deviated well</Choice>
-                        <Choice optionid="2" name="q3">Near-horizontal well</Choice>
-                        <Choice optionid="3" name="q3">Near-Vertical well</Choice>
-                        <Choice optionid="4" name="q3">All of the above</Choice>
-                    </Question>
+                    {
+                        this.state.questions.map((question, i) =>
+                            <Question
+                                key={i}
+                                questioncount={i+1}
+                                inquiry={question.questionText}>
+                                {question.answers.map((answer, j) =>
+                                    <Choice key={j} optionid={j} name={"q" + i}>{answer}</Choice>
+                                )}
+                            </Question>)
+                    }
                 </TestBox>
                 <SubmitButton/>
                 <Footer/>
