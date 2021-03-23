@@ -24,18 +24,11 @@ export default class CourseFrontPage extends Component {
 
     handleApply() {
         if (UserService.isLoggedIn()) {
-            const user = UserService.getUser();
-            fetch("user/" + user.id + "/course/" + this.props.match.params.courseRoute + "/apply", {
-                "method": "POST"
-            })
-                .then(response =>
-                    response.text()
-                )
-                .then(success => {
-                    this.setState({
-                        isEnrolled: success === "true"
-                    });
+            UserService.applyToCourse(this.props.match.params.courseRoute, success => {
+                this.setState({
+                    isEnrolled: success === "true"
                 });
+            });
         }
         else {
             // TODO: Redirect to login if the user is not logged in
@@ -129,38 +122,27 @@ export default class CourseFrontPage extends Component {
         this.getCourseData();
     }
 
-    async getCourseData() {
+    getCourseData() {
 
         let course;
         let sections = [];
         let isEnrolled = false;
-
-        try {
-            const response = await fetch('course/' + this.props.match.params.courseRoute);
-            const data = await response.json();
-            course = data.course;
-            sections = data.sections;
-        } catch (e) {
-            console.error(e)
-        }
-
-        if (UserService.isLoggedIn()) {
-            let user = UserService.getUser();
-            try {
-                const response = await fetch("user/" + user.id + "/course/" + this.props.match.params.courseRoute + "/enrolled");
-                const data = await response.text();
-                isEnrolled = data === "true";
-            } catch (e) {
-                console.error(e)
-            }
-        }
-
-        this.setState({
-            course: course,
-            sections: sections,
-            loading: false,
-            isEnrolled: isEnrolled
-        });
+        fetch('course/' + this.props.match.params.courseRoute)
+            .then(response => response.json())
+            .then(data => {
+                course = data.course;
+                sections = data.sections;
+                if (UserService.isLoggedIn()) {
+                    UserService.checkEnrollment(this.props.match.params.courseRoute,isEnrolled => {
+                        this.setState({
+                            course: course,
+                            sections: sections,
+                            loading: false,
+                            isEnrolled: isEnrolled === "true"
+                        });
+                    })
+                }
+            });
     }
 
     populatePrerequisites() {
