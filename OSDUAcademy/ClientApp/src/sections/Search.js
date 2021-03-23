@@ -7,6 +7,14 @@ import {SideDrop} from "../components/sidebar/SideDrop";
 import {SideItem} from "../components/sidebar/SideItem";
 import '../components/sidebar/sideBar.css'
 
+/**
+ * Not used at this moment.
+ *
+ * The component returns a page to which a user gets redirected after using the search bar. The page is divided into
+ * two main parts, the first one being a side navigation menu with various filters for searching. The second parts are
+ * the search results (not implemented yet).
+ */
+
 export class Search extends Component {
     static displayName = Search.name;
 

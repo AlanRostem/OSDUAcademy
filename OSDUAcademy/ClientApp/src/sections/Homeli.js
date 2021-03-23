@@ -9,6 +9,13 @@ import {Footer} from "../components/navbar/Footer";
 import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Redirect} from "react-router-dom";
 
+/**
+ * The component checks whether the user is logged in or not. If the user is logged in, the component returns the home
+ * page slightly different from one when the user is not logged in. It includes a welcome back banner with
+ * personalized message. There is an element with previously taken courses the user can
+ * keep working on and a list with trending courses in the main part of the page.
+ */
+
 export class Homeli extends Component {
     static displayName = Homeli.name;
 

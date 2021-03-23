@@ -12,6 +12,10 @@ import {Redirect} from "react-router-dom";
 import {CertificateButton} from "../components/chapterdrop/CertificateButton";
 import CourseService from "../services/CourseService";
 
+/**
+ * 
+ */
+
 export default class CourseFrontPage extends Component {
     constructor(props) {
         super(props);

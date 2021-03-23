@@ -6,6 +6,13 @@ import {CategoryItem} from "../components/navbar/CategoryItem";
 import CourseRow from "../components/home/CourseRow";
 import {Footer} from "../components/navbar/Footer";
 
+/**
+ * The component returns the home page, shown when the user launches the application and is not logged in. It
+ * includes the default navigation menu with its functionality, the information banner, and a list of trending courses.
+ * One can navigate the list by using chevrons below it. Users can filter the courses using a horizontal category
+ * navigation menu, which includes the main categories in the oil and gas industry.
+ */
+
 export class Home extends Component {
     static displayName = Home.name;
 
