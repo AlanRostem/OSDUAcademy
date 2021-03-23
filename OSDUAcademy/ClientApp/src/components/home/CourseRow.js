@@ -43,10 +43,8 @@ export default class CourseRow extends Component {
         let len = 0;
         if (this.state.data) {
             len = this.state.data.length;
-            console.log("data:" + len)
         } else if (this.state.testingEnabled) {
             len = React.Children.count(this.props.children);
-            console.log("test:" + len)
         }
 
         return (
@@ -89,8 +87,7 @@ export default class CourseRow extends Component {
         return (
             <Slider>
                 {
-                    this.state.data.map((data, i) => {
-                        return (
+                    this.state.data.map((data, i) => 
                             <Slide index={i} key={i}>
                                 <CourseCard
                                     title={data.title}
@@ -99,9 +96,7 @@ export default class CourseRow extends Component {
                                     domain={data.domain}
                                     routeName={data.publicRoute}
                                 />
-                            </Slide>
-                        );
-                    })
+                            </Slide>)
                 }
             </Slider>
         );
