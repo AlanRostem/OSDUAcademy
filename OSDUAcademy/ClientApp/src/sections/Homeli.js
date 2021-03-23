@@ -8,6 +8,7 @@ import CourseRow from "../components/home/CourseRow";
 import {Footer} from "../components/navbar/Footer";
 import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Redirect} from "react-router-dom";
+import {CatchUpCard} from "../components/home/CatchUpCard";
 
 /**
  * The component checks whether the user is logged in or not. If the user is logged in, the component returns the home
@@ -34,8 +35,8 @@ export class Homeli extends Component {
 
                     <h1 className="home-h1">Catch up on your learning</h1>
                     <hr style={{marginBottom: "15px"}}/>
-                    <CourseRow>
-                        
+                    <CourseRow testingEnabled="true">
+                        <CatchUpCard title="Course you should continue working on eeee" />
                     </CourseRow>
                     
                     <h1 className="home-h1">Trending Courses</h1>

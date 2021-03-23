@@ -5,6 +5,7 @@ import '../components/certificate/certificate.css'
 import {Footer} from "../components/navbar/Footer";
 import {Container} from "reactstrap";
 import CertificationService from "../services/CertificationService";
+import {CertificationNavMenu} from "../components/navbar/CertificationNavMenu";
 
 /**
  * The component is a parent component for "DefaultNavMenu" and "Footer" components. It allows a user decide
@@ -42,7 +43,7 @@ export class CertificateChoice extends Component {
         
         return (
             <div>
-                <DefaultNavMenu/>
+                <CertificationNavMenu/>
                 <TestBanner/>
                 <Container className="pre-test-info">
                     <div className="info-box">
