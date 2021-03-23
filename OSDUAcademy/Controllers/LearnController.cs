@@ -29,6 +29,7 @@ namespace OSDUAcademy.Controllers
         /// Get request that sends the client an image file based on course.
         /// Access is currently not secured to students who have enrolled.
         /// TODO: Secure access to course content based on user enrollment data.
+        /// TODO: Validate if the lecture/image exists in the database
         /// </summary>
         /// <param name="route">Unique route as present in the database</param>
         /// <param name="image">Image name excluding path. File extension required</param>

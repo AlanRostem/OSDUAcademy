@@ -137,7 +137,6 @@ export default class CourseFrontPage extends Component {
         try {
             const response = await fetch('course/' + this.props.match.params.courseRoute);
             const data = await response.json();
-            console.log(data);
             course = data.course;
             sections = data.sections;
         } catch (e) {
