@@ -16,6 +16,7 @@ export class CatchUpCard extends Component {
                 <h6>{this.props.title}</h6>
                 <button className="catch-btn">CONTINUE</button>
             </NavLink>
+
         );
     }
 }
