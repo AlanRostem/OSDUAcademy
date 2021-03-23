@@ -4,6 +4,7 @@ import {TestBanner} from "../components/certificate/TestBanner";
 import '../components/certificate/certificate.css'
 import {Footer} from "../components/navbar/Footer";
 import {Container} from "reactstrap";
+import CertificationService from "../services/CertificationService";
 
 /**
  * The component is a parent component for "DefaultNavMenu" and "Footer" components. It allows a user decide
@@ -23,14 +24,12 @@ export class CertificateChoice extends Component {
     }
     
     componentDidMount() {
-        fetch("/certification/" + this.props.match.params.courseRoute + "/content/preview")
-            .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    loaded: true,
-                    data: data
-                })
-            });
+        CertificationService.fetchQuestionsPreview(this.props.match.params.courseRoute, data => {
+            this.setState({
+                loaded: true,
+                data: data
+            })
+        })
     }
 
     render() {
