@@ -328,7 +328,15 @@ footer {
     list-style: none;
 }
 
-.category-nav-button button {
+.category-navmenu {
+    margin-bottom: 1em;
+    justify-content: center;
+    display: flex;
+    border-bottom: solid 2px #2c5385;
+    padding: 0;
+}
+
+.category-navmenu button {
     margin: 0 2px;
     border-left: 1px solid #dee2e6;
     border-top: 1px solid #dee2e6;
@@ -342,7 +350,8 @@ footer {
     min-width: 10em;
 }
 
-.category-nav-button .active {
+.category-navmenu .active {
     color: white;
     background-color: #2c5385;
+    border: none;
 }

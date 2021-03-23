@@ -44,7 +44,7 @@ export class CategoryNavBar extends Component {
     render() {
         return (
             <div>
-                <ul className="category-nav-button nav nav-tabs justify-content-center" style={{marginBottom: "1em"}}>
+                <ul className="category-navmenu">
                     {this.props.children.map((child, i) =>
                         <button className={"nav-item" + (child.props.itemActive ? " active" : "")}
                             id={"category-nav-button-" + this.navBarId + i}
