@@ -37,6 +37,13 @@ export class Homeli extends Component {
                     <hr style={{marginBottom: "15px"}}/>
                     <CourseRow testingEnabled="true">
                         <CatchUpCard title="Techlog Wellbore - A Beginner Tutorial" routeName="techlog-tutorial"/>
+                        <CatchUpCard title="Techlog Wellbore - A Beginner Tutorial" routeName="techlog-tutorial"/>
+                        <CatchUpCard title="Techlog Wellbore - A Beginner Tutorial" routeName="techlog-tutorial"/>
+                        <CatchUpCard title="Techlog Wellbore - A Beginner Tutorial" routeName="techlog-tutorial"/>
+                        <CatchUpCard title="Techlog Wellbore - A Beginner Tutorial" routeName="techlog-tutorial"/>
+                        <CatchUpCard title="Techlog Wellbore - A Beginner Tutorial" routeName="techlog-tutorial"/>
+                        <CatchUpCard title="Techlog Wellbore - A Beginner Tutorial" routeName="techlog-tutorial"/>
+                        <CatchUpCard title="Techlog Wellbore - A Beginner Tutorial" routeName="techlog-tutorial"/>
                     </CourseRow>
                     
                     <h1 className="home-h1">Trending Courses</h1>
