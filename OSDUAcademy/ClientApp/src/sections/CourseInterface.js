@@ -36,7 +36,9 @@ export class CourseInterface extends Component {
     render() {
         return (
             <div className="interface-container">
-                <CourseNavMenu/>
+                {
+                    this.state.loaded ? <CourseNavMenu/> : null
+                }
                 <ul className="course-navigation">
                     <li className="previous-ch">
                         <button className="nav-btn">

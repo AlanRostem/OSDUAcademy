@@ -6,6 +6,8 @@ import NavIcon from "./NavIcon";
 import {CourseSideBar} from "../course-interface/CourseSideBar";
 import {ChapterDrop} from "../chapterdrop/ChapterDrop";
 import {ChapterItem} from "../chapterdrop/ChapterItem";
+import {ChapterBar} from "../chapterdrop/ChapterBar";
+import LearningService from "../../services/LearningService";
 
 export class CourseNavMenu extends Component {
     static displayName = CourseNavMenu.name;
@@ -14,12 +16,11 @@ export class CourseNavMenu extends Component {
         super(props);
 
         this.toggleNavbar = this.toggleNavbar.bind(this);
-        this.state = {
-            collapsed: true
-        };
         
         this.state = {
+            collapsed: true,
             showOverview: false,
+            sections: []
         }
     }
 
@@ -35,6 +36,17 @@ export class CourseNavMenu extends Component {
         this.setState({
             showOverview: !this.state.showOverview,
         });
+    }
+    
+    componentDidMount() {
+        const route = 'learn/' + LearningService.getCurrentCourseRoute() + "/overview";
+        fetch(route)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    sections: data,
+                });
+            });
     }
 
     render() {
@@ -60,25 +72,15 @@ export class CourseNavMenu extends Component {
                                     this.state.showOverview
                                         ? (
                                             <CourseSideBar onClose={this.showOverview.bind(this)}>
-                                                <ChapterDrop name="Introduction" amount="1">
-                                                    <ChapterItem subchapter="What you will learn"/>
-                                                </ChapterDrop>
-                                                <ChapterDrop name="Data Management" amount="5">
-                                                    <ChapterItem subchapter="Somebody once told me"/>
-                                                    <ChapterItem subchapter="The worlds gonna roll me"/>
-                                                    <ChapterItem subchapter="I ain't the sharpest tool in the shed"/>
-                                                    <ChapterItem subchapter="She was looking kind of dumb with her finger and her thumb She was looking kind of dumb with her finger and her thumb She was looking kind of dumb with her finger and her thumb She was looking kind of dumb with her finger and her thumb"/>
-                                                    <ChapterItem subchapter="In the shape of an L on her forehead"/>
-                                                </ChapterDrop>
-                                                <ChapterDrop name="Another thing" amount="4">
-                                                    <ChapterItem subchapter="Small things"/>
-                                                    <ChapterItem subchapter="Bigger things"/>
-                                                    <ChapterItem subchapter="Even bigger stuff"/>
-                                                    <ChapterItem subchapter="The absolute biggest"/>
-                                                </ChapterDrop>
-                                                <ChapterDrop name="The last thing" amount="1">
-                                                    <ChapterItem subchapter="Summary"/>
-                                                </ChapterDrop>
+                                                {
+                                                    this.state.sections.map((section, i) =>
+                                                        <ChapterDrop key={i} name={section.title} amount={section.lectures.length}>
+                                                            {section.lectures.map((lecture, j) =>
+                                                                <ChapterItem key={j} subchapter={lecture.title}/>
+                                                            )}
+                                                        </ChapterDrop>
+                                                    )
+                                                }
                                             </CourseSideBar>
                                         )
                                         : null

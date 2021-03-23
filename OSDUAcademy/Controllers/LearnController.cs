@@ -89,7 +89,7 @@ namespace OSDUAcademy.Controllers
             };
         }
         
-        [HttpGet("{route}/sections")]
+        [HttpGet("{route}/overview")]
         public List<Section> GetCourseOverview(string route)
         {
             var courseFields = Builders<Course>.Projection
