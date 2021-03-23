@@ -336,34 +336,12 @@ footer {
     padding: 0;
 }
 
-.catchup-card {
-    height: auto;
-    width: 20%;
-    margin-right: 20px;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    position: relative;
-}
-
-.catchup-card img {
-    width: 100%;
-    height: auto;
-}
-
-.catchup-card h6 {
-    margin-top: 0.5em;
-    font-weight: bold;
-    color: black;
-}
-
 .catch-btn {
     border-style: none;
     background-color: #1b6ec2;
     border-radius: 5px;
     color: white;
-    text-align: center;
+    padding: 5px 10px;
 }
 
 .category-navmenu button {

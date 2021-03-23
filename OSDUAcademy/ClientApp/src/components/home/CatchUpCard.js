@@ -9,11 +9,11 @@ export class CatchUpCard extends Component {
     
     render() {
         return (
-            <div className="catchup-card">
+            <div className="course-card">
                 <div>
-                    <img src={process.env.PUBLIC_URL + "img/test.png"} alt={"Course: " + this.props.title}/>
+                    <img src={process.env.PUBLIC_URL + "/thumbnails/courses/" + this.props.routeName + ".png"} alt={"Course: " + this.props.title}/>
                     <h6>{this.props.title}</h6>
-                    <p><button className="catch-btn">CONTINUE</button></p>
+                    <div style={{textAlign:"center"}}><button className="catch-btn">CONTINUE</button></div>
                 </div>
             </div>
         );
