@@ -36,7 +36,7 @@ export class Homeli extends Component {
                     <h1 className="home-h1">Catch up on your learning</h1>
                     <hr style={{marginBottom: "15px"}}/>
                     <CourseRow testingEnabled="true">
-                        <CatchUpCard title="Course you should continue working on eeee" routeName="techlog-tutorial"/>
+                        <CatchUpCard title="Techlog Wellbore - A Beginner Tutorial" routeName="techlog-tutorial"/>
                     </CourseRow>
                     
                     <h1 className="home-h1">Trending Courses</h1>
