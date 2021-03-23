@@ -8,7 +8,9 @@ import {Question} from "../components/certificate/Question";
 import {Choice} from "../components/certificate/Choice";
 import {Footer} from "../components/navbar/Footer";
 import {SubmitButton} from "../components/certificate/SubmitButton";
+import {CertificationNavMenu} from "../components/navbar/CertificationNavMenu";
 import CertificationService from "../services/CertificationService";
+
 
 /**
  * The component returns the certification test. The quiz is limited to one page, which allows the user to
@@ -34,7 +36,7 @@ export class CertificateTest extends Component {
     render() {
         return (
             <div>
-                <DefaultNavMenu/>
+                <CertificationNavMenu/>
                 <TestBanner/>
                 <TestBox>
                     {
