@@ -25,25 +25,9 @@ export default class Login extends Component {
     handleLogin(event) {
         event.preventDefault();
         this.setState({loggingIn: true});
-        let data = JSON.stringify({
-            email: this.state.email,
-            password: this.state.password,
-        });
-
-        fetch("login", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-            },
-            body: data,
-        })
-            .then(response =>
-                response.json()
-            )
-            .then(data =>
-                this.setState({data: data})
-            );
+        UserService.loginUser(this.state.email, this.state.password, data =>
+            this.setState({data: data})
+        );
     }
 
     render() {

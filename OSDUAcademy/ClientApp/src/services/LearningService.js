@@ -49,6 +49,22 @@
             });
 
 
+    },
+    fetchCourseImage(courseRoute, image, callback) {
+        fetch(`learn/content/${courseRoute}/images/${image}`)
+            .then(response => response.blob())
+            .then(blob => {
+                callback(URL.createObjectURL(blob));
+            });
+    },
+    
+    fetchCurrentCourseOverview(callback) {
+        const route = 'learn/' + LearningService.getCurrentCourseRoute() + "/overview";
+        fetch(route)
+            .then(response => response.json())
+            .then(data => {
+                callback(data);
+            });
     }
 };
 

@@ -52,14 +52,11 @@ export class CourseNavMenu extends Component {
     /* Specifies route to match the current course route and gets the overview data from the database. Updates
     * the section and re-renders the component. */
     componentDidMount() {
-        const route = 'learn/' + LearningService.getCurrentCourseRoute() + "/overview";
-        fetch(route)
-            .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    sections: data,
-                });
+        LearningService.fetchCurrentCourseOverview(data => {
+            this.setState({
+                sections: data,
             });
+        })
     }
 
     render() {

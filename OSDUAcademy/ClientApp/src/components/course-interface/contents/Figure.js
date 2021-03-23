@@ -10,14 +10,12 @@ export default class Figure extends Component {
     componentDidMount() {
         let courseRoute = LearningService.getCurrentCourseRoute();
 
-        fetch(`learn/content/${courseRoute}/images/${this.props.image}`)
-            .then(response => response.blob())
-            .then(blob => {
-                this.setState({
-                    loaded: true,
-                    src: URL.createObjectURL(blob)
-                })
+        LearningService.fetchCourseImage(courseRoute, this.props.image, src => {
+            this.setState({
+                loaded: true,
+                src: src
             })
+        });
     }
 
     render() {
