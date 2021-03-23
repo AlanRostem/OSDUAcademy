@@ -10,7 +10,7 @@ export class CategoryItem extends Component {
 
     render () {
         return (
-            <p className="nav-link">{this.props.children}</p>
+            this.props.children
         );
     }
 }

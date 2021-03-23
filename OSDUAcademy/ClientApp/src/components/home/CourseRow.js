@@ -57,7 +57,15 @@ export default class CourseRow extends Component {
                 totalSlides={len}>
                 {
                     this.props.testingEnabled ?
-                        this.props.children : null
+                        <Slider>
+                            {
+                                this.props.children.map((child, i) => 
+                                        <Slide index={i} key={i}>
+                                            {child}
+                                        </Slide>)
+                            }
+                        </Slider>
+                        : null
                 }
                 {
                     this.state.loading ?
