@@ -35,5 +35,8 @@ namespace OSDUAcademy.DataTypes
         
         [BsonElement("sections")] 
         public List<ObjectId> Sections { get; set; }
+        
+        [BsonElement("certification_quiz_id")]
+        public ObjectId CertificationQuizId { get; set; }
     }
 }
