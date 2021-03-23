@@ -59,14 +59,7 @@ export default class CourseRow extends Component {
                 totalSlides={len}>
                 {(() => {
                     if (this.props.testingEnabled) {
-                        return <Slider>
-                            {
-                                React.Children.map(this.props.children, (child, i) =>
-                                    <Slide index={i} key={i}>
-                                        {child}
-                                    </Slide>)
-                            }
-                        </Slider>
+                        return this.showTestSlider();
                     } else {
                         return this.state.loading ?
                             this.showLoading() :
@@ -108,6 +101,17 @@ export default class CourseRow extends Component {
                 Loading...
             </p>
         );
+    }
+
+    showTestSlider() {
+        return <Slider>
+            {
+                React.Children.map(this.props.children, (child, i) =>
+                    <Slide index={i} key={i}>
+                        {child}
+                    </Slide>)
+            }
+        </Slider>
     }
 }
 
