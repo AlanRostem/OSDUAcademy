@@ -59,7 +59,7 @@ export default class CourseRow extends Component {
                     this.props.testingEnabled ?
                         <Slider>
                             {
-                                this.props.children.map((child, i) =>
+                                React.Children.map(this.props.children, (child, i) =>
                                         <Slide index={i} key={i}>
                                             {child}
                                         </Slide>)

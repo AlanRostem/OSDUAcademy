@@ -10,7 +10,7 @@ export class CategoryNavBar extends Component {
     populateChildren() {
         return (
             <div>
-                {this.props.children.map((child, i) => {
+                {React.Children.map(this.props.children, (child, i) => {
                     const id = this.navBarId + i;
                     let display = "none";
                     if (child.props.itemActive) {
@@ -45,7 +45,7 @@ export class CategoryNavBar extends Component {
         return (
             <div>
                 <ul className="category-navmenu">
-                    {this.props.children.map((child, i) =>
+                    {React.Children.map(this.props.children, (child, i) =>
                         <button className={"nav-item" + (child.props.itemActive ? " active" : "")}
                             id={"category-nav-button-" + this.navBarId + i}
                             key={i}
