@@ -1,20 +1,16 @@
-﻿const UserService = {
-    _user: null,
+﻿import ls from "local-storage"
 
-    setUser(user) {
-        this._user = user;
-    },
-
+const UserService = {
     getUser() {
-        return this._user;
+        return ls.get("user_data");
     },
 
     isLoggedIn() {
-        return this._user != null;
+        return ls.get("user_data") != null;
     },
 
     applyToCourse(courseRoute, callback) {
-        fetch("user/" + this._user.id + "/course/" + courseRoute + "/apply", {
+        fetch("user/" + this.getUser().id + "/course/" + courseRoute + "/apply", {
             "method": "POST"
         })
             .then(response =>
@@ -23,7 +19,7 @@
     },
 
     checkEnrollment(courseRoute, callback) {
-        fetch("user/" + this._user.id + "/course/" + courseRoute + "/enrolled")
+        fetch("user/" + this.getUser().id + "/course/" + courseRoute + "/enrolled")
             .then(response => response.text())
             .then(callback);
     },
@@ -42,19 +38,22 @@
         })
             .then(response =>
                 response.json())
-            .then(data =>
-                callback(data));
+            .then(data => {
+                callback(data);
+                if (!data.success) return;
+                ls.set("user_data", data.user)
+            });
     },
 
     fetchEnrolledCourses(callback) {
-        fetch("user/" + this._user.id + "/courses/applied")
+        fetch("user/" + this.getUser().id + "/courses/applied")
             .then(response => response.json())
             .then(data => callback(data))
     },
     
     logOut() {
         if (UserService.isLoggedIn()) {
-            this._user = null;
+            ls.set("user_data", null)
         }
     }
 };

@@ -5,6 +5,8 @@ import {CategoryNavBar} from "../components/navbar/CategoryNavBar";
 import {CategoryItem} from "../components/navbar/CategoryItem";
 import CourseRow from "../components/home/CourseRow";
 import {Footer} from "../components/navbar/Footer";
+import UserService from "../services/UserService";
+import {Redirect} from "react-router-dom";
 
 /**
  * The component returns the home page, shown when the user launches the application and is not logged in. It
@@ -15,8 +17,11 @@ import {Footer} from "../components/navbar/Footer";
 
 export class Home extends Component {
     static displayName = Home.name;
-
+    
     render() {
+        if (UserService.isLoggedIn())
+            return <Redirect to="home-li"/>
+        
         return (
             <div>
                 <DefaultNavMenu/>
@@ -50,7 +55,7 @@ export class Home extends Component {
 
                     <h1 style={{textAlign: "center", paddingTop: "50px"}}>Trending Courses</h1>
                     <p style={{textAlign: "center", color: "#7f7f7f"}}>Find the most popular courses at OSDU Academy</p>
-              
+
                     <CategoryNavBar>
                         <CategoryItem itemActive={true}
                                       componentToShow={<CourseRow searchByTrending={true}/>}>PETROLEUM</CategoryItem>
