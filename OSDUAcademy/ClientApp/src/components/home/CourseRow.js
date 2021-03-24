@@ -23,7 +23,7 @@ export default class CourseRow extends Component {
             this.setState({loading: false, data: []})
             return;
         }
-        
+
         if (this.props.fetchEnrolledUserCourses) {
             if (UserService.isLoggedIn()) {
                 UserService.fetchEnrolledCourses(data => {
@@ -34,7 +34,7 @@ export default class CourseRow extends Component {
                     });
                 })
             }
-            
+
             return;
         }
 
@@ -44,7 +44,7 @@ export default class CourseRow extends Component {
                 loading: false
             });
         };
-        
+
         if (this.props.searchByTrending) {
             CourseService.fetchCoursesByTrending(callback)
         } else {
@@ -57,7 +57,7 @@ export default class CourseRow extends Component {
 
     render() {
         let len = 0;
-        if (this.props.searchByTrending && this.state.data) {
+        if (this.state.data) {
             len = this.state.data.length;
         } else if (this.props.testingEnabled) {
             len = React.Children.count(this.props.children);
@@ -74,22 +74,23 @@ export default class CourseRow extends Component {
                 dragEnabled={false}
                 totalSlides={len}>
                 {(() => {
-                    if (this.props.testingEnabled) {
-                        return this.showTestSlider();
-                    } 
-                    else if (this.state.showEnrolledCourses) {
-                        return this.state.data.map((course, i) =>
-                            <Slide index={i} key={i}>
-                                <CatchUpCard title={course.title} routeName={course.publicRoute}/>
-                            </Slide>
-                        );
+                        if (this.props.testingEnabled) {
+                            return this.showTestSlider();
+                        } else if (this.state.showEnrolledCourses) {
+                            return <Slider> {this.state.data.map((course, i) =>
+                                <Slide index={i} key={i}>
+                                    <CatchUpCard title={course.title} routeName={course.publicRoute}/>
+                                </Slide>)}
+                            </Slider>;
+                        } else {
+                            return this.state.loading ?
+                                this.showLoading() :
+                                this.showCourses()
+                        }
                     }
-                    else {
-                        return this.state.loading ?
-                            this.showLoading() :
-                            this.showCourses()
-                    }
-                })()}
+
+                )()
+                }
                 <div className="course-scroll-button-container">
                     <ButtonBack className="course-scroll-button"><i
                         className={`fa fa-chevron-left fa-sm`}/></ButtonBack>
@@ -97,28 +98,29 @@ export default class CourseRow extends Component {
                         className={`fa fa-chevron-right fa-sm`}/></ButtonNext>
                 </div>
             </CarouselProvider>
-        );
+        )
+            ;
     }
 
     showCourses() {
         return (
             <Slider>
                 {
-                    this.state.data.map((data, i) => 
-                            <Slide index={i} key={i}>
-                                <CourseCard
-                                    title={data.title}
-                                    desc={data.description}
-                                    difficulty={data.difficulty}
-                                    domain={data.domain}
-                                    routeName={data.publicRoute}
-                                />
-                            </Slide>)
+                    this.state.data.map((data, i) =>
+                        <Slide index={i} key={i}>
+                            <CourseCard
+                                title={data.title}
+                                desc={data.description}
+                                difficulty={data.difficulty}
+                                domain={data.domain}
+                                routeName={data.publicRoute}
+                            />
+                        </Slide>)
                 }
             </Slider>
         );
     }
-    
+
     showTestSlider() {
         return <Slider>
             {
@@ -129,7 +131,7 @@ export default class CourseRow extends Component {
             }
         </Slider>
     }
-    
+
     showLoading() {
         return (
             <p>
