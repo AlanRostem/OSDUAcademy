@@ -364,3 +364,36 @@ footer {
     background-color: #2c5385;
     border: none;
 }
+
+.fed-login {
+    text-align: center;
+}
+
+.fed-form {
+    height: auto;
+    width: 50%;
+    background-color: white;
+    justify-content: center;
+    box-shadow: 5px 13px 33px -15px black;
+    padding: 30px 0;
+    margin: 40px auto auto;
+}
+
+.fed-img {
+    width: 20%;
+    height: auto;
+    margin-right: 10px;
+}
+
+.log-list {
+    list-style: none;
+    padding: 10px;
+}
+
+.fed-li {
+    width: 80%;
+    background-color: green;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px auto auto;
+}
