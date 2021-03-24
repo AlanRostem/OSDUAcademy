@@ -40,7 +40,10 @@ export default class Login extends Component {
             if (!this.state.data.success) {
                 failed = true;
             } else {
-                return <Redirect to="home-li" />;
+                if (this.props.match !== undefined) 
+                    if (this.props.match.params.courseRoute !== undefined)
+                        return <Redirect to={"/course-front-page/" + this.props.match.params.courseRoute} />
+                return <Redirect to="/home-li" />;
             }
         }
 
@@ -49,7 +52,12 @@ export default class Login extends Component {
                 <DefaultNavMenu/>
                 <Container>
                     <UserInfoForm onSubmit={this.handleLogin.bind(this)}>
-                        <h3>Sign in</h3>
+                        <h3>
+                            {
+                                this.props.match.params === undefined ? 
+                                    "Sign in to your account" : "Sign in to continue"
+                            }
+                        </h3>
                         {
                             failed ? <p style={{color: "red"}}>Invalid credentials</p> : null
                         }

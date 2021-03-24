@@ -13,7 +13,7 @@ import {CertificateButton} from "../components/chapterdrop/CertificateButton";
 import CourseService from "../services/CourseService";
 
 /**
- * 
+ *
  */
 
 export default class CourseFrontPage extends Component {
@@ -23,6 +23,7 @@ export default class CourseFrontPage extends Component {
             loading: true,
             isEnrolled: false,
             redirectToLearn: false,
+            redirectToLogin: false,
             coursePath: "/"
         };
     }
@@ -34,9 +35,10 @@ export default class CourseFrontPage extends Component {
                     isEnrolled: success === "true"
                 });
             });
-        }
-        else {
-            // TODO: Redirect to login if the user is not logged in
+        } else {
+            this.setState({
+                redirectToLogin: true,
+            });
         }
     }
 
@@ -107,9 +109,12 @@ export default class CourseFrontPage extends Component {
     }
 
     render() {
-        if (this.state.redirectToLearn) {
+        if (this.state.redirectToLearn)
             return <Redirect to={this.state.coursePath}/>;
-        }
+
+        if (this.state.redirectToLogin)
+            return <Redirect to={"/login-page/" + this.props.match.params.courseRoute}/>
+
         return (
             <div>
                 <DefaultNavMenu/>
@@ -134,7 +139,7 @@ export default class CourseFrontPage extends Component {
             course = data.course;
             sections = data.sections;
             if (UserService.isLoggedIn()) {
-                UserService.checkEnrollment(this.props.match.params.courseRoute,isEnrolled => {
+                UserService.checkEnrollment(this.props.match.params.courseRoute, isEnrolled => {
                     this.setState({
                         course: course,
                         sections: sections,

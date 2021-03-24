@@ -25,7 +25,8 @@ export default class App extends Component {
                 <Route path='/counter' component={Counter}/>
                 <Route path='/fetch-data' component={FetchData}/>
                 <Route path='/home-li' component={Homeli}/>
-                <Route path='/login-page' component={Login}/>
+                <Route exact path='/login-page' component={Login}/>
+                <Route path='/login-page/:courseRoute' component={Login}/>
                 <Route path='/course-front-page/:courseRoute' component={CourseFrontPage}/>
                 <Route path='/course-interface' component={CourseInterface}/>
                 <Route path='/learn/:courseRoute' component={CourseInterface}/>
