@@ -1,0 +1,140 @@
+.certificate-banner {
+    background-color: #1B224E;
+    width: 100%;
+    color: white;
+    padding: 10px;
+}
+
+.certificate-banner h1 {
+    font-size: 2rem;
+}
+
+.certificate-banner a {
+    color: white;
+    text-decoration: none;
+}
+
+.certificate-banner a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.pre-test-info {
+    padding: 30px;
+    text-align: center;
+}
+
+.info-box {
+    background-color: #DFDFE1;
+    padding: 30px;
+    box-shadow: 5px 13px 33px -15px black;
+}
+
+.info-box h2 {
+    margin-bottom: 30px;
+}
+
+.info-box p:last-child {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.take-test-btn {
+    border: solid 1px black;
+    background-color: forestgreen;
+    color: white;
+    margin-top: 30px;
+    font-size: 20px;
+    padding: 7px;
+}
+
+.test-box {
+    width: 100%;
+    margin-top: 30px;
+    padding: 5px;
+}
+
+.q-field {
+    background-color: #DFDFE1;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.q-field h1 {
+    font-size: 1.5rem;
+}
+
+.q-field h2 {
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.q-field ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    margin-bottom: 0;
+    display: flex;
+}
+
+.choice label {
+    margin-left: 10px;
+}
+
+.submit-cont {
+    text-align: center;
+}
+
+.submit-btn {
+    border: solid 1px black;
+    background-color: forestgreen;
+    color: white;
+    margin-top: 30px;
+    font-size: 20px;
+    width: 150px;
+    padding: 7px;
+}
+
+.congrats-box {
+    background-color: #2D2D8E;
+    color: white;
+    padding: 30px;
+    box-shadow: 5px 13px 33px -15px black;
+}
+
+.congrats-box h6 {
+    font-size: 1.3rem;
+}
+
+.score {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.close-cert-btn {
+    margin-top: 40px;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px black;
+    background-color: #8fd19e;
+}
+
+.sorry-box {
+    background-color: #D06125;
+    color: white;
+    padding: 30px;
+    box-shadow: 5px 13px 33px -15px black;
+}
+
+.to-course-btn {
+    margin-top: 40px;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px black;
+    background-color: #80bdff;
+}
+
+

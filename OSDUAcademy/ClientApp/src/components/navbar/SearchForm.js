@@ -3,26 +3,35 @@ import {Redirect} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+/**
+ * Not used at the moment. 
+ * 
+ * The component returns a search field which was set to be used at the top navigation menu. On the submit action, 
+ * the user would be re-directed to the search page and the results. 
+ */
+
 export default class SearchForm extends Component {
     constructor(props) {
         super(props);
         this.state = {value: "", redirectNow: false};
-
+        
+        /* The search field is empty by default */
         this.inputFieldStyle = {};
         this.inputFieldStyle.minHeight = "2.2rem";
         this.inputFieldStyle.width = "400px";
         this.inputFieldStyle.marginLeft = "1.5rem";
     }
 
+    /* re-renders the component when the input is not empty */
     handleChange(event) {
         this.setState({value: event.target.value});
     }
 
+    /* on submit, the search field becomes empty again and the user gets re-directed to another page */
     handleSubmit(event) {
         event.preventDefault();
         if (this.state.value.length === 0) return;
         this.setState({value: this.state.value, redirectNow: true});
-        console.log("You searched for", this.state.value);
     }
 
     render() {
@@ -43,7 +52,7 @@ export default class SearchForm extends Component {
                     </div>
                 </form>
                 {this.state.redirectNow ?
-                <Redirect to={{
+                <Redirect push to={{
                     pathname: '/search',
                     search: this.state.value
                 }}/> : undefined}

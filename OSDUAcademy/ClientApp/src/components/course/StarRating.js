@@ -1,6 +1,10 @@
 ﻿import React, {Component} from "react"
 
-export default class StarRating extends Component {
+/**
+ * Not used at the time of writing. 
+ */
+
+    export default class StarRating extends Component {
     constructor(props) {
         super(props);
         this.state = {

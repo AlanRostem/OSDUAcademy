@@ -1,0 +1,6 @@
+﻿<Content>
+    <Title>Introduction</Title>
+    <Paragraph>This is a paragraph</Paragraph>
+    <Figure image="smiley.png" />
+    <YouTube link="https://www.youtube.com/embed/k9h3yPF6plg" />
+</Content>

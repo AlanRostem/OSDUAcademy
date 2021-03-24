@@ -1,8 +1,10 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using OSDUAcademy.DataTypes;
@@ -14,11 +16,10 @@ namespace OSDUAcademy.Controllers
     public class CourseController : ControllerBase
     {
         private static readonly ProjectionDefinitionBuilder<Course> CourseFieldBuilder = Builders<Course>.Projection;
-        
+
         private readonly IMongoCollection<Course> _courseCollection;
-        
         private readonly IMongoCollection<Section> _sectionCollection;
-        
+
         public CourseController(IMongoClient client)
         {
             var database = client.GetDatabase("osdu_academy");
@@ -27,8 +28,8 @@ namespace OSDUAcademy.Controllers
         }
 
         /// <summary>
-        /// Delivers all the courses to the client. Currently it is not possible to search in the database
-        /// by trending. 
+        /// Delivers minimal information about all the courses to the client.
+        /// Currently it is not possible to search in the database by trending. 
         /// </summary>
         /// <returns>IEnumerable object with all the courses</returns>
         [Route("trending")]
@@ -40,17 +41,45 @@ namespace OSDUAcademy.Controllers
                 .Exclude(c => c.Sections)
                 .Exclude(c => c.FullDescription)
                 .Exclude(c => c.Prerequisites);
-            
+
             var all = _courseCollection
                 .Find(c => true)
                 .Project<Course>(fields)
                 .ToList();
-            
+
             return all;
         }
         
         /// <summary>
-        /// Deliver a course to the client by its generated route
+        /// Delivers minimal information about all the courses to the client.
+        /// Search using the domain
+        /// </summary>
+        /// <returns>IEnumerable object with all the courses</returns>
+        [Route("domain/{domain}")]
+        public IEnumerable<Course> GetByDomain(string domain)
+        {
+            var fields = CourseFieldBuilder
+                .Exclude(c => c.Id)
+                .Exclude(c => c.Duration)
+                .Exclude(c => c.Sections)
+                .Exclude(c => c.FullDescription)
+                .Exclude(c => c.Prerequisites);
+
+            var all = _courseCollection
+                .Find(c => c.Domain == domain)
+                .Project<Course>(fields)
+                .ToList();
+
+            return all;
+        }
+
+
+
+        /// <summary>
+        /// Deliver basic information about a course to the client by its
+        /// pre-generated route. Data about the course should only represent
+        /// basic information such as title, description and course layout
+        /// among other things.
         /// </summary>
         /// <param name="route">Unique route as present in the database</param>
         /// <returns>The course by route</returns>
@@ -59,13 +88,13 @@ namespace OSDUAcademy.Controllers
         {
             var courseFields = CourseFieldBuilder
                 .Exclude(c => c.Id);
-            
-            var course =  _courseCollection
+
+            var course = _courseCollection
                 .Find(c => c.PublicRoute == route)
                 .Project<Course>(courseFields)
                 .ToList().Single();
-            
-            
+
+
             var sectionFields = Builders<Section>.Projection
                 .Exclude(s => s.Id);
 
@@ -80,7 +109,7 @@ namespace OSDUAcademy.Controllers
 
                 sections.Add(section);
             }
-            
+
             Dictionary<string, object> data = new Dictionary<string, object>
             {
                 ["course"] = course,

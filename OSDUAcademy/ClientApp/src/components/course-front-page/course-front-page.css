@@ -71,13 +71,28 @@
     flex-direction: row;
 }
 
-.course-intro-card .intro-buttons button {
+.course-intro-card .intro-buttons button,
+.course-intro-card .intro-buttons a {
     width: 45%;
     height: 48px;
     border-radius: 5px;
     background-color: #1b6ec2;
     border-color: transparent;
     color: white;
+    margin: auto;
+}
+
+.course-intro-card .intro-buttons a {
+    text-align: center;
+    line-height: 48px;
+}
+
+.course-intro-card .intro-buttons a:hover {
+    text-decoration: none;
+}
+
+.course-intro-card .intro-buttons button:disabled {
+    filter: opacity(50%);
 }
 
 .course-intro-card .intro-buttons button a {

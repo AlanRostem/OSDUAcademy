@@ -2,9 +2,11 @@
 import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import CourseCard from "./CourseCard";
+import CourseService from "../../services/CourseService";
+import UserService from "../../services/UserService";
+import {CatchUpCard} from "./CatchUpCard";
 
 export default class CourseRow extends Component {
-    courses = [];
 
     constructor(props) {
         super(props);
@@ -17,28 +19,50 @@ export default class CourseRow extends Component {
     }
 
     async populateCourses() {
-        let route = "";
-        if (this.props.searchByTrending) {
-            route = "trending";
-        } else {
-            route = this.props.domainToSearchBy;
-            if (!route)
-                this.setState({data: [], loading: false});
-            else 
-                route = "domain/" + this.props.domainToSearchBy;
+        if (this.props.testingEnabled) {
+            this.setState({loading: false, data: []})
             return;
         }
 
-        const response = await fetch('course/' + route);
-        try {
-            const data = await response.json();
-            this.setState({data: data, loading: false});
-        } catch (e) {
-            console.error(response);
+        if (this.props.fetchEnrolledUserCourses) {
+            if (UserService.isLoggedIn()) {
+                UserService.fetchEnrolledCourses(data => {
+                    this.setState({
+                        data: data,
+                        loading: false,
+                        showEnrolledCourses: true
+                    });
+                })
+            }
+
+            return;
+        }
+
+        const callback = data => {
+            this.setState({
+                data: data,
+                loading: false
+            });
+        };
+
+        if (this.props.searchByTrending) {
+            CourseService.fetchCoursesByTrending(callback)
+        } else {
+            if (!this.props.domainToSearchBy)
+                this.setState({data: [], loading: false});
+            else
+                CourseService.fetchCoursesByDomain(this.props.domainToSearchBy, callback)
         }
     }
 
     render() {
+        let len = 0;
+        if (this.state.data) {
+            len = this.state.data.length;
+        } else if (this.props.testingEnabled) {
+            len = React.Children.count(this.props.children);
+        }
+
         return (
             <CarouselProvider
                 naturalSlideWidth={100}
@@ -48,12 +72,24 @@ export default class CourseRow extends Component {
                 infinite={true}
                 isIntrinsicHeight={true}
                 dragEnabled={false}
-                totalSlides={this.courses.length}>
-                {
-                    this.state.loading ?
-                        this.showLoading() :
-                        this.showCourses()
+                totalSlides={len}>
+                {(() => {
+                        if (this.props.testingEnabled) {
+                            return this.showTestSlider();
+                        } else if (this.state.showEnrolledCourses) {
+                            return <Slider> {this.state.data.map((course, i) =>
+                                <Slide index={i} key={i}>
+                                    <CatchUpCard title={course.title} routeName={course.publicRoute}/>
+                                </Slide>)}
+                            </Slider>;
+                        } else {
+                            return this.state.loading ?
+                                this.showLoading() :
+                                this.showCourses()
+                        }
+                    }
 
+                )()
                 }
                 <div className="course-scroll-button-container">
                     <ButtonBack className="course-scroll-button"><i
@@ -62,34 +98,38 @@ export default class CourseRow extends Component {
                         className={`fa fa-chevron-right fa-sm`}/></ButtonNext>
                 </div>
             </CarouselProvider>
-        );
+        )
+            ;
     }
 
     showCourses() {
-        for (let data of this.state.data) {
-            this.courses.push(
-                <CourseCard
-                    title={data.title}
-                    desc={data.description}
-                    difficulty={data.difficulty}
-                    domain={data.domain}
-                    routeName={data.publicRoute}
-                    imgSrc={process.env.PUBLIC_URL + "img/" + data.imgUrl}
-                />
-            );
-        }
+        return (
+            <Slider>
+                {
+                    this.state.data.map((data, i) =>
+                        <Slide index={i} key={i}>
+                            <CourseCard
+                                title={data.title}
+                                desc={data.description}
+                                difficulty={data.difficulty}
+                                domain={data.domain}
+                                routeName={data.publicRoute}
+                            />
+                        </Slide>)
+                }
+            </Slider>
+        );
+    }
 
+    showTestSlider() {
         return <Slider>
             {
-                this.courses.map((child, i) => {
-                    return (
-                        <Slide index={i} key={i}>
-                            {child}
-                        </Slide>
-                    );
-                })
+                React.Children.map(this.props.children, (child, i) =>
+                    <Slide index={i} key={"test" + i}>
+                        {child}
+                    </Slide>)
             }
-        </Slider>;
+        </Slider>
     }
 
     showLoading() {
@@ -100,10 +140,3 @@ export default class CourseRow extends Component {
         );
     }
 }
-
-/*    
-<div id={this.rowId} className="course-row">
-    {this.props.children}
-</div>               
-{scrollBar}
- */

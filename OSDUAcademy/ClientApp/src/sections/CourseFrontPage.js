@@ -7,25 +7,48 @@ import {Footer} from "../components/navbar/Footer";
 import {ChapterBar} from "../components/chapterdrop/ChapterBar";
 import {ChapterDrop} from "../components/chapterdrop/ChapterDrop";
 import {ChapterItem} from "../components/chapterdrop/ChapterItem";
-import {Link} from "react-router-dom";
+import UserService from "../services/UserService";
+import {Link, Redirect} from "react-router-dom";
+import {CertificateButton} from "../components/chapterdrop/CertificateButton";
+import CourseService from "../services/CourseService";
+
+/**
+ *
+ */
 
 export default class CourseFrontPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             loading: true,
+            isEnrolled: false,
+            redirectToLearn: false,
+            redirectToLogin: false,
+            coursePath: "/"
         };
     }
 
     handleApply() {
-        
+        if (UserService.isLoggedIn()) {
+            UserService.applyToCourse(this.props.match.params.courseRoute, success => {
+                this.setState({
+                    isEnrolled: success === "true"
+                });
+            });
+        } else {
+            this.setState({
+                redirectToLogin: true,
+            });
+        }
     }
-
+    
     showCourseContent() {
         return (
             <div>
                 <div className="course-intro-card">
-                    <img src={process.env.PUBLIC_URL + "/img/" + this.state.course.imgUrl} alt="Course"/>
+                    <img
+                        src={process.env.PUBLIC_URL + "/thumbnails/courses/" + this.props.match.params.courseRoute + ".png"}
+                        alt="Course"/>
                     <div className="intro-card-info">
                         <h3>Before you learn</h3>
                         <div className="slightly-dim">
@@ -35,7 +58,15 @@ export default class CourseFrontPage extends Component {
                             }
                         </div>
                         <div className="intro-buttons">
-                            <button onClick={this.handleApply.bind(this)}>Apply</button>
+                            <button disabled={this.state.isEnrolled} onClick={this.handleApply.bind(this)}>
+                                {
+                                    this.state.isEnrolled ? "Applied" : "Apply"
+                                }
+                            </button>
+                            {
+                                this.state.isEnrolled ?
+                                    <Link to={`/learn/${this.props.match.params.courseRoute}/`}>Enter Course</Link> : null
+                            }
                         </div>
                     </div>
                 </div>
@@ -52,11 +83,14 @@ export default class CourseFrontPage extends Component {
                             this.state.sections.map((section, i) =>
                                 <ChapterDrop key={i} name={section.title} amount={section.lectures.length}>
                                     {section.lectures.map((lecture, j) =>
-                                        <ChapterItem key={j} subchapter={lecture.title}/>
+                                        <ChapterItem key={j}>
+                                            {lecture.title}
+                                        </ChapterItem>
                                     )}
                                 </ChapterDrop>
                             )
                         }
+                        <CertificateButton />
                     </ChapterBar>
                     <div className="course-description-container">
                         <h2>Course Description</h2>
@@ -71,6 +105,9 @@ export default class CourseFrontPage extends Component {
     }
 
     render() {
+        if (this.state.redirectToLogin)
+            return <Redirect push to={"/login-page/" + this.props.match.params.courseRoute}/>
+
         return (
             <div>
                 <DefaultNavMenu/>
@@ -88,20 +125,29 @@ export default class CourseFrontPage extends Component {
         this.getCourseData();
     }
 
-    async getCourseData() {
-        const response = await fetch('course/' + this.props.match.params.courseRoute);
-        try {
-            const data = await response.json();
-            console.log(data);
-            this.setState({
-                course: data.course,
-                sections: data.sections,
-                loading: false
-            });
-        } catch (e) {
-            console.error(e)
-        }
-
+    getCourseData() {
+        let course;
+        let sections = [];
+        CourseService.fetchFrontPageCourseData(this.props.match.params.courseRoute, data => {
+            course = data.course;
+            sections = data.sections;
+            if (UserService.isLoggedIn()) {
+                UserService.checkEnrollment(this.props.match.params.courseRoute, isEnrolled => {
+                    this.setState({
+                        course: course,
+                        sections: sections,
+                        loading: false,
+                        isEnrolled: isEnrolled === "true"
+                    });
+                })
+            } else {
+                this.setState({
+                    course: course,
+                    sections: sections,
+                    loading: false,
+                });
+            }
+        });
     }
 
     populatePrerequisites() {

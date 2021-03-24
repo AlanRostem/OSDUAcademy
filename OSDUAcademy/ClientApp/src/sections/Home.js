@@ -5,11 +5,23 @@ import {CategoryNavBar} from "../components/navbar/CategoryNavBar";
 import {CategoryItem} from "../components/navbar/CategoryItem";
 import CourseRow from "../components/home/CourseRow";
 import {Footer} from "../components/navbar/Footer";
+import UserService from "../services/UserService";
+import {Redirect} from "react-router-dom";
+
+/**
+ * The component returns the home page, shown when the user launches the application and is not logged in. It
+ * includes the default navigation menu with its functionality, the information banner, and a list of trending courses.
+ * One can navigate the list by using chevrons below it. Users can filter the courses using a horizontal category
+ * navigation menu, which includes the main categories in the oil and gas industry.
+ */
 
 export class Home extends Component {
     static displayName = Home.name;
-
+    
     render() {
+        if (UserService.isLoggedIn())
+            return <Redirect push to="/home-li"/>
+        
         return (
             <div>
                 <DefaultNavMenu/>
@@ -45,12 +57,11 @@ export class Home extends Component {
                     <p style={{textAlign: "center", color: "#7f7f7f"}}>Find the most popular courses at OSDU Academy</p>
 
                     <CategoryNavBar>
-                        <CategoryItem itemActive={true}
-                                      componentToShow={<CourseRow searchByTrending={true}/>}>PETROLEUM</CategoryItem>
-                        <CategoryItem itemActive={false} componentToShow={<CourseRow/>}>GEOLOGY</CategoryItem>
-                        <CategoryItem itemActive={false} componentToShow={<CourseRow/>}>ENERGY</CategoryItem>
-                        <CategoryItem itemActive={false} componentToShow={<CourseRow/>}>GAS</CategoryItem>
-                        <CategoryItem itemActive={false} componentToShow={<CourseRow/>}>OTHER</CategoryItem>
+                        <CategoryItem itemActive={true} componentToShow={<CourseRow searchByTrending={true}/>}>ALL</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow domainToSearchBy={"geology"}/>}>GEOLOGY</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow domainToSearchBy={"petroleum"}/>}>PETROLEUM</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow domainToSearchBy={"energy"}/>}>ENERGY</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow domainToSearchBy={"gas"}/>}>GAS</CategoryItem>
                     </CategoryNavBar>
 
                 </Container>

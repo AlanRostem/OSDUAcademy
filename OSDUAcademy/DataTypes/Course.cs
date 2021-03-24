@@ -26,6 +26,9 @@ namespace OSDUAcademy.DataTypes
 
         [BsonElement("difficulty")]
         public string Difficulty { get; set; }
+        
+        [BsonElement("domain")]
+        public string Domain { get; set; }
 
         [BsonElement("duration")]
         public string Duration { get; set; }
@@ -33,10 +36,10 @@ namespace OSDUAcademy.DataTypes
         [BsonElement("public_route")]
         public string PublicRoute { get; set; }
         
-        [BsonElement("img_url")]
-        public string ImgUrl { get; set; }
-
         [BsonElement("sections")] 
         public List<ObjectId> Sections { get; set; }
+        
+        [BsonElement("certification_quiz_id")]
+        public ObjectId CertificationQuizId { get; set; }
     }
 }
