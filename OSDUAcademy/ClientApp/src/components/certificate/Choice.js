@@ -12,7 +12,7 @@ export class Choice extends Component {
     render() {
         return (
             <div className="choice">
-                <input type="radio" name={this.props.name} id={this.props.optionid}/>
+                <input type="radio" name={this.props.name} id={this.props.optionid} onClick={this.props.onClick}/>
                 <label>{this.props.children}</label>
             </div>
         );

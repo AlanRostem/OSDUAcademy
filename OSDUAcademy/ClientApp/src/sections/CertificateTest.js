@@ -22,8 +22,10 @@ export class CertificateTest extends Component {
     static displayName = CertificateTest.name;
 
     state = {
-        questions: []
+        questions: [],
     }
+
+    answers = [];
 
     componentDidMount() {
         CertificationService.fetchAllQuestions(this.props.match.params.courseRoute, data => {
@@ -33,6 +35,12 @@ export class CertificateTest extends Component {
         });
     }
 
+    handleSubmit(event) {
+        CertificationService.submitAnswers(this.props.match.params.courseRoute, this.answers, data => {
+            console.log(data)
+        });
+    }
+    
     render() {
         return (
             <div>
@@ -40,18 +48,27 @@ export class CertificateTest extends Component {
                 <TestBanner/>
                 <TestBox>
                     {
-                        this.state.questions.map((question, i) =>
-                            <Question
+                        this.state.questions.map((question, i) => {
+                            this.answers.push(-1);
+                            return <Question
                                 key={i}
-                                questioncount={i+1}
+                                questioncount={i + 1}
                                 inquiry={question.questionText}>
                                 {question.answers.map((answer, j) =>
-                                    <Choice key={j} optionid={j} name={"q" + i}>{answer}</Choice>
+                                    <Choice
+                                        key={j}
+                                        optionid={j}
+                                        name={"q" + i}
+                                        onClick={event => {
+                                            this.answers[i] = j;
+                                        }}
+                                    >{answer}</Choice>
                                 )}
-                            </Question>)
+                            </Question>
+                        })
                     }
                 </TestBox>
-                <SubmitButton/>
+                <SubmitButton onSubmit={this.handleSubmit.bind(this)}/>
                 <Footer/>
             </div>
         );

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
@@ -10,6 +11,12 @@ namespace OSDUAcademy.Controllers
     [Route("[controller]")]
     public class CertificationController : ControllerBase
     {
+        public class AnswerData
+        {
+            [Required]
+            public List<int> Answers { get; set; }
+        }
+        
         private IMongoCollection<Course> _courseCollection;
         private IMongoCollection<CertificationQuiz> _quizCollection;
 
@@ -77,6 +84,44 @@ namespace OSDUAcademy.Controllers
             }
 
             return questions;
+        }
+
+        [HttpPost("/certification/{route}/submit")]
+        public Dictionary<string, object> SubmitAnswers(string route, [FromBody] AnswerData data)
+        {
+            var courseFields = Builders<Course>.Projection
+                .Exclude(c => c.Id);
+
+            var course = _courseCollection
+                .Find(c => c.PublicRoute == route)
+                .Project<Course>(courseFields)
+                .ToList().Single();
+
+            var quizFields = Builders<CertificationQuiz>.Projection
+                .Include(q => q.Questions)
+                .Include(q => q.PassRate);
+
+            var quiz = _quizCollection
+                .Find(q => q.Id == course.CertificationQuizId)
+                .Project<CertificationQuiz>(quizFields)
+                .ToList().Single();
+
+            var maxQuestionCount = quiz.Questions.Count;
+            var correctAnswerCount = 0;
+            for (var i = 0; i < data.Answers.Count; i++)
+            {
+                if (quiz.Questions[i].CorrectAnswerIndex == data.Answers[i])
+                {
+                    correctAnswerCount++;
+                }
+            }
+            
+            var correctAnswerRate = (float)correctAnswerCount / (float)maxQuestionCount;
+            return new Dictionary<string, object>
+            {
+                ["correctAnswerRate"] = correctAnswerRate,
+                ["passed"] = correctAnswerRate > quiz.PassRate
+            };
         }
     }
 }

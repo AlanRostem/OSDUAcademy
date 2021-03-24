@@ -12,9 +12,9 @@ export class SubmitButton extends Component {
     render() {
         return (
             <Container className="submit-cont">
-                <a href="#">
-                    <button className="submit-btn">SUBMIT</button>  
-                </a>
+                <p href="#">
+                    <button className="submit-btn" onClick={this.props.onSubmit}>SUBMIT</button>  
+                </p>
             </Container>
         );
     }
