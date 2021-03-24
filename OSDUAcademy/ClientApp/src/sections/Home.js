@@ -17,18 +17,10 @@ import {Redirect} from "react-router-dom";
 
 export class Home extends Component {
     static displayName = Home.name;
-
-    state = {
-        isLoggedIn: false    
-    };
-
-    componentDidMount() {
-        
-    }
-
+    
     render() {
-        if (this.state.isLoggedIn)
-            return <Redirect to="home-li" />;
+        if (UserService.isLoggedIn())
+            return <Redirect to="home-li"/>
         
         return (
             <div>

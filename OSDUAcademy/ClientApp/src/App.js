@@ -14,11 +14,10 @@ import {CertificateTest} from "./sections/CertificateTest";
 import {Teach} from "./sections/Teach";
 import {Success} from "./components/certificate/Success";
 import {Fail} from "./components/certificate/Fail";
-import UserService from "./services/UserService";
 
 export default class App extends Component {
     static displayName = App.name;
-    
+
     render() {
         return (
             <div>

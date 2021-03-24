@@ -42,7 +42,6 @@ export default class Login extends Component {
                 failed = true;
             } else {
                 loggedIn = true;
-                UserService.setUser(this.state.data.user);
             }
         }
 
