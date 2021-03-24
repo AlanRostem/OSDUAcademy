@@ -3,6 +3,8 @@ import {Footer} from "../navbar/Footer";
 import {Container} from "reactstrap";
 import {CertificationNavMenu} from "../navbar/CertificationNavMenu";
 import '../certificate/certificate.css'
+import {CourseInterface} from "../../sections/CourseInterface";
+import {Route} from "react-router-dom";
 
 /**
  * The component returns
@@ -34,12 +36,12 @@ export class Fail extends Component {
                         </p>
                     </div>
                     <div>
-                        <a href="/">
+                        <a href="/home-li">
                             <button className="close-cert-btn">
                                 CLOSE THE CERTIFICATE
                             </button>
                         </a>
-                        <a href="/">
+                        <a href="/learn/:courseRoute">
                             <button className="to-course-btn">
                                 GO BACK TO COURSE
                             </button>
