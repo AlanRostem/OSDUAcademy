@@ -3,11 +3,12 @@ import {Footer} from "../navbar/Footer";
 import {Container} from "reactstrap";
 import {CertificationNavMenu} from "../navbar/CertificationNavMenu";
 import '../certificate/certificate.css'
-import {CourseInterface} from "../../sections/CourseInterface";
-import {Route} from "react-router-dom";
 
 /**
- * The component returns
+ * The component returns a box with information if the user has not passed the test. It includes information
+ * such as what the user should do next, in addition to the score achieved. Below the box, there are two buttons
+ * that can take user back to the course or home page. It is used as a result of submitting the quiz in
+ * "CertificateTest" component.
  */
 
 export class Fail extends Component {

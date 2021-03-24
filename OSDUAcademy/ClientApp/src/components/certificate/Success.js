@@ -5,7 +5,10 @@ import {CertificationNavMenu} from "../navbar/CertificationNavMenu";
 import '../certificate/certificate.css'
 
 /**
- * The component returns
+ * The component returns a box with information if the user has successfully passed the test. It includes information 
+ * such as what the user can do next, in addition to the score achieved. Below the box, there is a button
+ * that re-redirects user to the home page. It is used as a result of submitting the quiz in "CertificateTest" 
+ * component. 
  */
 
 export class Success extends Component {
