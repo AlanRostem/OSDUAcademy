@@ -140,10 +140,3 @@ export default class CourseRow extends Component {
         );
     }
 }
-
-/*    
-<div id={this.rowId} className="course-row">
-    {this.props.children}
-</div>               
-{scrollBar}
- */

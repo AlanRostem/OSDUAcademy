@@ -21,13 +21,13 @@
                 response.text())
             .then(callback);
     },
-    
+
     checkEnrollment(courseRoute, callback) {
         fetch("user/" + this._user.id + "/course/" + courseRoute + "/enrolled")
             .then(response => response.text())
             .then(callback);
     },
-    
+
     loginUser(email, password, callback) {
         fetch("login", {
             method: "POST",
@@ -45,11 +45,17 @@
             .then(data =>
                 callback(data));
     },
-    
+
     fetchEnrolledCourses(callback) {
         fetch("user/" + this._user.id + "/courses/applied")
             .then(response => response.json())
             .then(data => callback(data))
+    },
+    
+    logOut() {
+        if (UserService.isLoggedIn()) {
+            this._user = null;
+        }
     }
 };
 
