@@ -42,8 +42,8 @@ export default class Login extends Component {
             } else {
                 if (this.props.match !== undefined) 
                     if (this.props.match.params.courseRoute !== undefined)
-                        return <Redirect to={"/course-front-page/" + this.props.match.params.courseRoute} />
-                return <Redirect to="/home-li" />;
+                        return <Redirect push to={"/course-front-page/" + this.props.match.params.courseRoute} />
+                return <Redirect push to="/home-li" />;
             }
         }
 

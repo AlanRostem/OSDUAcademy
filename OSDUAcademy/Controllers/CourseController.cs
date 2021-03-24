@@ -49,6 +49,31 @@ namespace OSDUAcademy.Controllers
 
             return all;
         }
+        
+        /// <summary>
+        /// Delivers minimal information about all the courses to the client.
+        /// Search using the domain
+        /// </summary>
+        /// <returns>IEnumerable object with all the courses</returns>
+        [Route("domain/{domain}")]
+        public IEnumerable<Course> GetByDomain(string domain)
+        {
+            var fields = CourseFieldBuilder
+                .Exclude(c => c.Id)
+                .Exclude(c => c.Duration)
+                .Exclude(c => c.Sections)
+                .Exclude(c => c.FullDescription)
+                .Exclude(c => c.Prerequisites);
+
+            var all = _courseCollection
+                .Find(c => c.Domain == domain)
+                .Project<Course>(fields)
+                .ToList();
+
+            return all;
+        }
+
+
 
         /// <summary>
         /// Deliver basic information about a course to the client by its

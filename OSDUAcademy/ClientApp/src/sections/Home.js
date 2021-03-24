@@ -20,7 +20,7 @@ export class Home extends Component {
     
     render() {
         if (UserService.isLoggedIn())
-            return <Redirect to="/home-li"/>
+            return <Redirect push to="/home-li"/>
         
         return (
             <div>
@@ -57,12 +57,11 @@ export class Home extends Component {
                     <p style={{textAlign: "center", color: "#7f7f7f"}}>Find the most popular courses at OSDU Academy</p>
 
                     <CategoryNavBar>
-                        <CategoryItem itemActive={true}
-                                      componentToShow={<CourseRow searchByTrending={true}/>}>PETROLEUM</CategoryItem>
-                        <CategoryItem itemActive={false} componentToShow={<CourseRow/>}>GEOLOGY</CategoryItem>
-                        <CategoryItem itemActive={false} componentToShow={<CourseRow/>}>ENERGY</CategoryItem>
-                        <CategoryItem itemActive={false} componentToShow={<CourseRow/>}>GAS</CategoryItem>
-                        <CategoryItem itemActive={false} componentToShow={<CourseRow/>}>OTHER</CategoryItem>
+                        <CategoryItem itemActive={true} componentToShow={<CourseRow searchByTrending={true}/>}>ALL</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow domainToSearchBy={"geology"}/>}>GEOLOGY</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow domainToSearchBy={"petroleum"}/>}>PETROLEUM</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow domainToSearchBy={"energy"}/>}>ENERGY</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow domainToSearchBy={"gas"}/>}>GAS</CategoryItem>
                     </CategoryNavBar>
 
                 </Container>

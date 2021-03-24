@@ -26,6 +26,9 @@ namespace OSDUAcademy.DataTypes
 
         [BsonElement("difficulty")]
         public string Difficulty { get; set; }
+        
+        [BsonElement("domain")]
+        public string Domain { get; set; }
 
         [BsonElement("duration")]
         public string Duration { get; set; }

@@ -106,7 +106,7 @@ export default class CourseFrontPage extends Component {
 
     render() {
         if (this.state.redirectToLogin)
-            return <Redirect to={"/login-page/" + this.props.match.params.courseRoute}/>
+            return <Redirect push to={"/login-page/" + this.props.match.params.courseRoute}/>
 
         return (
             <div>

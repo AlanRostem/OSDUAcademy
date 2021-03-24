@@ -52,7 +52,7 @@ export default class SearchForm extends Component {
                     </div>
                 </form>
                 {this.state.redirectNow ?
-                <Redirect to={{
+                <Redirect push to={{
                     pathname: '/search',
                     search: this.state.value
                 }}/> : undefined}
