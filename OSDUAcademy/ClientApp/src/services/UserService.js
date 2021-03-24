@@ -1,6 +1,18 @@
-﻿const UserService = {
+﻿import ls from "local-storage"
+
+const UserService = {
     _user: null,
 
+    isUnsafeLoginPersisted() {
+        const email = ls.get("email_unsafe");
+        const password = ls.get("password_unsafe");
+        return email !== null && password !== null;  
+    },
+    
+    reLogUnsafe(callback) {
+        UserService.loginUser(ls.get("email_unsafe"), ls.get("password_unsafe"), callback);
+    },
+    
     setUser(user) {
         this._user = user;
     },
@@ -42,8 +54,12 @@
         })
             .then(response =>
                 response.json())
-            .then(data =>
-                callback(data));
+            .then(data => {
+                callback(data);
+                if (!data.success) return;
+                ls.set("email_unsafe", email);
+                ls.set("password_unsafe", password);
+            });
     },
 
     fetchEnrolledCourses(callback) {
@@ -55,6 +71,8 @@
     logOut() {
         if (UserService.isLoggedIn()) {
             this._user = null;
+            ls.set("email_unsafe", null);
+            ls.set("password_unsafe", null);
         }
     }
 };

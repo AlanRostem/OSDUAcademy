@@ -14,10 +14,11 @@ import {CertificateTest} from "./sections/CertificateTest";
 import {Teach} from "./sections/Teach";
 import {Success} from "./components/certificate/Success";
 import {Fail} from "./components/certificate/Fail";
+import UserService from "./services/UserService";
 
 export default class App extends Component {
     static displayName = App.name;
-
+    
     render() {
         return (
             <div>
@@ -27,13 +28,13 @@ export default class App extends Component {
                 <Route path='/home-li' component={Homeli}/>
                 <Route path='/login-page' component={Login}/>
                 <Route path='/course-front-page/:courseRoute' component={CourseFrontPage}/>
-                <Route path='/course-interface' component={CourseInterface}/> 
-                <Route path='/learn/:courseRoute' component={CourseInterface}/> 
+                <Route path='/course-interface' component={CourseInterface}/>
+                <Route path='/learn/:courseRoute' component={CourseInterface}/>
                 <Route path='/choose-to-certify/:courseRoute' component={CertificateChoice}/>
                 <Route path='/certification/:courseRoute' component={CertificateTest}/>
                 <Route path='/teach' component={Teach}/>
                 <Route path='/success' component={Success}/>
-                <Route path='/fail' component={Fail}/> 
+                <Route path='/fail' component={Fail}/>
             </div>
         );
     }
