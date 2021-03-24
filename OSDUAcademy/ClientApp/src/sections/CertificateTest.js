@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import '../components/certificate/certificate.css'
-import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {TestBanner} from "../components/certificate/TestBanner";
 import {TestBox} from "../components/certificate/TestBox";
 import '../components/certificate/certificate.css'
@@ -10,7 +9,8 @@ import {Footer} from "../components/navbar/Footer";
 import {SubmitButton} from "../components/certificate/SubmitButton";
 import {CertificationNavMenu} from "../components/navbar/CertificationNavMenu";
 import CertificationService from "../services/CertificationService";
-
+import {Success} from "../components/certificate/Success";
+import {Fail} from "../components/certificate/Fail";
 
 /**
  * The component returns the certification test. The quiz is limited to one page, which allows the user to
@@ -23,6 +23,8 @@ export class CertificateTest extends Component {
 
     state = {
         questions: [],
+        submitted: false,
+        testResults: {}
     }
 
     answers = [];
@@ -37,38 +39,56 @@ export class CertificateTest extends Component {
 
     handleSubmit(event) {
         CertificationService.submitAnswers(this.props.match.params.courseRoute, this.answers, data => {
-            console.log(data)
+            this.setState({
+                submitted: true,
+                testResults: data
+            })
         });
+    }
+    
+    showTest() {
+        return <div>
+            <TestBanner/>
+            <TestBox>
+                {
+                    this.state.questions.map((question, i) => {
+                        this.answers.push(-1);
+                        return <Question
+                            key={i}
+                            questioncount={i + 1}
+                            inquiry={question.questionText}>
+                            {question.answers.map((answer, j) =>
+                                <Choice
+                                    key={j}
+                                    optionid={j}
+                                    name={"q" + i}
+                                    onClick={event => {
+                                        this.answers[i] = j;
+                                    }}
+                                >{answer}</Choice>
+                            )}
+                        </Question>
+                    })
+                }
+            </TestBox>
+            <SubmitButton onSubmit={this.handleSubmit.bind(this)}/>
+        </div>;
     }
     
     render() {
         return (
             <div>
                 <CertificationNavMenu/>
-                <TestBanner/>
-                <TestBox>
+                {(() => {
+                    if (!this.state.submitted)
                     {
-                        this.state.questions.map((question, i) => {
-                            this.answers.push(-1);
-                            return <Question
-                                key={i}
-                                questioncount={i + 1}
-                                inquiry={question.questionText}>
-                                {question.answers.map((answer, j) =>
-                                    <Choice
-                                        key={j}
-                                        optionid={j}
-                                        name={"q" + i}
-                                        onClick={event => {
-                                            this.answers[i] = j;
-                                        }}
-                                    >{answer}</Choice>
-                                )}
-                            </Question>
-                        })
+                        return this.showTest();
+                    } else {
+                        return this.state.testResults.passed ? 
+                                <Success correctAnswerRate={this.state.testResults.correctAnswerRate} /> 
+                                : <Fail correctAnswerRate={this.state.testResults.correctAnswerRate} />
                     }
-                </TestBox>
-                <SubmitButton onSubmit={this.handleSubmit.bind(this)}/>
+                })()}
                 <Footer/>
             </div>
         );

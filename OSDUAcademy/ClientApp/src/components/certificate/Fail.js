@@ -16,41 +16,37 @@ export class Fail extends Component {
 
     render() {
         return (
-            <div>
-                <CertificationNavMenu/>
-                <Container className="pre-test-info">
-                    <div className="sorry-box">
-                        <h2>Unfortunately, </h2>
+            <Container className="pre-test-info">
+                <div className="sorry-box">
+                    <h2>Unfortunately, </h2>
 
-                        <h6>You have not passed the "{this.props.course}" certification test.
-                        </h6>
+                    <h6>You have not passed the certification test.
+                    </h6>
 
-                        <p className="score">Your score is:
-                            <strong> {Math.round((this.props.right)/(this.props.questionCount) * 100)} %</strong></p>
+                    <p className="score">Your score is:
+                        <strong> {Math.round(this.props.correctAnswerRate * 100)} %</strong></p>
 
-                        <p>
-                            To succesfully complete the course, you have to pass the certification test. We strongly 
-                            recommend you to check the course content once again and make sure that you understand.
-                        </p>
-                        
-                        <p>If you think that there was a mistake in the quiz, please contact our customer support. 
-                        </p>
-                    </div>
-                    <div>
-                        <a href="/home-li">
-                            <button className="close-cert-btn">
-                                CLOSE THE CERTIFICATE
-                            </button>
-                        </a>
-                        <a href="/learn/:courseRoute">
-                            <button className="to-course-btn">
-                                GO BACK TO COURSE
-                            </button>
-                        </a>
-                    </div>
-                </Container>
-                <Footer/>
-            </div>
+                    <p>
+                        To succesfully complete the course, you have to pass the certification test. We strongly
+                        recommend you to check the course content once again and make sure that you understand.
+                    </p>
+
+                    <p>If you think that there was a mistake in the quiz, please contact our customer support.
+                    </p>
+                </div>
+                <div>
+                    <a href="/home-li">
+                        <button className="close-cert-btn">
+                            CLOSE THE CERTIFICATE
+                        </button>
+                    </a>
+                    <a href="/learn/:courseRoute">
+                        <button className="to-course-btn">
+                            GO BACK TO COURSE
+                        </button>
+                    </a>
+                </div>
+            </Container>
         );
     }
 }
