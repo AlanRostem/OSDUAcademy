@@ -35,13 +35,12 @@ export default class Login extends Component {
             this.state.loggingIn = false;
         }
 
-        let loggedIn = false;
         let failed = false;
         if (this.state.data) {
             if (!this.state.data.success) {
                 failed = true;
             } else {
-                loggedIn = true;
+                return <Redirect to="home-li" />;
             }
         }
 
@@ -51,9 +50,6 @@ export default class Login extends Component {
                 <Container>
                     <UserInfoForm onSubmit={this.handleLogin.bind(this)}>
                         <h3>Sign in</h3>
-                        {
-                            loggedIn ? <Redirect to="home-li" /> : null
-                        }
                         {
                             failed ? <p style={{color: "red"}}>Invalid credentials</p> : null
                         }

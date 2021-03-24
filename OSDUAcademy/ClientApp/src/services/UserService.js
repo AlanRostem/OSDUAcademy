@@ -39,9 +39,9 @@ const UserService = {
             .then(response =>
                 response.json())
             .then(data => {
+                if (data.success)
+                    ls.set("user_data", data.user)
                 callback(data);
-                if (!data.success) return;
-                ls.set("user_data", data.user)
             });
     },
 
@@ -50,7 +50,7 @@ const UserService = {
             .then(response => response.json())
             .then(data => callback(data))
     },
-    
+
     logOut() {
         if (UserService.isLoggedIn()) {
             ls.set("user_data", null)
