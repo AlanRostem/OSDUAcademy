@@ -10,7 +10,7 @@ export class CatchUpCard extends Component {
 
     render() {
         return (
-            <NavLink tag={Link} className="course-card" to={"/"}>
+            <NavLink tag={Link} className="course-card" to={"/learn/" + this.props.routeName}>
                 <img src={process.env.PUBLIC_URL + "/thumbnails/courses/" + this.props.routeName + ".png"}
                      alt={"Course: " + this.props.title}/>
                 <h6>{this.props.title}</h6>
