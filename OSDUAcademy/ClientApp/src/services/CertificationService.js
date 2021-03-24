@@ -21,7 +21,10 @@
             body: JSON.stringify({
                 answers: answerArray
             }),
-            contentType: "text/json"
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
         })
             .then(response => response.json())
             .then(data => {
