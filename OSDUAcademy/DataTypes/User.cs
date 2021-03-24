@@ -25,5 +25,8 @@ namespace OSDUAcademy.DataTypes
         
         [BsonElement("courses_applied")] 
         public List<ObjectId> CoursesApplied { get; set; }
+        
+        [BsonElement("courses_completed")] 
+        public List<ObjectId> CoursesCompleted { get; set; }
     }
 }

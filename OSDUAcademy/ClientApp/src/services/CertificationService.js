@@ -1,4 +1,6 @@
-﻿const CertificationService = {
+﻿import UserService from "./UserService";
+
+const CertificationService = {
     fetchQuestionsPreview(courseRoute, callback) {
         fetch("/certification/" + courseRoute + "/content/preview")
             .then(response => response.json())
@@ -16,7 +18,7 @@
     },
     
     submitAnswers(courseRoute, answerArray, callback) {
-        fetch("/certification/" + courseRoute + "/submit", {
+        fetch("/certification/" + courseRoute + "/submit/" + UserService.getUser().id, {
             method: "POST",
             body: JSON.stringify({
                 answers: answerArray

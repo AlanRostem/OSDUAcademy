@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using OSDUAcademy.DataTypes;
 
@@ -19,12 +20,14 @@ namespace OSDUAcademy.Controllers
         
         private IMongoCollection<Course> _courseCollection;
         private IMongoCollection<CertificationQuiz> _quizCollection;
+        private IMongoCollection<User> _userCollection;
 
         public CertificationController(IMongoClient client)
         {
             var database = client.GetDatabase("osdu_academy");
             _courseCollection = database.GetCollection<Course>("courses");
             _quizCollection = database.GetCollection<CertificationQuiz>("certification_quizzes");
+            _userCollection = database.GetCollection<User>("users");
         }
         
         [HttpGet("{route}/content/preview")]
@@ -86,15 +89,11 @@ namespace OSDUAcademy.Controllers
             return questions;
         }
 
-        [HttpPost("/certification/{route}/submit")]
-        public Dictionary<string, object> SubmitAnswers(string route, [FromBody] AnswerData data)
+        [HttpPost("/certification/{route}/submit/{userId}")]
+        public Dictionary<string, object> SubmitAnswers(string route, string userId, [FromBody] AnswerData data)
         {
-            var courseFields = Builders<Course>.Projection
-                .Exclude(c => c.Id);
-
             var course = _courseCollection
                 .Find(c => c.PublicRoute == route)
-                .Project<Course>(courseFields)
                 .ToList().Single();
 
             var quizFields = Builders<CertificationQuiz>.Projection
@@ -117,10 +116,22 @@ namespace OSDUAcademy.Controllers
             }
             
             var correctAnswerRate = (float)correctAnswerCount / (float)maxQuestionCount;
+            var passed = correctAnswerRate > quiz.PassRate;
+
+            if (passed)
+            {
+                var update = Builders<User>.Update.PushEach("courses_completed", new List<ObjectId>
+                {
+                    course.Id
+                }, position: 0);
+            
+                _userCollection.UpdateOne(u => u.Id == userId, update);
+            }
+            
             return new Dictionary<string, object>
             {
                 ["correctAnswerRate"] = correctAnswerRate,
-                ["passed"] = correctAnswerRate > quiz.PassRate
+                ["passed"] = passed
             };
         }
     }
