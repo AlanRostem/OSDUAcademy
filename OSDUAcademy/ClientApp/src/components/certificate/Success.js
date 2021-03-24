@@ -16,22 +16,25 @@ export class Success extends Component {
             <div>
                 <CertificationNavMenu/>
                 <Container className="pre-test-info">
-                    <div className="info-box">
+                    <div className="congrats-box">
                         <h2>Congratulations!</h2>
 
-                        <h6>You have successfully passed the "{this.props.course}" certification test! </h6>
+                        <h6>You have successfully passed the certification test and completed the "{this.props.course}" 
+                            course! 
+                        </h6>
                         
-                        <p className="score">Your score is:
-                            <strong>{Math.round((this.props.right)/(this.props.questionCount) * 100)} %</strong></p>
+                        <p className="score">Your score is: 
+                            <strong> {Math.round((this.props.right)/(this.props.questionCount) * 100)} %</strong></p>
 
                         <p>If you have any comments on the course layout and the content, please contact 
                             us. 
                         </p>
-                        
-                        <p>
-                            
-                        </p>
                     </div>
+                    <a href="/home-li">
+                        <button className="close-cert-btn">
+                            CLOSE THE CERTIFICATE
+                        </button>  
+                    </a>
                 </Container>
                 <Footer/>
             </div>
