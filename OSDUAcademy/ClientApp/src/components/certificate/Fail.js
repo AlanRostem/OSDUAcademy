@@ -17,26 +17,34 @@ export class Fail extends Component {
                 <CertificationNavMenu/>
                 <Container className="pre-test-info">
                     <div className="sorry-box">
-                        <h2>Congratulations!</h2>
+                        <h2>Unfortunately, </h2>
 
-                        <p>You have successfully passed the  </p>
+                        <h6>You have not passed the "{this.props.course}" certification test.
+                        </h6>
 
-                        <p>In order to get the certificate, you have to pass this test. You can choose to take it now or
-                            leave it for later. In the case you want to take the test later – please return to the
-                            course or home page.
+                        <p className="score">Your score is:
+                            <strong> {Math.round((this.props.right)/(this.props.questionCount) * 100)} %</strong></p>
+
+                        <p>
+                            To succesfully complete the course, you have to pass the certification test. We strongly 
+                            recommend you to check the course content once again and make sure that you understand.
                         </p>
-
-                        <p>This test is made up of <strong>{this.state.data.questionCount}</strong> multiple-choice- and true/false questions. To get
-                            a certificate you must have at least <strong>{Math.round(this.state.data.passRate * 100)} %</strong> of the test correct.
+                        
+                        <p>If you think that there was a mistake in the quiz, please contact our customer support. 
                         </p>
-
-                        <p>When you are ready to begin the certification test – press <strong>TAKE THE TEST</strong></p>
                     </div>
-                    <a href={"/certification/" + this.props.match.params.courseRoute}>
-                        <button className="take-test-btn">
-                            TAKE THE TEST
-                        </button>
-                    </a>
+                    <div>
+                        <a href="/">
+                            <button className="close-cert-btn">
+                                CLOSE THE CERTIFICATE
+                            </button>
+                        </a>
+                        <a href="/">
+                            <button className="to-course-btn">
+                                GO BACK TO COURSE
+                            </button>
+                        </a>
+                    </div>
                 </Container>
                 <Footer/>
             </div>

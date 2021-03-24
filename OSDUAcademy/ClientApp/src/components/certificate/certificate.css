@@ -121,4 +121,20 @@
     background-color: #8fd19e;
 }
 
+.sorry-box {
+    background-color: #D06125;
+    color: white;
+    padding: 30px;
+    box-shadow: 5px 13px 33px -15px black;
+}
+
+.to-course-btn {
+    margin-top: 40px;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px black;
+    background-color: #80bdff;
+}
+
 
