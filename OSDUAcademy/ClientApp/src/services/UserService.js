@@ -44,6 +44,12 @@
                 response.json())
             .then(data =>
                 callback(data));
+    },
+    
+    fetchEnrolledCourses(callback) {
+        fetch("user/" + this._user.id + "/courses/applied")
+            .then(response => response.json())
+            .then(data => callback(data))
     }
 };
 

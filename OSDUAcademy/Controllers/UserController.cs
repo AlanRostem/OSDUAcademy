@@ -95,5 +95,36 @@ namespace OSDUAcademy.Controllers
             return user.CoursesApplied
                 .Contains(course.Id);
         }
+
+        [HttpGet("{id}/courses/applied")]
+        public List<Course> GetAppliedCourses(string id)
+        {
+            var list = new List<Course>();
+            var userFields = UserFieldBuilder.Include(u => u.CoursesApplied);
+            var users = _userCollection
+                .Find(u => u.Id == id)
+                .Project<User>(userFields)
+                .ToList();
+            
+            if (users.Count == 0)
+                return list;
+
+            var user = users.Single();
+
+            var courseFields = CourseFieldBuilder
+                .Include(c => c.Title)
+                .Include(c => c.PublicRoute);
+            
+            foreach (var courseId in user.CoursesApplied)
+            {
+                var course = _courseCollection
+                    .Find(c => c.Id == courseId)
+                    .Project<Course>(courseFields)
+                    .ToList().Single();
+                list.Add(course);
+            }
+            
+            return list;
+        }
     }
 }

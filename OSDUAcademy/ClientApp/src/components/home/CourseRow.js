@@ -3,6 +3,8 @@ import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext} from 'pure-reac
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import CourseCard from "./CourseCard";
 import CourseService from "../../services/CourseService";
+import UserService from "../../services/UserService";
+import {CatchUpCard} from "./CatchUpCard";
 
 export default class CourseRow extends Component {
 
@@ -21,6 +23,20 @@ export default class CourseRow extends Component {
             this.setState({loading: false, data: []})
             return;
         }
+        
+        if (this.props.fetchEnrolledUserCourses) {
+            if (UserService.isLoggedIn()) {
+                UserService.fetchEnrolledCourses(data => {
+                    this.setState({
+                        data: data,
+                        loading: false,
+                        showEnrolledCourses: true
+                    });
+                })
+            }
+            
+            return;
+        }
 
         const callback = data => {
             this.setState({
@@ -28,7 +44,7 @@ export default class CourseRow extends Component {
                 loading: false
             });
         };
-
+        
         if (this.props.searchByTrending) {
             CourseService.fetchCoursesByTrending(callback)
         } else {
@@ -60,7 +76,15 @@ export default class CourseRow extends Component {
                 {(() => {
                     if (this.props.testingEnabled) {
                         return this.showTestSlider();
-                    } else {
+                    } 
+                    else if (this.state.showEnrolledCourses) {
+                        return this.state.data.map((course, i) =>
+                            <Slide index={i} key={i}>
+                                <CatchUpCard title={course.title} routeName={course.publicRoute}/>
+                            </Slide>
+                        );
+                    }
+                    else {
                         return this.state.loading ?
                             this.showLoading() :
                             this.showCourses()
