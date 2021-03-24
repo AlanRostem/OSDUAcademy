@@ -15,8 +15,8 @@ export class Fail extends Component {
         return (
             <div>
                 <CertificationNavMenu/>
-                <Container className="post-test-info">
-                    <div className="congrats-box">
+                <Container className="pre-test-info">
+                    <div className="sorry-box">
                         <h2>Congratulations!</h2>
 
                         <p>You have successfully passed the  </p>
