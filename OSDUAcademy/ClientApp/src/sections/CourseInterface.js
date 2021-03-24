@@ -100,7 +100,7 @@ export class CourseInterface extends Component {
     render() {
         if (this.state.redirectCertification) {
             const route = "/choose-to-certify/" + this.props.match.params.courseRoute;
-            return <Redirect to={route}/>
+            return <Redirect push to={route}/>
         }
         
         return (
@@ -132,7 +132,7 @@ export class CourseInterface extends Component {
                     </li>
                     {
                         this.state.takeTest ?
-                            <Redirect to="/certificate-choice"/> : null
+                            <Redirect push to="/certificate-choice"/> : null
                     }
                 </ul>
             </div>

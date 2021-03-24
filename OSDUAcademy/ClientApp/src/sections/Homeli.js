@@ -22,7 +22,7 @@ export class Homeli extends Component {
 
     render() {
         if (!UserService.isLoggedIn())
-            return <Redirect to="/"/>;
+            return <Redirect push to="/"/>;
         return (
             <div>
                 <DefaultNavMenu/>

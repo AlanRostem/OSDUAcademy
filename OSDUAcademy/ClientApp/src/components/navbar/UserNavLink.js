@@ -51,7 +51,7 @@ export default class UserNavLink extends Component {
                 UserService.logOut();
                 text = "SIGN IN";
             }
-            return <Redirect to={route}/>
+            return <Redirect push to={route}/>
         }
         
         return (

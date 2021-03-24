@@ -20,7 +20,7 @@ export class Home extends Component {
     
     render() {
         if (UserService.isLoggedIn())
-            return <Redirect to="/home-li"/>
+            return <Redirect push to="/home-li"/>
         
         return (
             <div>
