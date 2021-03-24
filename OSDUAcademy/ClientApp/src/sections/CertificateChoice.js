@@ -5,6 +5,7 @@ import {Footer} from "../components/navbar/Footer";
 import {Container} from "reactstrap";
 import CertificationService from "../services/CertificationService";
 import {CertificationNavMenu} from "../components/navbar/CertificationNavMenu";
+import {Link} from "react-router-dom";
 
 /**
  * The component is a parent component for "DefaultNavMenu" and "Footer" components. It allows a user decide
@@ -67,11 +68,11 @@ export class CertificateChoice extends Component {
 
                         <p>When you are ready to begin the certification test – press <strong>TAKE THE TEST</strong></p>
                     </div>
-                    <a href={"/certification/" + this.props.match.params.courseRoute}>
+                    <Link to={"/certification/" + this.props.match.params.courseRoute}>
                         <button className="take-test-btn">
                             TAKE THE TEST
                         </button>
-                    </a>
+                    </Link>
                 </Container>
                 <Footer/>
             </div>

@@ -3,6 +3,7 @@ import {Footer} from "../navbar/Footer";
 import {Container} from "reactstrap";
 import {CertificationNavMenu} from "../navbar/CertificationNavMenu";
 import '../certificate/certificate.css'
+import {Link} from "react-router-dom";
 
 /**
  * The component returns a box with information if the user has successfully passed the test. It includes information
@@ -27,11 +28,11 @@ export class Success extends Component {
 
                     <p>If you have any comments on the course layout and the content, please contact us.</p>
                 </div>
-                <a href="/home-li">
+                <Link to="/home-li">
                     <button className="close-cert-btn">
                         CLOSE THE CERTIFICATE
                     </button>
-                </a>
+                </Link>
             </Container>
         );
     }

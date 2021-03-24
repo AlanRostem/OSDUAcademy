@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Footer} from "../navbar/Footer";
 import {Container} from "reactstrap";
-import {CertificationNavMenu} from "../navbar/CertificationNavMenu";
 import '../certificate/certificate.css'
+import LearningService from "../../services/LearningService";
+import {Link} from "react-router-dom";
 
 /**
  * The component returns a box with information if the user has not passed the test. It includes information
@@ -35,16 +35,16 @@ export class Fail extends Component {
                     </p>
                 </div>
                 <div>
-                    <a href="/home-li">
+                    <Link to="/home-li">
                         <button className="close-cert-btn">
-                            CLOSE THE CERTIFICATE
+                            HOME
                         </button>
-                    </a>
-                    <a href="/learn/:courseRoute">
+                    </Link>
+                    <Link to={"/learn/" + LearningService.getCurrentCourseRoute()}>
                         <button className="to-course-btn">
                             GO BACK TO COURSE
                         </button>
-                    </a>
+                    </Link>
                 </div>
             </Container>
         );
