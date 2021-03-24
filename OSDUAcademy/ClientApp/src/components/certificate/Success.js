@@ -3,12 +3,13 @@ import {Footer} from "../navbar/Footer";
 import {Container} from "reactstrap";
 import {CertificationNavMenu} from "../navbar/CertificationNavMenu";
 import '../certificate/certificate.css'
+import {Link} from "react-router-dom";
 
 /**
- * The component returns a box with information if the user has successfully passed the test. It includes information 
+ * The component returns a box with information if the user has successfully passed the test. It includes information
  * such as what the user can do next, in addition to the score achieved. Below the box, there is a button
- * that re-redirects user to the home page. It is used as a result of submitting the quiz in "CertificateTest" 
- * component. 
+ * that re-redirects user to the home page. It is used as a result of submitting the quiz in "CertificateTest"
+ * component.
  */
 
 export class Success extends Component {
@@ -16,31 +17,23 @@ export class Success extends Component {
 
     render() {
         return (
-            <div>
-                <CertificationNavMenu/>
-                <Container className="pre-test-info">
-                    <div className="congrats-box">
-                        <h2>Congratulations!</h2>
+            <Container className="pre-test-info">
+                <div className="congrats-box">
+                    <h2>Congratulations!</h2>
 
-                        <h6>You have successfully passed the certification test and completed the "{this.props.course}" 
-                            course! 
-                        </h6>
-                        
-                        <p className="score">Your score is: 
-                            <strong> {Math.round((this.props.right)/(this.props.questionCount) * 100)} %</strong></p>
+                    <h6>You have successfully passed the certification test and completed the course!</h6>
 
-                        <p>If you have any comments on the course layout and the content, please contact 
-                            us. 
-                        </p>
-                    </div>
-                    <a href="/home-li">
-                        <button className="close-cert-btn">
-                            CLOSE THE CERTIFICATE
-                        </button>  
-                    </a>
-                </Container>
-                <Footer/>
-            </div>
+                    <p className="score">Your score is:
+                        <strong> {Math.round(this.props.correctAnswerRate * 100)} %</strong></p>
+
+                    <p>If you have any comments on the course layout and the content, please contact us.</p>
+                </div>
+                <Link to="/home-li">
+                    <button className="close-cert-btn">
+                        CLOSE THE CERTIFICATE
+                    </button>
+                </Link>
+            </Container>
         );
     }
 }

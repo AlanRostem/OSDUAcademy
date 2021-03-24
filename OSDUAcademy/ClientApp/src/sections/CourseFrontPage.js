@@ -8,7 +8,7 @@ import {ChapterBar} from "../components/chapterdrop/ChapterBar";
 import {ChapterDrop} from "../components/chapterdrop/ChapterDrop";
 import {ChapterItem} from "../components/chapterdrop/ChapterItem";
 import UserService from "../services/UserService";
-import {Redirect} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import {CertificateButton} from "../components/chapterdrop/CertificateButton";
 import CourseService from "../services/CourseService";
 
@@ -41,15 +41,7 @@ export default class CourseFrontPage extends Component {
             });
         }
     }
-
-    handleStartCourse() {
-        let path = `/learn/${this.props.match.params.courseRoute}/`;
-        this.setState({
-            redirectToLearn: true,
-            coursePath: path,
-        });
-    }
-
+    
     showCourseContent() {
         return (
             <div>
@@ -73,7 +65,7 @@ export default class CourseFrontPage extends Component {
                             </button>
                             {
                                 this.state.isEnrolled ?
-                                    <button onClick={this.handleStartCourse.bind(this)}>Enter Course</button> : null
+                                    <Link to={`/learn/${this.props.match.params.courseRoute}/`}>Enter Course</Link> : null
                             }
                         </div>
                     </div>
@@ -98,6 +90,7 @@ export default class CourseFrontPage extends Component {
                                 </ChapterDrop>
                             )
                         }
+                        <CertificateButton />
                     </ChapterBar>
                     <div className="course-description-container">
                         <h2>Course Description</h2>
@@ -112,9 +105,6 @@ export default class CourseFrontPage extends Component {
     }
 
     render() {
-        if (this.state.redirectToLearn)
-            return <Redirect to={this.state.coursePath}/>;
-
         if (this.state.redirectToLogin)
             return <Redirect to={"/login-page/" + this.props.match.params.courseRoute}/>
 
