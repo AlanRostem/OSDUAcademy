@@ -17,7 +17,7 @@ export class Footer extends Component {
                 <ul className="footer-row">
                     <li className="footer-col"><a href="/">Home</a></li>
                     <li className="footer-col"><a href="/success">About</a></li>
-                    <li className="footer-col"><a href="/course-interface">Services</a></li>
+                    <li className="footer-col"><a href="/federated">Services</a></li>
                     <li className="footer-col"><a href="/fail">Contact</a></li>
                 </ul>
                 <hr style={{backgroundColor:"white", width:"50%"}}/>

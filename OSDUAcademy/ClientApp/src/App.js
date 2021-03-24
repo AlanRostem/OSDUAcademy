@@ -14,6 +14,7 @@ import {CertificateTest} from "./sections/CertificateTest";
 import {Teach} from "./sections/Teach";
 import {Success} from "./components/certificate/Success";
 import {Fail} from "./components/certificate/Fail";
+import {FedLogin} from "./sections/FedLogin";
 
 export default class App extends Component {
     static displayName = App.name;
@@ -26,6 +27,7 @@ export default class App extends Component {
                 <Route path='/fetch-data' component={FetchData}/>
                 <Route path='/home-li' component={Homeli}/>
                 <Route exact path='/login-page' component={Login}/>
+                <Route path='/federated' component={FedLogin}/>
                 <Route path='/login-page/:courseRoute' component={Login}/>
                 <Route path='/course-front-page/:courseRoute' component={CourseFrontPage}/>
                 <Route path='/course-interface' component={CourseInterface}/>
