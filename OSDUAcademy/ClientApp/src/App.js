@@ -12,6 +12,8 @@ import {CertificateChoice} from "./sections/CertificateChoice";
 import Login from "./sections/Login";
 import {CertificateTest} from "./sections/CertificateTest";
 import {Teach} from "./sections/Teach";
+import {Success} from "./components/certificate/Success";
+import {Fail} from "./components/certificate/Fail";
 
 export default class App extends Component {
     static displayName = App.name;
@@ -30,6 +32,8 @@ export default class App extends Component {
                 <Route path='/choose-to-certify/:courseRoute' component={CertificateChoice}/>
                 <Route path='/certification/:courseRoute' component={CertificateTest}/>
                 <Route path='/teach' component={Teach}/>
+                <Route path='/success' component={Success}/>
+                <Route path='/fail' component={Fail}/> 
             </div>
         );
     }

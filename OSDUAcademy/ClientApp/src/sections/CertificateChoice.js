@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {TestBanner} from "../components/certificate/TestBanner";
 import '../components/certificate/certificate.css'
 import {Footer} from "../components/navbar/Footer";
