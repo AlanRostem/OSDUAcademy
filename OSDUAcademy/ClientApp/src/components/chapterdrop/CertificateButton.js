@@ -10,7 +10,7 @@ export class CertificateButton extends Component {
     render () {
         return (
             <div className="course-drop">
-                <button
+                <button onClick={this.props.onClick}
                     className="drop-button slightly-dim">
                     <h3>
                         Certification Test

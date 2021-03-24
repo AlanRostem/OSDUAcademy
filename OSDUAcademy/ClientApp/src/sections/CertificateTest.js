@@ -45,7 +45,7 @@ export class CertificateTest extends Component {
             })
         });
     }
-    
+
     showTest() {
         return <div>
             <TestBanner/>
@@ -74,19 +74,18 @@ export class CertificateTest extends Component {
             <SubmitButton onSubmit={this.handleSubmit.bind(this)}/>
         </div>;
     }
-    
+
     render() {
         return (
             <div>
                 <CertificationNavMenu/>
                 {(() => {
-                    if (!this.state.submitted)
-                    {
+                    if (!this.state.submitted) {
                         return this.showTest();
                     } else {
-                        return this.state.testResults.passed ? 
-                                <Success correctAnswerRate={this.state.testResults.correctAnswerRate} /> 
-                                : <Fail correctAnswerRate={this.state.testResults.correctAnswerRate} />
+                        return this.state.testResults.passed ?
+                            <Success correctAnswerRate={this.state.testResults.correctAnswerRate}/>
+                            : <Fail correctAnswerRate={this.state.testResults.correctAnswerRate}/>
                     }
                 })()}
                 <Footer/>
