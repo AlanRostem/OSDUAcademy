@@ -380,9 +380,10 @@ footer {
 }
 
 .fed-img {
-    width: 20%;
-    height: auto;
-    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-left: 15px;
 }
 
 .log-list {
@@ -392,8 +393,48 @@ footer {
 
 .fed-li {
     width: 80%;
-    background-color: green;
     justify-content: center;
     padding: 10px;
-    margin: 10px auto auto;
+    margin: 10px  auto;
 }
+
+.sign-in-btn {
+    width: 100%;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    border: solid 1px black;
+}
+
+.sign-in-btn span {
+    line-height: 40px;
+    font-size: 20px;
+}
+
+.google-btn {
+    background-color: #DC753D;
+}
+
+.google-btn:hover {
+    background-color: #2c5385;
+    color: white;
+}
+
+.microsoft-btn {
+    background-color: #102C41;
+}
+
+.microsoft-btn:hover {
+    background-color: #2c5385;
+    color: white;
+}
+
+.linkedin-btn {
+    background-color: #227275;
+}
+
+.linkedin-btn:hover {
+    background-color: #2c5385;
+    color: white;
+}
+

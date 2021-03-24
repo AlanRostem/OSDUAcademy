@@ -20,22 +20,22 @@ export class FedLogin extends Component {
                         <h3>Choose a way to sign in</h3>
                         <ul className="log-list">
                             <li className="fed-li">
-                                <Link to="#" className="sign-in-btn google-btn">
+                                <button value="google" className="sign-in-btn google-btn">
                                     <img className="fed-img" src={process.env.PUBLIC_URL + "img/google.png"} alt="google"/>
                                     <span>Sign in with Google</span>
-                                </Link>
+                                </button>
                             </li>
                             <li className="fed-li">
-                                <Link to="#" className="sign-in-btn google-btn">
-                                    <img className="fed-img" src={process.env.PUBLIC_URL + "img/google.png"} alt="google"/>
-                                    <span>Sign in with Google</span>
-                                </Link>
+                                <button value="microsoft" className="sign-in-btn microsoft-btn">
+                                    <img className="fed-img" src={process.env.PUBLIC_URL + "img/microsoft.png"} alt="microsoft"/>
+                                    <span>Sign in with Microsoft</span>
+                                </button>
                             </li>
                             <li className="fed-li">
-                                <Link to="#" className="sign-in-btn google-btn">
-                                    <img className="fed-img" src={process.env.PUBLIC_URL + "img/google.png"} alt="google"/>
-                                    <span>Sign in with Google</span>
-                                </Link>
+                                <button value="linkedin" className="sign-in-btn linkedin-btn">
+                                    <img className="fed-img" src={process.env.PUBLIC_URL + "img/linkedin.png"} alt="linkedin"/>
+                                    <span>Sign in with LinkedIn</span>
+                                </button>
                             </li>
                         </ul>
                         
