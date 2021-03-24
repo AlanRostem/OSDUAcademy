@@ -13,19 +13,12 @@ import UserService from "../../services/UserService";
 export default class UserNavLink extends Component {
     state = {
         hovered: false,
-        logOut: false
-    }
-
-    handleSignOut(event) {
-        UserService.logOut();
-        this.setState({
-            logOut: true
-        })
-    }
+        clicked: false
+    };
     
     handleMouseEnter(event) {
         this.setState({
-            hovered: UserService.isLoggedIn()
+            hovered: true
         });
     }
 
@@ -35,32 +28,39 @@ export default class UserNavLink extends Component {
         });
     }
 
+    handleClicked(event) {
+        this.setState({
+            clicked: true
+        });
+    }
+    
     render() {
-        if (this.state.logOut)
-            return <Redirect to={"/"} />
-        
         let route = "/login-page";
-        let text = "SIGN UP";
+        let text = "SIGN IN";
         if (UserService.isLoggedIn()) {
-            route = "#"; // "users/" + UserService.getUser().id;
-            text = UserService.getUser().firstName;
+            route = "/";
+            if (this.state.hovered) {
+                text = "SIGN OUT";
+            } else {
+                text = UserService.getUser().firstName;
+            }
         }
 
+        if (this.state.clicked) {
+            if (UserService.isLoggedIn()) {
+                UserService.logOut();
+                text = "SIGN IN";
+            }
+            return <Redirect to={route}/>
+        }
+        
         return (
             <NavLink tag={Link}
                      className="text-light"
-                     to={route}
-                     onMouseEnter={this.handleMouseEnter.bind(this)}>
+                     onMouseEnter={this.handleMouseEnter.bind(this)}
+                     onMouseLeave={this.handleMouseLeave.bind(this)}
+                     onClick={this.handleClicked.bind(this)}>
                 <NavIcon text={text} iconClass="fa fa-user"/>
-                {
-                    this.state.hovered ?
-                        <div onMouseLeave={this.handleMouseLeave.bind(this)} className="logout-menu">
-                            <div className="logout-container">
-                                <button onClick={this.handleSignOut.bind(this)}>SIGN OUT</button>
-                            </div>
-                        </div>
-                        : null
-                }
             </NavLink>
         );
     }
