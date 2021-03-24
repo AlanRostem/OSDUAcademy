@@ -66,7 +66,10 @@ export default class CourseFrontPage extends Component {
                             }
                         </div>
                         <div className="intro-buttons">
-                            <button disabled={this.state.isEnrolled} onClick={this.handleApply.bind(this)}>Apply
+                            <button disabled={this.state.isEnrolled} onClick={this.handleApply.bind(this)}>
+                                {
+                                    this.state.isEnrolled ? "Applied" : "Apply"
+                                }
                             </button>
                             {
                                 this.state.isEnrolled ?
