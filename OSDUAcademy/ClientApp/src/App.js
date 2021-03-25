@@ -30,20 +30,20 @@ export default class App extends Component {
             <Layout>
                 <Route exact path='/' component={Home}/>
                 <Route path='/counter' component={Counter}/>
-                <Route path='/home-li' component={Homeli}/>
+                <AuthorizeRoute path='/home-li' component={Homeli}/>
                 <Route exact path='/login-page' component={Login}/>
                 <Route path='/federated' component={FedLogin}/>
                 <Route path='/login-page/:courseRoute' component={Login}/>
                 <Route path='/course-front-page/:courseRoute' component={CourseFrontPage}/>
-                <Route path='/course-interface' component={CourseInterface}/>
+                <AuthorizeRoute path='/course-interface' component={CourseInterface}/>
                 <AuthorizeRoute path='/fetch-data' component={FetchData}/>
                 <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes}/>
-                <Route path='/learn/:courseRoute' component={CourseInterface}/>
-                <Route path='/choose-to-certify/:courseRoute' component={CertificateChoice}/>
-                <Route path='/certification/:courseRoute' component={CertificateTest}/>
-                <Route path='/teach' component={Teach}/>
-                <Route path='/success' component={Success}/>
-                <Route path='/fail' component={Fail}/>
+                <AuthorizeRoute path='/learn/:courseRoute' component={CourseInterface}/>
+                <AuthorizeRoute path='/choose-to-certify/:courseRoute' component={CertificateChoice}/>
+                <AuthorizeRoute path='/certification/:courseRoute' component={CertificateTest}/>
+                <AuthorizeRoute path='/teach' component={Teach}/>
+                <AuthorizeRoute path='/success' component={Success}/>
+                <AuthorizeRoute path='/fail' component={Fail}/>
             </Layout>
         );
     }
