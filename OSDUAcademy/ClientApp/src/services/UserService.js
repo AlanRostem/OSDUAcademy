@@ -1,4 +1,5 @@
 ﻿import ls from "local-storage"
+import authService from "../components/api-authorization/AuthorizeService";
 
 const UserService = {
     getUser() {
@@ -55,7 +56,7 @@ const UserService = {
         if (UserService.isLoggedIn()) {
             ls.set("user_data", null)
         }
-    }
+    },
 };
 
 export default UserService;
