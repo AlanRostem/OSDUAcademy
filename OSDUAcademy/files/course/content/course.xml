@@ -1,0 +1,20 @@
+﻿<Course>
+    <Title>Techlog Wellbore - A Beginner Tutorial</Title>
+    <DescriptionShort>This is a short description</DescriptionShort>   
+    <DescriptionLong>This is a very very long description, ok?</DescriptionLong>
+    <Difficulty>Beginner</Difficulty>
+    <Domain>Geology</Domain>
+    <Duration>1-2 days</Duration>
+    <Layout>
+        <Section title="Introduction">
+            <Lecture title="The first lecture!"/>
+            <Lecture title="The second lecture!"/>
+        </Section>
+        <Section>
+            <Lecture title="Data Management">
+                <Lecture title="The first lecture!"/>
+                <Lecture title="The second lecture!"/>                
+            </Lecture>
+        </Section>
+    </Layout>
+</Course>
