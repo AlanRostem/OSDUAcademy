@@ -60,6 +60,7 @@ const LearningService = {
         })
 
     },
+    
     fetchCourseImage(courseRoute, image, callback) {
         authService.getAccessToken().then(token => {
             const init = {

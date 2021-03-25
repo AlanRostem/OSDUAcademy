@@ -1,38 +1,55 @@
 ﻿import UserService from "./UserService";
+import authService from "../components/api-authorization/AuthorizeService";
 
 const CertificationService = {
+
     fetchQuestionsPreview(courseRoute, callback) {
-        fetch("/certification/" + courseRoute + "/content/preview")
-            .then(response => response.json())
-            .then(data => {
-                callback(data)
-            });
+        authService.getAccessToken().then(token => {
+            const init = {
+                headers: !token ? {} : {'Authorization': `Bearer ${token}`}
+            };
+
+            fetch("/certification/" + courseRoute + "/content/preview", init)
+                .then(response => response.json())
+                .then(data => {
+                    callback(data)
+                });
+        });
     },
-    
+
     fetchAllQuestions(courseRoute, callback) {
-        fetch("/certification/" + courseRoute + "/content/questions")
-            .then(response => response.json())
-            .then(data => {
-                callback(data)
-            });
+        authService.getAccessToken().then(token => {
+            const init = {
+                headers: !token ? {} : {'Authorization': `Bearer ${token}`}
+            };
+
+            fetch("/certification/" + courseRoute + "/content/questions", init)
+                .then(response => response.json())
+                .then(data => {
+                    callback(data)
+                });
+        });
     },
-    
+
     submitAnswers(courseRoute, answerArray, callback) {
-        fetch("/certification/" + courseRoute + "/submit/" + UserService.getUser().id, {
-            method: "POST",
-            body: JSON.stringify({
-                answers: answerArray
-            }),
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-            },
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                callback(data)
-            });
+        authService.getAccessToken().then(token => {
+            fetch("/certification/" + courseRoute + "/submit/" + UserService.getUser().id, {
+                method: "POST",
+                body: JSON.stringify({
+                    answers: answerArray
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': token ? `Bearer ${token}` : undefined
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    callback(data)
+                });
+        });
     },
 };
 
