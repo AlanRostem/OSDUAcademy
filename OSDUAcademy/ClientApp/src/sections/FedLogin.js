@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Footer} from "../components/navbar/Footer";
 import {Container} from "reactstrap";
-import {Link} from "react-router-dom";
 
 /**
  * The component returns 

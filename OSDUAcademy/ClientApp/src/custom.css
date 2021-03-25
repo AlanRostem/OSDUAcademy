@@ -435,3 +435,38 @@ footer {
     background-color: #2c5385;
 }
 
+.profile-container {
+    text-align: left;
+    display: flex;
+}
+
+.profile-info {
+    height: auto;
+    width: 70%;
+    background-color: lightgrey;
+    padding: 30px 0;
+    margin: 40px auto auto;
+}
+
+.profile-info ul {
+    display: table;
+    width: 100%;
+    list-style: none;
+}
+
+.profile-info li {
+    display: table-cell;
+    text-align: center;
+}
+
+.profile-info li span {
+    display: block;
+}
+
+.profile-info li :first-child {
+    text-align: center;
+}
+
+.profile-info li :last-child {
+    text-align: center;
+}

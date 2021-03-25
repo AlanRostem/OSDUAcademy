@@ -15,6 +15,7 @@ import {Teach} from "./sections/Teach";
 import {Success} from "./components/certificate/Success";
 import {Fail} from "./components/certificate/Fail";
 import {FedLogin} from "./sections/FedLogin";
+import {Profile} from "./sections/Profile";
 
 export default class App extends Component {
     static displayName = App.name;
@@ -37,6 +38,7 @@ export default class App extends Component {
                 <Route path='/teach' component={Teach}/>
                 <Route path='/success' component={Success}/>
                 <Route path='/fail' component={Fail}/>
+                <Route path='/profile-page' component={Profile}/>
             </div>
         );
     }

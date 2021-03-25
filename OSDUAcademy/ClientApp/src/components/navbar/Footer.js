@@ -17,7 +17,7 @@ export class Footer extends Component {
                     <li className="footer-col"><a href="/">Home</a></li>
                     <li className="footer-col"><a href="/">About</a></li>
                     <li className="footer-col"><a href="/federated">Services</a></li>
-                    <li className="footer-col"><a href="/">Contact</a></li>
+                    <li className="footer-col"><a href="/profile-page">Contact</a></li>
                 </ul>
                 <hr style={{backgroundColor:"white", width:"50%"}}/>
                 <p className="footer-lic">OSDU Academy © 2021 | By Schlumberger </p>
