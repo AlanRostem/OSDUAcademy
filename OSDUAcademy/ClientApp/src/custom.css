@@ -436,37 +436,41 @@ footer {
 }
 
 .profile-container {
+    text-align: center;
+}
+
+.profile-form {
+    display: table;
+    padding: 10px 10px 10px 20px;
+    background-color: #2c5385;
     text-align: left;
-    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 40%;
+    color: white;
+    border: solid 1px black;
 }
 
 .profile-info {
-    height: auto;
-    width: 70%;
-    background-color: lightgrey;
-    padding: 30px 0;
-    margin: 40px auto auto;
+    display: table-row;
+    font-size: 1.3rem;
+    text-align: center;
 }
 
-.profile-info ul {
-    display: table;
-    width: 100%;
-    list-style: none;
-}
-
-.profile-info li {
+.profile-info label {
     display: table-cell;
-    text-align: center;
+    margin-left: 30px;
 }
 
-.profile-info li span {
-    display: block;
+.profile-info input {
+    display: table-cell;
+    padding: 5px;
+    background-color: #2c5385;
+    border: none;
+    color: white;
 }
 
-.profile-info li :first-child {
-    text-align: center;
+.profile-h {
+    font-size: 1.7rem;
 }
 
-.profile-info li :last-child {
-    text-align: center;
-}
