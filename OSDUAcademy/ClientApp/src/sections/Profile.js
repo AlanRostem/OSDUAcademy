@@ -33,6 +33,7 @@ export class Profile extends Component {
                                     <input type="text" value={UserService.getUser().email} readOnly/>
                                 </div>
                             </form>
+                            <button className="log-out-btn">Log out</button>
                         </li>
                         <li className="user-courses">
                             <h5 className="profile-h">Active Courses</h5>

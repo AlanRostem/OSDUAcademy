@@ -451,13 +451,14 @@ footer {
 .profile-form {
     display: table;
     padding: 10px 10px 10px 20px;
-    background-color: #2c5385;
+    background-color: white;
     text-align: left;
     justify-content: center;
     margin: 0;
     width: 100%;
-    color: white;
-    border: solid 1px black;
+    color: #2c5385;
+    border: solid 1px #2c5385;
+    border-radius: 5px;
 }
 
 .profile-info {
@@ -474,9 +475,9 @@ footer {
 .profile-info input {
     display: table-cell;
     padding: 5px;
-    background-color: #2c5385;
+    background-color: white;
     border: none;
-    color: white;
+    color: #2c5385;
 }
 
 .profile-h {
@@ -502,6 +503,16 @@ footer {
     width: 60vw;
     margin-left: 50px;
     text-align: left;
+}
+
+.log-out-btn {
+    padding: 5px;
+    border: solid 1px #2c5385;
+    color: #2c5385;
+    background-color: white;
+    width: 100px;
+    margin-top: 20px;
+    border-radius: 5px;
 }
 
 
