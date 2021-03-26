@@ -1,12 +1,13 @@
-﻿const LearningService = {
+﻿import UserService from "./UserService";
+
+const LearningService = {
     _courseRoute: "/",
     _sectionNo: 0,
     _lectureNo: 0,
     _courseSectionData: [],
 
     loadLecture(courseRoute, sectionNo, lectureNo, callback) {
-
-        fetch(`learn/content/${courseRoute}/sections/${sectionNo}/lectures/${lectureNo}`)
+        fetch(`learn/content/${courseRoute}/sections/${sectionNo}/lectures/${lectureNo}`, {headers: UserService.getAuthObj()})
             .then(response =>
                 response.text())
             .then(xml => {
@@ -33,7 +34,7 @@
     },
 
     startCourse(courseRoute, callback) {
-        fetch("learn/" + courseRoute + "/start")
+        fetch("learn/" + courseRoute + "/start", {headers: UserService.getAuthObj()})
             .then(response =>
                 response.json()
             )
@@ -51,7 +52,7 @@
 
     },
     fetchCourseImage(courseRoute, image, callback) {
-        fetch(`learn/content/${courseRoute}/images/${image}`)
+        fetch(`learn/content/${courseRoute}/images/${image}`, {headers: UserService.getAuthObj()})
             .then(response => response.blob())
             .then(blob => {
                 callback(URL.createObjectURL(blob));
@@ -60,7 +61,7 @@
     
     fetchCurrentCourseOverview(callback) {
         const route = 'learn/' + LearningService.getCurrentCourseRoute() + "/overview";
-        fetch(route)
+        fetch(route, {headers: UserService.getAuthObj()})
             .then(response => response.json())
             .then(data => {
                 callback(data);

@@ -9,6 +9,19 @@ const UserService = {
         return ls.get("user_data") != null;
     },
 
+    getToken() {
+        return ls.get("token");
+    },
+
+    getAuthObj() {
+        const token = UserService.getToken();
+        if (!token)
+            return {};
+        return {
+            "Authorization": `Bearer ${token}`
+        }
+    },
+
     applyToCourse(courseRoute, callback) {
         fetch("user/" + this.getUser().id + "/course/" + courseRoute + "/apply", {
             "method": "POST"
@@ -40,6 +53,7 @@ const UserService = {
                 if (response.ok) {
                     const data = await response.json();
                     ls.set("user_data", data.user);
+                    ls.set("token", data.token)
                     callback(data);
                 } else {
                     onError()

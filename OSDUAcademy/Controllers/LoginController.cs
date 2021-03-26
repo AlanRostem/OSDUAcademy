@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 using OSDUAcademy.DataTypes;
@@ -65,14 +66,14 @@ namespace OSDUAcademy.Controllers
 
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is a very secure key"));
                     var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
+                    
                     var token = new JwtSecurityToken(
                         issuer: "https://demo.identityserver.io",
                         audience: "http://localhost:5000",
                         claims: claims,
                         expires: DateTime.Now.AddMinutes(30),
                         signingCredentials: credentials);
-
+                    
                     data["token"] = new JwtSecurityTokenHandler().WriteToken(token);
                     return Ok(data);
                 }
