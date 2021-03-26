@@ -4,7 +4,7 @@ import {Footer} from "../components/navbar/Footer";
 import {Container} from "reactstrap";
 import UserService from "../services/UserService"
 import CourseRow from "../components/home/CourseRow";
-import {CompletedCourseCard} from "../components/home/CompletedCourseCard";
+import {Link} from "react-router-dom";
 
 /**
  * The component returns the user profile page. The page is divided into two main parts. On the left side, there 
@@ -14,6 +14,11 @@ import {CompletedCourseCard} from "../components/home/CompletedCourseCard";
 
 export class Profile extends Component {
     static displayName = Profile.name;
+    
+    /* logs out on click */
+    handleLogout() {
+        UserService.logOut();
+    }
 
     render () {
         return (
@@ -33,7 +38,9 @@ export class Profile extends Component {
                                     <input type="text" value={UserService.getUser().email} readOnly/>
                                 </div>
                             </form>
-                            <button className="log-out-btn">Log out</button>
+                            <Link onClick={this.handleLogout.bind().this} to="/">
+                                <button className="log-out-btn">Log out</button>
+                            </Link>
                         </li>
                         <li className="user-courses">
                             <h5 className="profile-h">Active Courses</h5>
