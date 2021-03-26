@@ -12,7 +12,8 @@ export default class Login extends Component {
         email: "",
         password: "",
         loggingIn: false,
-        success: null
+        success: false,
+        failed: false
     }
 
     inputUsername(event) {
@@ -28,7 +29,7 @@ export default class Login extends Component {
         this.setState({loggingIn: true});
         UserService.loginUser(this.state.email, this.state.password,
             data => this.setState({data: data, success: true}),
-            () => this.setState({success: false})
+            () => this.setState({success: false, failed: true})
         );
     }
 
@@ -37,7 +38,8 @@ export default class Login extends Component {
         let loggingIn = this.state.loggingIn;
         if (loggingIn) {
             if (!this.state.success) {
-                failed = true;
+                if (this.state.failed)
+                    failed = true;
                 loggingIn = false;
             } else {
                 if (this.props.match !== undefined)
