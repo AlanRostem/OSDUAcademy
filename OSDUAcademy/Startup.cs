@@ -36,7 +36,7 @@ namespace OSDUAcademy
                         ValidIssuer = "https://demo.identityserver.io",
                         ValidAudience = "http://localhost:5000",
                         IssuerSigningKey = new SymmetricSecurityKey(
-                            Encoding.UTF8.GetBytes("this is a very secret key"))
+                            Encoding.UTF8.GetBytes("super duper ultra mega hyper alpha omega secret encrypted key or something"))
                     };
                 });
 
@@ -75,11 +75,12 @@ namespace OSDUAcademy
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-
-            app.UseAuthentication();
-
+            
             app.UseRouting();
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

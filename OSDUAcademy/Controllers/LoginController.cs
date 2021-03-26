@@ -64,7 +64,7 @@ namespace OSDUAcademy.Controllers
                         new Claim(ClaimTypes.Name, request.Email)
                     };
 
-                    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is a very secure key"));
+                    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("super duper ultra mega hyper alpha omega secret encrypted key or something"));
                     var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
                     
                     var token = new JwtSecurityToken(

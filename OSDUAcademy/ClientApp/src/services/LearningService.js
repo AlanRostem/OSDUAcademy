@@ -42,7 +42,7 @@ const LearningService = {
                 LearningService.loadLecture(courseRoute, data.section, data.lecture, callback);
                 LearningService._courseRoute = courseRoute;
                 const route = 'learn/' + courseRoute + "/overview";
-                fetch(route)
+                fetch(route, {headers: UserService.getAuthObj()})
                     .then(response => response.json())
                     .then(data => {
                         LearningService._courseSectionData = data;
