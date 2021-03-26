@@ -2,7 +2,8 @@
 
 /**
  * The component returns a frame for a embedded youtube video. It is set to be used by the OSDU Academy teaching 
- * community when making a course and its content and is shown as a child of the "Content" component. 
+ * community when making a course and its content and is shown as a child of the "Content" component. The only thing 
+ * the course maker needs to provide is a embedded url link. 
  * The <iframe> tag allows the users to full-screen the video and navigate through it, amongst other things. 
  */
 
