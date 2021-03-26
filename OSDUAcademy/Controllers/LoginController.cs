@@ -38,10 +38,12 @@ namespace OSDUAcademy.Controllers
         public IActionResult RequestToken([FromBody] LoginData request)
         {
             var userFields = UserFieldBuilder
+                .Include(u => u.Id)
                 .Include(u => u.Email)
                 .Include(u => u.Password)
                 .Include(u => u.FirstName)
                 .Include(u => u.LastName);
+            
             var list = _userCollection
                 .Find(u => u.Email == request.Email)
                 .Project<User>(userFields)
@@ -51,7 +53,7 @@ namespace OSDUAcademy.Controllers
             if (list.Count != 0)
             {
                 var user = list[0];
-                if (user.Password == request.Password)
+                if (user.Password == request.Password) // TODO: Do not store raw password in the future
                 {
                     user.Password = null;
                     data["user"] = user;
@@ -76,7 +78,7 @@ namespace OSDUAcademy.Controllers
                 }
             }
 
-            return BadRequest("Could not verify username and password");
+            return BadRequest();
         }
     }
 }

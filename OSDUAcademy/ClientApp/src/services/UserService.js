@@ -24,7 +24,7 @@ const UserService = {
             .then(callback);
     },
 
-    loginUser(email, password, callback) {
+    loginUser(email, password, callback, onError) {
         fetch("login", {
             method: "POST",
             headers: {
@@ -36,12 +36,14 @@ const UserService = {
                 password: password,
             }),
         })
-            .then(response =>
-                response.json())
-            .then(data => {
-                if (data.success)
-                    ls.set("user_data", data.user)
-                callback(data);
+            .then(async response => {
+                if (response.ok) {
+                    const data = await response.json();
+                    ls.set("user_data", data.user);
+                    callback(data);
+                } else {
+                    onError()
+                }
             });
     },
 
