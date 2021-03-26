@@ -9,22 +9,49 @@ const UserService = {
         return ls.get("user_data") != null;
     },
 
-    applyToCourse(courseRoute, callback) {
-        fetch("user/" + this.getUser().id + "/course/" + courseRoute + "/apply", {
-            "method": "POST"
+    getToken() {
+        return ls.get("token");
+    },
+
+    getAuthObj() {
+        const token = UserService.getToken();
+        if (!token)
+            return {};
+        return {
+            "Authorization": `Bearer ${token}`
+        }
+    },
+
+    applyToCourse(courseRoute, callback, onError) {
+        fetch("user/course/" + courseRoute + "/apply", {
+            "method": "POST",
+            "headers": {
+                "Authorization": `Bearer ${UserService.getToken()}`
+            }
         })
-            .then(response =>
-                response.text())
-            .then(callback);
+            .then(async response => {
+                if (!response.ok) {
+                    onError();
+                    return;
+                }
+                const data = await response.text();
+                callback(data);
+            });
     },
 
-    checkEnrollment(courseRoute, callback) {
-        fetch("user/" + this.getUser().id + "/course/" + courseRoute + "/enrolled")
-            .then(response => response.text())
-            .then(callback);
+    checkEnrollment(courseRoute, callback, onError) {
+        fetch("user/course/" + courseRoute + "/enrolled", {headers: UserService.getAuthObj()})
+            .then(async response => {
+                if (!response.ok) {
+                    onError();
+                    return;
+                }
+                const data = await response.text();
+                callback(data);
+            });
     },
 
-    loginUser(email, password, callback) {
+    loginUser(email, password, callback, onError) {
         fetch("login", {
             method: "POST",
             headers: {
@@ -36,26 +63,46 @@ const UserService = {
                 password: password,
             }),
         })
-            .then(response =>
-                response.json())
-            .then(data => {
-                if (data.success)
-                    ls.set("user_data", data.user)
+            .then(async response => {
+                if (response.ok) {
+                    const data = await response.json();
+                    ls.set("user_data", data.user);
+                    ls.set("token", data.token)
+                    callback(data);
+                } else {
+                    onError()
+                }
+            });
+    },
+
+    fetchEnrolledCourses(callback, onError) {
+        fetch("user/courses/applied", {headers: UserService.getAuthObj()})
+            .then(async response => {
+                if (!response.ok) {
+                    onError();
+                    return;
+                }
+                const data = await response.json();
                 callback(data);
             });
     },
 
-    fetchEnrolledCourses(callback) {
-        fetch("user/" + this.getUser().id + "/courses/applied")
-            .then(response => response.json())
-            .then(data => callback(data))
-    },
-
     logOut() {
         if (UserService.isLoggedIn()) {
-            ls.set("user_data", null)
+            ls.set("user_data", null);
+            ls.set("token", null);
         }
-    }
+    },
+
+    checkLogin(callback) {
+        fetch("login/check", {headers: UserService.getAuthObj()})
+            .then(response => {
+                callback(response.ok)
+                if (!response.ok) {
+                    this.logOut();
+                }
+            });
+    },
 };
 
 export default UserService;

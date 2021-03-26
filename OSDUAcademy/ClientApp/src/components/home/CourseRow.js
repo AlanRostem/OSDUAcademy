@@ -27,12 +27,18 @@ export default class CourseRow extends Component {
         if (this.props.fetchEnrolledUserCourses) {
             if (UserService.isLoggedIn()) {
                 UserService.fetchEnrolledCourses(data => {
-                    this.setState({
-                        data: data,
-                        loading: false,
-                        showEnrolledCourses: true
+                        this.setState({
+                            data: data,
+                            loading: false,
+                            showEnrolledCourses: true
+                        });
+                    },
+                    () => {
+                        this.setState({
+                            loading: false,
+                            showEnrolledCourses: false
+                        });
                     });
-                })
             }
 
             return;
@@ -82,7 +88,7 @@ export default class CourseRow extends Component {
                                     <CatchUpCard title={course.title} routeName={course.publicRoute}/>
                                 </Slide>)}
                             </Slider>;
-                        } else {
+                        } else if (this.props.searchByTrending || this.props.domainToSearchBy) {
                             return this.state.loading ?
                                 this.showLoading() :
                                 this.showCourses()

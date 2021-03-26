@@ -12,6 +12,7 @@ export default class Login extends Component {
         email: "",
         password: "",
         loggingIn: false,
+        success: null
     }
 
     inputUsername(event) {
@@ -25,38 +26,41 @@ export default class Login extends Component {
     handleLogin(event) {
         event.preventDefault();
         this.setState({loggingIn: true});
-        UserService.loginUser(this.state.email, this.state.password, data =>
-            this.setState({data: data})
+        UserService.loginUser(this.state.email, this.state.password,
+            data => this.setState({data: data, success: true}),
+            () => this.setState({success: false})
         );
     }
 
     render() {
-        if (this.state.loggingIn) {
-            this.state.loggingIn = false;
-        }
-
         let failed = false;
-        if (this.state.data) {
-            if (!this.state.data.success) {
+        let loggingIn = this.state.loggingIn;
+        if (loggingIn) {
+            if (!this.state.success) {
                 failed = true;
+                loggingIn = false;
             } else {
-                if (this.props.match !== undefined) 
+                if (this.props.match !== undefined)
                     if (this.props.match.params.courseRoute !== undefined)
-                        return <Redirect push to={"/course-front-page/" + this.props.match.params.courseRoute} />
-                return <Redirect push to="/home-li" />;
+                        return <Redirect push to={"/course-front-page/" + this.props.match.params.courseRoute}/>
+                return <Redirect push to="/home-li"/>;
             }
         }
 
+        let title = "Sign in to your account";
+        if (this.props.match) {
+            if (this.props.match.params)
+                if (this.props.match.params.courseRoute)
+                    title = "Sign in to continue";
+        }
+        
         return (
             <div>
                 <DefaultNavMenu/>
                 <Container>
                     <UserInfoForm onSubmit={this.handleLogin.bind(this)}>
                         <h3>
-                            {
-                                this.props.match.params === undefined ? 
-                                    "Sign in to your account" : "Sign in to continue"
-                            }
+                            {title}
                         </h3>
                         {
                             failed ? <p style={{color: "red"}}>Invalid credentials</p> : null
@@ -66,7 +70,7 @@ export default class Login extends Component {
                         <input type="password" name="password" placeholder="Password"
                                onChange={this.inputPassword.bind(this)} required={true}/>
                         {
-                            !this.state.loggingIn ?
+                            !loggingIn ?
                                 <button type="submit" onClick={this.handleLogin.bind(this)}>Sign in</button>
                                 : <LoadingIcon/>
                         }
