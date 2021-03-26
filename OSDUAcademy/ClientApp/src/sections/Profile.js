@@ -38,8 +38,8 @@ export class Profile extends Component {
                                     <input type="text" value={UserService.getUser().email} readOnly/>
                                 </div>
                             </form>
-                            <Link onClick={this.handleLogout.bind().this} to="/">
-                                <button className="log-out-btn">Log out</button>
+                            <Link to="/">
+                                <button onClick={this.handleLogout.bind(this)}  className="log-out-btn">Log out</button>
                             </Link>
                         </li>
                         <li className="user-courses">

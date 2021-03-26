@@ -35,6 +35,7 @@ namespace OSDUAcademy
                         ValidateIssuerSigningKey = true,
                         ValidIssuer = "https://demo.identityserver.io",
                         ValidAudience = "http://localhost:5000",
+                        RequireExpirationTime = true,
                         IssuerSigningKey = new SymmetricSecurityKey(
                             Encoding.UTF8.GetBytes("super duper ultra mega hyper alpha omega secret encrypted key or something"))
                     };

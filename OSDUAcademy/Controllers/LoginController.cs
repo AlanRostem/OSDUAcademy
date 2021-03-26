@@ -72,7 +72,7 @@ namespace OSDUAcademy.Controllers
                         issuer: "https://demo.identityserver.io",
                         audience: "http://localhost:5000",
                         claims: claims,
-                        expires: DateTime.Now.AddMinutes(30),
+                        expires: DateTime.Now.AddHours(2),
                         signingCredentials: credentials);
                     
                     data["token"] = new JwtSecurityTokenHandler().WriteToken(token);
