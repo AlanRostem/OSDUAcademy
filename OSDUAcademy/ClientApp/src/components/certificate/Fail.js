@@ -36,7 +36,7 @@ export class Fail extends Component {
                 </div>
                 <div>
                     <Link to="/home-li">
-                        <button className="close-cert-btn">
+                        <button className="close-cert-btn home-btn">
                             HOME
                         </button>
                     </Link>
