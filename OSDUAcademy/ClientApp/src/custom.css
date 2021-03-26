@@ -485,6 +485,7 @@ footer {
     margin-bottom: 20px;
     color: dimgrey;
     border-bottom: solid 1px dimgrey;
+    padding-bottom: 10px;
 }
 
 .profile-list {

@@ -27,7 +27,7 @@ export class Profile extends Component {
                 <Container className="profile-container">
                     <ul className="profile-list">
                         <li className="user-data">
-                            <h5 className="profile-h"> User information </h5>
+                            <h5 className="profile-h"> Your information </h5>
                             <form className="profile-form">
                                 <div className="profile-info">
                                     <label>Name: </label>
