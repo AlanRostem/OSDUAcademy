@@ -22,7 +22,7 @@ const UserService = {
         }
     },
 
-    applyToCourse(courseRoute, callback, onError) {
+    applyToCourse(courseRoute, callback, onError = () => {}) {
         fetch("user/course/" + courseRoute + "/apply", {
             "method": "POST",
             "headers": {
@@ -86,6 +86,18 @@ const UserService = {
                 callback(data);
             });
     },
+    
+    fetchCompletedUserCourses(callback, onError) {
+        fetch("user/courses/completed", {headers: UserService.getAuthObj()})
+            .then(async response => {
+                if (!response.ok) {
+                    onError();
+                    return;
+                }
+                const data = await response.json();
+                callback(data);
+            });
+    },
 
     logOut() {
         if (UserService.isLoggedIn()) {
@@ -103,6 +115,7 @@ const UserService = {
                 }
             });
     },
+
 };
 
 export default UserService;

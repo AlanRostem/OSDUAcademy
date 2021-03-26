@@ -130,6 +130,38 @@ namespace OSDUAcademy.Controllers
             }
             
             return list;
+        } 
+        
+        [HttpGet("courses/completed")]
+        public List<Course> GetCompletedCourses()
+        {
+            var list = new List<Course>();
+            var userFields = UserFieldBuilder.Include(u => u.CoursesCompleted);
+            var email = User.Identity?.Name;
+            var users = _userCollection
+                .Find(u => u.Email == email)
+                .Project<User>(userFields)
+                .ToList();
+            
+            if (users.Count == 0)
+                return list;
+
+            var user = users.Single();
+
+            var courseFields = CourseFieldBuilder
+                .Include(c => c.Title)
+                .Include(c => c.PublicRoute);
+            
+            foreach (var courseId in user.CoursesCompleted)
+            {
+                var course = _courseCollection
+                    .Find(c => c.Id == courseId)
+                    .Project<Course>(courseFields)
+                    .ToList().Single();
+                list.Add(course);
+            }
+            
+            return list;
         }
     }
 }

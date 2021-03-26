@@ -16,50 +16,17 @@ export default class UserNavLink extends Component {
         clicked: false
     };
     
-    handleMouseEnter(event) {
-        this.setState({
-            hovered: true
-        });
-    }
-
-    handleMouseLeave(event) {
-        this.setState({
-            hovered: false
-        });
-    }
-
-    handleClicked(event) {
-        this.setState({
-            clicked: true
-        });
-    }
-    
     render() {
         let route = "/login-page";
         let text = "SIGN IN";
         if (UserService.isLoggedIn()) {
-            route = "/";
-            if (this.state.hovered) {
-                text = "SIGN OUT";
-            } else {
-                text = UserService.getUser().firstName;
-            }
+            route = "/profile";
+            text = UserService.getUser().firstName;
         }
 
-        if (this.state.clicked) {
-            if (UserService.isLoggedIn()) {
-                UserService.logOut();
-                text = "SIGN IN";
-            }
-            return <Redirect push to={route}/>
-        }
-        
         return (
-            <NavLink tag={Link}
-                     className="text-light"
-                     onMouseEnter={this.handleMouseEnter.bind(this)}
-                     onMouseLeave={this.handleMouseLeave.bind(this)}
-                     onClick={this.handleClicked.bind(this)}>
+            <NavLink tag={Link} to={route}
+                     className="text-light">
                 <NavIcon text={text} iconClass="fa fa-user"/>
             </NavLink>
         );

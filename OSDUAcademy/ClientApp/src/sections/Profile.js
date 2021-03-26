@@ -6,7 +6,6 @@ import UserService from "../services/UserService"
 import CourseRow from "../components/home/CourseRow";
 import {CompletedCourseCard} from "../components/home/CompletedCourseCard";
 
-
 /**
  * The component returns
  */
@@ -38,9 +37,7 @@ export class Profile extends Component {
                             <CourseRow fetchEnrolledUserCourses={true} />
                             <br/>
                             <h5 className="profile-h">Completed Courses</h5>
-                            <CourseRow testingEnabled={true}>
-                                <CompletedCourseCard title="Techlog bla bla" routeName="techlog-tutorial"/>
-                            </CourseRow>
+                            <CourseRow fetchCompletedCourses={true} />
                         </li>
                     </ul>
                 </Container>
