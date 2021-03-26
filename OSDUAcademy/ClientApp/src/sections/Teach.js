@@ -41,7 +41,7 @@ export class Teach extends Component {
                         <p>Phone: +99 99 99 99</p>
                         
                         <h3>Template</h3>
-                        <a href="/">Download the course template here</a>
+                        <a href={process.env.PUBLIC_URL + "template/content.zip"} download>Download the course template here</a>
                     </div>
                 </Container>
                 <Footer/>
