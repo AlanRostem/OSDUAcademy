@@ -499,7 +499,6 @@ footer {
 }
 
 .user-courses {
-    overflow: auto;
     width: 60vw;
     margin-left: 50px;
     text-align: left;

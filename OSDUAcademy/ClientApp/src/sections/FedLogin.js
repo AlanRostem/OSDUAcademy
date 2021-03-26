@@ -4,7 +4,9 @@ import {Footer} from "../components/navbar/Footer";
 import {Container} from "reactstrap";
 
 /**
- * The component returns 
+ * The component returns a social login page / federated login page. The user is able to log in to the system by using
+ * one of three options: Google, Microsoft and LinkedIn. 
+ * 
  */
 
 export class FedLogin extends Component {
