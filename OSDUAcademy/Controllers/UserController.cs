@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -7,9 +8,10 @@ using OSDUAcademy.DataTypes;
 
 namespace OSDUAcademy.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class UserController
+    public class UserController : ControllerBase
     {
         // TODO: Add sessions to validate the correct user requesting from this controller
         // TODO: Do not send or accept user id for identifying user
@@ -28,8 +30,8 @@ namespace OSDUAcademy.Controllers
         }
 
         
-        [HttpPost("{userId}/course/{route}/apply/")]
-        public bool ApplyToCourse(string userId, string route)
+        [HttpPost("course/{route}/apply/")]
+        public bool ApplyToCourse(string route)
         {
             // Validate the course's existence in the first place
             var courseFields = CourseFieldBuilder.Include(c => c.Id);
@@ -44,8 +46,9 @@ namespace OSDUAcademy.Controllers
             
             // Validate the user's existence in the first place
             var userFields = UserFieldBuilder.Include(u => u.CoursesApplied);
+            var email = User.Identity?.Name;
             var users = _userCollection
-                .Find(u => u.Id == userId)
+                .Find(u => u.Email == email)
                 .Project<User>(userFields)
                 .ToList();
             
@@ -61,13 +64,13 @@ namespace OSDUAcademy.Controllers
                 course.Id
             }, position: 0);
             
-            _userCollection.UpdateOne(u => u.Id == userId, update);
+            _userCollection.UpdateOne(u => u.Email == email, update);
             
             return true;
         }
 
-        [HttpGet("{userId}/course/{route}/enrolled/")]
-        public bool IsInCourse(string userId, string route)
+        [HttpGet("course/{route}/enrolled/")]
+        public bool IsInCourse(string route)
         {
             // Validate the course's existence in the first place
             var courseFields = CourseFieldBuilder.Include(c => c.Id);
@@ -82,8 +85,9 @@ namespace OSDUAcademy.Controllers
             
             // Validate the user's existence in the first place
             var userFields = UserFieldBuilder.Include(u => u.CoursesApplied);
+            var email = User.Identity?.Name;
             var users = _userCollection
-                .Find(u => u.Id == userId)
+                .Find(u => u.Id == email)
                 .Project<User>(userFields)
                 .ToList();
             
@@ -96,13 +100,14 @@ namespace OSDUAcademy.Controllers
                 .Contains(course.Id);
         }
 
-        [HttpGet("{id}/courses/applied")]
-        public List<Course> GetAppliedCourses(string id)
+        [HttpGet("courses/applied")]
+        public List<Course> GetAppliedCourses()
         {
             var list = new List<Course>();
             var userFields = UserFieldBuilder.Include(u => u.CoursesApplied);
+            var email = User.Identity?.Name;
             var users = _userCollection
-                .Find(u => u.Id == id)
+                .Find(u => u.Id == email)
                 .Project<User>(userFields)
                 .ToList();
             

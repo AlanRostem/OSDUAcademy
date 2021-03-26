@@ -2,7 +2,7 @@
 
 const CertificationService = {
     fetchQuestionsPreview(courseRoute, callback) {
-        fetch("/certification/" + courseRoute + "/content/preview")
+        fetch("/certification/" + courseRoute + "/content/preview", {headers: UserService.getAuthObj()})
             .then(response => response.json())
             .then(data => {
                 callback(data)
@@ -10,7 +10,7 @@ const CertificationService = {
     },
     
     fetchAllQuestions(courseRoute, callback) {
-        fetch("/certification/" + courseRoute + "/content/questions")
+        fetch("/certification/" + courseRoute + "/content/questions", {headers: UserService.getAuthObj()})
             .then(response => response.json())
             .then(data => {
                 callback(data)
@@ -18,7 +18,7 @@ const CertificationService = {
     },
     
     submitAnswers(courseRoute, answerArray, callback) {
-        fetch("/certification/" + courseRoute + "/submit/" + UserService.getUser().id, {
+        fetch("/certification/" + courseRoute + "/submit/", {
             method: "POST",
             body: JSON.stringify({
                 answers: answerArray
@@ -26,6 +26,7 @@ const CertificationService = {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
+                "Authorization": `Bearer ${UserService.getToken()}`,
             },
         })
             .then(response => response.json())

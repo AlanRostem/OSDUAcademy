@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -8,6 +9,7 @@ using OSDUAcademy.DataTypes;
 
 namespace OSDUAcademy.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class CertificationController : ControllerBase
@@ -89,8 +91,8 @@ namespace OSDUAcademy.Controllers
             return questions;
         }
 
-        [HttpPost("/certification/{route}/submit/{userId}")]
-        public Dictionary<string, object> SubmitAnswers(string route, string userId, [FromBody] AnswerData data)
+        [HttpPost("/certification/{route}/submit/")]
+        public Dictionary<string, object> SubmitAnswers(string route, [FromBody] AnswerData data)
         {
             var course = _courseCollection
                 .Find(c => c.PublicRoute == route)
@@ -125,7 +127,8 @@ namespace OSDUAcademy.Controllers
                     course.Id
                 }, position: 0);
             
-                _userCollection.UpdateOne(u => u.Id == userId, update);
+                var email = User.Identity?.Name;
+                _userCollection.UpdateOne(u => u.Email == email, update);
             }
             
             return new Dictionary<string, object>

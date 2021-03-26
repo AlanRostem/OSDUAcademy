@@ -34,9 +34,11 @@ namespace OSDUAcademy.Controllers
             _userCollection = database.GetCollection<User>("users");
         }
 
+        // TODO: Attempt to log back in when the user enters for the first time. If not, log them out
+        
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult RequestToken([FromBody] LoginData request)
+        public IActionResult LogIn([FromBody] LoginData request)
         {
             var userFields = UserFieldBuilder
                 .Include(u => u.Id)
@@ -78,8 +80,14 @@ namespace OSDUAcademy.Controllers
                     return Ok(data);
                 }
             }
-
+            
             return BadRequest();
+        }
+
+        [HttpGet("check")]
+        public IActionResult CheckLogin()
+        {
+            return Ok();
         }
     }
 }

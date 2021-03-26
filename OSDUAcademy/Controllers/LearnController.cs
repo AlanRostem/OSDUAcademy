@@ -47,6 +47,7 @@ namespace OSDUAcademy.Controllers
             Response.Headers.Add("Content-Disposition", "attachment; filename=" + file.Name);
             Response.Headers.Add("Content-Length", file.Length.ToString());
             Response.ContentType = "image/png";
+            
             await Response.SendFileAsync(file.FullName);
         }
 

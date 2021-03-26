@@ -23,8 +23,11 @@ const UserService = {
     },
 
     applyToCourse(courseRoute, callback) {
-        fetch("user/" + this.getUser().id + "/course/" + courseRoute + "/apply", {
-            "method": "POST"
+        fetch("user/course/" + courseRoute + "/apply", {
+            "method": "POST",
+            "headers": {
+                "Authorization": `Bearer ${UserService.getToken()}`
+            }
         })
             .then(response =>
                 response.text())
@@ -32,7 +35,7 @@ const UserService = {
     },
 
     checkEnrollment(courseRoute, callback) {
-        fetch("user/" + this.getUser().id + "/course/" + courseRoute + "/enrolled")
+        fetch("user/course/" + courseRoute + "/enrolled", {headers: UserService.getAuthObj()})
             .then(response => response.text())
             .then(callback);
     },
@@ -62,16 +65,27 @@ const UserService = {
     },
 
     fetchEnrolledCourses(callback) {
-        fetch("user/" + this.getUser().id + "/courses/applied")
+        fetch("user/courses/applied", {headers: UserService.getAuthObj()})
             .then(response => response.json())
             .then(data => callback(data))
     },
 
     logOut() {
         if (UserService.isLoggedIn()) {
-            ls.set("user_data", null)
+            ls.set("user_data", null);
+            ls.set("token", null);
         }
-    }
+    },
+
+    checkLogin(callback) {
+        fetch("login/check", {headers: UserService.getAuthObj()})
+            .then(response => {
+                callback(response.ok)
+                if (!response.ok) {
+                    this.logOut();
+                }
+            });
+    },
 };
 
 export default UserService;
