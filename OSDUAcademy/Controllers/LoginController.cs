@@ -86,6 +86,11 @@ namespace OSDUAcademy.Controllers
         [HttpGet("check")]
         public IActionResult CheckLogin()
         {
+            if (User.Identity == null)
+                return BadRequest();
+
+            if (!User.Identity.IsAuthenticated)
+                return BadRequest();
             return Ok();
         }
     }

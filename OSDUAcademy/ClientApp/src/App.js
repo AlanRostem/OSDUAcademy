@@ -16,9 +16,23 @@ import {Success} from "./components/certificate/Success";
 import {Fail} from "./components/certificate/Fail";
 import {FedLogin} from "./sections/FedLogin";
 import {Profile} from "./sections/Profile";
+import UserService from "./services/UserService";
 
 export default class App extends Component {
     static displayName = App.name;
+
+    constructor(props) {
+        super(props);
+        if (UserService.isLoggedIn()) {
+            UserService.checkLogin(ok => {
+                console.log(ok)
+                if (!ok) {
+                    // Clear the login token if it expired
+                    UserService.logOut();
+                }
+            });
+        }
+    }
 
     render() {
         return (
