@@ -45,7 +45,8 @@ namespace OSDUAcademy.Controllers
             var course = courses.Single();
             
             // Validate the user's existence in the first place
-            var userFields = UserFieldBuilder.Include(u => u.CoursesApplied);
+            var userFields = UserFieldBuilder
+                .Include(u => u.CoursesApplied);
             var email = User.Identity?.Name;
             var users = _userCollection
                 .Find(u => u.Email == email)
@@ -84,7 +85,9 @@ namespace OSDUAcademy.Controllers
             var course = courses.Single();
             
             // Validate the user's existence in the first place
-            var userFields = UserFieldBuilder.Include(u => u.CoursesApplied);
+            var userFields = UserFieldBuilder
+                .Include(u => u.CoursesApplied)
+                .Include(u => u.CoursesCompleted);
             var email = User.Identity?.Name;
             var users = _userCollection
                 .Find(u => u.Email == email)
@@ -96,8 +99,11 @@ namespace OSDUAcademy.Controllers
 
             var user = users.Single();
             // Return a boolean telling if the course id is contained in the user's course_applied array in the db
-            return user.CoursesApplied
-                .Contains(course.Id);
+            return 
+                user.CoursesApplied
+                .Contains(course.Id) || 
+                user.CoursesCompleted
+                .Contains(course.Id);;
         }
 
         [HttpGet("courses/applied")]
@@ -121,6 +127,38 @@ namespace OSDUAcademy.Controllers
                 .Include(c => c.PublicRoute);
             
             foreach (var courseId in user.CoursesApplied)
+            {
+                var course = _courseCollection
+                    .Find(c => c.Id == courseId)
+                    .Project<Course>(courseFields)
+                    .ToList().Single();
+                list.Add(course);
+            }
+            
+            return list;
+        } 
+        
+        [HttpGet("courses/completed")]
+        public List<Course> GetCompletedCourses()
+        {
+            var list = new List<Course>();
+            var userFields = UserFieldBuilder.Include(u => u.CoursesCompleted);
+            var email = User.Identity?.Name;
+            var users = _userCollection
+                .Find(u => u.Email == email)
+                .Project<User>(userFields)
+                .ToList();
+            
+            if (users.Count == 0)
+                return list;
+
+            var user = users.Single();
+
+            var courseFields = CourseFieldBuilder
+                .Include(c => c.Title)
+                .Include(c => c.PublicRoute);
+            
+            foreach (var courseId in user.CoursesCompleted)
             {
                 var course = _courseCollection
                     .Find(c => c.Id == courseId)

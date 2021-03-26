@@ -38,7 +38,7 @@ export default class App extends Component {
                 <Route path='/teach' component={Teach}/>
                 <Route path='/success' component={Success}/>
                 <Route path='/fail' component={Fail}/>
-                <Route path='/profile-page' component={Profile}/>
+                <Route path='/profile' component={Profile}/>
             </div>
         );
     }

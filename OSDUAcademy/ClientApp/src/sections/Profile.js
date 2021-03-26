@@ -6,7 +6,6 @@ import UserService from "../services/UserService"
 import CourseRow from "../components/home/CourseRow";
 import {CompletedCourseCard} from "../components/home/CompletedCourseCard";
 
-
 /**
  * The component returns the user profile page. The page is divided into two main parts. On the left side, there 
  * is personal user information (name and email) and on the right side there are two horizontal carousels. The upper one
@@ -40,9 +39,7 @@ export class Profile extends Component {
                             <CourseRow fetchEnrolledUserCourses={true} />
                             <br/>
                             <h5 className="profile-h">Completed Courses</h5>
-                            <CourseRow testingEnabled={true}>
-                                <CompletedCourseCard title="Techlog bla bla" routeName="techlog-tutorial"/>
-                            </CourseRow>
+                            <CourseRow fetchCompletedCourses={true} />
                         </li>
                     </ul>
                 </Container>

@@ -5,6 +5,7 @@ import CourseCard from "./CourseCard";
 import CourseService from "../../services/CourseService";
 import UserService from "../../services/UserService";
 import {CatchUpCard} from "./CatchUpCard";
+import {CompletedCourseCard} from "./CompletedCourseCard";
 
 /**
  * The component returns a carousel containing different course cards. It allows user to navigate horizontally between
@@ -30,8 +31,8 @@ export default class CourseRow extends Component {
             return;
         }
 
-        if (this.props.fetchEnrolledUserCourses) {
-            if (UserService.isLoggedIn()) {
+        if (UserService.isLoggedIn()) {
+            if (this.props.fetchEnrolledUserCourses) {
                 UserService.fetchEnrolledCourses(data => {
                         this.setState({
                             data: data,
@@ -45,9 +46,22 @@ export default class CourseRow extends Component {
                             showEnrolledCourses: false
                         });
                     });
+                return;
+            } else if (this.props.fetchCompletedCourses) {
+                UserService.fetchCompletedUserCourses(data => {
+                        this.setState({
+                            data: data,
+                            loading: false,
+                            showCompletedCourses: true
+                        });
+                    },
+                    () => {
+                        this.setState({
+                            loading: false,
+                            showCompletedCourses: false
+                        });
+                    });
             }
-
-            return;
         }
 
         /* Callback method for when the data is successfully retrieved */
@@ -93,6 +107,12 @@ export default class CourseRow extends Component {
                             return <Slider> {this.state.data.map((course, i) =>
                                 <Slide index={i} key={i}>
                                     <CatchUpCard title={course.title} routeName={course.publicRoute}/>
+                                </Slide>)}
+                            </Slider>;
+                        } else if (this.state.showCompletedCourses) {
+                            return <Slider> {this.state.data.map((course, i) =>
+                                <Slide index={i} key={i}>
+                                    <CompletedCourseCard title={course.title} routeName={course.publicRoute}/>
                                 </Slide>)}
                             </Slider>;
                         } else if (this.props.searchByTrending || this.props.domainToSearchBy) {

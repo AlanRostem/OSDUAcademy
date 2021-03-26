@@ -9,6 +9,9 @@ using OSDUAcademy.DataTypes;
 
 namespace OSDUAcademy.Controllers
 {
+    /// <summary>
+    /// Controller for course certification requests
+    /// </summary>
     [Authorize]
     [ApiController]
     [Route("[controller]")]
@@ -32,6 +35,12 @@ namespace OSDUAcademy.Controllers
             _userCollection = database.GetCollection<User>("users");
         }
         
+        /// <summary>
+        /// Retrieve the pass rate and total amount of questions on the certification quiz.
+        /// This is called before a user takes the quiz. 
+        /// </summary>
+        /// <param name="route">Route for the specified course</param>
+        /// <returns></returns>
         [HttpGet("{route}/content/preview")]
         public Dictionary<string, object> GetQuizPreview(string route)
         {

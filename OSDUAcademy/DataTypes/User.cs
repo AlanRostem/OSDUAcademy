@@ -8,8 +8,7 @@ namespace OSDUAcademy.DataTypes
     public class User
     {
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        public ObjectId Id { get; set; }
         
         [BsonElement("first_name")]
         public string FirstName { get; set; }
