@@ -1,5 +1,5 @@
 ﻿import React, {Component} from "react";
-import {NavItem, NavLink} from "reactstrap";
+import {NavLink} from "reactstrap";
 import {Link, Redirect} from "react-router-dom";
 import NavIcon from "./NavIcon";
 import UserService from "../../services/UserService";

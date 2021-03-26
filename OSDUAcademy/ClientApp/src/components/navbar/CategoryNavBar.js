@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import './NavMenu.css';
 import shortid from "shortid";
 
+/**
+ * 
+ */
+
 export class CategoryNavBar extends Component {
     static displayName = CategoryNavBar.name;
     navBarId = shortid()

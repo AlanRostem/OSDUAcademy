@@ -3,7 +3,6 @@ import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Footer} from "../components/navbar/Footer";
 import {Container} from "reactstrap";
 import UserService from "../services/UserService"
-import {CategoryItem} from "../components/navbar/CategoryItem";
 import CourseRow from "../components/home/CourseRow";
 import {CompletedCourseCard} from "../components/home/CompletedCourseCard";
 

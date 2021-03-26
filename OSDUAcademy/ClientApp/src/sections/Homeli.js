@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import UserService from "../services/UserService";
-
 import {Container} from "reactstrap";
 import {CategoryNavBar} from "../components/navbar/CategoryNavBar";
 import {CategoryItem} from "../components/navbar/CategoryItem";
@@ -8,7 +7,7 @@ import CourseRow from "../components/home/CourseRow";
 import {Footer} from "../components/navbar/Footer";
 import {DefaultNavMenu} from "../components/navbar/DefaultNavMenu";
 import {Redirect} from "react-router-dom";
-import {CatchUpCard} from "../components/home/CatchUpCard";
+
 
 /**
  * The component checks whether the user is logged in or not. If the user is logged in, the component returns the home
