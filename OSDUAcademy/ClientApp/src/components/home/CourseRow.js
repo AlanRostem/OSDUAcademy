@@ -6,6 +6,10 @@ import CourseService from "../../services/CourseService";
 import UserService from "../../services/UserService";
 import {CatchUpCard} from "./CatchUpCard";
 
+/**
+ * The component returns a carousel containing different course cards.  
+ */
+
 export default class CourseRow extends Component {
 
     constructor(props) {
