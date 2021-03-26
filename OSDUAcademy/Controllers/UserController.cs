@@ -45,7 +45,8 @@ namespace OSDUAcademy.Controllers
             var course = courses.Single();
             
             // Validate the user's existence in the first place
-            var userFields = UserFieldBuilder.Include(u => u.CoursesApplied);
+            var userFields = UserFieldBuilder
+                .Include(u => u.CoursesApplied);
             var email = User.Identity?.Name;
             var users = _userCollection
                 .Find(u => u.Email == email)
@@ -84,7 +85,9 @@ namespace OSDUAcademy.Controllers
             var course = courses.Single();
             
             // Validate the user's existence in the first place
-            var userFields = UserFieldBuilder.Include(u => u.CoursesApplied);
+            var userFields = UserFieldBuilder
+                .Include(u => u.CoursesApplied)
+                .Include(u => u.CoursesCompleted);
             var email = User.Identity?.Name;
             var users = _userCollection
                 .Find(u => u.Email == email)
@@ -96,8 +99,11 @@ namespace OSDUAcademy.Controllers
 
             var user = users.Single();
             // Return a boolean telling if the course id is contained in the user's course_applied array in the db
-            return user.CoursesApplied
-                .Contains(course.Id);
+            return 
+                user.CoursesApplied
+                .Contains(course.Id) || 
+                user.CoursesCompleted
+                .Contains(course.Id);;
         }
 
         [HttpGet("courses/applied")]
