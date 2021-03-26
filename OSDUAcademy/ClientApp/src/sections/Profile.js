@@ -9,7 +9,8 @@ import {CompletedCourseCard} from "../components/home/CompletedCourseCard";
 
 /**
  * The component returns the user profile page. The page is divided into two main parts. On the left side, there 
- * is personal user information (name and email) and on the 
+ * is personal user information (name and email) and on the right side there are two horizontal carousels. The upper one
+ * shows the active courses and the lower one the courses the user has completed. 
  */
 
 export class Profile extends Component {
