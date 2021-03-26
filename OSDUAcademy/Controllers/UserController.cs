@@ -87,7 +87,7 @@ namespace OSDUAcademy.Controllers
             var userFields = UserFieldBuilder.Include(u => u.CoursesApplied);
             var email = User.Identity?.Name;
             var users = _userCollection
-                .Find(u => u.Id == email)
+                .Find(u => u.Email == email)
                 .Project<User>(userFields)
                 .ToList();
             
@@ -107,7 +107,7 @@ namespace OSDUAcademy.Controllers
             var userFields = UserFieldBuilder.Include(u => u.CoursesApplied);
             var email = User.Identity?.Name;
             var users = _userCollection
-                .Find(u => u.Id == email)
+                .Find(u => u.Email == email)
                 .Project<User>(userFields)
                 .ToList();
             
