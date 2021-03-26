@@ -41,7 +41,6 @@ namespace OSDUAcademy.Controllers
         public IActionResult LogIn([FromBody] LoginData request)
         {
             var userFields = UserFieldBuilder
-                .Include(u => u.Id)
                 .Include(u => u.Email)
                 .Include(u => u.Password)
                 .Include(u => u.FirstName)
