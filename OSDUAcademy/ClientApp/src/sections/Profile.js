@@ -8,7 +8,8 @@ import {CompletedCourseCard} from "../components/home/CompletedCourseCard";
 
 
 /**
- * The component returns
+ * The component returns the user profile page. The page is divided into two main parts. On the left side, there 
+ * is personal user information (name and email) and on the 
  */
 
 export class Profile extends Component {

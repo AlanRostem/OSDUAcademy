@@ -7,17 +7,19 @@ import UserService from "../../services/UserService";
 import {CatchUpCard} from "./CatchUpCard";
 
 /**
- * The component returns a carousel containing different course cards.  
+ * The component returns a carousel containing different course cards. It allows user to navigate horizontally between
+ * courses. It is used at the home page (both when a user is logged in and not) and at the profile page. 
  */
 
 export default class CourseRow extends Component {
 
+    /* Loads course(s) if there is any available */
     constructor(props) {
         super(props);
         this.state = {loading: true}
     }
 
-
+    /* Add courses to the carousel */
     componentDidMount() {
         this.populateCourses();
     }
@@ -48,6 +50,7 @@ export default class CourseRow extends Component {
             return;
         }
 
+        /* Callback method for when the data is successfully retrieved */
         const callback = data => {
             this.setState({
                 data: data,
