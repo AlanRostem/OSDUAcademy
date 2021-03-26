@@ -29,25 +29,25 @@ export class Home extends Component {
                     <div className="banner"
                          style={{backgroundImage: "url(" + process.env.PUBLIC_URL + "img/oil-rig.png"}}>
                         <h1>Grow your career skills</h1>
-                        <p>Explore a world of courses at OSDU Academy to find your perfect suit free of charge</p>
+                        <p>Explore a world of courses at OSDU Academy to find your perfect suit for improving your knowledge</p>
 
                         <div className="row">
                             <div className="column">
                                 <div className="info"><i className="fa fa-desktop fa-3x" aria-hidden="true"/>
                                     <h6>Open Source</h6>
-                                    <p>Lorem ipsum something I don't know what to put here but it is important</p>
+                                    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
                                 </div>
                             </div>
                             <div className="column">
                                 <div className="info"><i className="fa fa-database fa-3x" aria-hidden="true"/>
                                     <h6>Specialized learning</h6>
-                                    <p>Lorem ipsum something I don't know what to put here but it is important</p>
+                                    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
                                 </div>
                             </div>
                             <div className="column">
                                 <div className="info"><i className="fa fa-graduation-cap fa-3x" aria-hidden="true"/>
                                     <h6>Teaching freedom</h6>
-                                    <p>Lorem ipsum something I don't know what to put here but it is important</p>
+                                    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
                                 </div>
                             </div>
                         </div>
