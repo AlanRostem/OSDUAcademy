@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import {Collapse, Container, Navbar, NavbarToggler, NavItem, NavLink} from 'reactstrap';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './NavMenu.css';
 import NavIcon from "./NavIcon";
 import UserNavLink from "./UserNavLink";
-import UserService from "../../services/UserService";
-
 
 /**
- * 
+ * The component returns a top navigation menu that is used at the certification pages. It consist of two buttons/links 
+ * that take the user to either the home page or to the log out"
  */
 
 export class CertificationNavMenu extends Component {

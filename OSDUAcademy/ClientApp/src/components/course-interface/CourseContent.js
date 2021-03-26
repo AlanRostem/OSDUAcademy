@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import JsxParser from "react-jsx-parser"
-import {Redirect} from "react-router-dom";
 
 /**
  * The component returns a horizontal unordered list with three list elements, the first and third being chevrons to 

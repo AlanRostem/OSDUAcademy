@@ -13,7 +13,8 @@ import {CertificateButton} from "../components/chapterdrop/CertificateButton";
 import CourseService from "../services/CourseService";
 
 /**
- *
+ * The component returns the front page of the course. It includes information about a specific course such as 
+ * full course description and an overview of course lectures. It also provides a user a way to apply to a course.
  */
 
 export default class CourseFrontPage extends Component {
@@ -28,6 +29,8 @@ export default class CourseFrontPage extends Component {
         };
     }
 
+    /* If the user is logged in and clicks on the "apply" button, the state of "isEnrolled" changes to true. Else 
+    * it re-directs user to the login page. */
     handleApply() {
         if (UserService.isLoggedIn()) {
             UserService.applyToCourse(this.props.match.params.courseRoute, success => {
@@ -42,6 +45,7 @@ export default class CourseFrontPage extends Component {
         }
     }
     
+    /* Gets the course information */
     showCourseContent() {
         return (
             <div>
@@ -125,6 +129,7 @@ export default class CourseFrontPage extends Component {
         this.getCourseData();
     }
 
+    /* Fetches the course data and add an addtional button (Enter course) if the user has applied and is logged in */
     getCourseData() {
         let course;
         let sections = [];
@@ -150,6 +155,7 @@ export default class CourseFrontPage extends Component {
         });
     }
 
+    /* fills up the list of prerequisites for a specific course and returns it */
     populatePrerequisites() {
         let list0 = [];
         let list1 = [];

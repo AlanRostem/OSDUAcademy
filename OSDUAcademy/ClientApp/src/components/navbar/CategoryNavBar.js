@@ -3,7 +3,8 @@ import './NavMenu.css';
 import shortid from "shortid";
 
 /**
- * 
+ * The component returns a horizontal navigation bar that on click shows courses in the same domain. The first section
+ * shows all courses. It is used in "home.js" and "homeli.js" components. 
  */
 
 export class CategoryNavBar extends Component {
@@ -11,6 +12,8 @@ export class CategoryNavBar extends Component {
     navBarId = shortid()
     activeId = ""
 
+    /* Each child of this component should be a "CategoryItem" component. As they are populated, they are wrapped
+    * into individual <div> elements */
     populateChildren() {
         return (
             <div>
@@ -28,6 +31,8 @@ export class CategoryNavBar extends Component {
             </div>
         )
     }
+    
+    /* On click changes the active button and shows the content related to it */
 
     handleTabClick(event) {
         const currentButton = document.getElementById("category-nav-button-" + this.activeId)

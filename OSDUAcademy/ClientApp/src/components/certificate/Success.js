@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {Footer} from "../navbar/Footer";
 import {Container} from "reactstrap";
-import {CertificationNavMenu} from "../navbar/CertificationNavMenu";
 import '../certificate/certificate.css'
 import {Link} from "react-router-dom";
 

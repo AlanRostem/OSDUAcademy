@@ -3,7 +3,6 @@ import {CourseNavMenu} from "../components/navbar/CourseNavMenu";
 import '../components/course-interface/courseInterface.css'
 import JsxParser from "react-jsx-parser";
 import {Redirect} from "react-router-dom";
-
 import Figure from "../components/course-interface/contents/Figure"
 import Paragraph from "../components/course-interface/contents/Paragraph"
 import Title from "../components/course-interface/contents/Title"
@@ -11,15 +10,24 @@ import YouTube from "../components/course-interface/contents/YouTube"
 import LearningService from "../services/LearningService";
 import Content from "../components/course-interface/contents/Content";
 
+/**
+ * The component returns a page containing a lecture. On the both sides of the content, there is a button that can take
+ * a user to a previous or next section/lecture of the course.
+ */
+
 export class CourseInterface extends Component {
     static displayName = CourseInterface.name;
 
+    /* no content showed and it is not allowed to go to the certification test */
     state = {
         loaded: false,
         content: "",
         redirectCertification: false
     }
 
+    /* takes user to the next lecture of the course by getting section number, updating it and loading
+    * the content which is in xml-format. If there is no lectures, the next click takes user to the
+    * certification page */
     handleNextClick() {
         let section = Number(LearningService.getSectionNo());
         let lecture = Number(LearningService.getLectureNo());
@@ -47,6 +55,9 @@ export class CourseInterface extends Component {
         });
     }
 
+    /* takes user to the previous lecture of the course by getting section number, updating it and loading
+    * the content which is in xml-format. */
+
     handlePreviousClick() {
         let section = Number(LearningService.getSectionNo());
         let lecture = Number(LearningService.getLectureNo());
@@ -70,6 +81,7 @@ export class CourseInterface extends Component {
         });
     }
 
+    /* When a lecture is chosen from the overview menu, it gets loaded and showed */
     handleLectureSelect(event) {
         const str = event.target.value.split(".");
         const section = str[0];
@@ -86,6 +98,7 @@ export class CourseInterface extends Component {
         });
     }
 
+    /* Loads the course content */
     componentDidMount() {
         const courseRoute = this.props.match.params.courseRoute;
         const self = this;
