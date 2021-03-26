@@ -22,22 +22,33 @@ const UserService = {
         }
     },
 
-    applyToCourse(courseRoute, callback) {
+    applyToCourse(courseRoute, callback, onError) {
         fetch("user/course/" + courseRoute + "/apply", {
             "method": "POST",
             "headers": {
                 "Authorization": `Bearer ${UserService.getToken()}`
             }
         })
-            .then(response =>
-                response.text())
-            .then(callback);
+            .then(async response => {
+                if (!response.ok) {
+                    onError();
+                    return;
+                }
+                const data = await response.text();
+                callback(data);
+            });
     },
 
-    checkEnrollment(courseRoute, callback) {
+    checkEnrollment(courseRoute, callback, onError) {
         fetch("user/course/" + courseRoute + "/enrolled", {headers: UserService.getAuthObj()})
-            .then(response => response.text())
-            .then(callback);
+            .then(async response => {
+                if (!response.ok) {
+                    onError();
+                    return;
+                }
+                const data = await response.text();
+                callback(data);
+            });
     },
 
     loginUser(email, password, callback, onError) {
@@ -64,10 +75,16 @@ const UserService = {
             });
     },
 
-    fetchEnrolledCourses(callback) {
+    fetchEnrolledCourses(callback, onError) {
         fetch("user/courses/applied", {headers: UserService.getAuthObj()})
-            .then(response => response.json())
-            .then(data => callback(data))
+            .then(async response => {
+                if (!response.ok) {
+                    onError();
+                    return;
+                }
+                const data = await response.json();
+                callback(data);
+            });
     },
 
     logOut() {
