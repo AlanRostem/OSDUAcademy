@@ -69,7 +69,7 @@ namespace OSDUAcademy.Controllers
                     var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
                     
                     var token = new JwtSecurityToken(
-                        issuer: "https://demo.identityserver.io",
+                        issuer: "http://localhost:5000",
                         audience: "http://localhost:5000",
                         claims: claims,
                         expires: DateTime.Now.AddHours(2),

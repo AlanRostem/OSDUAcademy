@@ -1,3 +1,4 @@
+using System;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -33,8 +34,9 @@ namespace OSDUAcademy
                         ValidateAudience = true,
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
-                        ValidIssuer = "https://demo.identityserver.io",
+                        ValidIssuer = "http://localhost:5000",
                         ValidAudience = "http://localhost:5000",
+                        ClockSkew = TimeSpan.Zero,
                         RequireExpirationTime = true,
                         IssuerSigningKey = new SymmetricSecurityKey(
                             Encoding.UTF8.GetBytes("super duper ultra mega hyper alpha omega secret encrypted key or something"))
