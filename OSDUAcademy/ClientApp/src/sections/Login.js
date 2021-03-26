@@ -47,16 +47,20 @@ export default class Login extends Component {
             }
         }
 
+        let title = "Sign in to your account";
+        if (this.props.match) {
+            if (this.props.match.params)
+                if (this.props.match.params.courseRoute)
+                    title = "Sign in to continue";
+        }
+        
         return (
             <div>
                 <DefaultNavMenu/>
                 <Container>
                     <UserInfoForm onSubmit={this.handleLogin.bind(this)}>
                         <h3>
-                            {
-                                this.props.match.params === undefined ?
-                                    "Sign in to your account" : "Sign in to continue"
-                            }
+                            {title}
                         </h3>
                         {
                             failed ? <p style={{color: "red"}}>Invalid credentials</p> : null
