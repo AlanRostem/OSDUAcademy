@@ -17,6 +17,14 @@ namespace OSDUAcademy.Controllers
     [Route("[controller]")]
     public class CertificationController : ControllerBase
     {
+        /// <summary>
+        /// Mapping class for json-data in this form:
+        /// {
+        ///     "answers": [0, 2, 1, 6]
+        /// }
+        /// It is used in <see cref="CertificationController.SubmitAnswers"/> as input from the user when
+        /// submitting answers to a test. 
+        /// </summary>
         public class AnswerData
         {
             [Required]
@@ -70,6 +78,11 @@ namespace OSDUAcademy.Controllers
             return data;
         }
 
+        /// <summary>
+        /// Retrieve all multiple-choice questions and choices for each question
+        /// </summary>
+        /// <param name="route">Route for the specified course</param>
+        /// <returns></returns>
         [HttpGet("{route}/content/questions")]
         public List<Question> GetQuizQuestions(string route)
         {
@@ -100,6 +113,14 @@ namespace OSDUAcademy.Controllers
             return questions;
         }
 
+        /// <summary>
+        /// Handled when the user presses "submit" on the front-end. The <see cref="AnswerData"/> class is used as
+        /// input for the user's answer submission. In turn, the user will receive their correct answer percentage
+        /// and a message about whether or not they passed. 
+        /// </summary>
+        /// <param name="route">Route for the specified course</param>
+        /// <param name="data">Array of integers representing the multi-choice answer index where its order is mapped to the question.</param>
+        /// <returns></returns>
         [HttpPost("/certification/{route}/submit/")]
         public Dictionary<string, object> SubmitAnswers(string route, [FromBody] AnswerData data)
         {

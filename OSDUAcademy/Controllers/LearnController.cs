@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +10,11 @@ using OSDUAcademy.DataTypes;
 
 namespace OSDUAcademy.Controllers
 {
+    
+    /// <summary>
+    /// Controller for accessing all data about a specific course when the user
+    /// is accessing the course to learn it. It requires user authorization.
+    /// </summary>
     [Authorize]
     [ApiController]
     [Route("[controller]")]
@@ -93,6 +97,11 @@ namespace OSDUAcademy.Controllers
             };
         }
         
+        /// <summary>
+        /// Retrieve an overview of the course's sections and lectures within them.
+        /// </summary>
+        /// <param name="route">Route for the specified course</param>
+        /// <returns></returns>
         [HttpGet("{route}/overview")]
         public List<Section> GetCourseOverview(string route)
         {

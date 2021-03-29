@@ -15,10 +15,22 @@ using OSDUAcademy.DataTypes;
 
 namespace OSDUAcademy.Controllers
 {
+    /// <summary>
+    /// Controller for user login credentials. Contains helper functions for cryptographic
+    /// algorithms used in hashing passwords. 
+    /// </summary>
     [Controller]
     [Route("[controller]")]
     public class LoginController : ControllerBase
     {
+        /// <summary>
+        /// Mapping class for json-data in this form:
+        /// {
+        ///     "email": email@example.com,
+        ///     "password": rawPassword
+        /// }
+        /// It is used as input data from the user
+        /// </summary>
         public class LoginData
         {
             [Required] public string Email { get; set; }
@@ -39,6 +51,12 @@ namespace OSDUAcademy.Controllers
             _configuration = configuration;
         }
 
+        /// <summary>
+        /// This function is used to generate a salt for the password.
+        /// It is yet to be used anywhere in the code, but has been
+        /// used for the database to generate salts for passwords. 
+        /// </summary>
+        /// <returns></returns>
         public static string GenerateSalt()
         {
             byte[] salt = new byte[128 / 8];
@@ -50,6 +68,12 @@ namespace OSDUAcademy.Controllers
             return Convert.ToBase64String(salt);
         }
         
+        /// <summary>
+        /// Generate a hash using a salt and an arbitrary string.
+        /// </summary>
+        /// <param name="salt">An arbitrary base 64 string</param>
+        /// <param name="original">The string to be hashed</param>
+        /// <returns></returns>
         public static string GenerateHashedString(string salt, string original)
         {
             return Convert.ToBase64String(KeyDerivation.Pbkdf2(
@@ -60,6 +84,14 @@ namespace OSDUAcademy.Controllers
                 numBytesRequested: 256 / 8));
         }
         
+        /// <summary>
+        /// Handle a user's login. This function looks up in the database if the given
+        /// email exists in the database and then hashes the input password to compare it
+        /// against the hash present in the database. If the login was successful, the user
+        /// is granted a Jwt-token that lets the user stay logged in for 2 hours maximum. 
+        /// </summary>
+        /// <param name="request">User login input data</param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
         public IActionResult LogIn([FromBody] LoginData request)
@@ -116,6 +148,12 @@ namespace OSDUAcademy.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// In the event that the user has a Jwt-token stored locally, the front-end
+        /// will ping this route to check that token's validity and report back with
+        /// a corresponding HTTP response. 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("check")]
         public IActionResult CheckLogin()
         {

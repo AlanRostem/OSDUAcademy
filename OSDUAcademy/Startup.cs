@@ -25,6 +25,7 @@ namespace OSDUAcademy
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Make the configuration data accessible across all controllers through their constructor
             services.AddSingleton(Configuration);
 
             // Configure authentication settings using Jwt. Current settings are not completely secure
@@ -37,7 +38,7 @@ namespace OSDUAcademy
                         ValidateAudience = true,
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
-                        ValidIssuer = "http://localhost:5000",
+                        ValidIssuer = "http://localhost:5000", // TODO: Determine an issuer URL
                         ValidAudience = "http://localhost:5000",
                         ClockSkew = TimeSpan.Zero,
                         RequireExpirationTime = true,

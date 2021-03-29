@@ -8,6 +8,11 @@ using OSDUAcademy.DataTypes;
 
 namespace OSDUAcademy.Controllers
 {
+    /// <summary>
+    /// Controller for accessing user data. The user must be authorized in order
+    /// to access their data which is done by checking their Jwt-token. Currently,
+    /// it is only possible to access the user's full name, email and course statuses. 
+    /// </summary>
     [Authorize]
     [ApiController]
     [Route("[controller]")]

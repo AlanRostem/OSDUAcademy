@@ -11,6 +11,9 @@ using OSDUAcademy.DataTypes;
 
 namespace OSDUAcademy.Controllers
 {
+    /// <summary>
+    /// Controller for accessing minimal data about courses 
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class CourseController : ControllerBase
