@@ -131,14 +131,13 @@ namespace OSDUAcademy.Controllers
 
             if (passed)
             {
-                var update = Builders<User>.Update.PushEach(u => u.CoursesCompleted, new List<ObjectId>
-                {
-                    course.Id
-                }, position: 0);
-                
                 var email = User.Identity?.Name;
-                
+
+                var update = Builders<User>.Update.Push(u => u.CoursesCompleted, course.Id);
                 _userCollection.UpdateOne(u => u.Email == email, update);
+
+                var deletion = Builders<User>.Update.Pull(u => u.CoursesApplied, course.Id);
+                _userCollection.UpdateOne(u => u.Email == email, deletion);
             }
             
             return new Dictionary<string, object>
