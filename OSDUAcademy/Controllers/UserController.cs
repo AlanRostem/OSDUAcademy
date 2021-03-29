@@ -31,7 +31,12 @@ namespace OSDUAcademy.Controllers
             _courseCollection = database.GetCollection<Course>("courses");
         }
 
-        
+        /// <summary>
+        /// Post-request from an authorized user that handles the user applying to a course.
+        /// This will respond with a boolean flag telling if applying to a course was successful. 
+        /// </summary>
+        /// <param name="route">Route for the specified course</param>
+        /// <returns></returns>
         [HttpPost("course/{route}/apply/")]
         public bool ApplyToCourse(string route)
         {
@@ -72,6 +77,13 @@ namespace OSDUAcademy.Controllers
             return true;
         }
 
+        /// <summary>
+        /// Get-request from an authorized user that checks if a user is already enrolled in a specific
+        /// course. It query's the database based on the user's credentials and returns a boolean result
+        /// telling whether or not the user is already enrolled in that course. 
+        /// </summary>
+        /// <param name="route">Route for the specified course</param>
+        /// <returns></returns>
         [HttpGet("course/{route}/enrolled/")]
         public bool IsInCourse(string route)
         {
@@ -108,6 +120,10 @@ namespace OSDUAcademy.Controllers
                 .Contains(course.Id);;
         }
 
+        /// <summary>
+        /// Get-request that retrieves all the courses a user has applied to
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("courses/applied")]
         public List<Course> GetAppliedCourses()
         {
@@ -140,6 +156,10 @@ namespace OSDUAcademy.Controllers
             return list;
         } 
         
+        /// <summary>
+        /// Get-request that retrieves all the courses a user is certified in 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("courses/completed")]
         public List<Course> GetCompletedCourses()
         {
