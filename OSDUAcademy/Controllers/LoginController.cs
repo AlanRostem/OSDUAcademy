@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -46,6 +48,7 @@ namespace OSDUAcademy.Controllers
             var userFields = UserFieldBuilder
                 .Include(u => u.Email)
                 .Include(u => u.Password)
+                .Include(u => u.Salt)
                 .Include(u => u.FirstName)
                 .Include(u => u.LastName);
             
@@ -58,9 +61,29 @@ namespace OSDUAcademy.Controllers
             if (list.Count != 0)
             {
                 var user = list[0];
-                if (user.Password == request.Password) // TODO: Do not store raw password in the future
+
+                // derive a 256-bit subkey (use HMACSHA1 with 10,000 iterations)
+                string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                    password: request.Password,
+                    salt: Convert.FromBase64String(user.Salt),
+                    prf: KeyDerivationPrf.HMACSHA1,
+                    iterationCount: 10000,
+                    numBytesRequested: 256 / 8));
+
+                if (user.Password == hashed)
                 {
+                    // These values are mapped and sent as following to the client:
+                    /*
+                        {
+                            "password": null,
+                            "salt": null,
+                        }
+                    */
+                    // TODO: Make sure to not send them like this
                     user.Password = null;
+                    user.Salt = null;
+                    
+                    
                     data["user"] = user;
                     
                     var claims = new[]

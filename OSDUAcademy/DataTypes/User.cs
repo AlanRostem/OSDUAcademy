@@ -22,6 +22,9 @@ namespace OSDUAcademy.DataTypes
         [BsonElement("password")]
         public string Password { get; set; }    
         
+        [BsonElement("salt")]
+        public string Salt { get; set; }    
+        
         [BsonElement("courses_applied")] 
         public List<ObjectId> CoursesApplied { get; set; }
         
