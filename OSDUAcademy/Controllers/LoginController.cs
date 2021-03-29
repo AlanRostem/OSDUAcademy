@@ -28,10 +28,13 @@ namespace OSDUAcademy.Controllers
 
         private readonly IMongoCollection<User> _userCollection;
 
-        public LoginController(IMongoClient client)
+        private readonly IConfiguration _configuration;
+
+        public LoginController(IMongoClient client, IConfiguration configuration)
         {
             var database = client.GetDatabase("osdu_academy");
             _userCollection = database.GetCollection<User>("users");
+            _configuration = configuration;
         }
 
         // TODO: Attempt to log back in when the user enters for the first time. If not, log them out
@@ -65,7 +68,7 @@ namespace OSDUAcademy.Controllers
                         new Claim(ClaimTypes.Name, request.Email)
                     };
 
-                    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("super duper ultra mega hyper alpha omega secret encrypted key or something"));
+                    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Secret"]));
                     var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
                     
                     var token = new JwtSecurityToken(

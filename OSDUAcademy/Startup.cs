@@ -25,6 +25,9 @@ namespace OSDUAcademy
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton(Configuration);
+
+            // Configure authentication settings using Jwt. Current settings are not completely secure
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -39,7 +42,7 @@ namespace OSDUAcademy
                         ClockSkew = TimeSpan.Zero,
                         RequireExpirationTime = true,
                         IssuerSigningKey = new SymmetricSecurityKey(
-                            Encoding.UTF8.GetBytes("super duper ultra mega hyper alpha omega secret encrypted key or something"))
+                            Encoding.UTF8.GetBytes(Configuration["Secret"]))
                     };
                 });
 
