@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "6050afb1dee2db6964caba62"
+  },
+  "title": "Introduction",
+  "lectures": [
+    {
+      "title": "The first lecture!"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6050b12b77c5cf144cd5d90d"
+  },
+  "title": "Data Management",
+  "lectures": [
+    {
+      "title": "The best way to manage data"
+    }
+  ]
+}]

@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "6059c686fb114f406187f2cd"
+  },
+  "pass_rate": 0.8,
+  "questions": [
+    {
+      "question_text": "How are you feeling today?",
+      "correct_answer_index": 0,
+      "correct_answer_description": "Aw shucks! You should feel good today, man.",
+      "answers": [
+        "Good",
+        "Ok",
+        "Bad"
+      ]
+    }
+  ]
+}]

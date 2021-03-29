@@ -1,0 +1,91 @@
+[{
+  "_id": {
+    "$oid": "60534a3d1a5ac19fe109ddbc"
+  },
+  "first_name": "Jens",
+  "last_name": "Olsen",
+  "courses_applied": [
+    {
+      "$oid": "6051c0ffbfe7b1b3b1d04590"
+    }
+  ],
+  "email": "jens.olsen@email.com",
+  "password": "aWNMaNTU8T2y/Mpnb0TqofSC8gC3zxIIcx/SVQY3dSY=",
+  "courses_completed": [],
+  "salt": "ophbzzpAGKvdajwyXIIJbw=="
+},{
+  "_id": {
+    "$oid": "6061cd0251a0f027f81e96ce"
+  },
+  "first_name": "Eren",
+  "last_name": "Jaramillo",
+  "courses_applied": [
+    {
+      "$oid": "6051c0ffbfe7b1b3b1d04590"
+    }
+  ],
+  "email": "eren.jaramillo@email.com",
+  "password": "aWNMaNTU8T2y/Mpnb0TqofSC8gC3zxIIcx/SVQY3dSY=",
+  "courses_completed": [],
+  "salt": "ophbzzpAGKvdajwyXIIJbw=="
+},{
+  "_id": {
+    "$oid": "6061cd2151a0f027f81e96cf"
+  },
+  "first_name": "Isabella",
+  "last_name": "Crawford",
+  "courses_applied": [
+    {
+      "$oid": "6051c0ffbfe7b1b3b1d04590"
+    }
+  ],
+  "email": "isabella.crawford@email.com",
+  "password": "aWNMaNTU8T2y/Mpnb0TqofSC8gC3zxIIcx/SVQY3dSY=",
+  "courses_completed": [],
+  "salt": "ophbzzpAGKvdajwyXIIJbw=="
+},{
+  "_id": {
+    "$oid": "6061cd3551a0f027f81e96d0"
+  },
+  "first_name": "Cameron",
+  "last_name": "Amos",
+  "courses_applied": [
+    {
+      "$oid": "6051c0ffbfe7b1b3b1d04590"
+    }
+  ],
+  "email": "cameron.amos@email.com",
+  "password": "aWNMaNTU8T2y/Mpnb0TqofSC8gC3zxIIcx/SVQY3dSY=",
+  "courses_completed": [],
+  "salt": "ophbzzpAGKvdajwyXIIJbw=="
+},{
+  "_id": {
+    "$oid": "6061cd4d51a0f027f81e96d1"
+  },
+  "first_name": "Ana",
+  "last_name": "Williams",
+  "courses_applied": [
+    {
+      "$oid": "6051c0ffbfe7b1b3b1d04590"
+    }
+  ],
+  "email": "ana.williams@email.com",
+  "password": "aWNMaNTU8T2y/Mpnb0TqofSC8gC3zxIIcx/SVQY3dSY=",
+  "courses_completed": [],
+  "salt": "ophbzzpAGKvdajwyXIIJbw=="
+},{
+  "_id": {
+    "$oid": "6061cd6451a0f027f81e96d2"
+  },
+  "first_name": "Logan",
+  "last_name": "Irwin",
+  "courses_applied": [
+    {
+      "$oid": "6051c0ffbfe7b1b3b1d04590"
+    }
+  ],
+  "email": "logan.irwin@email.com",
+  "password": "aWNMaNTU8T2y/Mpnb0TqofSC8gC3zxIIcx/SVQY3dSY=",
+  "courses_completed": [],
+  "salt": "ophbzzpAGKvdajwyXIIJbw=="
+}]

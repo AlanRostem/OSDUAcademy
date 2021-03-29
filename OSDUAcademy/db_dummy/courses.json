@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "6051c0ffbfe7b1b3b1d04590"
+  },
+  "title": "Techlog Wellbore - A Beginner Tutorial",
+  "desc": "This course teaches beginners a cool software!",
+  "duration": "1-2 days",
+  "difficulty": "beginner",
+  "domain": "geology",
+  "public_route": "techlog-tutorial",
+  "sections": [
+    {
+      "$oid": "6050afb1dee2db6964caba62"
+    },
+    {
+      "$oid": "6050b12b77c5cf144cd5d90d"
+    }
+  ],
+  "full_desc": "Data acquired in wellbores is intricate, varied, and represents a significant investment. It is imperative to capitalize on that investment, whether you are working on your first deepwater exploration well or delivering a comprehensive drilling program in a shale gas play. With the Techlog platform, you can bring all of your wellbore data into one highly intuitive application to carry out analyses. In addition to offering advanced modules for domain experts, the Techlog platform provides a solid foundation for generalist users to review and analyze the data. It supports complex workflows across multiple disciplines.",
+  "prerequisites": [
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "p6"
+  ],
+  "certification_quiz_id": {
+    "$oid": "6059c686fb114f406187f2cd"
+  }
+}]
