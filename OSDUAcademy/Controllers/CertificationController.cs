@@ -131,12 +131,13 @@ namespace OSDUAcademy.Controllers
 
             if (passed)
             {
-                var update = Builders<User>.Update.PushEach("courses_completed", new List<ObjectId>
+                var update = Builders<User>.Update.PushEach(u => u.CoursesCompleted, new List<ObjectId>
                 {
                     course.Id
                 }, position: 0);
-            
+                
                 var email = User.Identity?.Name;
+                
                 _userCollection.UpdateOne(u => u.Email == email, update);
             }
             
