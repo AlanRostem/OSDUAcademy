@@ -18,7 +18,7 @@ const LearningService = {
      * @param callback {function(data: Object)} A function called upon receiving the data from the backend.
      */
     loadLecture(courseRoute, sectionNo, lectureNo, callback) {
-        fetch(`learn/content/${courseRoute}/sections/${sectionNo}/lectures/${lectureNo}`, {headers: UserService.getAuthObj()})
+        fetch(`learn/content/${courseRoute}/sections/${sectionNo}/lectures/${lectureNo}`, {headers: UserService.getAuthHeader()})
             .then(response =>
                 response.text())
             .then(xml => {
@@ -66,7 +66,7 @@ const LearningService = {
      * callback {function(data: Object)} A function called upon receiving the data from the backend.
      */
     startCourse(courseRoute, callback) {
-        fetch("learn/" + courseRoute + "/start", {headers: UserService.getAuthObj()})
+        fetch("learn/" + courseRoute + "/start", {headers: UserService.getAuthHeader()})
             .then(response =>
                 response.json()
             )
@@ -74,7 +74,7 @@ const LearningService = {
                 LearningService.loadLecture(courseRoute, data.section, data.lecture, callback);
                 LearningService._courseRoute = courseRoute;
                 const route = 'learn/' + courseRoute + "/overview";
-                fetch(route, {headers: UserService.getAuthObj()})
+                fetch(route, {headers: UserService.getAuthHeader()})
                     .then(response => response.json())
                     .then(data => {
                         LearningService._courseSectionData = data;
@@ -91,7 +91,7 @@ const LearningService = {
      * @param callback {function(data: string)} A function called upon receiving the data from the backend. The data parameter is a URL string for the image
      */
     fetchCourseImage(courseRoute, image, callback) {
-        fetch(`learn/content/${courseRoute}/images/${image}`, {headers: UserService.getAuthObj()})
+        fetch(`learn/content/${courseRoute}/images/${image}`, {headers: UserService.getAuthHeader()})
             .then(response => response.blob())
             .then(blob => {
                 callback(URL.createObjectURL(blob));
@@ -104,7 +104,7 @@ const LearningService = {
      */
     fetchCurrentCourseOverview(callback) {
         const route = 'learn/' + LearningService.getCurrentCourseRoute() + "/overview";
-        fetch(route, {headers: UserService.getAuthObj()})
+        fetch(route, {headers: UserService.getAuthHeader()})
             .then(response => response.json())
             .then(data => {
                 callback(data);

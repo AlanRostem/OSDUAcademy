@@ -12,7 +12,7 @@ const CertificationService = {
      * @param callback {function(data: Object)} A function called upon receiving the data from the backend. 
      */
     fetchQuestionsPreview(courseRoute, callback) {
-        fetch("/certification/" + courseRoute + "/content/preview", {headers: UserService.getAuthObj()})
+        fetch("/certification/" + courseRoute + "/content/preview", {headers: UserService.getAuthHeader()})
             .then(response => response.json())
             .then(data => {
                 callback(data)
@@ -25,7 +25,7 @@ const CertificationService = {
      * @param callback {function(data: Object)} A function called upon receiving the data from the backend.
      */
     fetchAllQuestions(courseRoute, callback) {
-        fetch("/certification/" + courseRoute + "/content/questions", {headers: UserService.getAuthObj()})
+        fetch("/certification/" + courseRoute + "/content/questions", {headers: UserService.getAuthHeader()})
             .then(response => response.json())
             .then(data => {
                 callback(data)
