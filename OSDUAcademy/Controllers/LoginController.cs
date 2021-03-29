@@ -38,6 +38,27 @@ namespace OSDUAcademy.Controllers
             _userCollection = database.GetCollection<User>("users");
             _configuration = configuration;
         }
+
+        public static string GenerateSalt()
+        {
+            byte[] salt = new byte[128 / 8];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(salt);
+            }
+
+            return Convert.ToBase64String(salt);
+        }
+        
+        public static string GenerateHashedString(string salt, string original)
+        {
+            return Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                password: original,
+                salt: Convert.FromBase64String(salt),
+                prf: KeyDerivationPrf.HMACSHA1,
+                iterationCount: 10_000,
+                numBytesRequested: 256 / 8));
+        }
         
         [AllowAnonymous]
         [HttpPost]
@@ -60,12 +81,8 @@ namespace OSDUAcademy.Controllers
             {
                 var user = list[0];
 
-                string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-                    password: request.Password,
-                    salt: Convert.FromBase64String(user.Salt),
-                    prf: KeyDerivationPrf.HMACSHA1,
-                    iterationCount: 10_000,
-                    numBytesRequested: 256 / 8));
+                var salt = user.Salt;
+                var hashed = GenerateHashedString(salt, request.Password);
 
                 if (user.Password == hashed)
                 {
