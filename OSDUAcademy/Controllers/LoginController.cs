@@ -69,19 +69,12 @@ namespace OSDUAcademy.Controllers
 
                 if (user.Password == hashed)
                 {
-                    // These values are mapped and sent as following to the client:
-                    /*
-                        {
-                            "password": null,
-                            "salt": null,
-                        }
-                    */
-                    // TODO: Make sure to not send them like this
-                    user.Password = null;
-                    user.Salt = null;
-                    
-                    
-                    data["user"] = user;
+                    data["user"] = new Dictionary<string, object>
+                    {
+                        ["email"] = user.Email,
+                        ["firstName"] = user.FirstName,
+                        ["lastName"] = user.LastName,
+                    };
                     
                     var claims = new[]
                     {
