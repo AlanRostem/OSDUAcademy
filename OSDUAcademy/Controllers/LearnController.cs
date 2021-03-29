@@ -79,7 +79,7 @@ namespace OSDUAcademy.Controllers
         /// Sends a tuple containing what course and lecture the user is on after
         /// entering a course. Currently is just sends {0, 0} since course history
         /// storage is yet to be implemented.
-        /// TODO: Implement course history storage and redirect user to their last lecture
+        /// TODO: Implement course history storage and redirect user to their last lecture in the course
         /// </summary>
         /// <param name="route"></param>
         /// <returns></returns>

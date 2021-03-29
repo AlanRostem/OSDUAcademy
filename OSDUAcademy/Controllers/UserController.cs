@@ -13,9 +13,6 @@ namespace OSDUAcademy.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        // TODO: Add sessions to validate the correct user requesting from this controller
-        // TODO: Do not send or accept user id for identifying user
-        
         private static readonly ProjectionDefinitionBuilder<User> UserFieldBuilder = Builders<User>.Projection;
         private static readonly ProjectionDefinitionBuilder<Course> CourseFieldBuilder = Builders<Course>.Projection;
 

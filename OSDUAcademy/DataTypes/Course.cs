@@ -4,8 +4,6 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace OSDUAcademy.DataTypes
 {
-    // TODO: Create proper course media storage
-    
     [BsonIgnoreExtraElements]
     public class Course
     {

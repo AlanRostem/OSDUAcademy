@@ -38,8 +38,6 @@ namespace OSDUAcademy.Controllers
             _userCollection = database.GetCollection<User>("users");
             _configuration = configuration;
         }
-
-        // TODO: Attempt to log back in when the user enters for the first time. If not, log them out
         
         [AllowAnonymous]
         [HttpPost]
@@ -62,12 +60,11 @@ namespace OSDUAcademy.Controllers
             {
                 var user = list[0];
 
-                // derive a 256-bit subkey (use HMACSHA1 with 10,000 iterations)
                 string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
                     password: request.Password,
                     salt: Convert.FromBase64String(user.Salt),
                     prf: KeyDerivationPrf.HMACSHA1,
-                    iterationCount: 10000,
+                    iterationCount: 10_000,
                     numBytesRequested: 256 / 8));
 
                 if (user.Password == hashed)
