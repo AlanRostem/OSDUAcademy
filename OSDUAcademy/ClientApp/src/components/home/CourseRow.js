@@ -89,6 +89,10 @@ export default class CourseRow extends Component {
         } else if (this.props.testingEnabled) {
             len = React.Children.count(this.props.children);
         }
+        
+        if (len === 0) {
+            return <h5 className="oops">Nothing to show here...</h5>
+        }
 
         return (
             <CarouselProvider
