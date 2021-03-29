@@ -5,6 +5,9 @@ using OSDUAcademy.DataTypes;
 
 namespace OSDUAcademy.DataTypes
 {
+    /// <summary>
+    /// Mapping class for certification quizzes in the database
+    /// </summary>
     [BsonIgnoreExtraElements]
     public class CertificationQuiz
     {

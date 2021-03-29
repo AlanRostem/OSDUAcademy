@@ -4,6 +4,10 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace OSDUAcademy.DataTypes
 {
+    /// <summary>
+    /// Mapping class for a user in the database. Make sure to use projection
+    /// if you do not need to query for sensitive information, as it will be queried.
+    /// </summary>
     [BsonIgnoreExtraElements]
     public class User
     {

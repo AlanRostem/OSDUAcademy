@@ -3,6 +3,9 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace OSDUAcademy.DataTypes
 {
+    /// <summary>
+    /// Mapping class for questions as part of certification quizzes in the database
+    /// </summary>
     [BsonIgnoreExtraElements]
     public class Question
     {

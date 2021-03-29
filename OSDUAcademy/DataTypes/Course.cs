@@ -4,6 +4,9 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace OSDUAcademy.DataTypes
 {
+    /// <summary>
+    /// Mapping class for public data about courses in the database
+    /// </summary>
     [BsonIgnoreExtraElements]
     public class Course
     {
