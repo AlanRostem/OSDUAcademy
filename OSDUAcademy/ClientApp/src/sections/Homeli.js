@@ -41,7 +41,7 @@ export class Homeli extends Component {
                         <CategoryItem itemActive={true} componentToShow={<CourseRow searchByTrending={true}/>}>ALL</CategoryItem>
                         <CategoryItem itemActive={false} componentToShow={<CourseRow domainToSearchBy={"geology"}/>}>GEOLOGY</CategoryItem>
                         <CategoryItem itemActive={false} componentToShow={<CourseRow domainToSearchBy={"petroleum"}/>}>PETROLEUM</CategoryItem>
-                        <CategoryItem itemActive={false} componentToShow={<CourseRow domainToSearchBy={"energy"}/>}>ENERGY</CategoryItem>
+                        <CategoryItem itemActive={false} componentToShow={<CourseRow domainToSearchBy={"software"}/>}>SOFTWARE</CategoryItem>
                         <CategoryItem itemActive={false} componentToShow={<CourseRow domainToSearchBy={"gas"}/>}>GAS</CategoryItem>
                     </CategoryNavBar>
 
