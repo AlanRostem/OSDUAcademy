@@ -517,8 +517,5 @@ footer {
 }
 
 .oops {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     color: #7f7f7f;
 }
