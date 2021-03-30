@@ -18,4 +18,20 @@
       "title": "What should have leared"
     }
   ]
+},{
+  "_id": {
+    "$oid": "6062eda2982bc28420f3b5ce"
+  },
+  "title": "Section 1",
+  "lectures": [
+    {
+      "title": "Lecture 1"
+    },
+    {
+      "title": "Lecture 2"
+    },
+    {
+      "title": "Lecture 3"
+    }
+  ]
 }]
