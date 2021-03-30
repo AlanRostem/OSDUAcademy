@@ -1,0 +1,36 @@
+<Course>
+    <Title>Ocean Software Development Tools</Title>
+    <DescriptionShort>Vestibulum vehicula lectus non dolor venenatis pretium.
+    </DescriptionShort>
+    <DescriptionLong>Etiam et urna scelerisque, gravida lacus gravida, mattis massa. Quisque quis molestie risus. Phasellus suscipit posuere lectus, at consectetur justo. Pellentesque enim libero, bibendum molestie nisi a, elementum dignissim elit. Phasellus lobortis justo sit amet elementum tincidunt.
+    </DescriptionLong>
+    <Difficulty>Intermediate</Difficulty>
+    <Domain>Software</Domain>
+    <Duration>3-4 days</Duration>
+    <Prerequisite>Prerequisite 1</Prerequisite>
+    <Prerequisite>Prerequisite 2</Prerequisite>
+    <Prerequisite>Prerequisite 3</Prerequisite>
+    <Prerequisite>Prerequisite 4</Prerequisite>
+    <Layout>
+        
+        <Section title="Introduction">
+            <Lecture title="What will you learn?"/>
+        </Section>
+        
+        <Section title="Petrel">
+            <Lecture title="Ocean API"/>
+            <Lecture title="Modules and labs"/>
+        </Section>
+        
+        <Section title="Studio">
+            <Lecture title="Database understanding"/>
+            <Lecture title="Microsoft Environments"/>
+            <Lecture title="OOP/OOD Concepts"/>
+        </Section>
+        
+        <Section title="Summary">
+            <Lecture title="What you should have learned"/>
+        </Section>
+        
+    </Layout>
+</Course>
