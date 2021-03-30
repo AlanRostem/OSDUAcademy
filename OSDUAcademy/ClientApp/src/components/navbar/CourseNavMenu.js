@@ -86,7 +86,7 @@ export class CourseNavMenu extends Component {
                                                     LearningService.getSectionData().map((section, i) =>
                                                         <ChapterDrop key={i} name={section.title} amount={section.lectures.length}>
                                                             {section.lectures.map((lecture, j) =>
-                                                                <ChapterItem key={j}>
+                                                                <ChapterItem key={j} noList={true}>
                                                                     <button value={i + "." + j} onClick={this.props.onLectureSelection}>
                                                                         {lecture.title}
                                                                     </button>

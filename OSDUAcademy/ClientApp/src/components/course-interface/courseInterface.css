@@ -22,10 +22,13 @@
 
 .overview .drop-item button {
     margin-bottom: 5px;
-    margin-left: 0;
     width: 100%;
     text-align: left;
     border: none;
+    display: flex;
+}
+.overview .drop-item button:hover {
+    text-decoration: underline;
 }
 
 .overview-h {
