@@ -88,4 +88,46 @@
   "password": "aWNMaNTU8T2y/Mpnb0TqofSC8gC3zxIIcx/SVQY3dSY=",
   "courses_completed": [],
   "salt": "ophbzzpAGKvdajwyXIIJbw=="
+},{
+  "_id": {
+    "$oid": "60630975ce82e329cc06b0aa"
+  },
+  "first_name": "Test",
+  "last_name": "Teston",
+  "courses_applied": [
+    {
+      "$oid": "6062ff9f44041210bbd74d0d"
+    },
+    {
+      "$oid": "6062fe7844041210bbd74d0a"
+    },
+    {
+      "$oid": "6062fc3444041210bbd74d04"
+    },
+    {
+      "$oid": "6062fd7b44041210bbd74d07"
+    },
+    {
+      "$oid": "6062f85044041210bbd74d01"
+    },
+    {
+      "$oid": "6062f536982bc28420f3b5d8"
+    },
+    {
+      "$oid": "6062f3a9982bc28420f3b5d5"
+    },
+    {
+      "$oid": "6062f20b982bc28420f3b5d2"
+    },
+    {
+      "$oid": "6062f005982bc28420f3b5cf"
+    },
+    {
+      "$oid": "6051c0ffbfe7b1b3b1d04590"
+    }
+  ],
+  "email": "test@email.com",
+  "password": "aWNMaNTU8T2y/Mpnb0TqofSC8gC3zxIIcx/SVQY3dSY=",
+  "courses_completed": [],
+  "salt": "ophbzzpAGKvdajwyXIIJbw=="
 }]
