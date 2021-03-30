@@ -5,17 +5,17 @@
   "title": "Introduction",
   "lectures": [
     {
-      "title": "The first lecture!"
+      "title": "What will you learn?"
     }
   ]
 },{
   "_id": {
-    "$oid": "6050b12b77c5cf144cd5d90d"
+    "$oid": "6062e56e982bc28420f3b5cd"
   },
-  "title": "Data Management",
+  "title": "Summary",
   "lectures": [
     {
-      "title": "The best way to manage data"
+      "title": "What should have leared"
     }
   ]
 }]
