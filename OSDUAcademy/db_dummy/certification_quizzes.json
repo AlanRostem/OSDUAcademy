@@ -5,13 +5,56 @@
   "pass_rate": 0.8,
   "questions": [
     {
-      "question_text": "How are you feeling today?",
+      "question_text": "Is Oslo the capital of Norway?",
       "correct_answer_index": 0,
-      "correct_answer_description": "Aw shucks! You should feel good today, man.",
+      "correct_answer_description": "Because it is.",
       "answers": [
-        "Good",
-        "Ok",
-        "Bad"
+        "True",
+        "False"
+      ]
+    },
+    {
+      "question_text": "Which country has the longes coastline in the World?",
+      "correct_answer_index": 2,
+      "correct_answer_description": "",
+      "answers": [
+        "Russia",
+        "Mexico",
+        "Canada",
+        "Australia"
+      ]
+    },
+    {
+      "question_text": "When was Schlumberger founded?",
+      "correct_answer_index": 1,
+      "correct_answer_description": "",
+      "answers": [
+        "1894",
+        "1926",
+        "1947",
+        "2012"
+      ]
+    },
+    {
+      "question_text": "Who is the current World Champion in football?",
+      "correct_answer_index": 0,
+      "correct_answer_description": "",
+      "answers": [
+        "France",
+        "Brazil",
+        "England",
+        "Portugal"
+      ]
+    },
+    {
+      "question_text": "1+1+1+1+1+1+1*0",
+      "correct_answer_index": "0",
+      "correct_answer_description": "Quick maths",
+      "answers": [
+        "6",
+        "Banana",
+        "0",
+        "7"
       ]
     }
   ]
