@@ -6,7 +6,7 @@
   "desc": "This course teaches beginners a cool software!",
   "duration": "1-2 days",
   "difficulty": "beginner",
-  "domain": "geology",
+  "domain": "software",
   "public_route": "techlog-tutorial",
   "sections": [
     {
@@ -14,6 +14,147 @@
     }
   ],
   "full_desc": "Data acquired in wellbores is intricate, varied, and represents a significant investment. It is imperative to capitalize on that investment, whether you are working on your first deepwater exploration well or delivering a comprehensive drilling program in a shale gas play. With the Techlog platform, you can bring all of your wellbore data into one highly intuitive application to carry out analyses. In addition to offering advanced modules for domain experts, the Techlog platform provides a solid foundation for generalist users to review and analyze the data. It supports complex workflows across multiple disciplines.",
+  "prerequisites": [
+    "Prerequisite 1",
+    "Prerequisite 2",
+    "Prerequisite 3",
+    "Prerequisite 4",
+    "Prerequisite 5",
+    "Prerequisite 6"
+  ],
+  "certification_quiz_id": {
+    "$oid": "6059c686fb114f406187f2cd"
+  }
+},{
+  "_id": {
+    "$oid": "6062f005982bc28420f3b5cf"
+  },
+  "title": "Oil and Gas Extraction",
+  "desc": "Vestibulum vehicula lectus non dolor venenatis pretium.",
+  "duration": "3-4 days",
+  "difficulty": "intermediate",
+  "domain": "petroleum",
+  "public_route": "oil-and-gas",
+  "sections": [
+    {
+      "$oid": "6050afb1dee2db6964caba62"
+    },
+    {
+      "$oid": "6062f0db982bc28420f3b5d0"
+    },
+    {
+      "$oid": "6062f100982bc28420f3b5d1"
+    },
+    {
+      "$oid": "6062e56e982bc28420f3b5cd"
+    }
+  ],
+  "full_desc": "Etiam et urna scelerisque, gravida lacus gravida, mattis massa. Quisque quis molestie risus. Phasellus suscipit posuere lectus, at consectetur justo. Pellentesque enim libero, bibendum molestie nisi a, elementum dignissim elit. Phasellus lobortis justo sit amet elementum tincidunt.",
+  "prerequisites": [
+    "Prerequisite 1",
+    "Prerequisite 2",
+    "Prerequisite 3",
+    "Prerequisite 4",
+    "Prerequisite 5",
+    "Prerequisite 6"
+  ],
+  "certification_quiz_id": {
+    "$oid": "6059c686fb114f406187f2cd"
+  }
+},{
+  "_id": {
+    "$oid": "6062f20b982bc28420f3b5d2"
+  },
+  "title": "Reservoir Drill-In Fluids",
+  "desc": "Vestibulum vehicula lectus non dolor venenatis pretium.",
+  "duration": "3-4 days",
+  "difficulty": "advanced",
+  "domain": "petroleum",
+  "public_route": "reservoir-drill",
+  "sections": [
+    {
+      "$oid": "6050afb1dee2db6964caba62"
+    },
+    {
+      "$oid": "6062f2cb982bc28420f3b5d3"
+    },
+    {
+      "$oid": "6062f2d4982bc28420f3b5d4"
+    },
+    {
+      "$oid": "6062e56e982bc28420f3b5cd"
+    }
+  ],
+  "full_desc": "Etiam et urna scelerisque, gravida lacus gravida, mattis massa. Quisque quis molestie risus. Phasellus suscipit posuere lectus, at consectetur justo. Pellentesque enim libero, bibendum molestie nisi a, elementum dignissim elit. Phasellus lobortis justo sit amet elementum tincidunt.",
+  "prerequisites": [
+    "Prerequisite 1",
+    "Prerequisite 2",
+    "Prerequisite 3",
+    "Prerequisite 4",
+    "Prerequisite 5",
+    "Prerequisite 6"
+  ],
+  "certification_quiz_id": {
+    "$oid": "6059c686fb114f406187f2cd"
+  }
+},{
+  "_id": {
+    "$oid": "6062f3a9982bc28420f3b5d5"
+  },
+  "title": "Rotary Drilling Rig Systems",
+  "desc": "Vestibulum vehicula lectus non dolor venenatis pretium.",
+  "duration": "5-6 days",
+  "difficulty": "advanced",
+  "domain": "petroleum",
+  "public_route": "rotary-drilling",
+  "sections": [
+    {
+      "$oid": "6050afb1dee2db6964caba62"
+    },
+    {
+      "$oid": "6062f413982bc28420f3b5d6"
+    },
+    {
+      "$oid": "6062f498982bc28420f3b5d7"
+    },
+    {
+      "$oid": "6062e56e982bc28420f3b5cd"
+    }
+  ],
+  "full_desc": "Etiam et urna scelerisque, gravida lacus gravida, mattis massa. Quisque quis molestie risus. Phasellus suscipit posuere lectus, at consectetur justo. Pellentesque enim libero, bibendum molestie nisi a, elementum dignissim elit. Phasellus lobortis justo sit amet elementum tincidunt.",
+  "prerequisites": [
+    "Prerequisite 1",
+    "Prerequisite 2",
+    "Prerequisite 3",
+    "Prerequisite 4",
+    "Prerequisite 5",
+    "Prerequisite 6"
+  ],
+  "certification_quiz_id": {
+    "$oid": "6059c686fb114f406187f2cd"
+  }
+},{
+  "_id": {
+    "$oid": "6062f536982bc28420f3b5d8"
+  },
+  "title": "Techlog Wellbore - Intermediate Tutorial",
+  "desc": "Vestibulum vehicula lectus non dolor venenatis pretium.",
+  "duration": "2-3 days",
+  "difficulty": "intermediate",
+  "domain": "software",
+  "public_route": "techlog-intermediate",
+  "sections": [
+    {
+      "$oid": "6050afb1dee2db6964caba62"
+    },
+    {
+      "$oid": "6062f558982bc28420f3b5d9"
+    },
+    {
+      "$oid": "6062f56a982bc28420f3b5da"
+    }
+  ],
+  "full_desc": "Etiam et urna scelerisque, gravida lacus gravida, mattis massa. Quisque quis molestie risus. Phasellus suscipit posuere lectus, at consectetur justo. Pellentesque enim libero, bibendum molestie nisi a, elementum dignissim elit. Phasellus lobortis justo sit amet elementum tincidunt.",
   "prerequisites": [
     "Prerequisite 1",
     "Prerequisite 2",

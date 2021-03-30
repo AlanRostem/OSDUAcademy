@@ -34,4 +34,123 @@
       "title": "Lecture 3"
     }
   ]
+},{
+  "_id": {
+    "$oid": "6062f0db982bc28420f3b5d0"
+  },
+  "title": "Oilfield",
+  "lectures": [
+    {
+      "title": "Location"
+    },
+    {
+      "title": "Instruments"
+    },
+    {
+      "title": "Management"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062f100982bc28420f3b5d1"
+  },
+  "title": "Oil extraction and recovery",
+  "lectures": [
+    {
+      "title": "Primary recovery"
+    },
+    {
+      "title": "Secondary recovery"
+    },
+    {
+      "title": "Enhanced recovery"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062f2cb982bc28420f3b5d3"
+  },
+  "title": "Water-based",
+  "lectures": [
+    {
+      "title": "Advantages"
+    },
+    {
+      "title": "Disadvantages"
+    },
+    {
+      "title": "Application"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062f2d4982bc28420f3b5d4"
+  },
+  "title": "Oil-based",
+  "lectures": [
+    {
+      "title": "Advantages"
+    },
+    {
+      "title": "Disadvantages"
+    },
+    {
+      "title": "Application"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062f413982bc28420f3b5d6"
+  },
+  "title": "Major systems",
+  "lectures": [
+    {
+      "title": "The power system"
+    },
+    {
+      "title": "The hoisting system"
+    },
+    {
+      "title": "The circulation system"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062f498982bc28420f3b5d7"
+  },
+  "title": "The process",
+  "lectures": [
+    {
+      "title": "Operations"
+    },
+    {
+      "title": "Equipment"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062f558982bc28420f3b5d9"
+  },
+  "title": "Features",
+  "lectures": [
+    {
+      "title": "Lithology"
+    },
+    {
+      "title": "Python"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062f56a982bc28420f3b5da"
+  },
+  "title": "Analysis",
+  "lectures": [
+    {
+      "title": "Visualization"
+    },
+    {
+      "title": "Techlog 3D"
+    }
+  ]
 }]
