@@ -1,0 +1,36 @@
+<Course>
+    <Title>Rotary Drilling Rig Systems</Title>
+    <DescriptionShort>Vestibulum vehicula lectus non dolor venenatis pretium.
+    </DescriptionShort>
+    <DescriptionLong>Etiam et urna scelerisque, gravida lacus gravida, mattis massa. Quisque quis molestie risus. Phasellus suscipit posuere lectus, at consectetur justo. Pellentesque enim libero, bibendum molestie nisi a, elementum dignissim elit. Phasellus lobortis justo sit amet elementum tincidunt.
+    </DescriptionLong>
+    <Difficulty>Advanced</Difficulty>
+    <Domain>Petroleum</Domain>
+    <Duration>5-6 days</Duration>
+    <Prerequisite>Prerequisite 1</Prerequisite>
+    <Prerequisite>Prerequisite 2</Prerequisite>
+    <Prerequisite>Prerequisite 3</Prerequisite>
+    <Prerequisite>Prerequisite 4</Prerequisite>
+    <Layout>
+        
+        <Section title="Introduction">
+            <Lecture title="What will you learn?"/>
+        </Section>
+        
+        <Section title="Mayor systems">
+            <Lecture title="The power system"/>
+            <Lecture title="The hoisting system"/>
+            <Lecture title="The circulation system"/>
+        </Section>
+        
+        <Section title="The process">
+            <Lecture title="Operations"/>
+            <Lecture title="Equipment"/>
+        </Section>
+        
+        <Section title="Summary">
+            <Lecture title="What you should have learned"/>
+        </Section>
+        
+    </Layout>
+</Course>

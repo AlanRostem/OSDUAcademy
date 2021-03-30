@@ -1,0 +1,18 @@
+<Certification>
+    <PassRate>0.8</PassRate>
+    <Question title="What is the question?" correctAnswerNo="2" correctAnswerDesc="This is right because...">
+        <Choice>Option 1</Choice>
+        <Choice>Option 2</Choice>
+        <Choice>Option 3</Choice>
+        <Choice>Option 4</Choice>
+    </Question>
+    <Question title="This is the best e-learning platform." correctAnswerNo="0" correctAnswerDesc="Because everyone thinks so.">
+        <Choice>True</Choice>
+        <Choice>False</Choice>
+    </Question>
+    <Question title="How are you feeling today?" correctAnswerNo="0" correctAnswerDesc="You should be feeling good, man :(">
+        <Choice>Good</Choice>
+        <Choice>Ok</Choice>
+        <Choice>Bad</Choice>
+    </Question>
+</Certification>
