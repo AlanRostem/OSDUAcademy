@@ -30,7 +30,7 @@ export default class Figure extends Component {
     render() {
         return (
             <div>
-                <img src={this.state.src} alt={this.props.name || "image"}/>
+                <img src={this.state.src} alt={this.props.name || "image"} style={{width:  "100%"}}/>
                 <p>{this.props.children}</p>
             </div>
         );
