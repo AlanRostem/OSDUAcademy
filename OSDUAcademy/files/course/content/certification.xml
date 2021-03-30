@@ -1,8 +1,0 @@
-﻿<Certification>
-    <PassRate>0.8</PassRate>
-    <Question title="How are you feeling today?" correctAnswerNo="0" correctAnswerDesc="You should be feeling good, man :(">
-        <Choice>Good</Choice>
-        <Choice>Ok</Choice>
-        <Choice>Bad</Choice>
-    </Question>
-</Certification>

@@ -43,7 +43,7 @@ namespace OSDUAcademy.Controllers
         [HttpGet("content/{route}/images/{image}")]
         public async Task GetCourseContentImage(string route, string image)
         {
-            FileInfo file = new FileInfo("files/course/content/" + route + "/images/" + image);
+            FileInfo file = new FileInfo("files/course/" + route + "/images/" + image);
             if (!file.Exists)
                 return;
             Response.Clear();
@@ -68,7 +68,7 @@ namespace OSDUAcademy.Controllers
         public async Task GetCourseContentLectureXml(string route, int section, int lecture)
         {
             FileInfo file = new FileInfo(
-                "files/course/content/" + route + "/sections/" + section + "/lectures/" + lecture + ".xml");
+                "files/course/" + route + "/sections/" + section + "/lectures/" + lecture + ".xml");
             if (!file.Exists)
                 return;
             Response.Clear();
