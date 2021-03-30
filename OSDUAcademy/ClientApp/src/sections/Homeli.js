@@ -29,7 +29,7 @@ export class Homeli extends Component {
                     <div className="banner-li" style={{backgroundImage: "url(" + process.env.PUBLIC_URL + "img/oil-rig.png", 
                     height:"150px", textAlign:"center", color:"white"}}>
                         <h1 style={{fontWeight:"bold", paddingTop:"30px"}}>Welcome back!</h1>
-                        <p>Greetings, {UserService.getUser().firstName}. It's good to see you again</p>
+                        <p>Greetings, {UserService.getUser().firstName}. It's good to see you again!</p>
                     </div>
 
                     <h1 className="home-h1">Catch up on your learning</h1>
