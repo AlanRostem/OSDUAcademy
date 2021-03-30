@@ -11,7 +11,9 @@ export class ChapterItem extends Component {
 
     render () {
         return (
-            <li className="drop-item">{this.props.children}</li>
+            !this.props.noList ?
+            <li className="drop-item">{this.props.children}</li> :
+                <div className="drop-item">{this.props.children}</div>
         );
     }
 }
