@@ -153,4 +153,158 @@
       "title": "Techlog 3D"
     }
   ]
+},{
+  "_id": {
+    "$oid": "6062f75044041210bbd74cff"
+  },
+  "title": "Valves",
+  "lectures": [
+    {
+      "title": "Linear motion valves"
+    },
+    {
+      "title": "Rotary motion valves"
+    },
+    {
+      "title": "Components"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062f78b44041210bbd74d00"
+  },
+  "title": "Application",
+  "lectures": [
+    {
+      "title": "Valve types"
+    },
+    {
+      "title": "Valve choice"
+    },
+    {
+      "title": "Pros and cons"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062f93144041210bbd74d02"
+  },
+  "title": "Drilling process analysis",
+  "lectures": [
+    {
+      "title": "Hoisting"
+    },
+    {
+      "title": "Rotation"
+    },
+    {
+      "title": "Pumping"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062f96b44041210bbd74d03"
+  },
+  "title": "Drillstring",
+  "lectures": [
+    {
+      "title": "Load analysis"
+    },
+    {
+      "title": "Dimensioning"
+    },
+    {
+      "title": "Oscillations"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062fd0a44041210bbd74d05"
+  },
+  "title": "Subdisciplines",
+  "lectures": [
+    {
+      "title": "Source rock analysis"
+    },
+    {
+      "title": "Basis analysis"
+    },
+    {
+      "title": "Reservoir analysis"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062fd2b44041210bbd74d06"
+  },
+  "title": "Sedimentary basis analysis",
+  "lectures": [
+    {
+      "title": "Source"
+    },
+    {
+      "title": "Reservoir"
+    },
+    {
+      "title": "Migration"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062fdfd44041210bbd74d08"
+  },
+  "title": "History",
+  "lectures": [
+    {
+      "title": "Solution"
+    },
+    {
+      "title": "Development"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062fe3644041210bbd74d09"
+  },
+  "title": "Principles",
+  "lectures": [
+    {
+      "title": "Monitoring"
+    },
+    {
+      "title": "Measurement"
+    },
+    {
+      "title": "Real-time data"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062ff4544041210bbd74d0b"
+  },
+  "title": "Petrel",
+  "lectures": [
+    {
+      "title": "Ocean API"
+    },
+    {
+      "title": "Modules and labs"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6062ff6844041210bbd74d0c"
+  },
+  "title": "Studio",
+  "lectures": [
+    {
+      "title": "Database understanding"
+    },
+    {
+      "title": "Microsoft Environment"
+    },
+    {
+      "title": "OOP/OOD Concepts"
+    }
+  ]
 }]

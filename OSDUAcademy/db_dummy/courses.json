@@ -166,4 +166,184 @@
   "certification_quiz_id": {
     "$oid": "6059c686fb114f406187f2cd"
   }
+},{
+  "_id": {
+    "$oid": "6062f85044041210bbd74d01"
+  },
+  "title": "Control valve fundamentals",
+  "desc": "Vestibulum vehicula lectus non dolor venenatis pretium.",
+  "duration": "1-2 days",
+  "difficulty": "beginner",
+  "domain": "gas",
+  "public_route": "control-valve",
+  "sections": [
+    {
+      "$oid": "6050afb1dee2db6964caba62"
+    },
+    {
+      "$oid": "6062f75044041210bbd74cff"
+    },
+    {
+      "$oid": "6062f78b44041210bbd74d00"
+    },
+    {
+      "$oid": "6062e56e982bc28420f3b5cd"
+    }
+  ],
+  "full_desc": "Etiam et urna scelerisque, gravida lacus gravida, mattis massa. Quisque quis molestie risus. Phasellus suscipit posuere lectus, at consectetur justo. Pellentesque enim libero, bibendum molestie nisi a, elementum dignissim elit. Phasellus lobortis justo sit amet elementum tincidunt.",
+  "prerequisites": [
+    "Prerequisite 1",
+    "Prerequisite 2",
+    "Prerequisite 3",
+    "Prerequisite 4",
+    "Prerequisite 5",
+    "Prerequisite 6"
+  ],
+  "certification_quiz_id": {
+    "$oid": "6059c686fb114f406187f2cd"
+  }
+},{
+  "_id": {
+    "$oid": "6062fc3444041210bbd74d04"
+  },
+  "title": "Drilling Engineering I",
+  "desc": "Vestibulum vehicula lectus non dolor venenatis pretium.",
+  "duration": "1-2 days",
+  "difficulty": "beginner",
+  "domain": "petroleum",
+  "public_route": "drilling-eng",
+  "sections": [
+    {
+      "$oid": "6050afb1dee2db6964caba62"
+    },
+    {
+      "$oid": "6062f93144041210bbd74d02"
+    },
+    {
+      "$oid": "6062f96b44041210bbd74d03"
+    },
+    {
+      "$oid": "6062e56e982bc28420f3b5cd"
+    }
+  ],
+  "full_desc": "Etiam et urna scelerisque, gravida lacus gravida, mattis massa. Quisque quis molestie risus. Phasellus suscipit posuere lectus, at consectetur justo. Pellentesque enim libero, bibendum molestie nisi a, elementum dignissim elit. Phasellus lobortis justo sit amet elementum tincidunt.",
+  "prerequisites": [
+    "Prerequisite 1",
+    "Prerequisite 2",
+    "Prerequisite 3",
+    "Prerequisite 4",
+    "Prerequisite 5",
+    "Prerequisite 6"
+  ],
+  "certification_quiz_id": {
+    "$oid": "6059c686fb114f406187f2cd"
+  }
+},{
+  "_id": {
+    "$oid": "6062fd7b44041210bbd74d07"
+  },
+  "title": "Fundamentals of Petrouleum Geology",
+  "desc": "Vestibulum vehicula lectus non dolor venenatis pretium.",
+  "duration": "1-2 days",
+  "difficulty": "beginner",
+  "domain": "geology",
+  "public_route": "fundamentals-geology",
+  "sections": [
+    {
+      "$oid": "6050afb1dee2db6964caba62"
+    },
+    {
+      "$oid": "6062fd2b44041210bbd74d06"
+    },
+    {
+      "$oid": "6062fd0a44041210bbd74d05"
+    },
+    {
+      "$oid": "6062e56e982bc28420f3b5cd"
+    }
+  ],
+  "full_desc": "Etiam et urna scelerisque, gravida lacus gravida, mattis massa. Quisque quis molestie risus. Phasellus suscipit posuere lectus, at consectetur justo. Pellentesque enim libero, bibendum molestie nisi a, elementum dignissim elit. Phasellus lobortis justo sit amet elementum tincidunt.",
+  "prerequisites": [
+    "Prerequisite 1",
+    "Prerequisite 2",
+    "Prerequisite 3",
+    "Prerequisite 4",
+    "Prerequisite 5",
+    "Prerequisite 6"
+  ],
+  "certification_quiz_id": {
+    "$oid": "6059c686fb114f406187f2cd"
+  }
+},{
+  "_id": {
+    "$oid": "6062fe7844041210bbd74d0a"
+  },
+  "title": "Introduction to Multiphase Flow Meters",
+  "desc": "Vestibulum vehicula lectus non dolor venenatis pretium.",
+  "duration": "1-2 days",
+  "difficulty": "beginner",
+  "domain": "gas",
+  "public_route": "multiphase-introduction",
+  "sections": [
+    {
+      "$oid": "6050afb1dee2db6964caba62"
+    },
+    {
+      "$oid": "6062fdfd44041210bbd74d08"
+    },
+    {
+      "$oid": "6062fe3644041210bbd74d09"
+    },
+    {
+      "$oid": "6062e56e982bc28420f3b5cd"
+    }
+  ],
+  "full_desc": "Etiam et urna scelerisque, gravida lacus gravida, mattis massa. Quisque quis molestie risus. Phasellus suscipit posuere lectus, at consectetur justo. Pellentesque enim libero, bibendum molestie nisi a, elementum dignissim elit. Phasellus lobortis justo sit amet elementum tincidunt.",
+  "prerequisites": [
+    "Prerequisite 1",
+    "Prerequisite 2",
+    "Prerequisite 3",
+    "Prerequisite 4",
+    "Prerequisite 5",
+    "Prerequisite 6"
+  ],
+  "certification_quiz_id": {
+    "$oid": "6059c686fb114f406187f2cd"
+  }
+},{
+  "_id": {
+    "$oid": "6062ff9f44041210bbd74d0d"
+  },
+  "title": "Ocean Software Development Tools",
+  "desc": "Vestibulum vehicula lectus non dolor venenatis pretium.",
+  "duration": "3-4 days",
+  "difficulty": "intermediate",
+  "domain": "software",
+  "public_route": "ocean",
+  "sections": [
+    {
+      "$oid": "6050afb1dee2db6964caba62"
+    },
+    {
+      "$oid": "6062ff4544041210bbd74d0b"
+    },
+    {
+      "$oid": "6062ff6844041210bbd74d0c"
+    },
+    {
+      "$oid": "6062e56e982bc28420f3b5cd"
+    }
+  ],
+  "full_desc": "Etiam et urna scelerisque, gravida lacus gravida, mattis massa. Quisque quis molestie risus. Phasellus suscipit posuere lectus, at consectetur justo. Pellentesque enim libero, bibendum molestie nisi a, elementum dignissim elit. Phasellus lobortis justo sit amet elementum tincidunt.",
+  "prerequisites": [
+    "Prerequisite 1",
+    "Prerequisite 2",
+    "Prerequisite 3",
+    "Prerequisite 4",
+    "Prerequisite 5",
+    "Prerequisite 6"
+  ],
+  "certification_quiz_id": {
+    "$oid": "6059c686fb114f406187f2cd"
+  }
 }]
