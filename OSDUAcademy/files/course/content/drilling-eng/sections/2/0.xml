@@ -1,0 +1,12 @@
+<Content>
+    <Title>Load analysis</Title>
+    <Paragraph>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque convallis scelerisque ex a malesuada. Cras et semper diam. Integer porttitor aliquam nisl ac mollis. Aenean et massa accumsan, vestibulum sapien id, vulputate eros. Etiam non egestas lorem. Duis erat tortor, congue non lobortis sit amet, accumsan nec turpis. Maecenas id augue non eros sodales viverra. Pellentesque erat quam, aliquam nec pellentesque ac, pharetra eu velit. Cras quis interdum lectus. Vestibulum ultrices laoreet ligula, non tincidunt arcu luctus et. Nam non dui leo. In hac habitasse platea dictumst. Pellentesque ultricies nec sem eget congue. Donec vulputate, tellus a pharetra tincidunt, leo nisi iaculis est, id iaculis lacus massa et mauris. Pellentesque vitae fermentum tellus.
+    </Paragraph>
+    <Figure image="image6.png"/>
+    <Paragraph>
+        In venenatis elementum rutrum. Donec eget nunc vulputate, ornare nulla hendrerit, pharetra sapien. Aenean tellus mi, ultrices ac elit sed, efficitur pharetra enim. Sed euismod, ex efficitur pulvinar porttitor, elit tortor pretium felis, at suscipit nisi lorem ut enim. Nam non ligula a leo porttitor ornare. Donec placerat viverra sollicitudin. Donec scelerisque sodales lacus id consectetur. Maecenas porttitor ultricies faucibus. Fusce fringilla rutrum urna sed laoreet. Nam eu arcu semper, sagittis eros at, lobortis metus. Vestibulum vulputate eleifend auctor. Fusce maximus ullamcorper urna, vel consequat turpis hendrerit vitae. Cras eu dictum elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean sodales at nibh pellentesque porta.
+    </Paragraph>
+    <YouTube link="https://www.youtube.com/embed/k9h3yPF6plg" />
+    
+</Content>

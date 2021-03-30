@@ -1,0 +1,18 @@
+<Content>
+    <Title>Ocean API</Title>
+    <Paragraph>
+        Etiam dapibus tincidunt convallis. Vestibulum id felis ac arcu hendrerit semper. Mauris neque purus, consectetur nec tincidunt sit amet, tempus vitae nibh. Curabitur eu urna ut ante interdum placerat non pretium mi. Maecenas massa diam, euismod eget aliquet eget, eleifend sed erat. Interdum et malesuada fames ac ante ipsum primis in faucibus. In id risus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquam dignissim nunc ut luctus. Praesent sagittis auctor consectetur. Integer ullamcorper, est non mollis lacinia, ex dui consequat ipsum, non finibus lectus eros quis magna. Praesent egestas aliquam libero, sed pellentesque mi laoreet nec. Donec a massa congue magna condimentum blandit. Donec pharetra velit nec lobortis dignissim.
+    </Paragraph>
+    <Figure image="drilling.png"/>
+    <Paragraph>
+        Donec vitae consequat urna, eget pharetra ante. Pellentesque vel porta erat. Nullam placerat suscipit aliquam. Nullam quis vestibulum dolor, eget iaculis turpis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam tempor mi consequat velit vulputate maximus. Morbi a mi consectetur, feugiat nibh vitae, posuere nibh. Donec faucibus enim sed placerat vehicula. Duis aliquam vehicula ex, eget tincidunt ante ultricies nec. Nulla facilisi. Mauris sed interdum quam.
+    </Paragraph>
+    <YouTube link="https://www.youtube.com/embed/k9h3yPF6plg" />
+    <Paragraph>
+        Ut finibus interdum quam, facilisis lobortis lacus dignissim vel. Maecenas eu vulputate augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Nullam semper libero a nunc dapibus, vitae accumsan ligula interdum. Nam feugiat, odio a facilisis aliquet, magna risus scelerisque sem, et luctus tellus sapien a dolor. Maecenas nunc erat, viverra dictum metus quis, interdum aliquam dolor. Nulla ornare, sapien ac vehicula mattis, arcu mauris euismod nisi, eget blandit nibh arcu a nisi. Donec fringilla, velit sed efficitur pharetra, odio neque ornare ante, a vulputate leo nunc vel felis. Aliquam dapibus ipsum vel semper venenatis.
+    </Paragraph>
+    <Paragraph>
+        Pellentesque ac mauris mattis, varius nulla nec, aliquet nulla. Donec ultricies ante sit amet tempor mollis. Maecenas non purus tellus. Mauris facilisis metus vel augue molestie, in vestibulum augue vestibulum. Nam placerat ligula magna, ac dapibus sem egestas ac. Vivamus eget risus sed nulla scelerisque consequat. Donec orci nibh, tristique eu condimentum vel, bibendum et sem. Quisque tincidunt, est ac elementum tincidunt, sapien mauris aliquet nulla, et posuere nisl ipsum vitae sapien. Vivamus blandit magna id risus finibus, et volutpat ante congue. Integer vestibulum varius purus ut porta. Pellentesque nec commodo felis, nec mattis massa. Quisque quis sem vel augue sollicitudin finibus.
+    </Paragraph>
+    
+</Content>
