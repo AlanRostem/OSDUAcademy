@@ -15,12 +15,12 @@
   ],
   "full_desc": "Data acquired in wellbores is intricate, varied, and represents a significant investment. It is imperative to capitalize on that investment, whether you are working on your first deepwater exploration well or delivering a comprehensive drilling program in a shale gas play. With the Techlog platform, you can bring all of your wellbore data into one highly intuitive application to carry out analyses. In addition to offering advanced modules for domain experts, the Techlog platform provides a solid foundation for generalist users to review and analyze the data. It supports complex workflows across multiple disciplines.",
   "prerequisites": [
-    "p1",
-    "p2",
-    "p3",
-    "p4",
-    "p5",
-    "p6"
+    "Prerequisite 1",
+    "Prerequisite 2",
+    "Prerequisite 3",
+    "Prerequisite 4",
+    "Prerequisite 5",
+    "Prerequisite 6"
   ],
   "certification_quiz_id": {
     "$oid": "6059c686fb114f406187f2cd"
