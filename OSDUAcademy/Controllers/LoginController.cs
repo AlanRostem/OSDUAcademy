@@ -26,8 +26,8 @@ namespace OSDUAcademy.Controllers
         /// <summary>
         /// Mapping class for json-data in this form:
         /// {
-        ///     "email": email@example.com,
-        ///     "password": rawPassword
+        ///     "email": "email@example.com",
+        ///     "password": "rawPassword"
         /// }
         /// It is used as input data from the user
         /// </summary>
